@@ -72,7 +72,6 @@ const DropZone = ()=>{
       function MyDropzone() {
         const { getRootProps, getInputProps, isDragActive } = useDropzone({
           accept: "image/*, audio/*",
-          maxSize: 1,
           onDrop: (acceptedFiles) => {
             setFiles(
               acceptedFiles.map((file) => Object.assign(file, {
