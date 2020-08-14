@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      First Branch Commit
+      first Branch Commit
     </div>
   );
 }
