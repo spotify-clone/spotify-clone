@@ -1,0 +1,23 @@
+$primary-background-color: linear-gradient(#0000, #808080);
+$border-color: #808080;
+$accent-color:  #19FE00;
+$text-color: #fff;
+$secondary-text-color: #008198;
+$nav-color: black;
+
+
+.search-bar {
+    height: 20px;
+    background-color: $nav-color;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+    
+.search-bar img {
+    float: left;
+}
+
+.search-bar input{
+    float: right;
+}
