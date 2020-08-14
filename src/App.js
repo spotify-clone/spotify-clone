@@ -2,6 +2,7 @@ import React from 'react';
 import routes from './routes'
 
 import './App.css';
+import { withRouter } from 'react-router-dom';
 
 function App() {
   return (
@@ -12,4 +13,4 @@ Test Content
   );
 }
 
-export default App;
+export default withRouter(App);
