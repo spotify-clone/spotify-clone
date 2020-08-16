@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 
-export default class Dash extends Component {
+
+class Dash extends Component {
+
+
     render() {
         return (
             <div>
@@ -9,3 +12,5 @@ export default class Dash extends Component {
         )
     }
 }
+
+export default Dash

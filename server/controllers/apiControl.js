@@ -25,13 +25,15 @@ module.exports = {
 
   getUser: async(req,res)=>{
 
-    await spotify.request(`https://api.spotify.com/v1/users/tplch23cw47fimii6dmzmv1yg`)
+    let user = await spotify.request(`https://api.spotify.com/v1/users/tplch23cw47fimii6dmzmv1yg`)
     .then(function(data) {
-      console.log(data); 
+      return data
     })
     .catch(function(err) {
       console.error('Error occurred: ' + err); 
     });
+
+    res.status(200).send(user)
 
 
   },
@@ -39,9 +41,9 @@ module.exports = {
   getPlaylist: async(req,res)=>{
 
 
-    await spotify.request(`https://api.spotify.com/v1/users/tplch23cw47fimii6dmzmv1yg/playlists`)
+    await spotify.request(`https://api.spotify.com/v1/browse/featured-playlists`)
     .then(function(data) {
-      console.log(data); 
+      console.log(data.playlists.items); 
     })
     .catch(function(err) {
       console.error('Error occurred: ' + err); 
@@ -50,16 +52,15 @@ module.exports = {
 
   },
 
-  getEpisode: async(req,res)=>{
+  getAlbums: async(req,res)=>{
 
-    await spotify.request(`https://api.spotify.com/v1/episodes`)
+    await spotify.request(`https://api.spotify.com/v1/browse/new-releases`)
     .then(function(data) {
-      console.log(data); 
+      console.log(data.albums.items)
     })
     .catch(function(err) {
       console.error('Error occurred: ' + err); 
     });
-
 
 
   }
