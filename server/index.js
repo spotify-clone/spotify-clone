@@ -12,6 +12,8 @@ app = express();
  app.use(express.json())
  
 
+
+ 
 // app.use(session({
 //     secret: SESSION_SECRET,
 //     resave: false,
@@ -32,7 +34,6 @@ massive({
 })
 
 //AWS connection
-app.use(awsRouter);
 
 //Email EndPoint
 app.post(`/api/email`, email.email)

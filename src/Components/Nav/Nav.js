@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import {connect} from 'react-redux'
+import getUser from '../../Redux/musicReducer'
 
 function Nav(props) {
 
@@ -32,4 +34,10 @@ function Nav(props) {
     )
 }
 
-export default Nav
+const mapStateToProps = state =>{
+    return{
+        user:state.user
+    }
+}
+
+export default connect(mapStateToProps)(Nav)
