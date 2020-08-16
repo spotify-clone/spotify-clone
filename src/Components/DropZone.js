@@ -103,7 +103,7 @@ const DropZone = ()=>{
             </div>
           </div>
         )
-        console.log(files)
+       // console.log(files)
         return (
           <div id='photos' >
             <h1>Upload</h1>

@@ -9,7 +9,8 @@ massive = require('massive'),
 apiCtrl = require('./controllers/apiControl');
 app = express();
 
-
+ app.use(express.json())
+ 
 
 // app.use(session({
 //     secret: SESSION_SECRET,
@@ -39,13 +40,9 @@ app.post(`/api/email`, email.email)
 //tracks
 app.get(`/api/track`, trackCtrl.getTracks)
 app.post('/api/track', trackCtrl.createTrack)
-app = express();
-app.use(express.json())
-app.use(awsRouter);
 
 
 app.get('/api/user', apiCtrl.getUser)
-app.get('/api/track', apiCtrl.getTracks)
 app.get('/api/playlist', apiCtrl.getPlaylist)
 app.get('/api/albums', apiCtrl.getAlbums)
 
