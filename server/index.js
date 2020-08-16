@@ -8,8 +8,12 @@ trackCtrl = require('./controllers/trackControl'),
 massive = require('massive'),
 apiCtrl = require('./controllers/apiControl');
 app = express();
-app.use(awsRouter);
-app.use(express.json())
+
+ app.use(express.json())
+ 
+
+
+ 
 // app.use(session({
 //     secret: SESSION_SECRET,
 //     resave: false,
@@ -39,9 +43,7 @@ app.get(`/api/track`, trackCtrl.getTracks)
 app.post('/api/track', trackCtrl.createTrack)
 
 
-
 app.get('/api/user', apiCtrl.getUser)
-app.get('/api/track', apiCtrl.getTracks)
 app.get('/api/playlist', apiCtrl.getPlaylist)
 app.get('/api/albums', apiCtrl.getAlbums)
 
