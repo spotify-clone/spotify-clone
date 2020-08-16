@@ -8,9 +8,8 @@ trackCtrl = require('./controllers/trackControl'),
 massive = require('massive'),
 apiCtrl = require('./controllers/apiControl');
 app = express();
-
-
-
+app.use(awsRouter);
+app.use(express.json())
 // app.use(session({
 //     secret: SESSION_SECRET,
 //     resave: false,
@@ -31,7 +30,6 @@ massive({
 })
 
 //AWS connection
-app.use(awsRouter);
 
 //Email EndPoint
 app.post(`/api/email`, email.email)
@@ -39,9 +37,7 @@ app.post(`/api/email`, email.email)
 //tracks
 app.get(`/api/track`, trackCtrl.getTracks)
 app.post('/api/track', trackCtrl.createTrack)
-app = express();
-app.use(express.json())
-app.use(awsRouter);
+
 
 
 app.get('/api/user', apiCtrl.getUser)
