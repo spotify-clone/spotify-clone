@@ -1,14 +1,3 @@
-import React from 'react'
-
-const Auth = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
-
-export default Auth
 import React, { Component } from 'react'
 
 export default class Auth extends Component {
