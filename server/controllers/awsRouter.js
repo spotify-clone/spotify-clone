@@ -5,8 +5,7 @@ aws= require('aws-sdk'),
  router = express.Router();
 
 //change app with Router??
-//I tihnk this will work by just usin app.use(router) inside of index...OTHERWISE..I'll have to 
-//keep this in index and replace router with app.get at the beginning
+
 router.get('/sign-s3', (req, res) => {
     console.log(res, "work son work!!!!!!!!!!")
     aws.config = {
