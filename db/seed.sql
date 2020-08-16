@@ -38,6 +38,10 @@ CREATE TABLE mp3_tracks(
     mp3_track_id SERIAL PRIMARY KEY,
     name VARCHAR(200),
     track VARCHAR(200),
+<<<<<<< HEAD
+    -- user_id INT references local_account(account_id)
+=======
     user_id INT references local_account(account_id)
+>>>>>>> 93c39de51e8ef16e25e93dd22202de22a4dfb6c2
 
 );
