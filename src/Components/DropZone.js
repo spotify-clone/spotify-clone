@@ -15,7 +15,21 @@ const DropZone = ()=>{
   //files is going to be the state representation of file that we bring in from dropzone
   const [isUploading, setUploading] = useState(upload)
     const [song, setSong] = useState('')
-    const [files, setFiles] = useState([])  
+    const [files, setFiles] = useState([]) 
+    const [trackName, setTrackName] = useState('') 
+
+ const sendFile=()=>{
+
+  //  const body = {trackName, song}
+
+   axios.post(`/api/track`, {name: trackName, song} )
+   .then(()=>{
+      console.log('good')
+   })
+   .catch(error => console.log(error))
+ }
+
+
 
     const getSignedRequest = ([files]) => {
         setUploading(!isUploading)
@@ -113,8 +127,10 @@ return(
         <div>
         <p>Add a image or mp3 and then click send to send it to aws </p>
 {MyDropzone()}
+  <input value={trackName} onChange={(e) => setTrackName(e.target.value)} type="text"/>
+  <button onClick={sendFile}>Send to db</button>
  <button onClick={() => getSignedRequest(files)} >Send </button>
-        </div>
+        </div>       
     )
 }
 export default DropZone
