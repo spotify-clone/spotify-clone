@@ -1,24 +1,35 @@
+
+const { EMAIL, SENDGRID_API_KEY } = process.env;
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-const {EMAIL, PASSWORD} = process.env
-module.exports ={
-    email:async(req, res) =>{
-       
-       try  { 
-           const msg = {
-  to: 'test@example.com',
-  from: 'test@example.com',
-  subject: 'Sending with Twilio SendGrid is Fun',
-  text: 'and easy to do anywhere, even with Node.js',
-  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+sgMail.setApiKey(SENDGRID_API_KEY);
+//post to API email
+module.exports = {
+  email: async (req, res) => {
+    console.log(EMAIL)
+    let msg;
+    let { userEmail, subject, text } = req.body;
+    console.log(req.body, "req body");
+    try {
+     // text = JSON.stringify(text);
+      msg = {
+        to: EMAIL,
+        from: EMAIL, // Use the email address or domain you verified above
+        subject: `${subject}`,
+        text:  text,
+        html: `<strong>${text}</strong>`,
+      };
+      try {
+        const sendGridRes = sgMail.send(msg);
+        console.log(sendGridRes);
+        await sendGridRes;
+        console.log('finished waiting for promise');
+        res.status(200).send(msg);
+      } catch (err) {
+        console.log(err.response.body);
+      }
+    } catch (err) {
+      console.log(err);
+      res.status(500).send(err);
+    }
+  },
 };
-const sendGrid = sgMail.send(msg);
-console.log(sendGrid)
-await sendGrid
-res.status(200).send(msg)
-       }
- catch (err) {
-    res.status(500).send(err)
- }
-}
-}
