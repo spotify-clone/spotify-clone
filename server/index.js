@@ -14,7 +14,7 @@ app.use(awsRouter);
 app.get('/api/user', apiCtrl.getUser)
 app.get('/api/track', apiCtrl.getTracks)
 app.get('/api/playlist', apiCtrl.getPlaylist)
-app.get('/api/episode', apiCtrl.getEpisode)
+app.get('/api/albums', apiCtrl.getAlbums)
 
 
 
