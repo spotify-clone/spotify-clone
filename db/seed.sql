@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 CREATE TABLE local_account(
     account_id SERIAL PRIMARY KEY,
     email VARCHAR(200),
@@ -34,7 +32,6 @@ CREATE TABLE chat_history(
     user_id INT references local_account(account_id)
     
 );
->>>>>>> 93c39de51e8ef16e25e93dd22202de22a4dfb6c2
 
 
 CREATE TABLE mp3_tracks(

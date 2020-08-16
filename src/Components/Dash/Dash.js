@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-const Dash = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
-
-export default Dash
-
-=======
 import React, { Component } from 'react'
 
 
@@ -28,4 +14,3 @@ class Dash extends Component {
 }
 
 export default Dash
->>>>>>> 93c39de51e8ef16e25e93dd22202de22a4dfb6c2

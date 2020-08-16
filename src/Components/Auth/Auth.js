@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react'
 
 const Auth = () => {
@@ -10,7 +9,6 @@ const Auth = () => {
 }
 
 export default Auth
-=======
 import React, { Component } from 'react'
 
 export default class Auth extends Component {
@@ -22,4 +20,3 @@ export default class Auth extends Component {
         )
     }
 }
->>>>>>> 93c39de51e8ef16e25e93dd22202de22a4dfb6c2

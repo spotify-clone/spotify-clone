@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-const Nav = () => {
-=======
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 
@@ -30,7 +25,6 @@ function Nav(props) {
 
     console.log(user)
 
->>>>>>> 93c39de51e8ef16e25e93dd22202de22a4dfb6c2
     return (
         <div>
             
@@ -38,8 +32,4 @@ function Nav(props) {
     )
 }
 
-<<<<<<< HEAD
 export default Nav
-=======
-export default Nav
->>>>>>> 93c39de51e8ef16e25e93dd22202de22a4dfb6c2
