@@ -1,15 +1,13 @@
 import React from 'react';
 import routes from './routes'
-
 import './App.css';
 import { withRouter } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-Test Content
-{routes}
-      <h1>Hello World</h1>
+      Test Content
+      <h1>Change in APP.js</h1>
       {routes}
     </div>
   );
