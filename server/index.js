@@ -50,6 +50,7 @@ app.post('/api/user/:user', authCtrl.saveLocalUser)
 
 app.get('/api/playlist', apiCtrl.getPlaylist)
 app.get('/api/albums', apiCtrl.getAlbums)
+app.get('/api/features', apiCtrl.getFeatures)
 
 //Auth EndPoint
 app.get('/auth/logIn', authCtrl.logMeIn)
