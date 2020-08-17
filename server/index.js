@@ -9,19 +9,19 @@ massive = require('massive'),
 apiCtrl = require('./controllers/apiControl');
 app = express();
 
- app.use(express.json())
+app.use(express.json())
  
 
 
  
-// app.use(session({
-//     secret: SESSION_SECRET,
-//     resave: false,
-//     saveUninitialized: true,
-//     cookie: {
-//         maxAge: 1000 * 60 * 60 * 24 * 26
-//     }
-// }))
+app.use(session({
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 26
+    }
+}))
 
 massive({
     connectionString: CONNECTION_STRING,
@@ -51,5 +51,8 @@ app.get('/api/albums', apiCtrl.getAlbums)
 
 
 
-
 app.listen(3333, () =>console.log('Listening to port 3333'))
+
+
+
+
