@@ -33,9 +33,9 @@ class Dash extends Component {
     render() {
         const { list } = this.state
 
-        const mapped = list.map(element=>{
-            return <img src={element.images[2].url}/>
-        })
+        // const mapped = list.map(element=>{
+        //     return <img src={element.images[2].url}/>
+        // })
 
 
 
@@ -54,12 +54,12 @@ class Dash extends Component {
 
         return (
             <div>
-                {mapped}
-                <MyCarousel />
+         
+                <MyCarousel list={list} />
                 <span><h3>Album Hip-hop</h3></span>
-                <MyCarousel />
+                <MyCarousel list={list} />
                 <span><h3>Album Study-Music</h3> </span>
-                <MyCarousel />
+                <MyCarousel  list={list} />
                 <span><h3>Album Country</h3></span>
             </div>
         )
