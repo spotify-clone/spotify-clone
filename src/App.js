@@ -9,6 +9,7 @@ function App() {
     <div className="App">
       Test Content
       <h1>Nicholas made a change</h1>
+      <Nav />
       {routes}
       <Nav/>
     </div>

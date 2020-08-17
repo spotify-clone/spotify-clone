@@ -3,13 +3,14 @@ import axios from 'axios'
 import {connect} from 'react-redux'
 import {getUser} from '../../Redux/musicReducer'
 
-function Nav(props) {
+const Nav = (props) => {
 
     const [user, setUser] = useState([])
 
     useEffect(()=>{
         getUser()
-    })
+        
+    },[user])
 
     const getUser =()=>{
         axios.get('/api/user')
@@ -19,8 +20,8 @@ function Nav(props) {
                 props.getUser(res.data)
             }
         })
-        .then(() => {
-            axios.put(`/auth/user/${user.display_name}`)
+        .then(() =>{
+            axios.post(`/api/user/${user.display_name}`)
         })
         .catch(error => console.log(error))
     }
@@ -29,7 +30,8 @@ function Nav(props) {
 
 
 
-    console.log(user.display_name)
+console.log(props.user['display_name'])
+console.log(user)
 
     return (
         <div>
@@ -39,7 +41,5 @@ function Nav(props) {
 }
 
 const mapStateToProps = state => state
-    
-
 
 export default connect(mapStateToProps,{getUser})(Nav)

@@ -8,9 +8,9 @@ import Dash from './Components/Dash/Dash'
 
 export default (
     <Switch>
-        <Route component={DropZone}  path='/drop'/>
-        <Route  path="/auth" component={Auth} />
+        <Route   path="/auth" component={Auth} />
         <Route path="/dash" component={Dash} />
-        {/* <Route path="/nav" component={Nav}/>     */}
+        <Route path='/drop' component={DropZone}  />
+        {/* <Route exact path='/' component={Nav}/>     */}
     </Switch>
 )
