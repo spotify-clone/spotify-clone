@@ -1,8 +1,8 @@
 import React from 'react'
 import routes from './routes'
 import './App.css';
-import Nav from './Components/Nav/Nav'
 import { withRouter } from 'react-router-dom';
+import Nav from './Components/Nav/Nav'
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
       <h1>Nicholas made a change</h1>
       <Nav />
       {routes}
+      <Nav/>
     </div>
   );
 }
