@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-
-
+import Carousel from './../Carousel/Carousel'
 class Dash extends Component {
     constructor(props){
         super(props)
@@ -39,7 +38,17 @@ class Dash extends Component {
 
         return (
             <div>
+
              
+
+                <Carousel />
+                <span><h3>Album Hip-hop</h3></span>
+                <Carousel />
+                <span><h3>Album Study-Music</h3> </span>
+                <Carousel />
+                <span><h3>Album Country</h3></span>
+
+
             </div>
         )
     }
