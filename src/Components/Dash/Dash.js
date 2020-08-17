@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import axios from 'axios';
-import Carousel from './../Carousel/Carousel'
+import MyCarousel from './../Carousel/Carousel'
 import axios from 'axios'
+
 
 class Dash extends Component {
     constructor(props){
         super(props)
 
         this.state = {
-            albums: []
+            list: []
 
         }
 
@@ -23,30 +23,44 @@ class Dash extends Component {
     getAlbums = () =>{
         axios.get('/api/albums')
         .then((res)=>{
-            this.setState({albums: res.data})
-            console.log(res)
+            this.setState({list:res.data})
+
         })
         .catch(error =>{console.log(error)})
     }
 
- 
-        
-        
-        
-        render() {
-            const { albums } = this.state
+
+    render() {
+        const { list } = this.state
+
+        const mapped = list.map(element=>{
+            return <img src={element.images[2].url}/>
+        })
+
+
+
+        // const  data  = {...list.albums}
+        // const [{...items }] = data
+        // console.log(items)
+
+
+        // const { albums } = list
+        // const object = {...albums}
+        // const array = {...object.items}
+  
+
+
 
 
         return (
             <div>
-                <Carousel albums={albums} />
+                {mapped}
+                <MyCarousel />
                 <span><h3>Album Hip-hop</h3></span>
-                <Carousel albums={albums} />
+                <MyCarousel />
                 <span><h3>Album Study-Music</h3> </span>
-                <Carousel albums={albums} />
+                <MyCarousel />
                 <span><h3>Album Country</h3></span>
-
-
             </div>
         )
     }

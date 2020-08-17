@@ -11,7 +11,7 @@ massive = require('massive'),
 
 app = express();
 
- app.use(express.json())
+app.use(express.json())
  
 
 
@@ -57,5 +57,8 @@ app.get('/auth/logout', authCtrl.logOut)
 app.post('/auth/user/:user' , authCtrl.saveLocalUser)
 
 
-
 app.listen(3333, () =>console.log('Listening to port 3333'))
+
+
+
+
