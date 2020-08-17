@@ -5,10 +5,10 @@ email = require('./controllers/emailController'),
 session = require('express-session'),
 authCtrl = require('./controllers/authController'),
 trackCtrl = require('./controllers/trackControl'),
-authCtrl = require('./controllers/authControl'),
+apiCtrl = require('./controllers/apiControl'),
 {SESSION_SECRET, CONNECTION_STRING} = process.env,
 massive = require('massive'),
-apiCtrl = require('./controllers/apiControl');
+
 app = express();
 
  app.use(express.json())
