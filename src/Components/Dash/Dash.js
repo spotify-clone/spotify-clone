@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import Carousel from './../Carousel/Carousel'
+import axios from 'axios'
+
 class Dash extends Component {
     constructor(props){
         super(props)
@@ -27,25 +29,19 @@ class Dash extends Component {
         .catch(error =>{console.log(error)})
     }
 
-
-
-    render() {
-
-        const { albums } = this.state
-
-        console.log(albums)
-
-
+ 
+        
+        
+        
+        render() {
+            const { albums } = this.state
         return (
             <div>
-
-             
-
-                <Carousel />
+                <Carousel albums={albums} />
                 <span><h3>Album Hip-hop</h3></span>
-                <Carousel />
+                <Carousel albums={albums} />
                 <span><h3>Album Study-Music</h3> </span>
-                <Carousel />
+                <Carousel albums={albums} />
                 <span><h3>Album Country</h3></span>
 
 
