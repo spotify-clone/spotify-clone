@@ -12,6 +12,7 @@ const Nav = (props) => {
         
     },[user])
 
+    
     const getUser =()=>{
         axios.get('/api/user')
         .then(res => {
@@ -27,11 +28,6 @@ const Nav = (props) => {
     }
 
 
-
-
-
-console.log(props.user['display_name'])
-console.log(user)
 
     return (
         <div>
