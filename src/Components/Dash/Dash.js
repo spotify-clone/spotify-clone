@@ -35,6 +35,8 @@ class Dash extends Component {
         
         render() {
             const { albums } = this.state
+
+
         return (
             <div>
                 <Carousel albums={albums} />
