@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import Carousel from './../Carousel/Carousel'
 
 class Dash extends Component {
     constructor(props){
