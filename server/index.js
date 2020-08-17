@@ -4,6 +4,7 @@ awsRouter = require('./controllers/awsRouter'),
 email = require('./controllers/emailController'),
 session = require('express-session'),
 trackCtrl = require('./controllers/trackControl'),
+authCtrl = require('./controllers/authControl'),
 {SESSION_SECRET, CONNECTION_STRING} = process.env,
 massive = require('massive'),
 apiCtrl = require('./controllers/apiControl');
@@ -14,14 +15,14 @@ app = express();
 
 
  
-// app.use(session({
-//     secret: SESSION_SECRET,
-//     resave: false,
-//     saveUninitialized: true,
-//     cookie: {
-//         maxAge: 1000 * 60 * 60 * 24 * 26
-//     }
-// }))
+app.use(session({
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 26
+    }
+}))
 
 massive({
     connectionString: CONNECTION_STRING,
@@ -42,13 +43,15 @@ app.post(`/api/email`, email.email)
 app.get(`/api/track`, trackCtrl.getTracks)
 app.post('/api/track', trackCtrl.createTrack)
 
-
+app.get('/api/artist/:id' , apiCtrl.getArtist)
 app.get('/api/user', apiCtrl.getUser)
 app.get('/api/playlist', apiCtrl.getPlaylist)
 app.get('/api/albums', apiCtrl.getAlbums)
 
-
-
+//Auth EndPoint
+app.get('/auth/logIn', authCtrl.logMeIn)
+app.get('/auth/logout', authCtrl.logOut)
+app.post('/auth/user/:user' , authCtrl.saveLocalUser)
 
 
 

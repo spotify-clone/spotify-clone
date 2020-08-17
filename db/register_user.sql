@@ -1,3 +1,3 @@
-INSERT INTO local_account (email, password, name)
+INSERT INTO local_account (name)
 VALUES
-(${email}, ${password}, ${name})
+(${username})
