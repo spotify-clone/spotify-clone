@@ -5,9 +5,10 @@ email = require('./controllers/emailController'),
 session = require('express-session'),
 authCtrl = require('./controllers/authController'),
 trackCtrl = require('./controllers/trackControl'),
+apiCtrl = require('./controllers/apiControl'),
 {SESSION_SECRET, CONNECTION_STRING} = process.env,
 massive = require('massive'),
-apiCtrl = require('./controllers/apiControl');
+
 app = express();
 
  app.use(express.json())
@@ -43,15 +44,17 @@ app.post(`/api/email`, email.email)
 app.get(`/api/track`, trackCtrl.getTracks)
 app.post('/api/track', trackCtrl.createTrack)
 
-
+app.get('/api/artist/:id' , apiCtrl.getArtist)
 app.get('/api/user', apiCtrl.getUser)
 app.post('/api/user/:user', authCtrl.saveLocalUser)
 
 app.get('/api/playlist', apiCtrl.getPlaylist)
 app.get('/api/albums', apiCtrl.getAlbums)
 
-
-
+//Auth EndPoint
+app.get('/auth/logIn', authCtrl.logMeIn)
+app.get('/auth/logout', authCtrl.logOut)
+app.post('/auth/user/:user' , authCtrl.saveLocalUser)
 
 
 

@@ -1,6 +1,6 @@
 var Spotify = require('node-spotify-api');
 var {client_id, client_secret } = process.env;
- 
+ // creating a new instatnce of the spotify function and passing it to
 const spotify = new Spotify({
   id: client_id,
   secret: client_secret
@@ -57,21 +57,22 @@ module.exports = {
     await spotify.request(`https://api.spotify.com/v1/browse/new-releases`)
     .then(function(data) {
 
-      res.status(200).send(data)
-
-
-      // const result = data.albums.items.images.map(element =>{
-      //   return element
-      // })
-
-      // console.log(result.splice(0,5))
-
     })
     .catch(function(err) {
       console.error('Error occurred: ' + err); 
     });
 
 
+  },
+  getArtist: async(req, res)=> {
+    const id = req.params
+    await spotify.request(`https://api.spotify.com/v1/artists/${id}`)
+    .then((data)=>{
+      console.log(data)
+    })
+    .catch((err)=>{
+      console.error(`Error occurred:`+ err);
+    })
   }
 
 
