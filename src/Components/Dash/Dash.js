@@ -39,7 +39,7 @@ class Dash extends Component {
 
         return (
             <div>
-                <h1>Dash</h1>
+                <h1>Dash Dash</h1>
             </div>
         )
     }
