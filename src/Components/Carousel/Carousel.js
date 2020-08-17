@@ -4,7 +4,11 @@ import Carousel from 'react-simply-carousel'
 
 const MyCarousel = (props) => {
     const [activeSlide, setActiveSlide] = useState(0)
-     
+    let test = [1,2,3,4,5,6,7,8,9,10]
+    console.log(props.albums.images)
+
+ 
+
     return (
         <div>
             <Carousel
@@ -44,7 +48,7 @@ const MyCarousel = (props) => {
                 itemsToShow={7}
                 speed={400}
             >
-                {props.albums.from({ length: 10 }).map((item, index) => (
+                {test.map((item, index) => (
                     <div
                         style={{
                             background: "red",
