@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import Carousel from 'react-simply-carousel'
 
-const MyCarousel = () => {
+const MyCarousel = (props) => {
     const [activeSlide, setActiveSlide] = useState(0)
+     
     return (
         <div>
             <Carousel
@@ -43,7 +44,7 @@ const MyCarousel = () => {
                 itemsToShow={7}
                 speed={400}
             >
-                {Array.from({ length: 10 }).map((item, index) => (
+                {props.albums.from({ length: 10 }).map((item, index) => (
                     <div
                         style={{
                             background: "red",
