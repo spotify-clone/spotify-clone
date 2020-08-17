@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import axios from 'axios';
 import Carousel from './../Carousel/Carousel'
-import axios from 'axios'
-
+ 
 class Dash extends Component {
     constructor(props){
         super(props)
@@ -44,6 +44,7 @@ class Dash extends Component {
                 <span><h3>Album Study-Music</h3> </span>
                 <Carousel albums={albums} />
                 <span><h3>Album Country</h3></span>
+
 
             </div>
         )
