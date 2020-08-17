@@ -57,7 +57,7 @@ module.exports = {
     await spotify.request(`https://api.spotify.com/v1/browse/new-releases`)
     .then(function(data) {
 
-      res.status(200).send(data)
+      res.status(200).send(data.albums.items)
 
 
       // const result = data.albums.items.images.map(element =>{
