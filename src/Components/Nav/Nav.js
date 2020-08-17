@@ -21,7 +21,7 @@ const Nav = (props) => {
             }
         })
         .then(() =>{
-            axios.post(`/api/user/${user.display_name}`)
+            axios.post(`/api/user/${user.id}`)
         })
         .catch(error => console.log(error))
     }
