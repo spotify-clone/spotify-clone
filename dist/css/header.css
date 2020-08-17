@@ -1,0 +1,19 @@
+.search-bar {
+  height: 20px;
+  background-color: #0000;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+}
+
+.search-bar img {
+  float: left;
+}
+
+.search-bar input {
+  float: right;
+}
