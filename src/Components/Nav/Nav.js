@@ -17,7 +17,6 @@ const Nav = (props) => {
         axios.get('/api/user')
         .then(res => {
             if(res.data && res.data.length !== user.length){
-                console.log(res.data)
                 setUser(res.data)
                 props.getUser(res.data)
             }
@@ -29,11 +28,6 @@ const Nav = (props) => {
     }
 
 
-
-
-
-console.log(props.user['display_name'])
-console.log(user)
 
     return (
         <div>

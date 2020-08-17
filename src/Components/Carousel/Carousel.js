@@ -2,8 +2,15 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import Carousel from 'react-simply-carousel'
 
-const MyCarousel = () => {
+const MyCarousel = (props) => {
     const [activeSlide, setActiveSlide] = useState(0)
+
+
+
+
+
+
+
     return (
         <div>
             <Carousel
