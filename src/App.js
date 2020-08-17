@@ -1,14 +1,18 @@
-import React from 'react';
+import React from 'react'
+import routes from './routes'
 import './App.css';
-import Header from './Components/Header/Header'
+import Nav from './Components/Nav/Nav'
+import { withRouter } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <h1>Like A BOSS!</h1>
+      Test Content
+      <h1>Nicholas made a change</h1>
+      <Nav />
+      {routes}
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);
