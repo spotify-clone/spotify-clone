@@ -5,8 +5,10 @@ import Carousel from 'react-simply-carousel'
 const MyCarousel = (props) => {
     const [activeSlide, setActiveSlide] = useState(0)
     let test = [1,2,3,4,5,6,7,8,9,10]
-    console.log(props.albums.images)
-
+    //console.log(props.albums.images[1].url)
+const albums = [props.albums]
+ console.log(albums)
+ 
  
 
     return (
