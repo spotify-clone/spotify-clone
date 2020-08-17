@@ -1,14 +1,14 @@
 import React from 'react';
-
 import './header.scss';
+import Logo from '../Header/sc.logo.png'
 
-const Header = ()=>{
+const Header = () => {
     
     return(
         <header>
             <div className='search-bar'>
-                <img Logo alt='logo' />
-                <input type="text" placeholder="Search.."></input>
+                <img src={Logo} alt='logo' />
+                <input type="text" placeholder="Search..."></input>
 
             </div>
 

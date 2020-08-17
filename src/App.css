@@ -1,8 +1,17 @@
-.App {
-  text-align: center;
+body {
+  background-image: linear-gradient(to right, #4e4e4e, #f0f0f0);
 }
 
-body {
-  background-color: (linear-gradient(#0000, #808080));
+.boombox {
+  opacity: .2;
+  
+  width: 100vw;
+  height: 100vh;
+
+
 }
+
+
+
+
 

@@ -1,17 +1,23 @@
 @import '../../SCSS/_var.scss';
 
 .search-bar {
-    height: 20px;
-    background-color: $nav-color;
+    height: 65px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    padding: 20px;
+    padding: 0px 40px;
+    background-color: $nav-color;
 }
     
 .search-bar img {
+    height: 50px;
     float: left;
 }
 
-.search-bar input{
+.search-bar input :focus {
+    width: 200px;
     float: right;
+
+
 }
