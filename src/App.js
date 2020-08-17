@@ -13,6 +13,7 @@ function App() {
       <img className="boombox" src={Boombox} alt="cassett" />
       <Nav />
       {routes}
+      <Nav/>
     </div>
   );
 }

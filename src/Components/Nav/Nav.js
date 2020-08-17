@@ -12,6 +12,7 @@ const Nav = (props) => {
         
     },[user])
 
+    
     const getUser =()=>{
         axios.get('/api/user')
         .then(res => {
@@ -21,17 +22,12 @@ const Nav = (props) => {
             }
         })
         .then(() =>{
-            axios.post(`/api/user/${user.display_name}`)
+            axios.post(`/api/user/${user.id}`)
         })
         .catch(error => console.log(error))
     }
 
 
-
-
-
-console.log(props.user['display_name'])
-console.log(user)
 
     return (
         <div>
