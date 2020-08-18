@@ -21,10 +21,10 @@ const Nav = (props) => {
                 props.getUser(res.data)
             }
         })
-        .then(() =>{
-            axios.post(`/api/user/${user.id}`)
-        })
-        .catch(error => console.log(error))
+        // .then(() =>{
+        //     axios.post(`/api/user/${user.id}`)
+        // })
+        // .catch(error => console.log(error))
     }
 
 
