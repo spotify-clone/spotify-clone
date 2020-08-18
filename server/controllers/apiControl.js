@@ -18,7 +18,7 @@ module.exports = {
     // await Spotify({id: client_id, secret: client_secret}).request('wqfewqefwqfwqfwq')
 
     .then(function(data) {
-      console.log(data.display_name);
+      // console.log(data);
 
     })
     .catch(function(err) {
@@ -32,7 +32,7 @@ module.exports = {
 
     let user = await spotify.request(`https://api.spotify.com/v1/users/tplch23cw47fimii6dmzmv1yg`)
                 .then((data) => {
-                  return data
+                  // console.log(data)
                 })
                 .catch(function(err) {
                   console.error('Error occurred: ' + err); 
@@ -73,10 +73,10 @@ module.exports = {
 
   },
   getArtist: async(req, res)=> {
-    const id = req.params
+    const id = 'req.params'
     await spotify.request(`https://api.spotify.com/v1/artists/${id}`)
     .then((data)=>{
-      console.log(data)
+      // console.log(data)
     })
     .catch((err)=>{
       console.error(`Error occurred:`+ err);
@@ -92,14 +92,35 @@ module.exports = {
     .catch((err)=>{
       console.error(`Error occurred:`+ err);
     })
+  },
+
+  getArtistTracks: async(req,res)=>{
+
+    let newArray;
 
 
+    await spotify.request(`https://api.spotify.com/v1/artists/0Y5tJX1MQlPlqiwlOH1tJY/top-tracks?country=SE`)
+    .then(data => newArray = { ...data})
+    .catch((err)=>{
+      console.error(`Error occurred:`+ err);
+    })
 
+    const { tracks } = newArray
+
+    console.log(tracks)
+
+    // for(var i=0; i < track.length; i++){
+
+  //   if(track[i].preview_url !== null){
+  //     console.log(track)
+
+  //   }
+
+  // }
+
+
+  // res.status(200).send(data.tracks)
 
   }
-
-
-
-
 
 }
