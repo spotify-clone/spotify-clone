@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import io from 'socket.io-client'
-//import TextField from '@material-ui/core/TextField'
 import queryString from 'query-string'
+import {connect} from 'react-redux'
 //import './chat.scss'
 
 
 let socket;
 
-function Chat({ location }) {
+function Chat({ location }, props) {
 
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
@@ -24,7 +24,7 @@ function Chat({ location }) {
         const { name, room } = queryString.parse(location.search)
          setName(name)
         setRoom(room)
-
+console.log(props)
         console.log(socket)
 
      }, [location.search])
@@ -61,7 +61,7 @@ const toggled = () => {
             </div>
         )
     })
-    console.log(name)
+     
 
     //Trying to create a condition where the name box goes away after the informaion is entered.
     //Right now since any value makes it truthy it goes away....
@@ -94,4 +94,6 @@ const toggled = () => {
     )
 }
 
-export default Chat
+const mapStateToProps = state => state
+
+export default connect(mapStateToProps)(Chat)

@@ -111,6 +111,7 @@ app.post('/api/user/:user', authCtrl.saveLocalUser)
 // app.get('/api/artist-track', apiCtrl.getArtistTracks)
 
 //Auth EndPoint
+app.get(`/auth/me`, authCtrl.logMeIn)
 app.post(`/auth/login-user`, authCtrl.LoginUser)
 app.post(`/auth/new-user`, authCtrl.NewUser)
 app.get('/auth/session', authCtrl.logMeIn)
