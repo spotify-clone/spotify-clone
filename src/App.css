@@ -3,9 +3,12 @@ body {
 }
 
 .boombox {
+  display: flex;
   opacity: .2;
-  width: 100vw;
+  width: 70vw;
   height: 100vh;
+  float: right;
+ 
 }
 
 
