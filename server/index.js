@@ -4,7 +4,6 @@ awsRouter = require('./controllers/awsRouter'),
 email = require('./controllers/emailController'),
 session = require('express-session'),
 authCtrl = require('./controllers/authController'),
-trackCtrl = require('./controllers/trackControl'),
 // apiCtrl = require('./controllers/apiControl'),
 local = require('./controllers/localController'),
 {SESSION_SECRET, CONNECTION_STRING, SERVER_PORT} = process.env,
@@ -96,10 +95,6 @@ app.post(`/api/email`, email.email)
 //local
 app.get('/api/track', local.getTrack)
 
-//tracks
-app.get(`/api/tracks`, trackCtrl.getTracks)
-app.get('/api/track', trackCtrl.getTrack)
-app.post('/api/track', trackCtrl.createTrack)
 
 // app.get('/api/artist/:id' , apiCtrl.getArtist)
 // app.get('/api/user', apiCtrl.getUser)
