@@ -6,6 +6,7 @@ session = require('express-session'),
 authCtrl = require('./controllers/authController'),
 trackCtrl = require('./controllers/trackControl'),
 apiCtrl = require('./controllers/apiControl'),
+local = require('./controllers/localController'),
 {SESSION_SECRET, CONNECTION_STRING, SERVER_PORT} = process.env,
 massive = require('massive'),
 
@@ -91,6 +92,9 @@ massive({
 
 //Email EndPoint
 app.post(`/api/email`, email.email)
+
+//local
+app.get('/api/track', local.getTrack)
 
 //tracks
 app.get(`/api/track`, trackCtrl.getTracks)

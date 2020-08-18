@@ -6,7 +6,8 @@ import Profile from './Components/Profile/Profile';
 import Search from './Components/Search/Search';
 import Chart from './Components/Chart/Chart';
 import Chat from './Components/Chat/Chat';
-import Audio from './Components/Audio/Audio'
+import Audio from './Components/Audio/Audio';
+import Drop from './Components/DropZone'
 
  
 export default (
@@ -19,5 +20,6 @@ export default (
         <Route path="/chart" component={Chart} />
         <Route path="/chat" component={Chat} />
         <Route path='/audio' component={Audio} />
+        <Route path='/drop' component={Drop} />
     </Switch>
 )
