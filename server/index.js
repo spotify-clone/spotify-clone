@@ -130,9 +130,12 @@ app.post('/api/user/:user', authCtrl.saveLocalUser)
 
 app.get('/api/playlist', apiCtrl.getPlaylist)
 app.get('/api/albums', apiCtrl.getAlbums)
+app.get('/api/features', apiCtrl.getFeatures)
 
 //Auth EndPoint
-app.get('/auth/logIn', authCtrl.logMeIn)
+app.post(`/auth/login-user`, authCtrl.LoginUser)
+app.post(`/auth/new-user`, authCtrl.NewUser)
+app.get('/auth/session', authCtrl.logMeIn)
 app.get('/auth/logout', authCtrl.logOut)
 app.post('/auth/user/:user' , authCtrl.saveLocalUser)
 
