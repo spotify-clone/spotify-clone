@@ -49,7 +49,8 @@ module.exports = {
 
     await spotify.request(`https://api.spotify.com/v1/browse/featured-playlists`)
     .then(function(data) {
-      console.log(data.playlists.items); 
+      
+      res.status(200).send(data.playlists.items) 
     })
     .catch(function(err) {
       console.error('Error occurred: ' + err); 
@@ -80,6 +81,21 @@ module.exports = {
     .catch((err)=>{
       console.error(`Error occurred:`+ err);
     })
+  },
+
+  getFeatures: async(req,res) =>{
+
+    await spotify.request('https://api.spotify.com/v1/browse/categories')
+    .then((data)=>{
+      res.status(200).send(data.categories.items)
+    })
+    .catch((err)=>{
+      console.error(`Error occurred:`+ err);
+    })
+
+
+
+
   }
 
 

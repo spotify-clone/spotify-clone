@@ -1,24 +1,33 @@
 const bcrypt = require('bcryptjs');
 module.exports = {
   NewUser: async (req, res)=>{
-    //this is what it needs to add a new user
+    // this is what it needs to add a new user
     const {password, email } = req.body,
         db = req.app.get('db');
-    //check to see if user exists
+    // //check to see if user exists
     const foundUser = await db.check_user({email});  
     if(foundUser[0]){
         return res.status(400).send(`user already exists`)
     }
-    // Hashing the Password
+    // // Hashing the Password
     let salt = bcrypt.genSaltSync(10),
         hash= bcrypt.hashSync(password, salt);  
     
-    //Creating new user
-    const newUser = await db.register_local_user({hash,email})
-    console.log(newUser)
+    // //Creating new user
+    const newUser = await db.register_local_user(hash,email)
+    // console.log(newUser)
+    req.session.user = newUser[0]
     delete newUser[0].password
-    req.session.user 
     res.status(201).send(req.session.user)
+
+   
+    
+// //console.log(req.session )
+//     const newUser = await db.register_local_user( email, hash)
+// //console.log(newUser[0])
+//     req.session.user = newUser[0]
+// //     console.log(newUser)
+//     res.status(201).send(req.session.user)
 
 },
 LoginUser: async (req,res)=>{
