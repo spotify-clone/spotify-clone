@@ -5,6 +5,7 @@ import Dash from './Components/Dash/Dash';
 import Profile from './Components/Profile/Profile';
 import Search from './Components/Search/Search';
 import Chart from './Components/Chart/Chart';
+import Player from './Components/Player/Player'
 
  
 export default (
@@ -15,5 +16,6 @@ export default (
         <Route path="/profile" component={Profile} />
         <Route path="search" component={Search} />
         <Route path="/chart" component={Chart} />
+        <Route path="/player" component={Player}/>
     </Switch>
 )

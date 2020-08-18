@@ -73,6 +73,7 @@ class Dash extends Component {
                 </div>
         })
 
+        console.log(mappedFeatures)
 
 
         return (
