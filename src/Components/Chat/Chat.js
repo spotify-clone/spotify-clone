@@ -63,7 +63,7 @@ const toggled = () => {
         )
     })
     console.log(props)
-    console.log(name)
+     console.log(name)
 
     //Trying to create a condition where the name box goes away after the informaion is entered.
     //Right now since any value makes it truthy it goes away....
