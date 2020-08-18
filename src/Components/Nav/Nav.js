@@ -53,6 +53,9 @@ const Nav = (props) => {
                     <li>
                         <Link to='/Landing'>Landing</Link>
                     </li>
+                    <li>
+                        <Link to='/Chat'>Chat</Link>
+                    </li>
 
                 </ul>
             </nav>

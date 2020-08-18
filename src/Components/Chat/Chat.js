@@ -12,6 +12,7 @@ function Chat({location}) {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
   const [message, setMessage] = useState('');
+
 const ENDPOINT = 'localhost:3333'
    
 useEffect(()=>{
@@ -27,17 +28,20 @@ socket.on('message', message =>setMessage(draft => {
       // socket.emit('join', {name, room})
     },[ENDPOINT,location.search])
    
-      
+       
 
     return (
-        <div>
-        <h1>Chat</h1>
-        <input 
-            type='text'
-            name='text'
-            onChange={(e)=>e.target.value}
-        />
-        <textarea>{setMessage}</textarea>
+        <div className="textForm">
+            <button class="open-button" onClick="openForm()">Chat</button>
+                <div class="chat-popup" id="myForm">
+                    <form class="form-container">
+                        <h1>Chat</h1>
+                        <label for="msg"><b>Message</b></label>
+                        <textarea placeholder="Type message.." name="msg" required></textarea>
+                        <button type="submit" class="btn">Send</button>
+                        <button type="button" class="btn cancel" onClick="closeForm()">Close</button>
+                    </form>
+                </div>
         </div>
     )
 }

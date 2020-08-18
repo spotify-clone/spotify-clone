@@ -1,15 +1,16 @@
 body {
-  background-image: linear-gradient(to right, #4e4e4e, #f0f0f0);
+  
+  background: linear-gradient(to right, #4e4e4e, #f0f0f0);
 }
 
-.boombox {
-  display: flex;
-  opacity: .2;
-  width: 70vw;
-  height: 100vh;
-  float: right;
- 
+.App {
+  background-image: url('./boombox.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
+
+
 
 
 
