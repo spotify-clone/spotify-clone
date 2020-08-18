@@ -48,7 +48,9 @@ LoginUser: async (req,res)=>{
 },
     logMeIn: async(req,res)=>{
         const db = req.app.get('db')
+        
           const me = await db.get_user_id(req.session.account_id)
+          console.log(me)
           res.status(200).send(me[0]) 
 
     },
