@@ -10,10 +10,9 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <img className="boombox" src={Boombox} alt="cassett" />
-      <Nav />
-      {routes}
-      <Nav/>
+        <Nav />
+          {routes}
+        <img className="boombox" src={Boombox} alt="cassett" />
     </div>
   );
 }

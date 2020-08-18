@@ -7,6 +7,7 @@ const Header = () => {
     return(
         <header>
             <div className='search-bar'>
+                
                 <img src={Logo} alt='logo' />
                 <input type="text" placeholder="Search..."></input>
 

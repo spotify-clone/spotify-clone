@@ -1,7 +1,9 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
-import {connect} from 'react-redux'
-import {getUser} from '../../Redux/musicReducer'
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import {connect} from 'react-redux';
+import {getUser} from '../../Redux/musicReducer';
+import {Link} from 'react-router-dom';
+import './nav.scss';
 
 const Nav = (props) => {
 
@@ -30,8 +32,30 @@ const Nav = (props) => {
 
 
     return (
-        <div>
-           <h1>Nav</h1> 
+        <div className='main-nav'>
+            <nav className='desktop-nav'>
+                <ul>
+                    <li>
+                        <Link to='/auth'>Auth</Link>
+                    </li>
+                    <li>
+                        <Link to='/dash'>Dash</Link>
+                    </li>
+                    <li>
+                        <Link to='/Profile'>Profile</Link>
+                    </li>
+                    <li>
+                        <Link to='/Search'>Search</Link>
+                    </li>
+                    <li>
+                        <Link to='/Chart'>Chart</Link>
+                    </li>
+                    <li>
+                        <Link to='/Landing'>Landing</Link>
+                    </li>
+
+                </ul>
+            </nav>
         </div>
     )
 }

@@ -77,12 +77,12 @@ class Dash extends Component {
 
         return (
             <div>
-                {mapped}
-                <MyCarousel />
+         
+                <MyCarousel list={list} />
                 <span><h3>Album Hip-hop</h3></span>
-                <MyCarousel />
+                <MyCarousel list={list} />
                 <span><h3>Album Study-Music</h3> </span>
-                <MyCarousel />
+                <MyCarousel  list={list} />
                 <span><h3>Album Country</h3></span>
             </div>
         )
