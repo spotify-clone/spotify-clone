@@ -39,7 +39,7 @@ class Player extends Component {
         }
 
         sound = new Howl({
-            src:"https://spotify-bucket33.s3.amazonaws.com/f46e2f4f-d78c-47e1-aecd-76a042a3d3fc-high_c.mp3",
+            src: value,
             html5:true
         })
 
@@ -84,7 +84,7 @@ class Player extends Component {
                     audio = element.preview_url
                 }
 
-                return <img key={index} src={image} alt="" onClick={this.soundPlay}/>
+                return <img key={index} src={image} alt="" onClick={() => this.soundPlay(audio)}/>
 
             })
 
