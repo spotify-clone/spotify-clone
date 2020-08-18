@@ -93,7 +93,8 @@ massive({
 app.post(`/api/email`, email.email)
 
 //tracks
-app.get(`/api/track`, trackCtrl.getTracks)
+app.get(`/api/tracks`, trackCtrl.getTracks)
+app.get('/api/track', trackCtrl.getTrack)
 app.post('/api/track', trackCtrl.createTrack)
 
 app.get('/api/artist/:id' , apiCtrl.getArtist)
