@@ -100,7 +100,7 @@ module.exports = {
 
 
     await spotify.request(`https://api.spotify.com/v1/artists/3TVXtAsR1Inumwj472S9r4/top-tracks?country=SE`)
-    .then(data => newArray = { ...data})
+    .then(data => console.log(data))
     .catch((err)=>{
       console.error(`Error occurred:`+ err);
     })
