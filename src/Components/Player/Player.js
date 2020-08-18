@@ -21,6 +21,7 @@ class Player extends Component {
         axios.get('/api/artist-track')
         .then(res=>{
             if(res.data && res.data.length !== this.state.tracks.length){
+                console.log('hit')
                 this.setState({tracks: res.data})
             }
         })
