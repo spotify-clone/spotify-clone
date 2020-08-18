@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import io from 'socket.io-client'
-//import TextField from '@material-ui/core/TextField'
 import queryString from 'query-string'
-//import './chat.scss
 import {connect} from 'react-redux'
+//import './chat.scss'
 
 
 let socket;
@@ -25,7 +24,7 @@ function Chat(props) {
         const { name, room } = queryString.parse(props.location.search)
          setName(props.user.email)
         setRoom(room)
-
+console.log(props)
         console.log(socket)
 
      }, [props.location.search])
