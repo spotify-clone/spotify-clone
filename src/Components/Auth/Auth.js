@@ -69,10 +69,5 @@ const Auth = (props) => {
         </div>
     )
 }
-<<<<<<< HEAD
 export default connect(null,{getUser})(Auth)
-=======
-
-export default Auth;
->>>>>>> master
  
