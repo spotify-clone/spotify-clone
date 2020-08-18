@@ -99,28 +99,21 @@ module.exports = {
     let newArray;
 
 
-    await spotify.request(`https://api.spotify.com/v1/artists/0Y5tJX1MQlPlqiwlOH1tJY/top-tracks?country=SE`)
+    await spotify.request(`https://api.spotify.com/v1/artists/3TVXtAsR1Inumwj472S9r4/top-tracks?country=SE`)
     .then(data => newArray = { ...data})
     .catch((err)=>{
       console.error(`Error occurred:`+ err);
     })
-
     const { tracks } = newArray
 
-    console.log(tracks)
+    for(var i=0; i < tracks.length; i++){
+      
+    if(tracks[i].preview_url !== null){
+      return res.status(200).send(tracks)
 
-    // for(var i=0; i < track.length; i++){
-
-  //   if(track[i].preview_url !== null){
-  //     console.log(track)
-
-  //   }
-
-  // }
+    }};
 
 
-  // res.status(200).send(data.tracks)
-
-  }
+  },
 
 }

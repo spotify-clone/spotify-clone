@@ -35,6 +35,14 @@ module.exports ={
         })
         .catch(err => res.status(500).send(err))
 
+    },
+
+    getTrack: (req,res) =>{
+        const db = req.app.get('db')
+
+        db.get_track()
+        .then(data => res.status(200).send(data))
+        .catch(error => console.log(error))
     }
 
 
