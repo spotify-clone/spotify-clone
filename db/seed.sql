@@ -2,7 +2,8 @@ CREATE TABLE local_account(
     account_id SERIAL PRIMARY KEY,
     email VARCHAR(200),
     password TEXT,
-    name VARCHAR(200)
+    name VARCHAR(200),
+    profile_pic VARCHAR(200)
 
 );
 

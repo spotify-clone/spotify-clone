@@ -28,6 +28,7 @@ LoginUser: async (req,res)=>{
       db = req.app.get('db');
   //check to see if user exists
   const foundUser = await db.check_user({email})
+  console.log(foundUser[0])
   if(!foundUser[0]){
     return res.status(401).send(`User Not Found`)
   }
@@ -43,9 +44,11 @@ LoginUser: async (req,res)=>{
   res.status(202).send(req.session.user)
   console.log(req.session.user)
 
+
 },
     logMeIn: async(req,res)=>{
         const db = req.app.get('db')
+        
           const me = await db.get_user_id(req.session.account_id)
           console.log(me, "log me in")
           res.status(200).send(me[0]) 
