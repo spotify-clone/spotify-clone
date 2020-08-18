@@ -17,7 +17,7 @@ module.exports = {
     const newUser = await db.register_local_user({hash,email})
     console.log(newUser)
     delete newUser[0].password
-    req.session.user
+    req.session.user 
     res.status(201).send(req.session.user)
 
 },
