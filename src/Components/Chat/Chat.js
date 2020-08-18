@@ -64,18 +64,10 @@ function Chat({ location }) {
     //Trying to create a condition where the name box goes away after the informaion is entered.
     //Right now since any value makes it truthy it goes away....
     return (
-        <div className="textForm">
-            <button class="open-button" onClick="openForm()">Chat</button>
-                <div class="chat-popup" id="myForm">
-                    <form class="form-container">
-                        <h1>Chat</h1>
-                        <label for="msg"><b>Message</b></label>
-                        <textarea placeholder="Type message.." name="msg" required></textarea>
-                        <button type="submit" class="btn">Send</button>
-                        <button type="button" class="btn cancel" onClick="closeForm()">Close</button>
-                    </form>
-                </div>
+        <div>
+            
         </div>
+     
     )
 }
 
