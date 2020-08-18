@@ -6,24 +6,25 @@ session = require('express-session'),
 authCtrl = require('./controllers/authController'),
 trackCtrl = require('./controllers/trackControl'),
 apiCtrl = require('./controllers/apiControl'),
-{SESSION_SECRET, CONNECTION_STRING} = process.env,
+local = require('./controllers/localController'),
+{SESSION_SECRET, CONNECTION_STRING, SERVER_PORT} = process.env,
 massive = require('massive'),
 
 app = express();
 
 
-//Test for chat
+//Test for chat we aren't using the chat controller as of right now because I don't have rooms, but maybe
 const bodyParser = require('body-parser'),
 socket = require('socket.io'),
 cors = require('cors'),
 {addUser, removeUser} = require('./controllers/chatController'),
 router = require('./controllers/chatroutes'),
 http = require('http'),
-// server = http.createServer(app),
-server = app.listen(3333)
-io = socket(server);
+io = require("socket.io")(
+  app.listen(SERVER_PORT, () => console.log(`server is all good on ${SERVER_PORT}`))
+);
 
-
+//I moved around app dot listen to create a securer connection, this is also more familiar
 
 app.use(cors())
 
@@ -32,51 +33,21 @@ app.use(bodyParser.json())
 
    app.use(router)
 
-   io.on('connect', (socket) => {
-    socket.on('join', ({ name, room }, callback) => {
-      const { error, user } = addUser({ id: socket.id, name, room });
-  
-      if(error) return callback(error);
-  
-      socket.join(user.room);
-  
-      socket.emit('message', { user: 'admin', text: `${user.name}, welcome to room ${user.room}.`});
-      socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!` });
-  
-      io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
-  
-      callback();
-    });
-  
-    socket.on('sendMessage', (message, callback) => {
-      const user = getUser(socket.id);
-  
-      io.to(user.room).emit('message', { user: user.name, text: message });
-  
-      callback();
-    });
-  
-    socket.on('disconnect', () => {
-      const user = removeUser(socket.id);
-  
-      if(user) {
-        io.to(user.room).emit('message', { user: 'Admin', text: `${user.name} has left.` });
-        io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room)});
-      }
-    })
-  });
-  
- 
-    
-    io.on('connection', socket =>{
-    socket.on('message', ({name, message}) =>{
-        io.emit('message', {name, message})
-    })
-})
 
+
+   //Sockets connection
 io.on('connection', socket => {
   console.log('User Connected');
   io.emit('message dispatched', 'hello');
+
+  socket.on('message', ({name, message}) =>{
+
+    console.log( "Hit socket on message ",message)
+
+
+      io.emit('message from server', {name, message})
+  })
+
   socket.on('message sent', data => {
     console.log(data)
     socket.broadcast.emit('message dispatched', data.message);
@@ -92,10 +63,12 @@ io.on('connection', socket => {
 
 app.use(express.json())
  
+
+//Using AWS Router
 app.use(awsRouter)
 
 
- 
+ //Session information
 app.use(session({
     secret: SESSION_SECRET,
     resave: false,
@@ -120,8 +93,12 @@ massive({
 //Email EndPoint
 app.post(`/api/email`, email.email)
 
+//local
+app.get('/api/track', local.getTrack)
+
 //tracks
-app.get(`/api/track`, trackCtrl.getTracks)
+app.get(`/api/tracks`, trackCtrl.getTracks)
+app.get('/api/track', trackCtrl.getTrack)
 app.post('/api/track', trackCtrl.createTrack)
 
 app.get('/api/artist/:id' , apiCtrl.getArtist)
@@ -131,6 +108,7 @@ app.post('/api/user/:user', authCtrl.saveLocalUser)
 app.get('/api/playlist', apiCtrl.getPlaylist)
 app.get('/api/albums', apiCtrl.getAlbums)
 app.get('/api/features', apiCtrl.getFeatures)
+app.get('/api/artist-track', apiCtrl.getArtistTracks)
 
 //Auth EndPoint
 app.post(`/auth/login-user`, authCtrl.LoginUser)

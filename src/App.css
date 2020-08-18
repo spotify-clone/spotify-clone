@@ -1,4 +1,5 @@
 body {
+<<<<<<< HEAD
  
   background-image: linear-gradient(to right, #4e4e4e, #f0f0f0);
 }
@@ -12,7 +13,20 @@ body {
   height: 100vh;
   float: right;
  
+=======
+  
+  background: linear-gradient(to right, #4e4e4e, #f0f0f0);
 }
+
+.App {
+  background-image: url('./boombox.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+>>>>>>> master
+}
+
+
+
 
 
 

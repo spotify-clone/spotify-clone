@@ -4,7 +4,7 @@ import './App.css';
 import Header from './Components/Header/Header';
 import Nav from './Components/Nav/Nav'
 import { withRouter } from 'react-router-dom';
-import Boombox from '../src/boombox.png'
+
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Header />
         <Nav />
           {routes}
-        <img className="boombox" src={Boombox} alt="cassett" />
+        
     </div>
   );
 }
