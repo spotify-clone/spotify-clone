@@ -16,18 +16,10 @@ module.exports = {
     // //Creating new user
     const newUser = await db.register_local_user(hash,email)
     // console.log(newUser)
+    
     req.session.user = newUser[0]
-    delete newUser[0].password
     res.status(201).send(req.session.user)
 
-   
-    
-// //console.log(req.session )
-//     const newUser = await db.register_local_user( email, hash)
-// //console.log(newUser[0])
-//     req.session.user = newUser[0]
-// //     console.log(newUser)
-//     res.status(201).send(req.session.user)
 
 },
 LoginUser: async (req,res)=>{
@@ -37,13 +29,14 @@ LoginUser: async (req,res)=>{
   //check to see if user exists
   const foundUser = await db.check_user({email})
   if(!foundUser[0]){
-      return res.status(401).send(`User Not Found`)
+    return res.status(401).send(`User Not Found`)
   }
   //Compare passwords
   const authenticated = bcrypt.compareSync(password, foundUser[0].password);
   if(!authenticated){
-      return res.status(401).send(`User E-mail or password incorrect`)
+    return res.status(401).send(`User E-mail or password incorrect`)
   }
+  
   //Set user on session , send it to client-side
   delete foundUser[0].password;
   req.session.user = foundUser[0]

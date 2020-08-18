@@ -1,9 +1,12 @@
 body {
+ 
   background-image: linear-gradient(to right, #4e4e4e, #f0f0f0);
 }
 
 .boombox {
   display: flex;
+  
+  bottom:100vh;
   opacity: .2;
   width: 70vw;
   height: 100vh;
