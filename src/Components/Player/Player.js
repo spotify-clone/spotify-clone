@@ -17,16 +17,16 @@ class Player extends Component {
     };
 
 
-    componentDidMount = () =>{
-        axios.get('/api/artist-track')
-        .then(res=>{
-            if(res.data && res.data.length !== this.state.tracks.length){
-                console.log('hit')
-                this.setState({tracks: res.data})
-            }
-        })
-        .catch(error => console.log(error))
-    }
+    // componentDidMount = () =>{
+    //     axios.get('/api/artist-track')
+    //     .then(res=>{
+    //         if(res.data && res.data.length !== this.state.tracks.length){
+    //             console.log('hit')
+    //             this.setState({tracks: res.data})
+    //         }
+    //     })
+    //     .catch(error => console.log(error))
+    // }
 
 
     soundPlay = (value)=> {
@@ -75,6 +75,8 @@ class Player extends Component {
 
             const { tracks, url } = this.state
 
+            console.log(tracks)
+
 
             const mappedTracks = tracks.map((element,index)=>{
                 let image;
@@ -96,7 +98,7 @@ class Player extends Component {
         return (
           <div>
               <div style={{position: "absolute", left: "25%"}}>
-              {mappedTracks}  
+              {/* {mappedTracks}   */}
                   </div> 
                 <div>
                     <button style={{padding: 20}} onClick={this.play}>Play</button>
