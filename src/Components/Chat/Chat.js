@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import io from 'socket.io-client'
-//import TextField from '@material-ui/core/TextField'
 import queryString from 'query-string'
 import './chat.scss'
+import {connect} from 'react-redux'
+//import './chat.scss'
 
 
 let socket;
 
-function Chat({ location }) {
+function Chat(props) {
 
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
@@ -21,13 +22,13 @@ function Chat({ location }) {
     //First end point connecting the socket to the end point
     useEffect(() => {
         socket = io.connect(ENDPOINT)
-        const { name, room } = queryString.parse(location.search)
-         setName(name)
+        const { name, room } = queryString.parse(props.location.search)
+         setName(props.user.email)
         setRoom(room)
-
+console.log(props)
         console.log(socket)
 
-     }, [location.search])
+     }, [props.location.search])
 
 
 //Receiving the message from the server and then setting it on state
@@ -59,7 +60,8 @@ const toggleTrueFalse = () => setToggled(!isToggled);
             </div>
         )
     })
-    console.log(toggleTrueFalse)
+    console.log(props)
+     console.log(name)
 
     //Trying to create a condition where the name box goes away after the informaion is entered.
     //Right now since any value makes it truthy it goes away....
@@ -89,10 +91,7 @@ const toggleTrueFalse = () => setToggled(!isToggled);
                 </div>
             </div>    
         </div>
-     
-        )
-
-    }
-
-
-export default Chat;
+    )
+}
+const mapStateToProps = state => state
+export default connect(mapStateToProps)(Chat)

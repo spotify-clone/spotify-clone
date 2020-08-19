@@ -1,5 +1,6 @@
 const initialState = {
-    user: {}//User who is currently logged in
+    user: {},//User who is currently logged in
+   
 }
 
 const GET_USER = 'GET_USER'

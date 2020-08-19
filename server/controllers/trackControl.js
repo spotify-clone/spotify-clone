@@ -17,11 +17,6 @@ module.exports ={
             console.log('we have an error')
         }
 
-
-        // db.add_to_playlist({name: name, track: song, user_id})
-        // let result = await db.query("INSERT INTO mp3_tracks(name, track, user_id) VALUES($1, $2, $3) ", [`${name}`, `${song}`, `${user_id}`])
-
-        // res.status(200).send('success')
  
 
     },
@@ -35,6 +30,14 @@ module.exports ={
         })
         .catch(err => res.status(500).send(err))
 
+    },
+
+    getTrack: (req,res) =>{
+        const db = req.app.get('db')
+
+        db.get_track()
+        .then(data => res.status(200).send(data))
+        .catch(error => console.log(error))
     }
 
 

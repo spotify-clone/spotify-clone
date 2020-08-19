@@ -4,8 +4,8 @@ awsRouter = require('./controllers/awsRouter'),
 email = require('./controllers/emailController'),
 session = require('express-session'),
 authCtrl = require('./controllers/authController'),
-trackCtrl = require('./controllers/trackControl'),
-apiCtrl = require('./controllers/apiControl'),
+// apiCtrl = require('./controllers/apiControl'),
+local = require('./controllers/localController'),
 {SESSION_SECRET, CONNECTION_STRING, SERVER_PORT} = process.env,
 massive = require('massive'),
 
@@ -92,20 +92,21 @@ massive({
 //Email EndPoint
 app.post(`/api/email`, email.email)
 
-//tracks
-app.get(`/api/track`, trackCtrl.getTracks)
-app.post('/api/track', trackCtrl.createTrack)
+//local
+app.get('/api/track', local.getTrack)
 
-app.get('/api/artist/:id' , apiCtrl.getArtist)
-app.get('/api/user', apiCtrl.getUser)
+
+// app.get('/api/artist/:id' , apiCtrl.getArtist)
+// app.get('/api/user', apiCtrl.getUser)
 app.post('/api/user/:user', authCtrl.saveLocalUser)
 
-app.get('/api/playlist', apiCtrl.getPlaylist)
-app.get('/api/albums', apiCtrl.getAlbums)
-app.get('/api/features', apiCtrl.getFeatures)
-app.get('/api/artist-track', apiCtrl.getArtistTracks)
+// app.get('/api/playlist', apiCtrl.getPlaylist)
+// app.get('/api/albums', apiCtrl.getAlbums)
+// app.get('/api/features', apiCtrl.getFeatures)
+// app.get('/api/artist-track', apiCtrl.getArtistTracks)
 
 //Auth EndPoint
+app.get(`/auth/me`, authCtrl.logMeIn)
 app.post(`/auth/login-user`, authCtrl.LoginUser)
 app.post(`/auth/new-user`, authCtrl.NewUser)
 app.get('/auth/session', authCtrl.logMeIn)
