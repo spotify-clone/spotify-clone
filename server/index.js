@@ -4,8 +4,7 @@ awsRouter = require('./controllers/awsRouter'),
 email = require('./controllers/emailController'),
 session = require('express-session'),
 authCtrl = require('./controllers/authController'),
-trackCtrl = require('./controllers/trackControl'),
-// apiCtrl = require('./controllers/apiControl'),
+apiCtrl = require('./controllers/apiControl'),
 local = require('./controllers/localController'),
 {SESSION_SECRET, CONNECTION_STRING, SERVER_PORT} = process.env,
 massive = require('massive'),
@@ -20,9 +19,8 @@ cors = require('cors'),
 {addUser, removeUser} = require('./controllers/chatController'),
 router = require('./controllers/chatroutes'),
 http = require('http'),
-io = require("socket.io")(
-  app.listen(SERVER_PORT, () => console.log(`server is all good on ${SERVER_PORT}`))
-);
+server = app.listen(3333),
+io = require('socket.io').listen(server);
 
 //I moved around app dot listen to create a securer connection, this is also more familiar
 
@@ -96,10 +94,6 @@ app.post(`/api/email`, email.email)
 //local
 app.get('/api/track', local.getTrack)
 
-//tracks
-app.get(`/api/tracks`, trackCtrl.getTracks)
-app.get('/api/track', trackCtrl.getTrack)
-app.post('/api/track', trackCtrl.createTrack)
 
 // app.get('/api/artist/:id' , apiCtrl.getArtist)
 // app.get('/api/user', apiCtrl.getUser)
@@ -108,9 +102,10 @@ app.post('/api/user/:user', authCtrl.saveLocalUser)
 // app.get('/api/playlist', apiCtrl.getPlaylist)
 // app.get('/api/albums', apiCtrl.getAlbums)
 // app.get('/api/features', apiCtrl.getFeatures)
-// app.get('/api/artist-track', apiCtrl.getArtistTracks)
+app.get('/api/artist-track', apiCtrl.getArtistTracks)
 
 //Auth EndPoint
+app.get(`/auth/me`, authCtrl.logMeIn)
 app.post(`/auth/login-user`, authCtrl.LoginUser)
 app.post(`/auth/new-user`, authCtrl.NewUser)
 app.get('/auth/session', authCtrl.logMeIn)

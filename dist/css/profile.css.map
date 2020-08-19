@@ -2,7 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "../../src/Components/Profile/profile.scss"
+        "../../src/Components/Profile/profile.scss",
+        "../../src/SCSS/_var.scss"
     ],
     "names": [],
     "file": "profile.css"

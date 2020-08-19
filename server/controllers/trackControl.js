@@ -17,11 +17,6 @@ module.exports ={
             console.log('we have an error')
         }
 
-
-        // db.add_to_playlist({name: name, track: song, user_id})
-        // let result = await db.query("INSERT INTO mp3_tracks(name, track, user_id) VALUES($1, $2, $3) ", [`${name}`, `${song}`, `${user_id}`])
-
-        // res.status(200).send('success')
  
 
     },

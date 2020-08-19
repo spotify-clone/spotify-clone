@@ -1,67 +1,66 @@
-.chat-box {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.open-button {
-  background-color: #555;
+#open-button {
+  background-color: #0f0f0f;
   color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
+  border-radius: 5px;
+  border-style: double;
   position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
+  bottom: 25px;
+  right: 25px;
+  width: 20vw;
 }
 
-.chat-pop {
-  display: none;
+.chat-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-style: double;
+  border-radius: 5px;
+  border-color: #808080;
+  color: #fff;
+  font-family: 'Antic Slab', serif;
+  height: 50vh;
+  width: 20vw;
+  background-color: #0f0f0f;
   position: fixed;
-  bottom: 0;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
+  bottom: 25px;
+  right: 25px;
 }
 
-.form-container {
-  max-width: 300px;
-  padding: 10px;
+.name-input {
+  width: 15vw;
+  height: 20px;
+  border-radius: 5px;
+  padding: 2%;
+}
+
+.chat-input {
+  width: 17vw;
+  height: 3rem;
+  border-radius: 5px;
+  padding: 2%;
+}
+
+.btn {
+  margin-top: 2%;
+  margin-bottom: 5%;
+  width: 17.75vw;
+  border-radius: 5px;
+  background-color: #19FE00;
+}
+
+.mapped-messages {
+  border-radius: 5px;
+  padding: 2%;
+  color: black;
+  width: 17vw;
+  height: 20vh;
   background-color: white;
-}
-
-.form-container textarea {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-  resize: none;
-  min-height: 200px;
-}
-
-.form-container textarea:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-.form-container .btn {
-  background-color: secon;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom: 10px;
-  opacity: 0.8;
-}
-
-.form-container .cancel {
-  background-color: red;
-}
-
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
 }
 /*# sourceMappingURL=chat.css.map */

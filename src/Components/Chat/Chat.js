@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import io from 'socket.io-client'
-//import TextField from '@material-ui/core/TextField'
 import queryString from 'query-string'
-//import './chat.scss'
+import {connect} from 'react-redux'
+import './chat.scss'
+
 
 
 let socket;
 
-function Chat({ location }) {
+function Chat(props) {
 
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
     const [message, setMessage] = useState('');
     const [receivedMessages, setReceivedMessages] = useState([])
-    const [toggle, setToggle] = useState(false)
+    const [isToggled, setToggled] = useState(true);
     const ENDPOINT = 'localhost:3333'
 
 
@@ -21,13 +22,13 @@ function Chat({ location }) {
     //First end point connecting the socket to the end point
     useEffect(() => {
         socket = io.connect(ENDPOINT)
-        const { name, room } = queryString.parse(location.search)
-         setName(name)
+        const { name, room } = queryString.parse(props.location.search)
+         setName(props.user.email)
         setRoom(room)
-
+console.log(props)
         console.log(socket)
 
-     }, [location.search])
+     }, [props.location.search])
 
 
 //Receiving the message from the server and then setting it on state
@@ -41,9 +42,7 @@ function Chat({ location }) {
     }, [])
 
 
-const toggled = () => {
-    setToggle(!toggle)
-}
+const toggle = () => setToggled(!isToggled);
 
     const sendMessage = (event) => {
         console.log('hit send message', message)
@@ -56,42 +55,47 @@ const toggled = () => {
     const mappedMessages = receivedMessages.map((word, index) => {
         return (
             <div key={index} >
-            <span>{word.name} says: </span>
+            <span>{word.name} Says: </span>
                 <span> { word.message}</span>
             </div>
         )
     })
-    console.log(name)
+    console.log(isToggled)
+     console.log(name)
 
     //Trying to create a condition where the name box goes away after the informaion is entered.
     //Right now since any value makes it truthy it goes away....
     return (
         <div>
-            {mappedMessages}
-            <h1>Chat</h1>
-                <div>
-                    <span>Enter Your name</span>
-
-                    <input
-                        className='name-input'
-                        type='text'
-                        name='name'
-                        onChange={(e) => setName(e.target.value)}
-                    />
+             {!setToggled
+                ?  <button id='open-button' onClick={toggle}>CHAT</button>
+                : (
+                <div className='chat-container'>  
+                    <h3>Enter Your name</h3>
+                        <input className='name-input'
+                            type='text'
+                            name='name'
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                    <h1>chat</h1>
+                        <input className='chat-input'
+                            type='text'
+                            name='text'
+                            onChange={(e) => setMessage(e.target.value)}
+                            onKeyPress={event => event.key === 'Enter' ? sendMessage(event, name) : null}
+                        />
+                    <button className="btn" onClick={(e) => sendMessage(e)} >Send</button>
+                    
+                    <div className='mapped-messages'>
+                        {mappedMessages}
+                    </div>
+                    <button className='btn' onClick={toggle}>close</button>
                 </div>
-            <h1>Chat</h1>
-            <input
-                type='text'
-                name='text'
-                onChange={(e) => setMessage(e.target.value)}
-                onKeyPress={event => event.key === 'Enter' ? sendMessage(event, name) : null}
-            />
-            <button onClick={(e) => sendMessage(e)} >Send</button>
-            
-            {mappedMessages}
-            
-        </div>
+                )}
+            </div> 
+               
+        
     )
 }
-
-export default Chat
+const mapStateToProps = state => state
+export default connect(mapStateToProps)(Chat);
