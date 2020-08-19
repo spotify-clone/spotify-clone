@@ -56,7 +56,9 @@ console.log(add)
         {pic} = req.body,
         {id} = req.params;
 
-        const add = await db.update_profile_pic(pic, id)
+        console.log(pic, id)
+
+        const add = await db.update_profile_pic(pic,id)
         console.log(add)
         res.status(200).send(add)
 

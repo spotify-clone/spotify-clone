@@ -95,6 +95,7 @@ app.post(`/api/email`, email.email)
 app.get('/api/track', local.getTrack)
 app.put(`/api/local/:id`, local.addName)
 app.put('/api/local2/:id', local.updatePic)
+app.put(`/api/track/:id`, local.createTrack)
 
 // app.get('/api/artist/:id' , apiCtrl.getArtist)
 // app.get('/api/user', apiCtrl.getUser)
