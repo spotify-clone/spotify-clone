@@ -2,7 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "../../src/Components/Dash/dash.scss"
+        "../../src/Components/Dash/dash.scss",
+        "../../src/SCSS/_var.scss"
     ],
     "names": [],
     "file": "dash.css"

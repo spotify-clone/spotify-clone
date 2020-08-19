@@ -50,7 +50,7 @@ LoginUser: async (req,res)=>{
         const db = req.app.get('db')
         
           const me = await db.get_user_id(req.session.account_id)
-          console.log(me)
+          console.log(me, "log me in")
           res.status(200).send(me[0]) 
 
     },
