@@ -3,7 +3,7 @@ CREATE TABLE local_account(
     email VARCHAR(200),
     password TEXT,
     name VARCHAR(200),
-    profile_pic VARCHAR(200)
+    pic VARCHAR(200)
 
 );
 

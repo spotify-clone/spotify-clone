@@ -100,10 +100,11 @@ app.put('/api/local2/:id', local.updatePic)
 // app.get('/api/user', apiCtrl.getUser)
 app.post('/api/user/:user', authCtrl.saveLocalUser)
 
-// app.get('/api/playlist', apiCtrl.getPlaylist)
-// app.get('/api/albums', apiCtrl.getAlbums)
-// app.get('/api/features', apiCtrl.getFeatures)
+app.get('/api/playlist', apiCtrl.getPlaylist)
+app.get('/api/albums', apiCtrl.getAlbums)
+app.get('/api/features', apiCtrl.getFeatures)
 app.get('/api/artist-track', apiCtrl.getArtistTracks)
+app.get('/api/search/', apiCtrl.searchApi)
 
 //Auth EndPoint
 app.get(`/auth/me`, authCtrl.logMeIn)
