@@ -1,0 +1,91 @@
+@import '../../SCSS/_var.scss';
+
+.dropbox-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 20vw;
+    height: 100vh;
+    position: absolute;
+    top: 10%;
+    right: 3%;
+    
+}
+
+.name-box {
+    box-sizing: border-box;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: $nav-color;
+    padding: 5%;
+
+}
+
+.name {
+    width: 165px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.add-photo {
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: $nav-color;
+    color: $text-color;
+    border-radius: 5px;
+    height: 280px;
+    width: 200px;
+}
+
+.add-photo input {
+    width: 175px;
+    height: 100px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.add-music {
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: $nav-color;
+    color: $text-color;
+    border-radius: 5px;
+    height: 280px;
+    width: 200px;
+}
+
+.add-music input {
+    width: 175px;
+    height: 100px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+}
+
+p {
+    margin: 2%;
+}
+
+h1 {
+    margin: 0px 0px; 
+}
+
+.btns {
+    margin: 2%;
+    width: 185px;
+    border-radius: 5px;
+    background-color: rgb(158, 158, 158);
+}
