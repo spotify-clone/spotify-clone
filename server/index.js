@@ -97,8 +97,8 @@ app.put(`/api/local/:id`, local.addName)
 app.put('/api/local2/:id', local.updatePic)
 app.put(`/api/track/:id`, local.createTrack)
 
-// app.get('/api/artist/:id' , apiCtrl.getArtist)
-// app.get('/api/user', apiCtrl.getUser)
+ app.get('/api/artist/:id' , apiCtrl.getArtist)
+ app.get('/api/user', apiCtrl.getUser)
 app.post('/api/user/:user', authCtrl.saveLocalUser)
 
 app.get('/api/playlist', apiCtrl.getPlaylist)

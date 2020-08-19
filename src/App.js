@@ -10,11 +10,13 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <div id='left' >
         <Nav />
-       
+        </div>
+        <div id='right' >
         {/* <Chat /> */}
           {routes}
-        
+          </div>
     </div>
   );
 }

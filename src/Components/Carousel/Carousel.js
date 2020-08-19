@@ -21,7 +21,7 @@ const MyCarousel = (props) => {
             <Carousel
                 containerProps={{
                     style: {
-                        width: '100%',
+                        width: '85%',
                         justifyContent: 'space-between'
                     }
                 }}
