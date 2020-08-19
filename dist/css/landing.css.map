@@ -2,7 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "../../src/Components/Landing/landing.scss"
+        "../../src/Components/Landing/landing.scss",
+        "../../src/SCSS/_var.scss"
     ],
     "names": [],
     "file": "landing.css"
