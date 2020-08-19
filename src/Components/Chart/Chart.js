@@ -40,7 +40,16 @@ class Chart extends Component {
         <Bar
         data={this.state.chartData}
         options={{
-            maintainAspectRatio:false
+            title:{
+                display:true,
+                text:'Highest rated Artists',
+                color: 'black'
+
+            },
+            legend:{
+                display:true,
+                position:'left'
+            },
         }}
         />
       </div>
