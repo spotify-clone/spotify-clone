@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import io from 'socket.io-client'
 import queryString from 'query-string'
+import './chat.scss'
 import {connect} from 'react-redux'
 //import './chat.scss'
 
@@ -13,7 +14,7 @@ function Chat(props) {
     const [room, setRoom] = useState('');
     const [message, setMessage] = useState('');
     const [receivedMessages, setReceivedMessages] = useState([])
-    const [toggle, setToggle] = useState(false)
+    const [isToggled, setToggled] = useState(false);
     const ENDPOINT = 'localhost:3333'
 
 
@@ -41,9 +42,7 @@ console.log(props)
     }, [])
 
 
-const toggled = () => {
-    setToggle(!toggle)
-}
+const toggleTrueFalse = () => setToggled(!isToggled);
 
     const sendMessage = (event) => {
         console.log('hit send message', message)
@@ -68,29 +67,29 @@ const toggled = () => {
     //Right now since any value makes it truthy it goes away....
     return (
         <div>
-            {mappedMessages}
-            <h1>Chat</h1>
-                <div>
-                    <span>Enter Your name</span>
-
-                    <input
-                        className='name-input'
-                        type='text'
-                        name='name'
-                        onChange={(e) => setName(e.target.value)}
-                    />
+            <div className='open-button' id='popUp' onClick={toggleTrueFalse}>
+                <div className='chat-container'>  
+                    <h3>Enter Your name</h3>
+                        <input className='name-input'
+                            type='text'
+                            name='name'
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                    <h1>chat</h1>
+                        <input className='chat-input'
+                            type='text'
+                            name='text'
+                            onChange={(e) => setMessage(e.target.value)}
+                            onKeyPress={event => event.key === 'Enter' ? sendMessage(event, name) : null}
+                        />
+                    <button className="btn" onClick={(e) => sendMessage(e)} >Send</button>
+                    
+                    <div className='mapped-messages'>
+                        {mappedMessages}
+                    </div>
+                    <button className='btn' onClick={toggleTrueFalse}>close</button>
                 </div>
-            <h1>Chat</h1>
-            <input
-                type='text'
-                name='text'
-                onChange={(e) => setMessage(e.target.value)}
-                onKeyPress={event => event.key === 'Enter' ? sendMessage(event, name) : null}
-            />
-            <button onClick={(e) => sendMessage(e)} >Send</button>
-            
-            {mappedMessages}
-            
+            </div>    
         </div>
     )
 }
