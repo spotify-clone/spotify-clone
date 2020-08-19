@@ -20,7 +20,11 @@ body {
   width: 70vw;
 }
 
-
+#audio{
+  position: fixed;
+  bottom:0;
+  width: 50vw;
+}
 
 
 
