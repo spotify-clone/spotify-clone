@@ -120,6 +120,8 @@ module.exports = {
 
     const value = req.query.search
 
+    //1. req.body, req.query, req.params
+
 
     await spotify.request(`https://api.spotify.com/v1/search?q=${value}&type=artist&limit=1`)
     .then((data)=>{
