@@ -3,11 +3,12 @@ import {useDropzone} from 'react-dropzone'
 import {v4 as randomString} from 'uuid'
 import axios from 'axios'
 import './dropzone.scss';
+import {connect} from 'react-redux'
 
 
 
 
-const DropZone = ()=>{
+const DropZone = (props)=>{
     const upload = {
         isUploading: false
       }
@@ -18,6 +19,31 @@ const DropZone = ()=>{
     const [song, setSong] = useState('')
     const [files, setFiles] = useState([]) 
     const [trackName, setTrackName] = useState('') 
+    const [name, setName] = useState('')
+    const [imgURL, setImgURL] = useState('');
+
+
+
+const updateName =() =>{
+
+    axios.put(`/api/local/${props.account_id}`, name)
+    .then(() =>{
+      setName('')
+    })
+    .catch(err=>console.log(err))
+
+}
+
+const sendProfilePic = () =>{
+
+    axios.put(`/api/local2/${props.account_id}`, imgURL)
+    .then(() => {
+      setImgURL('')
+    })
+    .catch(err =>console.log(err))
+
+
+}
 
  const sendFile=()=>{
 
@@ -84,7 +110,7 @@ const DropZone = ()=>{
       }
     
     
-      function MyDropzone() {
+     function MyDropzone() {
         const { getRootProps, getInputProps, isDragActive } = useDropzone({
           accept: "image/*, audio/*",
           onDrop: (acceptedFiles) => {
@@ -122,7 +148,7 @@ const DropZone = ()=>{
       }
     
 
- 
+ console.log(props)
 console.log(song)
 return(
   <div>
@@ -148,4 +174,7 @@ return(
       </div>        
     )
 }
-export default DropZone
+
+const mapStateToProps = redux => redux;
+
+export default connect(mapStateToProps)(DropZone)

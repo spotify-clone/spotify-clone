@@ -2,7 +2,7 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import Auth from './Components/Auth/Auth';
 import Dash from './Components/Dash/Dash';
-import Profile from './Components/Profile/Profile';
+// import Profile from './Components/Profile/Profile';
 import Search from './Components/Search/Search';
 import Chart from './Components/Chart/Chart';
 import Player from './Components/Player/Player'

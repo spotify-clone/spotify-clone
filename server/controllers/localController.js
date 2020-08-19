@@ -42,4 +42,24 @@ module.exports ={
         .catch(err => res.status(500).send(err))
 
     },
+    addName: async (req, res) => {
+        const db = req.app.get('db'),
+        {id} = req.params,
+        {name} = req.body;
+console.log(id, name)
+        const add = await db.add_name(name, id)
+console.log(add)
+        res.status(200).send(add)
+    },
+    updatePic: async (req, res) => {
+        const db = req.app.get('db'),
+        {pic} = req.body,
+        {id} = req.params;
+
+        const add = await db.update_profile_pic(pic, id)
+        console.log(add)
+        res.status(200).send(add)
+
+
+    }
 }
