@@ -6,11 +6,13 @@ import Nav from './Components/Nav/Nav';
  import { withRouter } from 'react-router-dom';
 
 
-function App() {
+function App(props) {
+  console.log(props)
   return (
     <div className="App">
-      <Header />
-        <Nav />
+      {props.location.pathname === "/" ? null : <Header history={props.location}/>}
+      
+      {props.location.pathname === "/" ? null : <Nav history={props.location}/>}
        
         {/* <Chat /> */}
           {routes}

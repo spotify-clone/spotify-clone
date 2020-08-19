@@ -1,8 +1,8 @@
 import React , {useState} from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
-import {getUser} from '../../Redux/musicReducer'
-import './auth.scss'
+import {getUser} from '../../Redux/musicReducer';
+import './auth.scss';
 
 
 
@@ -39,6 +39,7 @@ const Auth = (props) => {
     
     return (
         <div>
+        
 
         <div className="main-div">
            <form className="form-div" >
