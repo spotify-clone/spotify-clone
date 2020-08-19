@@ -1,30 +1,35 @@
 @import '../../SCSS/_var.scss';
 
 .main-nav {
-    
     background-color: $nav-color;
-    box-sizing: border-box;
-    height: 100vh;
-    width: 20vw;
     display: flex;
+    height: 100vh;
+    width: 15vw;
+    
 }
 
-.desktop-nav  {
-    display: flex;
-    flex-direction: column;
+.desktop-nav li {
+    align-content: space-between;
 }
 
 .desktop-nav ul {
     list-style-type: none;
-    align-content: center;
+    box-sizing: border-box;
+    width: 15vw;
+    height: 35vh;
+    padding: 0;
+    align-items: space-between;
 }
 
-.desktop-nav li a {
+.desktop-nav a {
+    display: flex;
     text-decoration: none;
     color: $text-color;
     font-size: 25px;
-    justify-content: space-between;
-    align-content: center;
-    text-align: center;
-    
+    justify-content: center;
+    margin: 5%;
+}
+
+.desktop-nav a:hover{
+    background-color: gray;
 }

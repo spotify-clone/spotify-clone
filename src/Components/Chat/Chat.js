@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import io from 'socket.io-client'
 import queryString from 'query-string'
-import './chat.scss'
 import {connect} from 'react-redux'
-//import './chat.scss'
+import './chat.scss'
+
 
 
 let socket;
@@ -14,7 +14,7 @@ function Chat(props) {
     const [room, setRoom] = useState('');
     const [message, setMessage] = useState('');
     const [receivedMessages, setReceivedMessages] = useState([])
-    const [isToggled, setToggled] = useState(false);
+    const [isToggled, setToggled] = useState(true);
     const ENDPOINT = 'localhost:3333'
 
 
@@ -42,7 +42,7 @@ console.log(props)
     }, [])
 
 
-const toggleTrueFalse = () => setToggled(!isToggled);
+const toggle = () => setToggled(!isToggled);
 
     const sendMessage = (event) => {
         console.log('hit send message', message)
@@ -55,19 +55,21 @@ const toggleTrueFalse = () => setToggled(!isToggled);
     const mappedMessages = receivedMessages.map((word, index) => {
         return (
             <div key={index} >
-            <span>{word.name} says: </span>
+            <span>{word.name} Says: </span>
                 <span> { word.message}</span>
             </div>
         )
     })
-    console.log(props)
+    console.log(isToggled)
      console.log(name)
 
     //Trying to create a condition where the name box goes away after the informaion is entered.
     //Right now since any value makes it truthy it goes away....
     return (
         <div>
-            <div className='open-button' id='popUp' onClick={toggleTrueFalse}>
+             {!setToggled
+                ?  <button id='open-button' onClick={toggle}>CHAT</button>
+                : (
                 <div className='chat-container'>  
                     <h3>Enter Your name</h3>
                         <input className='name-input'
@@ -87,11 +89,13 @@ const toggleTrueFalse = () => setToggled(!isToggled);
                     <div className='mapped-messages'>
                         {mappedMessages}
                     </div>
-                    <button className='btn' onClick={toggleTrueFalse}>close</button>
+                    <button className='btn' onClick={toggle}>close</button>
                 </div>
-            </div>    
-        </div>
+                )}
+            </div> 
+               
+        
     )
 }
 const mapStateToProps = state => state
-export default connect(mapStateToProps)(Chat)
+export default connect(mapStateToProps)(Chat);

@@ -1,4 +1,4 @@
-.open-button {
+#open-button {
   background-color: #0f0f0f;
   color: white;
   border-radius: 5px;
@@ -7,15 +7,6 @@
   bottom: 25px;
   right: 25px;
   width: 20vw;
-}
-
-.chat-container {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
 }
 
 .chat-container {
@@ -46,12 +37,14 @@
   width: 15vw;
   height: 20px;
   border-radius: 5px;
+  padding: 2%;
 }
 
 .chat-input {
   width: 17vw;
   height: 3rem;
   border-radius: 5px;
+  padding: 2%;
 }
 
 .btn {
@@ -64,6 +57,7 @@
 
 .mapped-messages {
   border-radius: 5px;
+  padding: 2%;
   color: black;
   width: 17vw;
   height: 20vh;
