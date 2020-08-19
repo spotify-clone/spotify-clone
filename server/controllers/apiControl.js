@@ -116,4 +116,20 @@ module.exports = {
 
   },
 
+  searchApi: async(req,res)=>{
+
+    const value = req.query.search
+
+
+    await spotify.request(`https://api.spotify.com/v1/search?q=${value}&type=artist&limit=1`)
+    .then((data)=>{
+      console.log(data.artists)
+    })
+    .catch((err)=>{
+      console.error(`Error occurred:`+ err);
+    })
+
+
+  },
+
 }
