@@ -22,6 +22,6 @@ export default (
         <Route path="/player" component={Player}/>
         <Route path="/chat" component={Chat} />
         <Route path='/audio' component={Audio} />
-        <Route path='/profile' component={Drop} />
+        <Route path='/drop' component={Drop} />
     </Switch>
 )
