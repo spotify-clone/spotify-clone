@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {useDropzone} from 'react-dropzone'
 import {v4 as randomString} from 'uuid'
 import axios from 'axios'
+import './dropzone.scss';
 import {connect} from 'react-redux'
 
 
@@ -132,14 +133,14 @@ const sendProfilePic = () =>{
        // console.log(files)
         return (
           <div id='photos' >
-            <h1>Upload</h1>
+            <h1>UPLOAD</h1>
             {images}
             <div {...getRootProps()}>
               <input {...getInputProps()} />
               {
                 isDragActive ?
                   <p>Drop the files here ...</p> :
-                  <p>Drag 'n' drop some files here, or click to select files</p>
+                  <p>Drag 'n' drop, or click to select files</p>
               }
             </div>
           </div>
@@ -150,13 +151,27 @@ const sendProfilePic = () =>{
  console.log(props)
 console.log(song)
 return(
-        <div>
-        <p>Add a image or mp3 and then click send to send it to aws </p>
- {MyDropzone()}
-  <input value={trackName} onChange={(e) => setTrackName(e.target.value)} type="text"/>
-  <button onClick={sendFile}>Send to db</button>
- <button onClick={() => getSignedRequest(files)} >Send </button>
-        </div>       
+  <div>
+    <div className='dropbox-container'>
+    <div className='name-box'>
+    <input className='name' type="text" placeholder="Add Name"></input>
+    </div>
+        <div className='add-photo'>
+            <p>Add image then click send</p>
+              {MyDropzone()}
+                <input value={trackName} onChange={(e) => setTrackName(e.target.value)} type="text" placeholder="Drop Here"/>
+                <button className='btns' onClick={sendFile}>Send to db</button>
+              <button className='btns'onClick={() => getSignedRequest(files)} >Send </button>
+        </div>
+        <div className='add-music'>
+           <p>Add mp3 then click send </p>
+              {MyDropzone()}
+                <input value={trackName} onChange={(e) => setTrackName(e.target.value)} type="text" placeholder="Drop Here"/>
+                <button className='btns' onClick={sendFile}>Send to db</button>
+              <button className='btns' onClick={() => getSignedRequest(files)} >Send </button>
+        </div>
+        </div>
+      </div>        
     )
 }
 
