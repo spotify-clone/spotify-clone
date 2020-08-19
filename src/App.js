@@ -10,13 +10,21 @@ function App(props) {
   console.log(props)
   return (
     <div className="App">
+<<<<<<< HEAD
       {props.location.pathname === "/" ? null : <Header history={props.location}/>}
       
       {props.location.pathname === "/" ? null : <Nav history={props.location}/>}
        
+=======
+      <Header />
+      <div id='left' >
+        <Nav />
+        </div>
+        <div id='right' >
+>>>>>>> master
         {/* <Chat /> */}
           {routes}
-        
+          </div>
     </div>
   );
 }
