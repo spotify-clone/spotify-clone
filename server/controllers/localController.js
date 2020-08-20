@@ -9,13 +9,12 @@ module.exports ={
     createTrack: (req,res) =>{
 
         const db = req.app.get('db'),
-        { name, song  } = req.body;
-        // { user_id } = req.params;
+        { name, song  } = req.body,
+         user_id  = req.params.id;
 
-        console.log(name, song)
 
         try{
-            db.add_to_playlist({name: name, track: song})
+            db.add_to_playlist({name: name, track: song, user_id})
             res.status(200).send('success')
         }
 
@@ -36,7 +35,7 @@ module.exports ={
 
         db.get_tracks()
         .then(track => {
-            console.log(track)
+            // console.log(track)
             res.status(200).send(track)
         })
         .catch(err => res.status(500).send(err))
@@ -46,9 +45,9 @@ module.exports ={
         const db = req.app.get('db'),
         {id} = req.params,
         {name} = req.body;
-console.log(id, name)
+    // console.log(id, name)
         const add = await db.add_name(name, id)
-console.log(add)
+    // console.log(add)
         res.status(200).send(add)
     },
     updatePic: async (req, res) => {
@@ -56,12 +55,21 @@ console.log(add)
         {pic} = req.body,
         {id} = req.params;
 
-        console.log(pic, id)
+        // console.log(pic, id)
 
         const add = await db.update_profile_pic(pic,id)
-        console.log(add)
+        // console.log(add)
         res.status(200).send(add)
 
 
+    },
+
+    getUsersTrack: async(req,res)=>{
+        const db = req.app.get('db'),
+        { id } = req.params;
+
+        const result = await db.get_users_track(id)
+
+        res.status(200).send(result)
     }
 }

@@ -50,6 +50,8 @@ const sendProfilePic = () =>{
 
   //  const body = {trackName, song}
 
+  console.log(props.user.account_id)
+
    axios.put(`/api/track/${props.user.account_id}`, {name: trackName, song} )
    .then(()=>{
       console.log('good')
@@ -238,10 +240,10 @@ const sendProfilePic = () =>{
           </div>
         )
       }
-    console.log(files)
-console.log(imgURL)
- console.log(props)
-console.log(song)
+//     console.log(files)
+// console.log(imgURL)
+//  console.log(props)
+// console.log(song)
 return(
   <div>
     <div className='dropbox-container'>
