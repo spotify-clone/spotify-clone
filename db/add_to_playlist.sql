@@ -1,4 +1,4 @@
 insert into mp3_tracks(
-name, track
+name, track, user_id
 )values
-(${name}, ${track})
+(${name}, ${track}, ${user_id})
