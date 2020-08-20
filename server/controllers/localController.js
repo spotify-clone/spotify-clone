@@ -63,5 +63,14 @@ console.log(add)
         res.status(200).send(add)
 
 
+    },
+    sendCount: async (req, res) => {
+        const db = req.app.get('db'),
+        {id} = req.params,
+        {count} = req.body;
+        
+        const counter = db.add_count(count, id)
+
+        res.status(200).send(counter)
     }
 }
