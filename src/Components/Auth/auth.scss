@@ -1,36 +1,44 @@
 @import '../../SCSS/_var.scss';
 
 
-.auth {
+.auth img {
+    position: fixed;
+    left: 0;
+    top: 0px;
+    height: 100vh;
+    width: 100vw;
     background-color: black;
 }
-.main-div{
+
+.main{
     box-sizing: border-box;
     position: absolute;
-    border:5px solid black;
-    width: 40vw;
-    height: 50vh;
-    top:35vh;
-    left: 35vw;
-    
-}
-.form-div{
-    display: flex;
-    margin:15px;
-    padding-left:5vw;
-    flex-direction: column;
-    width:25vw;
-   
-}
-.button-div{
     display: flex;
     flex-direction: column;
     align-items: center;
-    button{
-        width: 10vw;
-        height: 5vh;
-    }
-   .btn1{
-       margin-right:15px;
-   }
+    left:35vw;
+   
+   
+    
+}
+
+.auth-input {
+    display: flex;
+    width: 200px;
+    height: 20px;
+    text-align: center;
+    margin: 2%;
+    border-radius: 5px;
+}
+
+.authBtn {
+    margin-top: 10px;
+    width: 205px;
+    height: 25px;
+    background-color: rgb(2, 224, 2);
+}
+
+h4 {
+    margin: 0px;
+    margin-top: 25px;
 }

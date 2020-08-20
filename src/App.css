@@ -15,7 +15,7 @@ body {
 #left{
   width: 25vw;
 }
-/* #right{
+ #right{
   position: fixed;
   top: 70px;
   left: 17vw;
@@ -39,7 +39,7 @@ h3 {
 #colored{
   font-size: 40px;
   color:green
-}
+} 
 
 
 
