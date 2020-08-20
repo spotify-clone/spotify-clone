@@ -55,6 +55,8 @@ const sendProfilePic = () =>{
    axios.put(`/api/track/${props.user.account_id}`, {name: trackName, song} )
    .then(()=>{
       console.log('good')
+      setImgURL('')
+      
    })
    .catch(error => console.log(error))
  }
@@ -253,14 +255,14 @@ return(
         <div className='add-photo'>
             <p>Add image then click send</p>
               {MyDropzone2()}
-                <input value={imgURL} onChange={(e) => setImgURL(e.target.value)} type="text" placeholder="Drop Here"/>
+                <input value={imgURL} onChange={(e) => setImgURL(e.target.value)} type="text" placeholder="Drop Image"/>
                 <button className='btns' onClick={sendProfilePic}>Send to db</button>
               <button className='btns'onClick={() => getSignedRequest2(files)} >Send </button>
         </div>
         <div className='add-music'>
            <p>Add mp3 then click send </p>
               {MyDropzone()}
-                <input value={trackName} onChange={(e) => setTrackName(e.target.value)} type="text" placeholder="Drop Here"/>
+                <input value={trackName} onChange={(e) => setTrackName(e.target.value)} type="text" placeholder="Drop Music"/>
                 <button className='btns' onClick={sendFile}>Send to db</button>
               <button className='btns' onClick={() => getSignedRequest(files)} >Send </button>
         </div>

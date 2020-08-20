@@ -33,8 +33,10 @@ h3 {
 #audio{
   position: fixed;
   left:15vw;
-  bottom:0;
-  width: 50vw;
+  bottom:10px;
+  width: 70vw;
+  color:black;
+
 }
 
 #colored{
@@ -42,6 +44,11 @@ h3 {
   color:green
 }
 
+#button-bag{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
 
 
 
