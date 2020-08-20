@@ -36,7 +36,7 @@ const Nav = (props) => {
             <nav className='desktop-nav'>
                 <ul>
                     <li>
-                        <Link to='/auth'>Auth</Link>
+                        <Link to='/'>Auth</Link>
                     </li>
                     <li>
                         <Link to='/dash'>Dash</Link>
