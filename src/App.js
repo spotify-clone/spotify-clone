@@ -42,13 +42,8 @@ const sendCount = () => {
 
   
       const mappedTrack = audio.map(ele =>ele.track)
-<<<<<<< HEAD
-  // console.log(mappedTrack)
-  //     console.log(audio[0])
-=======
   console.log(mappedTrack)
       console.log(count)
->>>>>>> master
 
   
   return (
