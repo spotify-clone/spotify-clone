@@ -40,6 +40,7 @@ const sendCount = () => {
   console.log(mappedTrack)
       console.log(count)
 
+  
   return (
     <div className="App">
           {props.location.pathname === "/" ? null : <Header history={props.location}/>}

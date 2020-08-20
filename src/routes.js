@@ -8,12 +8,14 @@ import Player from './Components/Player/Player'
 import Chat from './Components/Chat/Chat';
  import Drop from './Components/Dropzone/DropZone';
 
+
  
 export default (
     <Switch>
         <Route exact path="/" component={Auth} />
         <Route path="/dash" component={Dash} />
-        <Route path="search" component={Search} />
+        {/* <Route path="/profile" component={Profile} /> */}
+        <Route path="/search/:artist" component={Search} />
         <Route path="/chart" component={Chart} />
         <Route path="/player" component={Player}/>
         <Route path="/chat" component={Chat} />

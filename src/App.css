@@ -15,7 +15,7 @@ body {
 #left{
   width: 25vw;
 }
-#right{
+/* #right{
   position: fixed;
   top: 70px;
   left: 17vw;
