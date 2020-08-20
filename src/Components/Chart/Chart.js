@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {Bar, Line, Pie} from 'react-chartjs-2';
-
+import '../Chart/chart.scss'
 
 class Chart extends Component {
     constructor(props){
@@ -34,6 +34,7 @@ class Chart extends Component {
             }
         }
     }
+   
   render() {
     return (
       <div className="chart">
@@ -43,13 +44,23 @@ class Chart extends Component {
             title:{
                 display:true,
                 text:'Highest rated Artists',
-                color: 'black'
+                fontColor: 'black',
+                
 
             },
             legend:{
                 display:true,
-                position:'left'
+                position:'left',
+                labels:{
+                    display:true,
+                    fontColor:'black'
+                }
             },
+            label:{
+                display:true,
+                fontColor:'black'
+            },
+            
         }}
         />
       </div>
