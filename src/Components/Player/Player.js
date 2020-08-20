@@ -13,26 +13,28 @@ class Player extends Component {
             audio: false,
             url: "",
         }
+        this.sound = new Howl({src: this.state.url, html5:true})
 
     };
 
 
-    // componentDidMount = () =>{
-    //     axios.get('/api/artist-track')
-    //     .then(res=>{
-    //         if(res.data && res.data.length !== this.state.tracks.length){
-    //             console.log('hit')
-    //             this.setState({tracks: res.data})
-    //         }
-    //     })
-    //     .catch(error => console.log(error))
-    // }
+    componentDidMount = () =>{
+        axios.get('/api/artist-track')
+        .then(res=>{
+            if(res.data && res.data.length !== this.state.tracks.length){
+                this.setState({tracks: res.data})
+            }
+        })
+        .catch(error => console.log(error))
+    }
 
 
     soundPlay = (value)=> {
+        const { audio } = this.state
+
+        this.setState({audio: !this.state.audio, url: value})
 
         let sound = null;
-
         if (sound != null) {
             sound.stop();
             sound.unload();
@@ -44,7 +46,14 @@ class Player extends Component {
             html5:true
         })
 
-        sound.play();
+        // var id = sound.play();
+
+        audio ? sound.play() : this.setState({url: ""})
+        
+        // var id = sound.play();
+        // sound.pause(id);
+
+
     }
 
     
@@ -55,18 +64,19 @@ class Player extends Component {
         
     // }
 
-    // queueSound = () =>{
-    //     const { audio } = this.state   
+    queueSound = () =>{
+ 
+        // const { audio } = this.state   
 
-    //         if(audio === true){
-    //             console.log('hit')
-    //             this.audio.play();
-    //         }
-    //         else{
-    //             this.audio.pause();
-    //         }
+        //     if(audio === true){
+        //         console.log('hit')
+        //         this.audio.play();
+        //     }
+        //     else{
+        //         this.audio.pause();
+        //     }
 
-    // }
+    }
 
 
 
@@ -74,9 +84,6 @@ class Player extends Component {
         render() {
 
             const { tracks, url } = this.state
-
-            console.log(tracks)
-
 
             const mappedTracks = tracks.map((element,index)=>{
                 let image;
@@ -92,13 +99,13 @@ class Player extends Component {
             })
 
 
-            
+
 
 
         return (
           <div>
               <div style={{position: "absolute", left: "25%"}}>
-              {/* {mappedTracks}   */}
+              {mappedTracks}  
                   </div> 
                 <div>
                     <button style={{padding: 20}} onClick={this.play}>Play</button>

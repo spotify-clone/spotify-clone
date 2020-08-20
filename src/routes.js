@@ -7,7 +7,12 @@ import Search from './Components/Search/Search';
 import Chart from './Components/Chart/Chart';
 import Player from './Components/Player/Player'
 import Chat from './Components/Chat/Chat';
+<<<<<<< HEAD
+import Drop from './Components/Dropzone/DropZone';
+=======
  import Drop from './Components/Dropzone/DropZone';
+>>>>>>> master
+
 
  
 export default (
@@ -16,11 +21,14 @@ export default (
         <Route path="/auth" component={Auth} />
         <Route path="/dash" component={Dash} />
         {/* <Route path="/profile" component={Profile} /> */}
-        <Route path="search" component={Search} />
+        <Route path="/search/:artist" component={Search} />
         <Route path="/chart" component={Chart} />
         <Route path="/player" component={Player}/>
         <Route path="/chat" component={Chat} />
+<<<<<<< HEAD
+=======
         
+>>>>>>> master
         <Route path='/drop' component={Drop} />
     </Switch>
 )
