@@ -24,6 +24,7 @@
   border-radius: 5px;
   border-color: #808080;
   color: #fff;
+  font-family: 'Antic Slab', serif;
   height: 50vh;
   width: 20vw;
   background-color: #0f0f0f;
@@ -62,4 +63,3 @@
   height: 20vh;
   background-color: white;
 }
-/*# sourceMappingURL=chat.css.map */

@@ -3,36 +3,33 @@ import routes from './routes'
 import './App.css';
 import Header from './Components/Header/Header';
 import Nav from './Components/Nav/Nav';
-<<<<<<< HEAD
+
 import { withRouter } from 'react-router-dom';
 import axios from 'axios'
-=======
-//import Audio from './Components/Audio/Audio'
- import { withRouter } from 'react-router-dom';
- import axios from 'axios'
->>>>>>> master
+
 import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
-
+ 
 
 function App(props) {
 
   const [audio, setAudio] = useState([])
   let [count, setCount] = useState('')
 
-  const addCount = () => {
-    setCount( +count+ 1)
-  }
+ 
 
-const sendCount = () => {
+  //This function is to retreive all the local tracks from the database
+const getAllTracks=()=>{
 
-  // axios.put()
-
+  axios.get(`/api/tracks`)
+  .then(res =>{
+    setAudio(res.data)
+  })
 }
 
   useEffect(()=>{
    
-  axios.get(`/api/track/`)
+  axios.get(`/api/track/${2}`)
   .then((res)=>{
       setAudio(res.data)
   })
@@ -40,44 +37,47 @@ const sendCount = () => {
   
   },[])
 
-  
-      const mappedTrack = audio.map(ele =>ele.track)
-<<<<<<< HEAD
-  // console.log(mappedTrack)
-  //     console.log(audio[0])
-=======
-  console.log(mappedTrack)
-      console.log(count)
->>>>>>> master
+const mappedCount = audio.map(ele =>ele.count)
+  const mappedName = audio.map(ele => ele.name)
+  const mappedTrack = audio.map(ele =>ele.track)
 
-  
+  console.log(audio)
+  console.log(mappedCount.toString())
+  console.log(mappedTrack)
+
   return (
     <div className="App">
-      <Header />
+      <Header /> 
       <div id='left' >
         <Nav />
         </div>
         <div id='right' >
-        {/* <Chat /> */}
+        
           {routes}
           <div id='audio'>
         
-<div onClick={addCount} >
      <AudioPlayer 
-      // autoPlay
+       //autoPlay
+       showSkipControls={true}
+       header={
+       <div id='button-bag'>
+       <button>Local Tracks</button>
+       <span>{mappedName}</span>
+       <button onClick={getAllTracks} >All Tracks</button>
+       </div> 
+       }
       src={mappedTrack}
       onPlay={e => console.log("onPlay") }
-
-       
-       
-      // other props here
+      footer={mappedCount > 1?mappedCount.toString() + ` plays`: `[] plays`}
     />
+    
 
 </div>
     </div>
  
+ 
 </div>
-          </div>
+         
      
   );
 }

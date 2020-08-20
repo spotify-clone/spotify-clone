@@ -11,7 +11,7 @@ const MyCarousel2 = (props) => {
 
 
     const mappedFeatures = props.featuresList.map((element, index) => {
-        return <img key={index} src={element.icons[0].url} />
+        return <img style={{display: "flex", justifyContent:"center", height: "150px", width: "150px"}} key={index} src={element.icons[0].url} />
     })
 
 
@@ -25,13 +25,13 @@ const MyCarousel2 = (props) => {
                 containerProps={{
                     style: {
                         width: '100%',
-                        justifyContent: 'space-between'
+                        justifyContent: 'space-evenly'
                     }
                 }}
                 activeSlideIndex={activeSlide}
                 activeSlideProps={{
                     style: {
-                        background: 'blue'
+                        background: ''
                     }
                 }}
                 onRequestChange={setActiveSlide}
@@ -55,26 +55,23 @@ const MyCarousel2 = (props) => {
                     }
                 }}
 
-                itemsToShow={7}
+                itemsToShow={6}
                 speed={400}
             >
 
                 {props.list.map((item, index) => (
                     <div
                         style={{
-                            background: 'red',
-                            width: 250,
-                            height: 250,
-                            border: "30px solid white",
+                            width: 160,
+                            height: 150,
                             textAlign: "center",
-                            lineHeight: "240px",
                             boxSizing: "border-box"
                         }}
                         key={index}
 
                     >
                         {mappedFeatures[index]}
-                        {index}
+                        {/* {index} */}
                     </div>
                 ))}
 

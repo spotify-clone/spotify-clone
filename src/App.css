@@ -1,37 +1,60 @@
 body {
-  
-  background: linear-gradient(to right, #4e4e4e, #f0f0f0);
+ background: linear-gradient(to right, #4e4e4e, #f0f0f0);
 }
-
 .App {
   background-image: url('./boombox.png');
+  height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
+  background-position: center;
+  font-family: 'Hind Siliguri', sans-serif;
+
 }
+
+
 #left{
   width: 25vw;
 }
-/* #right{
+ #right{
   position: fixed;
-  top: 65px;
-  left: 15vw;
-  width: 85vw;
-} */
+  top: 70px;
+  left: 17vw;
+  width: 80vw;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+}
+
+h3 {
+  margin: 0;
+  text-shadow: black 0px 4px 4px;
+}
 
 #audio{
   position: fixed;
-  bottom:0;
-  width: 50vw;
+  left:15vw;
+  bottom:10px;
+  width: 70vw;
+  color:black;
+
 }
 
 #colored{
   font-size: 40px;
   color:green
+<<<<<<< HEAD
+}
+  */
+=======
+} 
+
+#button-bag{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 
 
-
+>>>>>>> master
 

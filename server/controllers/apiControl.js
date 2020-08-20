@@ -98,8 +98,12 @@ module.exports = {
 
     let newObj;
 
+    const { id } = req.params
 
-    await spotify.request(`https://api.spotify.com/v1/artists/3TVXtAsR1Inumwj472S9r4/top-tracks?country=SE`)
+    //id = 93t2jfdig3g30g3g0ejgri33
+
+
+    await spotify.request(`https://api.spotify.com/v1/artists/${id}/top-tracks?country=SE`)
     .then(data => newObj = {...data})
     .catch((err)=>{
       console.error(`Error occurred:`+ err);
@@ -122,11 +126,14 @@ module.exports = {
   searchApi: async(req,res)=>{
 
     const value = req.query.search
+    // console.log(value)
+    // 1. req.body, req.query, req.params
 
 
     await spotify.request(`https://api.spotify.com/v1/search?q=${value}&type=artist&limit=1`)
     .then((data)=>{
-      res.status(200).send(data.artist)
+      res.status(200).send(data.artists.items)
+      
     })
     .catch((err)=>{
       console.error(`Error occurred:`+ err);

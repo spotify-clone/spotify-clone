@@ -92,7 +92,9 @@ massive({
 app.post(`/api/email`, email.email)
 
 //local
-app.get('/api/track', local.getTrack)
+app.get('/api/track/:id', local.getTrack)
+
+
 app.get(`/api/tracks`, local.getTracks)
 app.get('/api/user-tracks/:id', local.getUsersTrack)
 app.put(`/api/local/:id`, local.addName)
@@ -107,7 +109,7 @@ app.post('/api/user/:user', authCtrl.saveLocalUser)
 app.get('/api/playlist', apiCtrl.getPlaylist)
 app.get('/api/albums', apiCtrl.getAlbums)
 app.get('/api/features', apiCtrl.getFeatures)
-app.get('/api/artist-track', apiCtrl.getArtistTracks)
+app.get('/api/artist-track/:id', apiCtrl.getArtistTracks)
 app.get('/api/search/', apiCtrl.searchApi)
 
 //Auth EndPoint

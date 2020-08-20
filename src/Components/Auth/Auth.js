@@ -1,8 +1,9 @@
 import React , {useState} from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
-import {getUser} from '../../Redux/musicReducer'
-import './auth.scss'
+import {getUser} from '../../Redux/musicReducer';
+import Logo from './auth.logo.png'
+import './auth.scss';
 
 
 
@@ -38,31 +39,32 @@ const Auth = (props) => {
 
     
     return (
-        <div>
+        <div className='auth'>
+         <img src={Logo} alt='authLogo' />
 
-        <div className="main-div">
-           <form className="form-div" >
-               <input
+        <div className="main">
+        
+               <input className="auth-input"
                value={email}
                placeholder='E-mail'
                name='email'
                onChange={e => setEmail(e.target.value)}
                />
-                <input
+                <input className="auth-input"
                value={password}
+               type='Password'
                placeholder='Password'
                name='password'
                onChange={e => setPassword(e.target.value)}
                />
-                 </form>
-                 <div className="button-div">
-                 <button className="btn1"onClick={handleLogin}>Login</button>
-                 <h4>Click To
-                     <button onClick={handleRegister}>Register</button>
-                     New User
-                 </h4>
-
-                 </div>
+              
+                
+                <button className="authBtn" onClick={handleLogin}>Login</button>
+                 <h4>Sign Up Here!</h4>
+                <button className="authBtn" onClick={handleRegister}>Register</button>
+                    
+                 
+                
                 
                  
         </div>
