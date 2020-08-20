@@ -38,7 +38,7 @@ const Auth = (props) => {
 
     
     return (
-        <div>
+        <div className='auth'>
         
 
         <div className="main-div">
