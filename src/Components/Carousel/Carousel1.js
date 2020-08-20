@@ -2,19 +2,25 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import Carousel from 'react-simply-carousel'
 
-const MyCarousel = (props) => {
+const MyCarousel1 = (props) => {
     const [activeSlide, setActiveSlide] = useState(0)
     
     //console.log(props.albums.images[1].url)
      
-    console.log(props.list)
+    console.log(props )
       
- 
+    const mappedPlay = props.playlist.map((element,index)=>{
+        return <div style={{width: "60vw"}} >
+                <img  style={{display: "flex", justifyContent:"center", height: "25vh", width: "25vw"}} key={index} src={element.images[0].url}/>
+            </div>
+    })
    
  
- const mapped = props.list.map(element=>{
-    return <img src={element.images[1].url}/>
-})
+//  const mapped = props.list.map(element=>{
+//     return <img src={element.images[1].url}/>
+// })
+
+
 
     return (
         <div>
@@ -60,8 +66,8 @@ const MyCarousel = (props) => {
                     <div
                         style={{
                             background: 'red',
-                            width: 150,
-                            height: 150,
+                            width: 200,
+                            height: 200,
                             border: "30px solid white",
                             textAlign: "center",
                             lineHeight: "240px",
@@ -70,7 +76,7 @@ const MyCarousel = (props) => {
                         key={index}
                     
                     >
-                    {mapped[index]}
+                    {mappedPlay[index]} 
                         {index}
                     </div>
                 ))}
@@ -80,4 +86,4 @@ const MyCarousel = (props) => {
     )
 }
 
-export default MyCarousel
+export default MyCarousel1

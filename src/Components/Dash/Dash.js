@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import MyCarousel from './../Carousel/Carousel'
+import MyCarousel1 from './../Carousel/Carousel1'
+import MyCarousel2 from './../Carousel/Carousel2'
 import axios from 'axios'
 
 
@@ -57,9 +59,9 @@ class Dash extends Component {
     render() {
         const { list, playlist, featuresList } = this.state
 
-        const mapped = list.map(element=>{
-            return <img src={element.images[2].url}/>
-        })
+        // const mapped = list.map(element=>{
+        //     return <img src={element.images[2].url}/>
+        // })
   
 
         const mappedFeatures = featuresList.map((element,index)=>{
@@ -67,24 +69,25 @@ class Dash extends Component {
         })
     
     
-        const mappedPlay = playlist.map((element,index)=>{
-            return <div style={{width: "60vw"}} >
-                    <img  style={{display: "flex", justifyContent:"center", height: "25vh", width: "25vw"}} key={index} src={element.images[0].url}/>
-                </div>
-        })
+        // const mappedPlay = playlist.map((element,index)=>{
+        //     return <div style={{width: "60vw"}} >
+        //             <img  style={{display: "flex", justifyContent:"center", height: "25vh", width: "25vw"}} key={index} src={element.images[0].url}/>
+        //         </div>
+        // })
 
-        console.log(mappedFeatures)
+       // console.log(mappedFeatures)
+        //console.log(mappedPlay)
 
 
         return (
             <div>
          
-                <MyCarousel list={list} />
+                <span><h3>Hot Shit!!</h3></span>
+                <MyCarousel2  featuresList={featuresList} list={list} />
+                <span><h3>Album Study-Music</h3> </span>
+                <MyCarousel1 playlist={playlist} list={list} />
                 <span><h3>Album Hip-hop</h3></span>
                 <MyCarousel list={list} />
-                <span><h3>Album Study-Music</h3> </span>
-                <MyCarousel  list={list} />
-                <span><h3>Album Country</h3></span>
             </div>
         )
     }
