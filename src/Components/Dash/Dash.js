@@ -93,4 +93,4 @@ class Dash extends Component {
     }
 }
 
-export default Dash
+export default Dash;
