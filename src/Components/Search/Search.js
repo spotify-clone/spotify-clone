@@ -8,7 +8,7 @@ const Search = (props) => {
 
     useEffect(()=>{
         searchArtist()
-    },[artist])
+    })
     
 
 
@@ -17,7 +17,10 @@ const Search = (props) => {
         const value = props.match.params.artist
         console.log(value)
         axios.get(`/api/search/?search=${value}`)
-        .then(res => setArtist(res.data))
+        .then(res =>{
+            if(res.data && res.data.length !== artist.length) {
+                setArtist(res.data)}
+            })
         .catch((err)=> console.log(err));
 
     }
