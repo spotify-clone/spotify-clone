@@ -2,7 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "chart.scss"
+        "chart.scss",
+        "../../SCSS/_var.scss"
     ],
     "names": [],
     "file": "chart.css"

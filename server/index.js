@@ -93,12 +93,15 @@ app.post(`/api/email`, email.email)
 
 //local
 app.get('/api/track', local.getTrack)
+app.get(`/api/tracks`, local.getTracks)
+app.get('/api/user-tracks/:id', local.getUsersTrack)
 app.put(`/api/local/:id`, local.addName)
 app.put('/api/local2/:id', local.updatePic)
 app.put(`/api/track/:id`, local.createTrack)
 
- app.get('/api/artist/:id' , apiCtrl.getArtist)
- app.get('/api/user', apiCtrl.getUser)
+
+// app.get('/api/artist/:id' , apiCtrl.getArtist)
+// app.get('/api/user', apiCtrl.getUser)
 app.post('/api/user/:user', authCtrl.saveLocalUser)
 
 app.get('/api/playlist', apiCtrl.getPlaylist)

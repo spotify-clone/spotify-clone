@@ -23,8 +23,16 @@ body {
   text-align: center;
 }
 
+#audio{
+  position: fixed;
+  bottom:0;
+  width: 50vw;
+}
 
-
+#colored{
+  font-size: 40px;
+  color:green
+}
 
 
 

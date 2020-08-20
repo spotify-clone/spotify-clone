@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,UAAU,CAAC;EACP,UAAU,EAAE,UAAU;EACtB,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,KAAK;CACf;;AAED,AAAA,UAAU,CAAC;EACP,UAAU,EAAE,UAAU;EACtB,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,KAAK;CACf",
+    "sources": [
+        "profile.scss",
+        "../../SCSS/_var.scss"
+    ],
+    "names": [],
+    "file": "profile.css"
+}
