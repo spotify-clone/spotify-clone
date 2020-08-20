@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAEC,AAAA,EAAE,CAAC;EACA,UAAU,EAAE,MAAM;EAClB,SAAS,EAAE,IAAI;CAClB",
     "sources": [
         "../../src/Components/Dash/dash.scss",
         "../../src/SCSS/_var.scss"

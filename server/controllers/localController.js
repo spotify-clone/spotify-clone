@@ -1,16 +1,16 @@
 module.exports ={
-    getTrack: (req,res) =>{
-        const db = req.app.get('db')
+    getTrack: async (req,res) =>{
+        const db = req.app.get('db'),
 
-        db.get_track()
-        .then(data => res.status(200).send(data))
-        .catch(error => console.log(error))
+        {id} = req.params;
 
+        const result = await db.get_track(id)
+        
+        const count = await db.add_count(id)
+        
+        res.status(200).send(result)
+ 
 
-        console.log('hit')
-      
-      
-       
 
     },
     createTrack: (req,res) =>{

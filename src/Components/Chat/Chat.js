@@ -14,7 +14,7 @@ function Chat(props) {
     const [room, setRoom] = useState('');
     const [message, setMessage] = useState('');
     const [receivedMessages, setReceivedMessages] = useState([])
-    const [isToggled, setToggled] = useState(true);
+    const [showChat, setShowChat] = useState(false);
     const ENDPOINT = 'localhost:3333'
 
 
@@ -42,8 +42,6 @@ console.log(props)
     }, [])
 
 
-const toggle = () => setToggled(!isToggled);
-
     const sendMessage = (event) => {
         console.log('hit send message', message)
         if (message) {
@@ -60,16 +58,16 @@ const toggle = () => setToggled(!isToggled);
             </div>
         )
     })
-    console.log(isToggled)
+    
      console.log(name)
 
     //Trying to create a condition where the name box goes away after the informaion is entered.
     //Right now since any value makes it truthy it goes away....
     return (
         <div>
-             {!setToggled
-                ?  <button id='open-button' onClick={toggle}>CHAT</button>
-                : (
+             
+             <button id='open-button' onClick={() => setShowChat(!showChat)}>CHAT</button>
+            
                 <div className='chat-container'>  
                     <h3>Enter Your name</h3>
                         <input className='name-input'
@@ -89,9 +87,9 @@ const toggle = () => setToggled(!isToggled);
                     <div className='mapped-messages'>
                         {mappedMessages}
                     </div>
-                    <button className='btn' onClick={toggle}>close</button>
+                    <button className='btn' onClick={() => setShowChat(!showChat)}>close</button>
                 </div>
-                )}
+             
             </div> 
                
         

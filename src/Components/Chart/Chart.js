@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {Bar, Line, Pie} from 'react-chartjs-2';
-
+import '../Chart/chart.scss'
 
 class Chart extends Component {
     constructor(props){
@@ -34,13 +34,33 @@ class Chart extends Component {
             }
         }
     }
+   
   render() {
     return (
       <div className="chart">
         <Bar
         data={this.state.chartData}
         options={{
-            maintainAspectRatio:false
+            title:{
+                display:true,
+                text:'Highest rated Artists',
+                fontColor: 'black',
+                
+
+            },
+            legend:{
+                display:true,
+                position:'left',
+                labels:{
+                    display:true,
+                    fontColor:'black'
+                }
+            },
+            label:{
+                display:true,
+                fontColor:'black'
+            },
+            
         }}
         />
       </div>
