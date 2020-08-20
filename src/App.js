@@ -3,8 +3,9 @@ import routes from './routes'
 import './App.css';
 import Header from './Components/Header/Header';
 import Nav from './Components/Nav/Nav';
-import { withRouter } from 'react-router-dom';
-import axios from 'axios'
+//import Audio from './Components/Audio/Audio'
+ import { withRouter } from 'react-router-dom';
+ import axios from 'axios'
 import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
 
@@ -14,9 +15,9 @@ function App(props) {
   const [audio, setAudio] = useState([])
   let [count, setCount] = useState('')
 
-  // const addCount = () => {
-  //   setCount( +count+ 1)
-  // }
+  const addCount = () => {
+    setCount( +count+ 1)
+  }
 
 const sendCount = () => {
 
@@ -36,10 +37,9 @@ const sendCount = () => {
 const mappedCount = audio.map(ele =>ele.count)
   
       const mappedTrack = audio.map(ele =>ele.track)
-  // console.log(mappedTrack)
-  //     console.log(audio[0])
+  console.log(mappedTrack)
+      console.log(count)
 
-  
   return (
     <div className="App">
       <Header />
@@ -51,13 +51,12 @@ const mappedCount = audio.map(ele =>ele.count)
           {routes}
           <div id='audio'>
         
-<div >
- 
+<div onClick={addCount} >
      <AudioPlayer 
       // autoPlay
       src={mappedTrack}
       onPlay={e => console.log("onPlay") }
-      footer= {mappedCount + '  plays'} 
+      footer={mappedCount}
 
        
        

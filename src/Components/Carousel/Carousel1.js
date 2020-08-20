@@ -11,7 +11,7 @@ const MyCarousel1 = (props) => {
       
     const mappedPlay = props.playlist.map((element,index)=>{
         return <div style={{width: "60vw"}} >
-                <img  style={{display: "flex", justifyContent:"center", height: "25vh", width: "25vw"}} key={index} src={element.images[0].url}/>
+                <img  style={{display: "flex", justifyContent:"center", height: "150px", width: "150px"}} key={index} src={element.images[0].url}/>
             </div>
     })
    
@@ -28,13 +28,13 @@ const MyCarousel1 = (props) => {
                 containerProps={{
                     style: {
                         width: '100%',
-                        justifyContent: 'space-between'
+                        justifyContent: 'space-evenly'
                     }
                 }}
                 activeSlideIndex={activeSlide}
                 activeSlideProps={{
                     style: {
-                        background: 'blue'
+                        background: ''
                     }
                 }}
                 onRequestChange={setActiveSlide}
@@ -58,26 +58,24 @@ const MyCarousel1 = (props) => {
                     }
                 }}
 
-                itemsToShow={7}
+                itemsToShow={6}
                 speed={400}
             >
             
                 {props.list.map((item, index) => (
                     <div
                         style={{
-                            background: 'red',
-                            width: 200,
-                            height: 200,
-                            border: "30px solid white",
+                            width: 160,
+                            height: 150,
+
                             textAlign: "center",
-                            lineHeight: "240px",
                             boxSizing: "border-box"
                         }}
                         key={index}
                     
                     >
                     {mappedPlay[index]} 
-                        {index}
+                        {/* {index} */}
                     </div>
                 ))}
 

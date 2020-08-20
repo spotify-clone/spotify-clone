@@ -7,28 +7,32 @@ const MyCarousel = (props) => {
     let test = [1,2,3,4,5,6,7,8,9,10]
     //console.log(props.albums.images[1].url)
      
-    console.log(props.list)
+   
       
  
    
  
  const mapped = props.list.map(element=>{
-    return <img src={element.images[1].url}/>
+    return <img style={{display: "flex", justifyContent:"center", height: "150px", width: "150px"}} src={element.images[0].url}/>
 })
 
     return (
         <div>
             <Carousel
+            
                 containerProps={{
                     style: {
                         width: '100%',
-                        justifyContent: 'space-between'
+                        justifyContent: 'space-evenly'
                     }
+                    
                 }}
+               
+              
                 activeSlideIndex={activeSlide}
                 activeSlideProps={{
                     style: {
-                        background: 'blue'
+                        background: ''
                     }
                 }}
                 onRequestChange={setActiveSlide}
@@ -52,26 +56,23 @@ const MyCarousel = (props) => {
                     }
                 }}
 
-                itemsToShow={7}
+                itemsToShow={6}
                 speed={400}
             >
             
                 {props.list.map((item, index) => (
                     <div
                         style={{
-                            background: 'red',
-                            width: 170,
-                            height: 170,
-                            border: "30px solid white",
+                            width: 160,
+                            height: 150,
                             textAlign: "center",
-                            lineHeight: "240px",
                             boxSizing: "border-box"
                         }}
                         key={index}
                     
                     >
                     {mapped[index]}
-                        {index}
+                        {/* {index} */}
                     </div>
                 ))}
 
@@ -80,4 +81,4 @@ const MyCarousel = (props) => {
     )
 }
 
-export default MyCarousel
+export default MyCarousel;
