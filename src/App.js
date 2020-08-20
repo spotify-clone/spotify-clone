@@ -3,9 +3,10 @@ import routes from './routes'
 import './App.css';
 import Header from './Components/Header/Header';
 import Nav from './Components/Nav/Nav';
-//import Audio from './Components/Audio/Audio'
- import { withRouter } from 'react-router-dom';
- import axios from 'axios'
+
+import { withRouter } from 'react-router-dom';
+import axios from 'axios'
+
 import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
 
@@ -37,8 +38,6 @@ const sendCount = () => {
 const mappedCount = audio.map(ele =>ele.count)
   
       const mappedTrack = audio.map(ele =>ele.track)
-  console.log(mappedTrack)
-      console.log(count)
 
   return (
     <div className="App">
