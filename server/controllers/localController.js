@@ -5,6 +5,13 @@ module.exports ={
         db.get_track()
         .then(data => res.status(200).send(data))
         .catch(error => console.log(error))
+
+
+        console.log('hit')
+      
+      
+       
+
     },
     createTrack: (req,res) =>{
 

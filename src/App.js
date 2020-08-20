@@ -50,10 +50,9 @@ const sendCount = () => {
         {/* <Chat /> */}
           {routes}
           <div id='audio'>
-          <span><h2>Fresh Tracks</h2></span>
+        
 <div onClick={addCount} >
-<h2 id='colored' >Play-Count: {count}</h2>
-    <AudioPlayer 
+     <AudioPlayer 
       // autoPlay
       src={mappedTrack}
       onPlay={e => console.log("onPlay") }
