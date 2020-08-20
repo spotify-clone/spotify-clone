@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs');
 module.exports = {
   NewUser: async (req, res)=>{
     // this is what it needs to add a new user
+    
     const {password, email } = req.body,
         db = req.app.get('db');
     // //check to see if user exists

@@ -6,7 +6,7 @@ import Search from './Components/Search/Search';
 import Chart from './Components/Chart/Chart';
 import Player from './Components/Player/Player'
 import Chat from './Components/Chat/Chat';
- import Drop from './Components/Dropzone/DropZone';
+import Drop from './Components/Dropzone/DropZone';
 
 
  
