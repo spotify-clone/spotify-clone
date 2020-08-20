@@ -9,67 +9,75 @@ import axios from 'axios'
 
 import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
-
+ 
 
 function App(props) {
 
   const [audio, setAudio] = useState([])
   let [count, setCount] = useState('')
 
-  // const addCount = () => {
-  //   setCount( +count+ 1)
-  // }
+ 
 
-const sendCount = () => {
+  //This function is to retreive all the local tracks from the database
+const getAllTracks=()=>{
 
-  // axios.put()
-
+  axios.get(`/api/tracks`)
+  .then(res =>{
+    setAudio(res.data)
+  })
 }
 
   useEffect(()=>{
    
-  axios.get(`/api/track/${1}`)
+  axios.get(`/api/track/${2}`)
   .then((res)=>{
       setAudio(res.data)
   })
   .catch(err=>console.log(err))
   
   },[])
-const mappedCount = audio.map(ele =>ele.count)
-  
-      const mappedTrack = audio.map(ele =>ele.track)
 
-  
+const mappedCount = audio.map(ele =>ele.count)
+  const mappedName = audio.map(ele => ele.name)
+  const mappedTrack = audio.map(ele =>ele.track)
+
+  console.log(audio)
+  console.log(mappedCount.toString())
+  console.log(mappedTrack)
+
   return (
     <div className="App">
-          {props.location.pathname === "/" ? null : <Header history={props.location}/>}
-        <div className='left' > 
-          {props.location.pathname === "/" ? null : <Nav history={props.location}/>}
+      <Header /> 
+      <div id='left' >
+        <Nav />
         </div>
         <div id='right' >
-        {/* <Chat /> */}
+        
           {routes}
-          </div>
           <div id='audio'>
         
-<div >
- 
      <AudioPlayer 
-      // autoPlay
+       //autoPlay
+       showSkipControls={true}
+       header={
+       <div id='button-bag'>
+       <button>Local Tracks</button>
+       <span>{mappedName}</span>
+       <button onClick={getAllTracks} >All Tracks</button>
+       </div> 
+       }
       src={mappedTrack}
       onPlay={e => console.log("onPlay") }
-      footer= {mappedCount + '  plays'} 
-
-       
-       
-      // other props here
+      footer={mappedCount > 1?mappedCount.toString() + ` plays`: `[] plays`}
     />
+    
 
 </div>
     </div>
  
+ 
 </div>
-          
+         
      
   );
 }
