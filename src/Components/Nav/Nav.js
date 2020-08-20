@@ -36,13 +36,13 @@ const Nav = (props) => {
             <nav className='desktop-nav'>
                 <ul>
                     <li>
-                        <Link to='/auth'>Auth</Link>
+                        <Link to='/'>Auth</Link>
                     </li>
                     <li>
                         <Link to='/dash'>Dash</Link>
                     </li>
                     <li>
-                        <Link to='/Profile'>Profile</Link>
+                        <Link to='/drop'>Profile</Link>
                     </li>
                     <li>
                         <Link to='/Search'>Search</Link>
