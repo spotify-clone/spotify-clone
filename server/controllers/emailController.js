@@ -5,7 +5,7 @@ sgMail.setApiKey(SENDGRID_API_KEY);
 //post to API email
 module.exports = {
   email: async (req, res) => {
-    console.log(EMAIL)
+   // console.log(EMAIL)
     let msg;
     let { userEmail, subject, text } = req.body;
     console.log(req.body, "req body");

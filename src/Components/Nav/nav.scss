@@ -1,8 +1,10 @@
 @import '../../SCSS/_var.scss';
 
 .main-nav {
+    top:65px;
+    left:0;
     background-color: $nav-color;
-    display: flex;
+    position: fixed;
     height: 100vh;
     width: 15vw;
     
