@@ -73,21 +73,22 @@ class Dash extends Component {
                 </div>
         })
 
-        console.log(mappedFeatures)
+        // console.log(mappedFeatures)
 
 
         return (
             <div>
-         
+                <div className='carousels'>
                 <MyCarousel list={list} />
-                <span><h3>Album Hip-hop</h3></span>
+                <span><h3>Most Played</h3></span>
                 <MyCarousel list={list} />
-                <span><h3>Album Study-Music</h3> </span>
+                <span><h3>Liked</h3> </span>
                 <MyCarousel  list={list} />
-                <span><h3>Album Country</h3></span>
+                <span><h3>Suggestions</h3></span>
+                </div>
             </div>
         )
     }
 }
 
-export default Dash
+export default Dash;

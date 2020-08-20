@@ -1,23 +1,26 @@
 body {
-  
-  background: linear-gradient(to right, #4e4e4e, #f0f0f0);
+ background: linear-gradient(to right, #4e4e4e, #f0f0f0);
 }
-
 .App {
   background-image: url('./boombox.png');
+  height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
+  background-position: center;
+  font-family: 'Hind Siliguri', sans-serif;
+
 }
-#left{
+
+
+.left{
   width: 25vw;
 }
-#right{
+.right{
   position: fixed;
-  top: 65px;
-  left: 15vw;
-  width: 70vw;
+  top: 100px;
+  left: 17vw;
+  width: 60vw;
+  text-align: center;
 }
 
 
