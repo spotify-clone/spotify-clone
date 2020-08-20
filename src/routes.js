@@ -7,15 +7,7 @@ import Search from './Components/Search/Search';
 import Chart from './Components/Chart/Chart';
 import Player from './Components/Player/Player'
 import Chat from './Components/Chat/Chat';
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> master
 import Drop from './Components/Dropzone/DropZone';
-=======
- import Drop from './Components/Dropzone/DropZone';
->>>>>>> master
-
 
  
 export default (
@@ -28,10 +20,7 @@ export default (
         <Route path="/chart" component={Chart} />
         <Route path="/player" component={Player}/>
         <Route path="/chat" component={Chat} />
-<<<<<<< HEAD
-=======
         
->>>>>>> master
         <Route path='/drop' component={Drop} />
     </Switch>
 )
