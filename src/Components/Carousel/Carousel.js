@@ -60,8 +60,8 @@ const MyCarousel = (props) => {
                     <div
                         style={{
                             background: 'red',
-                            width: 150,
-                            height: 150,
+                            width: 170,
+                            height: 170,
                             border: "30px solid white",
                             textAlign: "center",
                             lineHeight: "240px",

@@ -5,6 +5,13 @@ module.exports ={
         db.get_track()
         .then(data => res.status(200).send(data))
         .catch(error => console.log(error))
+
+
+        console.log('hit')
+      
+      
+       
+
     },
     createTrack: (req,res) =>{
 
@@ -62,6 +69,15 @@ module.exports ={
         res.status(200).send(add)
 
 
+    },
+    sendCount: async (req, res) => {
+        const db = req.app.get('db'),
+        {id} = req.params,
+        {count} = req.body;
+        
+        const counter = db.add_count(count, id)
+
+        res.status(200).send(counter)
     },
 
     getUsersTrack: async(req,res)=>{
