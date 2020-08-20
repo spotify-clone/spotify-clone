@@ -49,6 +49,7 @@ const sendCount = () => {
         <div id='right' >
         {/* <Chat /> */}
           {routes}
+          </div>
           <div id='audio'>
         
 <div onClick={addCount} >
@@ -66,7 +67,7 @@ const sendCount = () => {
     </div>
  
 </div>
-          </div>
+          
      
   );
 }

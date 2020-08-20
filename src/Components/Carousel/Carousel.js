@@ -13,7 +13,7 @@ const MyCarousel = (props) => {
    
  
  const mapped = props.list.map(element=>{
-    return <img src={element.images[2].url}/>
+    return <img style={{display: "flex", justifyContent:"center", height: "150px", width: "150px"}} src={element.images[0].url}/>
 })
 
     return (
@@ -56,19 +56,16 @@ const MyCarousel = (props) => {
                     }
                 }}
 
-                itemsToShow={7}
+                itemsToShow={6}
                 speed={400}
             >
             
                 {props.list.map((item, index) => (
                     <div
                         style={{
-                           
-                            width: 75,
-                            height: 75,
-                            
+                            width: 160,
+                            height: 150,
                             textAlign: "center",
-                            
                             boxSizing: "border-box"
                         }}
                         key={index}

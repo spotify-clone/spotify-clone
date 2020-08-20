@@ -12,15 +12,22 @@ body {
 }
 
 
-.left{
+#left{
   width: 25vw;
 }
-.right{
+#right{
   position: fixed;
-  top: 100px;
+  top: 70px;
   left: 17vw;
-  width: 60vw;
+  width: 80vw;
   text-align: center;
+  color: white;
+  font-size: 25px;
+}
+
+h3 {
+  margin: 0;
+  text-shadow: black 0px 4px 4px;
 }
 
 #audio{
