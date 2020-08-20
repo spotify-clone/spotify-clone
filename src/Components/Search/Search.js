@@ -22,7 +22,7 @@ const Search = (props) => {
 
     }
     
-    console.log(artist.items.name)
+    console.log(artist.items)
 
 
 
