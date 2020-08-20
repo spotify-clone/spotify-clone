@@ -8,7 +8,7 @@ module.exports ={
         
         const count = await db.add_count(id)
         
-        res.status(200).send(result + count)
+        res.status(200).send(result)
  
 
 

@@ -20,9 +20,9 @@ function App(props) {
   const [audio, setAudio] = useState([])
   let [count, setCount] = useState('')
 
-  const addCount = () => {
-    setCount( +count+ 1)
-  }
+  // const addCount = () => {
+  //   setCount( +count+ 1)
+  // }
 
 const sendCount = () => {
 
@@ -32,14 +32,14 @@ const sendCount = () => {
 
   useEffect(()=>{
    
-  axios.get(`/api/track/`)
+  axios.get(`/api/track/${1}`)
   .then((res)=>{
       setAudio(res.data)
   })
   .catch(err=>console.log(err))
   
   },[])
-
+const mappedCount = audio.map(ele =>ele.count)
   
       const mappedTrack = audio.map(ele =>ele.track)
 <<<<<<< HEAD
@@ -62,11 +62,13 @@ const sendCount = () => {
           {routes}
           <div id='audio'>
         
-<div onClick={addCount} >
+<div >
+ 
      <AudioPlayer 
       // autoPlay
       src={mappedTrack}
       onPlay={e => console.log("onPlay") }
+      footer= {mappedCount + '  plays'} 
 
        
        
