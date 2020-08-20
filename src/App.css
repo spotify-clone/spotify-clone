@@ -13,12 +13,12 @@ body {
 #left{
   width: 25vw;
 }
-#right{
+/* #right{
   position: fixed;
   top: 65px;
   left: 15vw;
   width: 85vw;
-}
+} */
 
 #audio{
   position: fixed;
@@ -26,6 +26,10 @@ body {
   width: 50vw;
 }
 
+#colored{
+  font-size: 40px;
+  color:green
+}
 
 
 

@@ -96,22 +96,25 @@ module.exports = {
 
   getArtistTracks: async(req,res)=>{
 
-    let newArray;
+    let newObj;
 
 
     await spotify.request(`https://api.spotify.com/v1/artists/3TVXtAsR1Inumwj472S9r4/top-tracks?country=SE`)
-    .then(data => console.log(data))
+    .then(data => newObj = {...data})
     .catch((err)=>{
       console.error(`Error occurred:`+ err);
     })
-    const { tracks } = newArray
+    
+    const { tracks } = newObj
 
     for(var i=0; i < tracks.length; i++){
       
     if(tracks[i].preview_url !== null){
-      return res.status(200).send(tracks)
+
+      res.status(200).send(tracks)
 
     }};
+
 
 
   },
@@ -125,7 +128,7 @@ module.exports = {
 
     await spotify.request(`https://api.spotify.com/v1/search?q=${value}&type=artist&limit=1`)
     .then((data)=>{
-      console.log(data.artists)
+      res.status(200).send(data.artist)
     })
     .catch((err)=>{
       console.error(`Error occurred:`+ err);

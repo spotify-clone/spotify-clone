@@ -92,8 +92,9 @@ massive({
 app.post(`/api/email`, email.email)
 
 //local
-app.get('/api/user-tracks/:id', local.getUsersTrack)
 app.get('/api/track', local.getTrack)
+app.get(`/api/tracks`, local.getTracks)
+app.get('/api/user-tracks/:id', local.getUsersTrack)
 app.put(`/api/local/:id`, local.addName)
 app.put('/api/local2/:id', local.updatePic)
 app.put(`/api/track/:id`, local.createTrack)
