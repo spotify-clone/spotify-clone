@@ -15,9 +15,7 @@ body {
 #left{
   width: 25vw;
 }
-
-/* 
-  #right{
+ #right{
   position: fixed;
   top: 70px;
   left: 17vw;
@@ -34,13 +32,29 @@ h3 {
 
 #audio{
   position: fixed;
-  bottom:0;
-  width: 50vw;
+  left:15vw;
+  bottom:10px;
+  width: 70vw;
+  color:black;
+
 }
 
 #colored{
   font-size: 40px;
   color:green
+<<<<<<< HEAD
 }
   */
+=======
+} 
+
+#button-bag{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
+>>>>>>> master
 
