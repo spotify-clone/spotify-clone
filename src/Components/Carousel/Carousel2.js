@@ -7,7 +7,7 @@ const MyCarousel2 = (props) => {
     let test = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     //console.log(props.albums.images[1].url)
 
-    console.log(props.list)
+     
 
 
     const mappedFeatures = props.featuresList.map((element, index) => {
