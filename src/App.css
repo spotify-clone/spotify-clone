@@ -7,9 +7,24 @@ body {
   background-image: url('./boombox.png');
   background-size: cover;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+#left{
+  width: 25vw;
+}
+#right{
+  position: fixed;
+  top: 65px;
+  left: 15vw;
+  width: 85vw;
 }
 
-
+#audio{
+  position: fixed;
+  bottom:0;
+  width: 50vw;
+}
 
 
 
