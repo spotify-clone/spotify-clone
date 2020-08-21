@@ -57,7 +57,11 @@ const mappedCount = audio.map(ele =>ele.count)
         
           {routes}
           <div id='audio'>
-        
+
+
+     {props.location.pathname ==="/" ? null:    
+
+
      <AudioPlayer 
        //autoPlay
        showSkipControls={true}
@@ -73,8 +77,11 @@ const mappedCount = audio.map(ele =>ele.count)
       src={mappedTrack}
       onPlay={e => console.log("onPlay") }
       footer={mappedCount > 1 ? mappedCount.toString() + ` plays`: `[] plays`}
+
     />
-    
+
+
+      }
 
 </div>
     </div>
