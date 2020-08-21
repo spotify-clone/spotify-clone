@@ -102,9 +102,10 @@ class Player extends Component {
 
 
 
+
         return (
           <div>
-              <div style={{position: "absolute", left: "25%"}}>
+              <div style={{position: "absolute", top: "50%", right: "20%"}}>
               {mappedTracks}  
                   </div> 
                 <div>
