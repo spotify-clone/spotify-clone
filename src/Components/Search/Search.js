@@ -43,7 +43,7 @@ const Search = (props) => {
 
     const mappedTracks = tracks.map((element,index)=>{
         console.log(element)
-        return <div className='trackList'key={index}>
+        return <div className='trackList' key={index}>
            <p> {element.name}</p> 
           
 
@@ -51,10 +51,10 @@ const Search = (props) => {
     })
 
     const mappedArtists = artist.map((element,index)=>{
-        
+console.log(element)
         return <div key={index} >
-                     <h1>{element.name}</h1>
-                     <img className='artistImg' src={element.images[0].url} />
+                      <h1>{element.name} </h1>
+                     <img className='artistImg' src={element.images[0].url} alt='no pic available'/>
             </div>
     })
 
