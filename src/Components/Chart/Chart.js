@@ -6,8 +6,16 @@ class Chart extends Component {
     constructor(props){
         super(props);
         this.state={
-            tracks:{},
-            chartData:{}
+            // tracks:{},
+            // chartData:{}
+            labels:[],
+            datasets:[
+                {
+                    label: 'Times Played',
+                    backgroundColor:['blue','red','green','purple','black','yellow'],
+                    data:[]
+                }
+            ]
 
                 
         }
@@ -16,37 +24,29 @@ class Chart extends Component {
         this.getMp3Info()
     }
     getMp3Info=()=>{
+
+        const { labels, datasets} = this.state
+
+        let newLabels = [...labels];
+        let newDatasets = [...datasets]
+
         axios.get('/api/tracks')
         .then(res=>{
-            if(res.data && res.data.length !== this.state.tracks.length){
-                this.setState({tracks: res.data})
-                const {tracks} = this.state
-                this.setState({chartData:{
-                    labels:[tracks[0].name, tracks[1].name,tracks[2].name,tracks[3].name,tracks[4].name],
-                datasets:[
-                    {
-                        label:'Times Played',
-                        data:[
-                            tracks[0].count, tracks[1].count,tracks[2].count,tracks[3].count,tracks[4].count
-    
-                        ],
-                        backgroundColor:[
-                            'blue',
-                            'red',
-                            'green',
-                            'purple',
-                            'black',
-                            'yellow',
-                        ]
-                    }
-                ]
-            } })
-
-            }
+                res.data.forEach(element=>{
+                    newLabels.push(element.name)
+                    newDatasets[0].data.push(element.count)
+                    
+                })
+                this.setState({
+                    labels: newLabels,
+                    datasets: newDatasets
+                })
         })
         .catch(error => console.log(error))
     }
     
+
+
 
 
     render() 
@@ -55,7 +55,7 @@ class Chart extends Component {
                 <div className="chart">
                  
         <Bar
-        data={this.state.chartData}
+        data={this.state}
         options={{
             title:{
                 display:true,
@@ -71,6 +71,20 @@ class Chart extends Component {
                     display:true,
                     fontColor:'black'
                 }
+            },
+            scales:{
+                xAxes:[{
+                    ticks:{
+                        fontColor:'white',
+                        fontSize: 20
+                    }
+                }],
+                yAxes:[{
+                    ticks:{
+                        fontColor:"gold",
+                        fontSize: 20
+                    }
+                }]
             },
             label:{
                 display:true,
