@@ -60,7 +60,7 @@ const mappedCount = audio.map(ele =>ele.count)
           <div id='audio'>
 
 
-     {props.location.pathname ==="/" ? null:    
+     {props.location.pathname ==="/" || props.location.pathname==="/search/bob"? null:    
 
 
      <AudioPlayer 

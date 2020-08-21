@@ -7,6 +7,7 @@ import '../Search/search.scss';
 const Search = (props) => {
     const [artist, setArtist] = useState([])
     const [tracks, setTracks] = useState([])
+    const [albums, setAlbums] = useState([])
 
     //artist = [ 'drake'] == artist.length  = 1
 
@@ -24,16 +25,18 @@ const Search = (props) => {
         .then(res => {
             if(res.data && res.data.length !== artist.length){
                 setArtist(res.data)
-                console.log(res.data)
                 res.data.forEach(element=>{
                     if(element.id){
                         axios.get(`/api/artist-track/${element.id}`)
                         .then(res =>{
                             setTracks(res.data)
+                            axios.get(`/api/artist-album/${element.id}`)
+                            .then(res =>{
+                                setAlbums(res.data)
+                            })
                         })
                     }
                 })
-                // setArtist(res.data)
             }
 
         })
@@ -41,9 +44,16 @@ const Search = (props) => {
 
     }
 
+    const mappedAlbums = albums.map((element,index)=>{
+        
+        return<div className='albums' key={index}>
+            <img className='albumImg' src={element.images[1].url} alt='no pic available'/>
+            <p>{element.name}</p>
+        </div>
+    })
     const mappedTracks = tracks.map((element,index)=>{
-        console.log(element)
-        return <div className='trackList' key={index}>
+        
+        return <div className='track' key={index}>
            <p> {element.name}</p> 
           
 
@@ -51,10 +61,10 @@ const Search = (props) => {
     })
 
     const mappedArtists = artist.map((element,index)=>{
-console.log(element)
-        return <div key={index} >
-                      <h1>{element.name} </h1>
-                     <img className='artistImg' src={element.images[0].url} alt='no pic available'/>
+
+        return <div className='artist' key={index} >
+                      <h3>{element.name} </h3>
+                     <img className='artistImg' src={element.images[2].url} alt='no pic available'/>
             </div>
     })
 
@@ -66,11 +76,19 @@ console.log(element)
 
 
 
-
     return (
-        <div style={{position:"relative" }}>
+        <div className='mainDiv'>
+            <div className='artist-box'>     
             {mappedArtists}
+            <p>SONGS</p>
+            </div>
+            <div className='track-box'>
             {mappedTracks}
+            </div>
+            <div className='album-box'>
+            <p>Albums</p>
+            {mappedAlbums}
+            </div>
         </div>
     )
 }
