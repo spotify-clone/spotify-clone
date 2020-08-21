@@ -41,9 +41,9 @@ const mappedCount = audio.map(ele =>ele.count)
   const mappedName = audio.map(ele => ele.name)
   const mappedTrack = audio.map(ele =>ele.track)
 
-  console.log(audio)
-  console.log(mappedCount.toString())
-  console.log(mappedTrack)
+  // console.log(audio)
+  // console.log(mappedCount.toString())
+  // console.log(mappedTrack)
 
   return (
     <div className="App">
