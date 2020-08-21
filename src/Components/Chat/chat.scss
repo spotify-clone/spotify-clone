@@ -19,14 +19,17 @@
     border-radius: 5px;
     border-color: $border-color;
     color: $text-color;
-    height: 50vh;
-    width: 20vw;
+    height: 60vh;
+    width: 50vw;
     background-color: $nav-color;
     position: fixed;
-    bottom: 25px;
+    // bottom: 25px;
     right: 25px;
 }
 
+#share{
+  display: flex;  
+}
 .name-input {
     width: 15vw;
     height: 20px;
@@ -50,11 +53,12 @@
 }
 
 .mapped-messages {
+    font-size:20px;
     border-radius: 5px;
     padding: 2%;
     color: black;
-    width: 17vw;
-    height: 20vh;
+    width: 45vw;
+    height: 70vh;
     background-color: white;
 }
 

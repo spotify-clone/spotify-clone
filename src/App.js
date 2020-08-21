@@ -27,16 +27,17 @@ const getAllTracks=()=>{
   })
 }
 
-  useEffect(()=>{
    
-  axios.get(`/api/track/${2}`)
-  .then((res)=>{
-      setAudio(res.data)
-  })
-  .catch(err=>console.log(err))
   
-  },[])
-
+  const localTrack = () =>{
+    
+    axios.get(`/api/track/${2}`)
+    .then((res)=>{
+        setAudio(res.data)
+    })
+    .catch(err=>console.log(err))
+    
+}
 const mappedCount = audio.map(ele =>ele.count)
   const mappedName = audio.map(ele => ele.name)
   const mappedTrack = audio.map(ele =>ele.track)
@@ -61,7 +62,7 @@ const mappedCount = audio.map(ele =>ele.count)
        showSkipControls={true}
        header={
        <div id='button-bag'>
-       <button>Local Tracks</button>
+       <button onClick={localTrack} >Local Tracks</button>
        <span>{mappedName}</span>
        <button onClick={getAllTracks} >All Tracks</button>
        </div> 

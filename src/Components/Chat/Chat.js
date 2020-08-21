@@ -3,6 +3,8 @@ import io from 'socket.io-client'
 import queryString from 'query-string'
 import {connect} from 'react-redux'
 import './chat.scss'
+import {getMusic} from '../../Redux/musicReducer'
+import axios from 'axios'
 
 
 
@@ -16,9 +18,12 @@ function Chat(props) {
     const [receivedMessages, setReceivedMessages] = useState([])
     const [showChat, setShowChat] = useState(false);
     const ENDPOINT = 'localhost:3333'
+    const [data, setData] = useState(false)
+    let [num, setNum] = useState(0)
 
 
 
+    
     //First end point connecting the socket to the end point
     useEffect(() => {
         socket = io.connect(ENDPOINT)
@@ -31,8 +36,26 @@ console.log(props)
      }, [props.location.search])
 
 
+//Create a function that pools a song from the database that a user selects and gets stored in their local state
+
+
+     //My thought process behind this was cause I used it for server and I'd someone be able to save data 
+     //right now I don't know If i'm sending new data or just displaying what's in state
+useEffect(()=>{
+
+    socket.on('message  data', data => {
+        console.log(data, "use effect")
+//This is the same as saying prev state =>prev state using
+        setReceivedMessages(receivedMessages => [...receivedMessages, data])
+
+    })
+    socket.emit('message sent', {data})
+}, [data])
+
+
 //Receiving the message from the server and then setting it on state
     useEffect(() => {
+      
         socket.on('message from server', message => {
             console.log(message)
  //This is the same as saying prev state =>prev state using
@@ -42,12 +65,39 @@ console.log(props)
     }, [])
 
 
+    //Function to send music to back end so Users can share music
+const sendMusic = () =>{
+    setNum(num++)
+   // setData('https://spotify-bucket33.s3.amazonaws.com/c499c9e9-4a6d-4e4f-b59f-8695dee7c236-Black-Tom-Brady---11_12_17,-11.03-AM.mp3')
+    console.log('hit send music', data)
+    // if(data){
+    //     socket.emit('message sent', {data})
+        
+    // }
+   // console.log(data)
+}
+
     const sendMessage = (event) => {
         console.log('hit send message', message)
         if (message) {
             socket.emit('message', { message, name })
+            
         }
     }
+
+//Function to add linked item to redux 
+const reduxMusic = (num) => {
+
+  axios.get(`/api/track/${9}`)
+  .then(res=>{
+      let mappedTracks = res.data.map((song, index) =>song.track)
+      console.log(mappedTracks)
+      setData(mappedTracks)
+      getMusic(mappedTracks)
+  })
+
+}
+
 
 //Mapping the returned messages from the server the display
     const mappedMessages = receivedMessages.map((word, index) => {
@@ -59,7 +109,7 @@ console.log(props)
         )
     })
     
-     console.log(name)
+     console.log("data", data)
 
     //Trying to create a condition where the name box goes away after the informaion is entered.
     //Right now since any value makes it truthy it goes away....
@@ -85,11 +135,15 @@ console.log(props)
                     <button className="btn" onClick={(e) => sendMessage(e)} >Send</button>
                     
                     <div className='mapped-messages'>
-                        {mappedMessages}
+                        {mappedMessages }
+                       {data ?<div>{name} says,
+                       <a href={data}  >
+                         ...Hear My Music</a> </div> :null }
                     </div>
                     <button className='btn' onClick={() => setShowChat(!showChat)}>close</button>
                 </div>
-             
+                <button id='share' onClick={reduxMusic} >Get Music</button>
+             <button id='share' onClick={sendMusic} >Share Music</button>
             </div> 
                
         
