@@ -49,7 +49,7 @@ io.on('connection', socket => {
   socket.on('message sent', data => {
     console.log(data)
    // socket.broadcast.emit('message dispatched', data.message);
-   io.emit('message data', data )
+   io.emit('message data', data)
   })
   socket.on('disconnect', () => {
     console.log('User Disconnected');
@@ -68,8 +68,7 @@ app.use(awsRouter)
 
 
  //Session information
-app.use(session({
-    secret: SESSION_SECRET,
+app.use(session({    secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
