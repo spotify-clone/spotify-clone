@@ -36,7 +36,7 @@ const Nav = (props) => {
             <nav className='desktop-nav'>
                 <ul>
                     <li>
-                        <Link to='/'>Auth</Link>
+                        <Link to='/'>Home</Link>
                     </li>
                     <li>
                         <Link to='/dash'>Dash</Link>
@@ -44,9 +44,9 @@ const Nav = (props) => {
                     <li>
                         <Link to='/drop'>Profile</Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to='/Search'>Search</Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link to='/Chart'>Chart</Link>
                     </li>

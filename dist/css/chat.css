@@ -4,6 +4,8 @@
   border-radius: 5px;
   border-style: double;
   position: fixed;
+  font-size: 35px;
+  height: 50px;
   bottom: 25px;
   right: 25px;
   width: 20vw;
@@ -25,22 +27,27 @@
   border-color: #808080;
   color: #fff;
   height: 50vh;
-  width: 20vw;
-  background-color: #0f0f0f;
+  width: 60vw;
+  background-color: darkgray;
   position: fixed;
-  bottom: 25px;
-  right: 25px;
+  bottom: 200px;
+}
+
+#share {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .name-input {
   width: 15vw;
-  height: 20px;
+  height: 15px;
   border-radius: 5px;
   padding: 2%;
 }
 
 .chat-input {
-  width: 17vw;
+  width: 55vw;
   height: 3rem;
   border-radius: 5px;
   padding: 2%;
@@ -48,18 +55,19 @@
 
 .btn {
   margin-top: 2%;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
   width: 17.75vw;
   border-radius: 5px;
   background-color: #19FE00;
 }
 
 .mapped-messages {
+  font-size: 20px;
   border-radius: 5px;
   padding: 2%;
   color: black;
-  width: 17vw;
-  height: 20vh;
+  width: 45vw;
+  height: 70vh;
   background-color: white;
 }
 /*# sourceMappingURL=chat.css.map */
