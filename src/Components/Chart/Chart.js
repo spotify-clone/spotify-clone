@@ -8,8 +8,7 @@ class Chart extends Component {
     constructor(props){
         super(props);
         this.state={
-            // tracks:{},
-            // chartData:{}
+           
             labels:[],
             datasets:[
                 {
