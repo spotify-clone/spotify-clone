@@ -28,7 +28,8 @@ const getAllTracks=()=>{
   })
 }
 
-   
+  //Use the index so I can cycle through the array's
+  //reference the react-i-ii afternoon for this exact lesson
   
   const localTrack = () =>{
     

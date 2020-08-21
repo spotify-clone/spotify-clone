@@ -51,7 +51,7 @@ const Nav = (props) => {
                         <Link to='/Chart'>Chart</Link>
                     </li>
                     <li>
-                        <Link to='/Landing'>Landing</Link>
+                        <Link to='/player'>Player</Link>
                     </li>
                     <li>
                         <Link to='/Chat'>Chat</Link>

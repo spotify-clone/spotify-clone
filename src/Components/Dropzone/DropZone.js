@@ -250,7 +250,7 @@ return(
   <div>
     <div className='dropbox-container'>
     <div className='name-box'>
-    <input className='name' type="text" placeholder="Add Name"></input>
+    <input className='name' type="text" placeholder="Add Name"  onSubmit={updateName} ></input>
     </div>
         <div className='add-photo'>
             <p>Add image then click send</p>
