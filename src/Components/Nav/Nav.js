@@ -50,7 +50,9 @@ const Nav = (props) => {
                     <li>
                         <Link to='/Chart'>Chart</Link>
                     </li>
-                    
+                    <li>
+                        <Link to='/player'>Player</Link>
+                    </li>
                     <li>
                         <Link to='/Chat'>Chat</Link>
                     </li>
