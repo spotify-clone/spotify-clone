@@ -48,7 +48,8 @@ io.on('connection', socket => {
 
   socket.on('message sent', data => {
     console.log(data)
-    socket.broadcast.emit('message dispatched', data.message);
+   // socket.broadcast.emit('message dispatched', data.message);
+   io.emit('message data', data )
   })
   socket.on('disconnect', () => {
     console.log('User Disconnected');
@@ -109,7 +110,7 @@ app.post('/api/user/:user', authCtrl.saveLocalUser)
 app.get('/api/playlist', apiCtrl.getPlaylist)
 app.get('/api/albums', apiCtrl.getAlbums)
 app.get('/api/features', apiCtrl.getFeatures)
-app.get('/api/artist-track/:id', apiCtrl.getArtistTracks)
+app.get('/api/artist-track', apiCtrl.getArtistTracks)
 app.get('/api/search/', apiCtrl.searchApi)
 
 //Auth EndPoint
