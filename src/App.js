@@ -28,38 +28,17 @@ const getAllTracks=()=>{
   })
 }
 
-  useEffect(()=>{
    
-  axios.get(`/api/track/${2}`)
-  .then((res)=>{
-      setAudio(res.data)
-  })
-  .catch(err=>console.log(err))
   
-  },[])
-
-
-//   toggleNext = () => {
-//     if(this.state.followId === this.state.profile.length)
-//         return;
-
-//     this.setState(prevState => ({
-//         followId: prevState.followId + 1
-//     }))
-// }
-
-// togglePrev = () => {
-//     if(this.state.followId === 1)
-//      return;
-
-//     this.setState(prevState => ({
-//         followId: prevState.followId - 1
-//     }))
-// }
-
-
-
-
+  const localTrack = () =>{
+    
+    axios.get(`/api/track/${2}`)
+    .then((res)=>{
+        setAudio(res.data)
+    })
+    .catch(err=>console.log(err))
+    
+}
 const mappedCount = audio.map(ele =>ele.count)
   const mappedName = audio.map(ele => ele.name)
   const mappedTrack = audio.map(ele =>ele.track)
@@ -86,7 +65,7 @@ const mappedCount = audio.map(ele =>ele.count)
        onClickNext={() => console.log('next')}
        header={
        <div id='button-bag'>
-       <button>Local Tracks</button>
+       <button onClick={localTrack} >Local Tracks</button>
        <span>{mappedName}</span>
        <button onClick={getAllTracks} >All Tracks</button>
        </div> 
