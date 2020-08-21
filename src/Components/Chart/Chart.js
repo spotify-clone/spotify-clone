@@ -21,13 +21,21 @@ class Chart extends Component {
             if(res.data && res.data.length !== this.state.tracks.length){
                 this.setState({tracks: res.data})
                 const {tracks} = this.state
+                const mappedTracksName = tracks.map((element,index)=>{
+                    console.log(element.name)
+                    return element.name 
+                })
+                const mappedTrackData = tracks.map((element, index)=>{
+                    return element.count
+                })
+                {console.log(mappedTrackData.join(' '))}
                 this.setState({chartData:{
-                    labels:[tracks[0].name, tracks[1].name,tracks[2].name,tracks[3].name,tracks[4].name],
+                    labels:[mappedTracksName],
                 datasets:[
                     {
                         label:'Times Played',
                         data:[
-                            tracks[0].count, tracks[1].count,tracks[2].count,tracks[3].count,tracks[4].count
+                           mappedTrackData
     
                         ],
                         backgroundColor:[
