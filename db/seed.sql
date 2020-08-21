@@ -43,3 +43,17 @@ CREATE TABLE mp3_tracks(
     count int default(0)
 
 );
+
+create table room(
+id serial primary key,
+name varchar(100),
+user_id int references local_account(account_id), 
+user_id2 int references local_account(account_id)
+);
+
+create table messages(
+id serial,
+name varchar(200),
+text varchar(500),
+room int references room(id)
+);

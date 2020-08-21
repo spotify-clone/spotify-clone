@@ -12,9 +12,7 @@ let socket;
 
 function Chat(props) {
 
-    const initalState ={
-        joined:false
-    }
+   
     const [name, setName] = useState('');
     const [room, setRoom] = useState(null);
     const [message, setMessage] = useState('');
@@ -23,22 +21,11 @@ function Chat(props) {
     const ENDPOINT = 'localhost:3333'
     const [data, setData] = useState(false)
     let [num, setNum] = useState(0)
-    let [joined, setJoined] = useState(initalState)
+    let [joined, setJoined] = useState(false)
 
 
 //Function to join room
-const joinRoom = () => {
-    if(room){
-        socket.emit('join room', {
-            room: room
-        })
-    }
-    
-}
 
-const joinSucess = () => {
-    setJoined(true)
-}
 
     //First end point connecting the socket to the end point
     useEffect(() => {
@@ -69,6 +56,15 @@ useEffect(()=>{
 }, [data])
 
 
+//Atempting to add Join success to a use effect passing in data...
+useEffect(() =>{
+    socket.on('room joined', data =>{
+        joinRoom()
+        if(joined) joinSucess(data);
+    })
+},[data])
+
+
 //Receiving the message from the server and then setting it on state
     useEffect(() => {
       
@@ -91,6 +87,19 @@ const sendMusic = () =>{
         
     }
    // console.log(data)
+}
+
+const joinRoom = () => {
+    if(room){
+        socket.emit('join room', {
+            room: room
+        })
+    }
+    
+}
+
+const joinSucess = () => {
+    setJoined(true)
 }
 
     const sendMessage = (event) => {

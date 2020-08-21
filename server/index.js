@@ -37,7 +37,7 @@ app.use(bodyParser.json())
 io.on('connection', socket => {
   console.log('User Connected');
   io.emit('message dispatched', 'hello');
-
+ 
   socket.on('message', ({name, message}) =>{
 
     console.log( "Hit socket on message ",message)
@@ -53,10 +53,14 @@ io.on('connection', socket => {
   })
 
   socket.on('join room', data => {
-    console.log(req.session)
+    console.log(session)
+    session.room = data
+     
+
+
     console.log('room joined', data.room)
     socket.join(data.room);
-    io.to(data.room).emit('room joined');
+    io.to(data.room).emit('room joined', session.room);
   })
   socket.on('message sent', data => {
     io.to(data.room).emit('message dispatched', data.message);
