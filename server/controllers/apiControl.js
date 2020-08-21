@@ -103,13 +103,14 @@ module.exports = {
     //id = 93t2jfdig3g30g3g0ejgri33
 
 
-    await spotify.request(`https://api.spotify.com/v1/artists/${id}/top-tracks?country=SE`)
+    await spotify.request(`https://api.spotify.com/v1/artists/3TVXtAsR1Inumwj472S9r4/top-tracks?country=SE`)
     .then(data => newObj = {...data})
     .catch((err)=>{
       console.error(`Error occurred:`+ err);
     })
     
     const { tracks } = newObj
+
 
     for(var i=0; i < tracks.length; i++){
       

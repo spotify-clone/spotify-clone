@@ -12,6 +12,7 @@ import 'react-h5-audio-player/lib/styles.css'
 function App(props) {
 
   const [audio, setAudio] = useState([])
+  const [index, setIndex] = useState(1)
   let [count, setCount] = useState('')
 
  
@@ -25,23 +26,24 @@ const getAllTracks=()=>{
   })
 }
 
-  useEffect(()=>{
    
-  axios.get(`/api/track/${2}`)
-  .then((res)=>{
-      setAudio(res.data)
-  })
-  .catch(err=>console.log(err))
   
-  },[])
-
+  const localTrack = () =>{
+    
+    axios.get(`/api/track/${2}`)
+    .then((res)=>{
+        setAudio(res.data)
+    })
+    .catch(err=>console.log(err))
+    
+}
 const mappedCount = audio.map(ele =>ele.count)
   const mappedName = audio.map(ele => ele.name)
   const mappedTrack = audio.map(ele =>ele.track)
 
-  console.log(audio)
-  console.log(mappedCount.toString())
-  console.log(mappedTrack)
+  // console.log(audio)
+  // console.log(mappedCount.toString())
+  // console.log(mappedTrack)
 
   return (
     <div className="App">
@@ -57,16 +59,18 @@ const mappedCount = audio.map(ele =>ele.count)
      <AudioPlayer 
        //autoPlay
        showSkipControls={true}
+       onClickPrevious={() => console.log('prev')}
+       onClickNext={() => console.log('next')}
        header={
        <div id='button-bag'>
-       <button>Local Tracks</button>
+       <button onClick={localTrack} >Local Tracks</button>
        <span>{mappedName}</span>
        <button onClick={getAllTracks} >All Tracks</button>
        </div> 
        }
       src={mappedTrack}
       onPlay={e => console.log("onPlay") }
-      footer={mappedCount > 1?mappedCount.toString() + ` plays`: `[] plays`}
+      footer={mappedCount > 1 ? mappedCount.toString() + ` plays`: `[] plays`}
     />
     
 

@@ -33,6 +33,12 @@
   bottom: 200px;
 }
 
+#share {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .name-input {
   width: 15vw;
   height: 15px;
@@ -56,11 +62,12 @@
 }
 
 .mapped-messages {
+  font-size: 20px;
   border-radius: 5px;
   padding: 2%;
   color: black;
-  width: 55vw;
-  height: 30vh;
+  width: 45vw;
+  height: 70vh;
   background-color: white;
 }
 /*# sourceMappingURL=chat.css.map */
