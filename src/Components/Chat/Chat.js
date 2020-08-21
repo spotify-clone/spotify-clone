@@ -43,13 +43,13 @@ console.log(props)
      //right now I don't know If i'm sending new data or just displaying what's in state
 useEffect(()=>{
 
-    socket.on('message  data', data => {
+    socket.on('message data', data => {
         console.log(data, "use effect")
 //This is the same as saying prev state =>prev state using
         setReceivedMessages(receivedMessages => [...receivedMessages, data])
 
     })
-    socket.emit('message sent', {data})
+    // socket.emit('message sent', {data})
 }, [data])
 
 
@@ -70,10 +70,10 @@ const sendMusic = () =>{
     setNum(num++)
    // setData('https://spotify-bucket33.s3.amazonaws.com/c499c9e9-4a6d-4e4f-b59f-8695dee7c236-Black-Tom-Brady---11_12_17,-11.03-AM.mp3')
     console.log('hit send music', data)
-    // if(data){
-    //     socket.emit('message sent', {data})
+    if(data){
+        socket.emit('message sent', {data:data[0]})
         
-    // }
+    }
    // console.log(data)
 }
 
@@ -91,14 +91,14 @@ const reduxMusic = (num) => {
   axios.get(`/api/track/${9}`)
   .then(res=>{
       let mappedTracks = res.data.map((song, index) =>song.track)
-      console.log(mappedTracks)
       setData(mappedTracks)
-      getMusic(mappedTracks)
+      console.log(mappedTracks)
+      props.getMusic(mappedTracks)
   })
 
 }
 
-
+console.log(props)
 //Mapping the returned messages from the server the display
     const mappedMessages = receivedMessages.map((word, index) => {
         return (
@@ -149,5 +149,10 @@ const reduxMusic = (num) => {
         
     )
 }
-const mapStateToProps = state => state
-export default connect(mapStateToProps)(Chat);
+const mapStateToProps = state => {
+    return{
+        user: state.user,
+        music: state.music
+    }
+}
+export default connect(mapStateToProps, {getMusic})(Chat);
