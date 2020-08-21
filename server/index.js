@@ -51,6 +51,17 @@ io.on('connection', socket => {
    // socket.broadcast.emit('message dispatched', data.message);
    io.emit('message data', data)
   })
+
+  socket.on('join room', data => {
+    console.log(req.session)
+    console.log('room joined', data.room)
+    socket.join(data.room);
+    io.to(data.room).emit('room joined');
+  })
+  socket.on('message sent', data => {
+    io.to(data.room).emit('message dispatched', data.message);
+  })
+  
   socket.on('disconnect', () => {
     console.log('User Disconnected');
   })
@@ -102,8 +113,8 @@ app.put('/api/local2/:id', local.updatePic)
 app.put(`/api/track/:id`, local.createTrack)
 
 
-// app.get('/api/artist/:id' , apiCtrl.getArtist)
-// app.get('/api/user', apiCtrl.getUser)
+ app.get('/api/artist/:id' , apiCtrl.getArtist)
+ app.get('/api/user', apiCtrl.getUser)
 app.post('/api/user/:user', authCtrl.saveLocalUser)
 
 app.get('/api/playlist', apiCtrl.getPlaylist)

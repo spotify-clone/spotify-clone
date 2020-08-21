@@ -12,18 +12,34 @@ let socket;
 
 function Chat(props) {
 
+    const initalState ={
+        joined:false
+    }
     const [name, setName] = useState('');
-    const [room, setRoom] = useState('');
+    const [room, setRoom] = useState(null);
     const [message, setMessage] = useState('');
     const [receivedMessages, setReceivedMessages] = useState([])
     const [showChat, setShowChat] = useState(false);
     const ENDPOINT = 'localhost:3333'
     const [data, setData] = useState(false)
     let [num, setNum] = useState(0)
+    let [joined, setJoined] = useState(initalState)
 
 
-
+//Function to join room
+const joinRoom = () => {
+    if(room){
+        socket.emit('join room', {
+            room: room
+        })
+    }
     
+}
+
+const joinSucess = () => {
+    setJoined(true)
+}
+
     //First end point connecting the socket to the end point
     useEffect(() => {
         socket = io.connect(ENDPOINT)
@@ -85,6 +101,9 @@ const sendMusic = () =>{
         }
     }
 
+
+
+
 //Function to add linked item to redux 
 const reduxMusic = (num) => {
 
@@ -98,7 +117,7 @@ const reduxMusic = (num) => {
 
 }
 
-console.log(props)
+console.log(room)
 //Mapping the returned messages from the server the display
     const mappedMessages = receivedMessages.map((word, index) => {
         return (
@@ -117,7 +136,20 @@ console.log(props)
         <div>
              
              <button id='open-button' onClick={() => setShowChat(!showChat)}>CHAT</button>
-            
+            {true?
+            <div  > 
+            <h2>My Room: {room}  </h2>
+            <button onClick={joinRoom} >Enter</button> 
+            <input 
+            text='text'
+            name='room'
+            required
+            placeholder='Enter The Room'
+            onChange={(e)=>setRoom(e.target.value)}    
+
+            />
+            </div>:
+             null}
                 <div className='chat-container'>  
                     <h3>Enter Your name</h3>
                         <input className='name-input'
