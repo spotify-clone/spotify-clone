@@ -3,10 +3,8 @@ import routes from './routes'
 import './App.css';
 import Header from './Components/Header/Header';
 import Nav from './Components/Nav/Nav';
-
 import { withRouter } from 'react-router-dom';
 import axios from 'axios'
-
 import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
  
@@ -60,7 +58,7 @@ const mappedCount = audio.map(ele =>ele.count)
           <div id='audio'>
 
 
-     {props.location.pathname ==="/" ? null:    
+     {props.location.pathname ==="/" || props.location.pathname==="/search/bob"? null:    
 
 
      <AudioPlayer 
