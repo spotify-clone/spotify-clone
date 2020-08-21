@@ -2,15 +2,15 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   justify-items: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 20vw;
+  width: 50vw;
   height: 100vh;
   position: absolute;
   top: 10%;
@@ -97,6 +97,7 @@
 
 p {
   margin: 2%;
+  font-size: 12px;
 }
 
 h1 {

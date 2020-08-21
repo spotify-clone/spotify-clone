@@ -1,5 +1,6 @@
 import React, {useState, useEffect}from 'react'
 import axios from 'axios'
+import '../Search/search.scss';
 
 
 
@@ -12,7 +13,7 @@ const Search = (props) => {
 
     useEffect(()=>{
         searchArtist()
-    },[])
+    })
     
 
 
@@ -21,15 +22,15 @@ const Search = (props) => {
 
         axios.get(`/api/search/?search=${value}`)
         .then(res => {
-            if(res.data.length !== artist.length){
+            if(res.data && res.data.length !== artist.length){
                 setArtist(res.data)
+                console.log(res.data)
                 res.data.forEach(element=>{
                     if(element.id){
                         axios.get(`/api/artist-track/${element.id}`)
                         .then(res =>{
                             setTracks(res.data)
                         })
-
                     }
                 })
                 // setArtist(res.data)
@@ -40,11 +41,22 @@ const Search = (props) => {
 
     }
 
+    const mappedTracks = tracks.map((element,index)=>{
+        console.log(element)
+        return <div className='trackList'key={index}>
+           <p> {element.name}</p> 
+          
 
+        </div>
+    })
 
-    // const mappedArtists = artist.map((element,index)=>{
-    //     return <img key={index} src={element.images[0].url} />
-    // })
+    const mappedArtists = artist.map((element,index)=>{
+        
+        return <div key={index} >
+                     <h1>{element.name}</h1>
+                     <img className='artistImg' src={element.images[0].url} />
+            </div>
+    })
 
 
 
@@ -56,8 +68,9 @@ const Search = (props) => {
 
 
     return (
-        <div style={{position:"relative", left:"50%"}}>
-            {/* {mappedArtists} */}
+        <div style={{position:"relative" }}>
+            {mappedArtists}
+            {mappedTracks}
         </div>
     )
 }

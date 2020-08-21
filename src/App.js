@@ -14,6 +14,7 @@ import 'react-h5-audio-player/lib/styles.css'
 function App(props) {
 
   const [audio, setAudio] = useState([])
+  const [index, setIndex] = useState(1)
   let [count, setCount] = useState('')
 
  
@@ -42,9 +43,9 @@ const mappedCount = audio.map(ele =>ele.count)
   const mappedName = audio.map(ele => ele.name)
   const mappedTrack = audio.map(ele =>ele.track)
 
-  console.log(audio)
-  console.log(mappedCount.toString())
-  console.log(mappedTrack)
+  // console.log(audio)
+  // console.log(mappedCount.toString())
+  // console.log(mappedTrack)
 
   return (
     <div className="App">
@@ -60,6 +61,8 @@ const mappedCount = audio.map(ele =>ele.count)
      <AudioPlayer 
        //autoPlay
        showSkipControls={true}
+       onClickPrevious={() => console.log('prev')}
+       onClickNext={() => console.log('next')}
        header={
        <div id='button-bag'>
        <button onClick={localTrack} >Local Tracks</button>
@@ -69,7 +72,7 @@ const mappedCount = audio.map(ele =>ele.count)
        }
       src={mappedTrack}
       onPlay={e => console.log("onPlay") }
-      footer={mappedCount > 1?mappedCount.toString() + ` plays`: `[] plays`}
+      footer={mappedCount > 1 ? mappedCount.toString() + ` plays`: `[] plays`}
     />
     
 
