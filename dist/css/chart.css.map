@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAGA,AAAA,MAAM,CAAA;EACH,UAAU,EAAE,IAAI;EAChB,gBAAgB,EAAE,IAAI;CAExB",
     "sources": [
         "../../src/Components/Chart/chart.scss",
         "../../src/SCSS/_var.scss"
