@@ -9,11 +9,16 @@ import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
  
 
-function App(props) {
 
+
+
+function App(props) {
+//audio in state is what holds one songs when you select get local track
+//songs in state is what holds multiple songs. 
   const [audio, setAudio] = useState([])
+  const [songs, setSongs] = useState([])
   const [index, setIndex] = useState(1)
-  let [count, setCount] = useState('')
+  let [count, setCount] = useState(1)
 
  
 
@@ -22,13 +27,28 @@ const getAllTracks=()=>{
 
   axios.get(`/api/tracks`)
   .then(res =>{
-    setAudio(res.data)
+    setSongs(res.data)
   })
 }
 
   //Use the index so I can cycle through the array's
-  //reference the react-i-ii afternoon for this exact lesson
-  
+  //filter the results
+  // const filtered =() => {
+  //   let output = songs.filter((song, index) => song.mp3_track_id === count)
+  //   console.log(count)
+  //   console.log(output)
+
+  // }
+//Add one to output count to increment the song
+  const nextTrack=() => {
+ setCount(count++)
+  }
+  //Subtract one from output count to decrement the count and got ot previous song
+  const previousTrack=() => {
+     
+ setCount(count--)
+  }
+
   const localTrack = () =>{
     
     axios.get(`/api/track/${2}`)
@@ -38,6 +58,13 @@ const getAllTracks=()=>{
     .catch(err=>console.log(err))
     
 }
+let output = songs.filter((song, index) => song.mp3_track_id === count) 
+const mappedSongs = output.map(song =>song.track)
+
+
+console.log(count)
+console.log(output)
+console.log(mappedSongs.toString())
 const mappedCount = audio.map(ele =>ele.count)
   const mappedName = audio.map(ele => ele.name)
   const mappedTrack = audio.map(ele =>ele.track)
@@ -64,8 +91,8 @@ const mappedCount = audio.map(ele =>ele.count)
      <AudioPlayer 
        //autoPlay
        showSkipControls={true}
-       onClickPrevious={() => console.log('prev')}
-       onClickNext={() => console.log('next')}
+       onClickPrevious={previousTrack}
+       onClickNext={nextTrack}
        header={
        <div id='button-bag'>
        <button onClick={localTrack} >Local Tracks</button>
@@ -73,7 +100,7 @@ const mappedCount = audio.map(ele =>ele.count)
        <button onClick={getAllTracks} >All Tracks</button>
        </div> 
        }
-      src={mappedTrack}
+      src={mappedTrack?mappedTrack: mappedSongs.toString()}
       onPlay={e => console.log("onPlay") }
       footer={mappedCount > 1 ? mappedCount.toString() + ` plays`: `[] plays`}
 
