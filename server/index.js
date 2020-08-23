@@ -37,7 +37,7 @@ app.use(bodyParser.json())
 io.on('connection', socket => {
   console.log('User Connected');
   io.emit('message dispatched', 'hello');
-
+ 
   socket.on('message', ({name, message}) =>{
 
     console.log( "Hit socket on message ",message)
@@ -51,6 +51,21 @@ io.on('connection', socket => {
    // socket.broadcast.emit('message dispatched', data.message);
    io.emit('message data', data)
   })
+
+  socket.on('join room', data => {
+    console.log(session)
+    session.room = data
+     
+
+
+    console.log('room joined', data.room)
+    socket.join(data.room);
+    io.to(data.room).emit('room joined', session.room);
+  })
+  socket.on('message sent', data => {
+    io.to(data.room).emit('message dispatched', data.message);
+  })
+  
   socket.on('disconnect', () => {
     console.log('User Disconnected');
   })
@@ -102,14 +117,16 @@ app.put('/api/local2/:id', local.updatePic)
 app.put(`/api/track/:id`, local.createTrack)
 
 
-// app.get('/api/artist/:id' , apiCtrl.getArtist)
-// app.get('/api/user', apiCtrl.getUser)
+ app.get('/api/artist/:id' , apiCtrl.getArtist)
+ app.get('/api/user', apiCtrl.getUser)
 app.post('/api/user/:user', authCtrl.saveLocalUser)
 
 app.get('/api/playlist', apiCtrl.getPlaylist)
 app.get('/api/albums', apiCtrl.getAlbums)
 app.get('/api/features', apiCtrl.getFeatures)
-app.get('/api/artist-track/:id', apiCtrl.getArtistTracks)
+
+app.get('/api/artist-track', apiCtrl.getArtistTracks)
+// app.get('/api/artist-track/:id', apiCtrl.getArtistTracks)
 app.get('/api/artist-album/:id', apiCtrl.getArtistAlbums)
 app.get('/api/search/', apiCtrl.searchApi)
 

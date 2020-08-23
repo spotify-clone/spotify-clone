@@ -16,7 +16,7 @@ class Player extends Component {
         this.sound = new Howl({src: this.state.url, html5:true})
 
     };
-
+ 
 
     componentDidMount = () =>{
         axios.get('/api/artist-track')
@@ -46,35 +46,35 @@ class Player extends Component {
             html5:true
         })
 
-        // var id = sound.play();
+        var id = sound.play();
 
         audio ? sound.play() : this.setState({url: ""})
         
-        // var id = sound.play();
-        // sound.pause(id);
+        var id = sound.play();
+        sound.pause(id);
 
 
     }
 
     
 
-    // handleToggle = (value) => {
-    //     this.setState({audio: !this.state.audio, url: value});
-    //     this.queueSound()
+    handleToggle = (value) => {
+        this.setState({audio: !this.state.audio, url: value});
+        this.queueSound()
         
-    // }
+    }
 
     queueSound = () =>{
  
-        // const { audio } = this.state   
+        const { audio } = this.state   
 
-        //     if(audio === true){
-        //         console.log('hit')
-        //         this.audio.play();
-        //     }
-        //     else{
-        //         this.audio.pause();
-        //     }
+            if(audio === true){
+                console.log('hit')
+                this.audio.play();
+            }
+            else{
+                this.audio.pause();
+            }
 
     }
 
