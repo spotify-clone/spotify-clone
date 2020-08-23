@@ -84,8 +84,13 @@ const sendMusic = () =>{
     console.log('hit send music', data)
     if(data){
         socket.emit('message sent', {data:data[0]})
-        
     }
+    
+    //   if (data) {
+    //     socket.emit('message', { data, name })
+            
+    // }
+    setMessage(data[0])
    // console.log(data)
 }
 
@@ -125,14 +130,19 @@ const reduxMusic = (num) => {
   })
 
 }
+ //let mp3 = receivedMessages.includes('.mp3')?receivedMessages:null
+ console.log(receivedMessages[0])
 
-console.log(room)
+
 //Mapping the returned messages from the server the display
     const mappedMessages = receivedMessages.map((word, index) => {
         return (
             <div key={index} >
             <span>{word.name} Says: </span>
                 <span> { word.message}</span>
+                <h3> 
+                 {word.data?<a href={word.data}>Play</a>:null }
+                </h3>
             </div>
         )
     })
@@ -182,9 +192,9 @@ console.log(room)
                          ...Hear My Music</a> </div> :null }
                     </div>
                     <button className='btn' onClick={() => setShowChat(!showChat)}>close</button>
-                </div>
-                <button id='share' onClick={reduxMusic} >Get Music</button>
              <button id='share' onClick={sendMusic} >Share Music</button>
+                <button id='share' onClick={reduxMusic} >Get Music</button>
+                </div>
             </div> 
                
         
