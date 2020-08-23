@@ -53,7 +53,7 @@ useEffect(()=>{
 
     })
     // socket.emit('message sent', {data})
-}, [data])
+}, [ ])
 
 
 //Atempting to add Join success to a use effect passing in data...
@@ -62,7 +62,7 @@ useEffect(() =>{
         joinRoom()
         if(joined) joinSucess(data);
     })
-},[data])
+},[])
 
 
 //Receiving the message from the server and then setting it on state
