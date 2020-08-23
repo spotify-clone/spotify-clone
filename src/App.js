@@ -7,9 +7,10 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios'
 import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
+
+
  
-
-
+ 
 
 
 function App(props) {
@@ -58,6 +59,8 @@ const getAllTracks=()=>{
     .catch(err=>console.log(err))
     
 }
+
+
 let output = songs.filter((song, index) => song.mp3_track_id === count) 
 const mappedSongs = output.map(song =>song.track)
 
@@ -65,14 +68,17 @@ const mappedSongs = output.map(song =>song.track)
 console.log(count)
 console.log(output)
 console.log(mappedSongs.toString())
+
 const mappedCount = audio.map(ele =>ele.count)
   const mappedName = audio.map(ele => ele.name)
   const mappedTrack = audio.map(ele =>ele.track)
 
-  // console.log(audio)
-  // console.log(mappedCount.toString())
-  // console.log(mappedTrack)
+  console.log(audio)
+  console.log(mappedCount.toString())
+  console.log(mappedTrack)
 
+
+  
   return (
     <div className="App">
       <Header /> 
@@ -88,8 +94,11 @@ const mappedCount = audio.map(ele =>ele.count)
      {props.location.pathname ==="/" || props.location.pathname==="/search/bob"? null:    
 
 
-     <AudioPlayer 
-       //autoPlay
+ 
+
+ 
+    <AudioPlayer 
+       autoPlay
        showSkipControls={true}
        onClickPrevious={previousTrack}
        onClickNext={nextTrack}
@@ -104,7 +113,7 @@ const mappedCount = audio.map(ele =>ele.count)
       onPlay={e => console.log("onPlay") }
       footer={mappedCount > 1 ? mappedCount.toString() + ` plays`: `[] plays`}
 
-    />
+    /> 
 
 
       }
