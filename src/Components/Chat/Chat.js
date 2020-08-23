@@ -141,7 +141,7 @@ const reduxMusic = (num) => {
             <span>{word.name} Says: </span>
                 <span> { word.message}</span>
                 <h3> 
-                 {word.data?<a href={word.data}>Play</a>:null }
+                 {word.data? <a href={word.data}>Play</a>:null }
                 </h3>
             </div>
         )
