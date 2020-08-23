@@ -31,7 +31,7 @@ function Chat(props) {
     useEffect(() => {
         socket = io.connect(ENDPOINT)
         const { name, room } = queryString.parse(props.location.search)
-         setName(props.user.email)
+        setName(props.music.user.email)
         setRoom(room)
 console.log(props)
         console.log(socket)
@@ -192,8 +192,8 @@ console.log(room)
 }
 const mapStateToProps = state => {
     return{
-        user: state.user,
-        music: state.music
+        music: state.music,
+        user: state.user
     }
 }
 export default connect(mapStateToProps, {getMusic})(Chat);
