@@ -5,8 +5,8 @@ var {client_id, client_secret } = process.env;
 const spotify = new Spotify({
   id: client_id,
   secret: client_secret
-});
- 
+}); 
+ const scope = 'playlist-read-private'
 
 
 module.exports = {
@@ -43,6 +43,22 @@ module.exports = {
 
 
   },
+  getUserPlaylist: async(req,res)=>{
+
+
+    await spotify.request(`https://api.spotify.com/v1/me/playlists`)
+    .then(function(data) {
+      
+      res.status(200).send(data) 
+    })
+    .catch(function(err) {
+      console.error('Error occurred: ' + err); 
+    });
+
+
+  },
+
+  
 
   getPlaylist: async(req,res)=>{
 

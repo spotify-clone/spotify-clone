@@ -122,6 +122,7 @@ app.put(`/api/track/:id`, local.createTrack)
 app.post('/api/user/:user', authCtrl.saveLocalUser)
 
 app.get('/api/playlist', apiCtrl.getPlaylist)
+app.get('/api/user-playlist', apiCtrl.getUserPlaylist)
 app.get('/api/albums', apiCtrl.getAlbums)
 app.get('/api/features', apiCtrl.getFeatures)
 
