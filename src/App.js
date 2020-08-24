@@ -114,7 +114,7 @@ let choice = mappedTrack.length >1?mappedTrack:mappedSongs
           <div id='audio'>
 
 
-     {props.location.pathname ==="/" || props.location.pathname==="/search/bob"? null:    
+     {props.location.pathname ==="/" || props.location.pathname === "/player" ? null:    
 
 
  
