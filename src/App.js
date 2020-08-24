@@ -85,8 +85,9 @@ let output = songs.filter((song, index) => song.mp3_track_id === count)
 let mappedSongs =[];
  mappedSongs= output.map(song =>song.track)
 
+ const mappedCountAllTracks =output.map(song=>song.count)
 
-//console.log(count)
+console.log(mappedCountAllTracks)
 //console.log(output)
 console.log(mappedSongs)
 
@@ -134,7 +135,7 @@ let choice = mappedTrack.length >1?mappedTrack:mappedSongs
        }
       src={choice}
       onPlay={e => console.log("onPlay") }
-      footer={mappedCount > 1 ? mappedCount.toString() + ` plays`: `[] plays`}
+      footer={ mappedCountAllTracks + ` plays`}
 
     /> 
 
