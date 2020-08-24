@@ -57,7 +57,7 @@ console.log(props.music.user.pic)
                         <Link to='/Chat'>Chat</Link>
                     </li>
                     <li>
-                        <img src  alt='beautiful person picture'/>
+                        <img src={props.music.user.pic} id='pixed' alt='beautiful person picture'/>
                     </li>
                 </ul>
             </nav>

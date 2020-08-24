@@ -113,7 +113,9 @@ console.log(imgURL)
             setUploading({ isUploading: false, url });
             setImgURL(url)
             if (url) {
-              alert('ready!!')
+              alert('sending profile pic to db!!')
+              sendProfilePic()
+              
             }
           })
           .catch(err => {
@@ -148,7 +150,8 @@ console.log(imgURL)
             setUploading({ isUploading: false, url });
             setSong(url)
             if (url) {
-              alert('ready!!')
+              alert('adding song to db!!')
+              sendFile()
             }
           })
           .catch(err => {
