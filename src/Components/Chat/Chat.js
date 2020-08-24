@@ -172,11 +172,6 @@ const reduxMusic = (num) => {
     //Right now since any value makes it truthy it goes away....
     return (
         <div>
-<<<<<<< HEAD
-             
-            
-            
-=======
         {mapList}
         <div id='chat-div'>     
             <button id='open-button' onClick={() => setShowChat(!showChat)}>CHAT</button>
@@ -194,7 +189,6 @@ const reduxMusic = (num) => {
             />
             </div>:
              null}
->>>>>>> master
                 <div className='chat-container'>  
                     {/* <h3>Enter Your name</h3>
                         <input className='name-input'
@@ -218,15 +212,9 @@ const reduxMusic = (num) => {
                          ...Hear My Music</a> </div> :null }
                     </div>
                     <button className='btn' onClick={() => setShowChat(!showChat)}>close</button>
-<<<<<<< HEAD
-                </div>
-                <button className='btn' id='share' onClick={reduxMusic} >Get Music</button>
-             <button className='btn' id='share' onClick={sendMusic} >Share Music</button>
-=======
              <button id='share' onClick={sendMusic} >Share Music</button>
                 <button id='share' onClick={reduxMusic} >Get Music</button>
                 </div>
->>>>>>> master
             </div> 
             </div>    
         

@@ -3,6 +3,11 @@ import MyCarousel from './../Carousel/Carousel'
 import MyCarousel1 from './../Carousel/Carousel1'
 import MyCarousel2 from './../Carousel/Carousel2'
 import axios from 'axios'
+import SpotifyWebApi from "spotify-web-api-js";
+import { getTokenFromUrl } from '../../spotifyFn';
+import {accessUrl} from '../../spotifyFn'
+
+const spotify = new SpotifyWebApi();
 
 
 class Dash extends Component {
@@ -23,6 +28,21 @@ class Dash extends Component {
         this.getAlbums()
         this.getPlaylist()
         this.getFeatures()
+
+        //get token from url and sending it to spotify to verify authorization
+        const hash = getTokenFromUrl()
+        const _token = Object.values(hash)[0].toString('')
+
+        if(_token){
+          spotify.setAccessToken(_token);
+    
+          spotify.getMe().then((user)=>{
+              axios.get(`/api/user/${user.id}`)
+              .then(()=> console.log('success'))
+              .catch(error => console.log(error))
+          })
+        }
+
     }
 
     getFeatures = () =>{
