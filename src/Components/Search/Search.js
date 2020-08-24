@@ -81,6 +81,7 @@ const Search = (props) => {
 
 
     return (
+        <div>
         <div style={{position:"relative" }}>
         <Sound
         url={song}
@@ -94,7 +95,7 @@ const Search = (props) => {
             </div>
             <div className='album-box'>
             <p>Albums</p>
-            {mappedAlbums}
+            {/* {mappedAlbums} */}
             </div>
         </div>
     )
