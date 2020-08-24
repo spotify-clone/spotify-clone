@@ -190,13 +190,13 @@ const reduxMusic = (num) => {
             </div>:
              null}
                 <div className='chat-container'>  
-                    <h3>Enter Your name</h3>
+                    {/* <h3>Enter Your name</h3>
                         <input className='name-input'
                             type='text'
                             name='name'
                             onChange={(e) => setName(e.target.value)}
-                        />
-                    <h1>chat</h1>
+                        /> */}
+                    <h1>chatbox</h1>
                         <input className='chat-input'
                             type='text'
                             name='text'

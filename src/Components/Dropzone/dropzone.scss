@@ -2,30 +2,54 @@
 
 .dropbox-container {
     display: flex;
-    flex-direction:row;
+    flex-direction: column;
     justify-items: center;
     align-items: center;
-    width: 50vw;
+    width: 20vw;
     height: 100vh;
     position: absolute;
-    top: 10%;
-    right: 3%;
+    border-radius: 5px;
+    border-color: rgb(100, 100, 100);
+    border-style: outset;
+    border-width: 10px;
+    box-shadow: #000000 0px 5px 5px ;
+    background: linear-gradient(to top right, #4e4e4e, #c4c4c4, #4e4e4e);
+
+    
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    text-shadow: #000000 0px 5px 5px ;
+    
+}
+
+h6 {
+    margin: 0;
+    padding: 0;
+    text-shadow: #000000 0px 5px 5px ;
+    
     
 }
 
 .name-box {
-    box-sizing: border-box;
+    display:flex;
+    flex-direction: column;
+    align-items:  center;
     width: 200px;
-    height: 50px;
+    height: 80px;
     border-radius: 5px;
-    background-color: $nav-color;
-    padding: 5%;
-   
+    border-color: rgb(100, 100, 100);
+    border-style: outset;
+    border-width: 10px;
+    box-shadow: #000000 0px 5px 5px ;
+    background: linear-gradient(to top right, #4e4e4e, #c4c4c4, #4e4e4e);
 
 }
 
 .name {
-    width: 165px;
+    width: 175px;
     border-radius: 5px;
     text-align: center;
 }
@@ -37,11 +61,16 @@
     align-items: center;
     text-align: center;
     box-sizing: border-box;
-    background-color: $nav-color;
+    background-color: gray;
     color: $text-color;
     border-radius: 5px;
-    height: 280px;
-    width: 200px;
+    height: 200px;
+    width: 220px;
+    border-color: rgb(100, 100, 100);
+    border-style: outset;
+    border-width: 7px;
+    box-shadow: #000000 0px 5px 5px ;
+    background: linear-gradient(to top right, #4e4e4e, #c4c4c4, #4e4e4e);
 }
 
 .add-photo input {
@@ -51,10 +80,10 @@
     font-weight: bold;
     text-align: center;
     border-radius: 5px;
+    
 }
 
 .add-music {
-    margin: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,7 +93,12 @@
     color: $text-color;
     border-radius: 5px;
     height: 280px;
-    width: 200px;
+    width: 220px;
+    border-color:  rgb(100, 100, 100);
+    border-style: outset;
+    border-width: 10px;
+    box-shadow: #000000 0px 5px 5px ;
+    background: linear-gradient(to top right, #4e4e4e, #c4c4c4, #4e4e4e);
 }
 
 .add-music input {
@@ -78,7 +112,8 @@
 
 p {
     margin: 2%;
-    font-size: 12px;
+    font-size: 15px;
+    text-shadow: #000000 0px 5px 5px ;
 }
 
 h1 {
@@ -89,6 +124,12 @@ h1 {
 .btns {
     margin: 2%;
     width: 185px;
+    height: 30px;
+    border-style: outset;
+    border-width: 5px;
+    border-color: rgb(20, 219, 14);
+    
+
     border-radius: 5px;
-    background-color: rgb(158, 158, 158);
+    background: linear-gradient(to top right, #707070, #c4c4c4, #707070)
 }

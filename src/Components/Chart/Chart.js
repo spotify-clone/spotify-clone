@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import {Bar} from 'react-chartjs-2';
 import '../Chart/chart.scss'
 import axios from 'axios';
+import { findByLabelText } from "@testing-library/react";
+
 class Chart extends Component {
     constructor(props){
         super(props);
@@ -59,36 +61,38 @@ class Chart extends Component {
             title:{
                 display:true,
                 text:'Most Listen to Artists',
-                fontColor: 'black',
-                
-
+                fontSize: 25,
+                fontColor: 'white',
             },
+          
             legend:{
                 display:true,
-                position:'right',
+                position:'bottom',
                 labels:{
+                    
                     display:true,
-                    fontColor:'black'
+                    fontColor:'white'
                 }
             },
             scales:{
                 xAxes:[{
                     ticks:{
                         fontColor:'white',
-                        fontSize: 20
+                        fontSize: 15
                     }
                 }],
                 yAxes:[{
                     ticks:{
-                        fontColor:"gold",
+                        fontColor:"white",
                         fontSize: 20
                     }
                 }]
             },
             label:{
                 display:true,
-                fontColor:'black'
+                fontColor:'white'
             },
+            
             
         }}
         />
