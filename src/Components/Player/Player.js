@@ -32,7 +32,7 @@ class Player extends Component {
 
 
         render() {
-
+                  
             const { tracks, url } = this.state
             const mappedTracks = tracks.map((element,index)=>{
                 let image;

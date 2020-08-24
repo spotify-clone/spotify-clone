@@ -7,6 +7,7 @@ const initialState = {
 const GET_USER = 'GET_USER'
 const GET_MUSIC = 'GET_MUSIC'
 
+
 ///Get music that is passed from chat
 export function getMusic(music) {
     console.log(music)
@@ -26,6 +27,8 @@ export function getUser(user) {
         payload: user
     }
 }
+
+
 
 
 

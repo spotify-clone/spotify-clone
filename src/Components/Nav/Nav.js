@@ -8,7 +8,7 @@ import './nav.scss';
 const Nav = (props) => {
 
     const [user, setUser] = useState([])
-
+    
     useEffect(()=>{
         getUser()
         
@@ -28,6 +28,14 @@ const Nav = (props) => {
         // })
         // .catch(error => console.log(error))
     }
+
+    const logout = () => {
+        axios.get('/auth/logOut')
+        .then (() => {
+        props.history.push('/')
+        })
+        .catch(err => console.log(err, 'You Logged Out')
+        )}
 
 
 console.log(props.music.user.pic)
