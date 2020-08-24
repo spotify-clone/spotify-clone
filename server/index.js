@@ -112,11 +112,8 @@ app.post(`/api/email`, email.email)
 
 //local
 app.get('/api/track/:id', local.getTrack)
-
-
 app.get(`/api/tracks`, local.getTracks)
 app.get('/api/user-tracks/:id', local.getUsersTrack)
-
 app.put(`/api/local/:id`, local.addName)
 app.put('/api/local2/:id', local.updatePic)
 app.put(`/api/track/:id`, local.createTrack)
@@ -128,10 +125,14 @@ app.post('/api/user/:user', authCtrl.saveLocalUser)
 app.get('/api/user/:id', apiCtrl.getUser)
 app.get('/api/user-playlist/:id', apiCtrl.getUserPlaylist)
 app.get('/api/playlist', apiCtrl.getPlaylist)
-app.get('/api/albums', apiCtrl.getAlbums)
+app.get('/api/new-releases', apiCtrl.getNewReleases)
 app.get('/api/features', apiCtrl.getFeatures)
 app.get('/api/artist-track/:id', apiCtrl.getArtistTracks)
 app.get('/api/search/', apiCtrl.searchApi)
+app.get('/api/artist-album/:id', apiCtrl.getArtistAlbums)
+app.get('/api/playlist-tracks/:id',apiCtrl.getTracksInPlaylist)
+app.delete('/api/delete-track/:id', apiCtrl.deleteTrack)
+
 
 //Auth EndPoint
 app.get(`/auth/me`, authCtrl.logMeIn)
