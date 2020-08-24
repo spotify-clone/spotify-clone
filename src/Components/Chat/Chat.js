@@ -37,11 +37,11 @@ function Chat(props) {
   
   let mapList = list.map((ele,ind)=>{
       return (
-          <div> 
-              <button onClick={() => setData(ele.track)}><p>{ele.track}</p></button>
-            {/* <ul>
-                <li onClick={() => setData(ele.track)}>{ele.track}</li>
-            </ul> */}
+          <div key={ind}> 
+              {/* <button onClick={() => setData(ele.track)}><p>{ele.track}</p></button> */}
+             <ul>
+                <li onClick={(e) => setData(ele.track)}>{ele.track}</li>
+            </ul> 
           </div>
       )
   })
@@ -102,7 +102,7 @@ const sendMusic = () =>{
    // setData('https://spotify-bucket33.s3.amazonaws.com/c499c9e9-4a6d-4e4f-b59f-8695dee7c236-Black-Tom-Brady---11_12_17,-11.03-AM.mp3')
     console.log('hit send music', data)
     if(data){
-        socket.emit('message sent', {data:data[0]})
+        socket.emit('message sent', {data:data})
     }
     
     //   if (data) {
