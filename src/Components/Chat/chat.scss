@@ -25,7 +25,7 @@
     width: 60vw;
     background-color: darkgray;
     position: fixed;
-    top: 250px;
+    top: 150px;
     
 }
 
@@ -66,4 +66,8 @@
     background-color: white;
 }
 
-
+#chat-div{
+    display: flex;
+    justify-content: space-around;
+}
+ 

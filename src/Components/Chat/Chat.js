@@ -22,10 +22,29 @@ function Chat(props) {
     const [data, setData] = useState(false)
     let [num, setNum] = useState(0)
     let [joined, setJoined] = useState(false)
+    const [list, setList] = useState([])
 
 
 //Function to join room
+ useEffect(()=>{
 
+     axios.get(`/api/tracks`)
+     .then(res =>{
+        setList(res.data)
+     })
+ },[])
+
+  
+  let mapList = list.map((ele,ind)=>{
+      return (
+          <div> 
+              <button onClick={() => setData(ele.track)}><p>{ele.track}</p></button>
+            {/* <ul>
+                <li onClick={() => setData(ele.track)}>{ele.track}</li>
+            </ul> */}
+          </div>
+      )
+  })
 
     //First end point connecting the socket to the end point
     useEffect(() => {
@@ -62,7 +81,7 @@ useEffect(() =>{
         joinRoom()
         if(joined) joinSucess(data);
     })
-},[])
+},[joined])
 
 
 //Receiving the message from the server and then setting it on state
@@ -116,7 +135,7 @@ const joinSucess = () => {
     }
 
 
-
+ 
 
 //Function to add linked item to redux 
 const reduxMusic = (num) => {
@@ -141,22 +160,23 @@ const reduxMusic = (num) => {
             <span>{word.name} Says: </span>
                 <span> { word.message}</span>
                 <h3> 
-                 {word.data? <a href={word.data}>Play</a>:null }
+        {word.data? <a href={word.data}><p>{word.data}</p></a>:null }
                 </h3>
             </div>
         )
     })
-    
+    // word.data.toString('').slice(79,94)
      console.log("data", data)
 
     //Trying to create a condition where the name box goes away after the informaion is entered.
     //Right now since any value makes it truthy it goes away....
     return (
         <div>
-             
-             <button id='open-button' onClick={() => setShowChat(!showChat)}>CHAT</button>
+        {mapList}
+        <div id='chat-div'>     
+            <button id='open-button' onClick={() => setShowChat(!showChat)}>CHAT</button>
             {true?
-            <div  > 
+            <div id='room' > 
             <h2>My Room: {room}  </h2>
             <button onClick={joinRoom} >Enter</button> 
             <input 
@@ -196,7 +216,7 @@ const reduxMusic = (num) => {
                 <button id='share' onClick={reduxMusic} >Get Music</button>
                 </div>
             </div> 
-               
+            </div>    
         
     )
 }
