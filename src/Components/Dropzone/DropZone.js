@@ -36,10 +36,10 @@ const updateName =() =>{
 }
 
 const sendProfilePic = () =>{
-
-    axios.put(`/api/local2/${props.user.account_id}`, imgURL)
+console.log(imgURL)
+    axios.put(`/api/local2/${props.music.user.account_id}`, {imgURL})
     .then(() => {
-     
+     console.log('good')
     })
     .catch(err =>console.log(err))
 
@@ -52,7 +52,7 @@ const sendProfilePic = () =>{
 
   console.log(props.user.account_id)
 
-   axios.put(`/api/track/${props.user.account_id}`, {name: trackName, song} )
+   axios.put(`/api/track/${props.music.user.account_id}`, {name: trackName, song} )
    .then(()=>{
       console.log('good')
       setImgURL('')
@@ -242,10 +242,10 @@ const sendProfilePic = () =>{
           </div>
         )
       }
-//     console.log(files)
-// console.log(imgURL)
-//  console.log(props)
-// console.log(song)
+     console.log(props.music.user.account_id)
+console.log(imgURL)
+  console.log(props)
+console.log(song)
 return(
   <div>
     <div className='dropbox-container'>
