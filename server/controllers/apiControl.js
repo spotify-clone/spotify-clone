@@ -1,12 +1,12 @@
 var Spotify = require('node-spotify-api');
 var {client_id, client_secret } = process.env;
 
- // creating a new instatnce of the spotify function and passing it to
+ // creating a new  instance of the spotify function and passing it to
 const spotify = new Spotify({
   id: client_id,
   secret: client_secret
 }); 
- const scope = 'playlist-read-private'
+
 
 
 module.exports = {
