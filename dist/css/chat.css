@@ -55,6 +55,7 @@
 }
 
 .mapped-messages {
+  overflow: scroll;
   font-size: 20px;
   border-radius: 5px;
   padding: 2%;
@@ -62,5 +63,21 @@
   width: 35vw;
   height: 70vh;
   background-color: white;
+}
+
+#chat-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#fonted {
+  color: white;
+}
+
+#pixed {
+  width: 10vw;
 }
 /*# sourceMappingURL=chat.css.map */

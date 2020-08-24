@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
 import Carousel from 'react-simply-carousel'
 
 const MyCarousel2 = (props) => {
@@ -11,13 +10,11 @@ const MyCarousel2 = (props) => {
 
 
     const mappedFeatures = props.featuresList.map((element, index) => {
-        return <img style={{display: "flex", justifyContent:"center", height: "150px", width: "150px"}} key={index} src={element.icons[0].url} />
+        return <img style={{display: "flex", justifyContent:"center", height: "150px", width: "150px"}} key={index} src={element.icons[0].url} alt='hot album covers' />
     })
 
 
-    //  const mapped = props.list.map(element=>{
-    //     return <img src={element.images[1].url}/>
-    // })
+    
 
     return (
         <div>

@@ -38,7 +38,7 @@ const Nav = (props) => {
         )}
 
 
-
+console.log(props.music.user.pic)
     return (
         <div className='main-nav'>
             <nav className='desktop-nav'>
@@ -65,9 +65,8 @@ const Nav = (props) => {
                         <Link to='/Chat'>Chat</Link>
                     </li>
                     <li>
-                       {props.user ?<Link to='/' onClick={logout} >Logout</Link> : null}
+                        <img src={props.music.user.pic} id='pixed' alt='beautiful person picture'/>
                     </li>
-
                 </ul>
             </nav>
         </div>
