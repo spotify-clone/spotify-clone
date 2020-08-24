@@ -13,7 +13,7 @@ class Player extends Component {
         }
 
     };
-
+ 
 
     componentDidMount = () =>{
         axios.get('/api/artist-track')
@@ -35,11 +35,17 @@ class Player extends Component {
         }
     }).play() 
 
-    if(this.state.audio){
-        console.log('hit')
-        sound.stop()
-        this.setState({audio: false})
-    }
+        sound = new Howl({
+            src: value,
+            html5:true
+        })
+
+        var id = sound.play();
+
+        audio ? sound.play() : this.setState({url: ""})
+        
+        var id = sound.play();
+        sound.pause(id);
 
 
     }

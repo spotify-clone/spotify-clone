@@ -6,6 +6,8 @@
     border-radius: 5px;
     border-style: double;
     position: fixed;
+    font-size: 35px;
+    height: 50px;
     bottom: 25px;
     right: 25px;
     width: 20vw;
@@ -19,12 +21,12 @@
     border-radius: 5px;
     border-color: $border-color;
     color: $text-color;
-    height: 60vh;
-    width: 50vw;
-    background-color: $nav-color;
+    height: 50vh;
+    width: 60vw;
+    background-color: darkgray;
     position: fixed;
-    // bottom: 25px;
-    right: 25px;
+    top: 150px;
+    
 }
 
 #share{
@@ -32,34 +34,47 @@
 }
 .name-input {
     width: 15vw;
-    height: 20px;
+    height: 15px;
     border-radius: 5px;
     padding: 2%;
 }
 
 .chat-input {
-    width: 17vw;
-    height: 3rem;
+    width: 15vw;
+    height: 5px;
     border-radius: 5px;
     padding: 2%;
 }
 
 .btn {
     margin-top: 2%;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
     width: 17.75vw;
     border-radius: 5px;
     background-color: $accent-color;
 }
 
 .mapped-messages {
+    overflow: scroll;
     font-size:20px;
     border-radius: 5px;
     padding: 2%;
     color: black;
     width: 45vw;
-    height: 70vh;
+    min-height: fit-content;
+    height: 20vh;
     background-color: white;
 }
 
+#chat-div{
+    display: flex;
+    justify-content: space-around;
+}
+ #fonted{
+     color:white;
+ }
 
+ #pixed{
+     width: 10vw;
+     
+ }

@@ -8,6 +8,7 @@ import Sound from 'react-sound';
 const Search = (props) => {
     const [artist, setArtist] = useState([])
     const [tracks, setTracks] = useState([])
+    const [albums, setAlbums] = useState([])
 
     //song's value will be the selected track the user wants to listen to
     const [ song , setSong] = useState('');
@@ -33,10 +34,13 @@ const Search = (props) => {
                         axios.get(`/api/artist-track/${element.id}`)
                         .then(res =>{
                             setTracks(res.data)
+                            axios.get(`/api/artist-album/${element.id}`)
+                            .then(res =>{
+                                setAlbums(res.data)
+                            })
                         })
                     }
                 })
-                // setArtist(res.data)
             }
 
         })
@@ -67,10 +71,10 @@ const Search = (props) => {
 
 
     const mappedArtists = artist.map((element,index)=>{
-        
-        return <div key={index} >
-                     <h1>{element.name}</h1>
-                     <img className='artistImg' src={element.images[0].url} />
+
+        return <div className='artist' key={index} >
+                      <h3>{element.name} </h3>
+                     <img className='artistImg' src={element.images[2].url} alt='no pic available'/>
             </div>
     })
 
@@ -83,7 +87,15 @@ const Search = (props) => {
         playStatus={Sound.status.PLAYING}
         />
             {mappedArtists}
+            <p>SONGS</p>
+            </div>
+            <div className='track-box'>
             {mappedTracks}
+            </div>
+            <div className='album-box'>
+            <p>Albums</p>
+            {mappedAlbums}
+            </div>
         </div>
     )
 }

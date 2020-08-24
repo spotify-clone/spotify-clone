@@ -37,7 +37,7 @@ app.use(bodyParser.json())
 io.on('connection', socket => {
   console.log('User Connected');
   io.emit('message dispatched', 'hello');
-
+ 
   socket.on('message', ({name, message}) =>{
 
     console.log( "Hit socket on message ",message)
@@ -51,6 +51,21 @@ io.on('connection', socket => {
    // socket.broadcast.emit('message dispatched', data.message);
    io.emit('message data', data)
   })
+
+  socket.on('join room', data => {
+    console.log(session)
+    session.room = data
+     
+
+
+    console.log('room joined', data.room)
+    socket.join(data.room);
+    io.to(data.room).emit('room joined', session.room);
+  })
+  socket.on('message sent', data => {
+    io.to(data.room).emit('message dispatched', data.message);
+  })
+  
   socket.on('disconnect', () => {
     console.log('User Disconnected');
   })
@@ -97,6 +112,7 @@ app.get('/api/track/:id', local.getTrack)
 
 app.get(`/api/tracks`, local.getTracks)
 app.get('/api/user-tracks/:id', local.getUsersTrack)
+
 app.put(`/api/local/:id`, local.addName)
 app.put('/api/local2/:id', local.updatePic)
 app.put(`/api/track/:id`, local.createTrack)

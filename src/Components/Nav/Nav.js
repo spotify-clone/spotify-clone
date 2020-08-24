@@ -30,13 +30,13 @@ const Nav = (props) => {
     }
 
 
-
+console.log(props.music.user.pic)
     return (
         <div className='main-nav'>
             <nav className='desktop-nav'>
                 <ul>
                     <li>
-                        <Link to='/'>Auth</Link>
+                        <Link to='/'>Home</Link>
                     </li>
                     <li>
                         <Link to='/dash'>Dash</Link>
@@ -44,9 +44,9 @@ const Nav = (props) => {
                     <li>
                         <Link to='/drop'>Profile</Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to='/Search'>Search</Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link to='/Chart'>Chart</Link>
                     </li>
@@ -56,7 +56,9 @@ const Nav = (props) => {
                     <li>
                         <Link to='/Chat'>Chat</Link>
                     </li>
-
+                    <li>
+                        <img src={props.music.user.pic} id='pixed' alt='beautiful person picture'/>
+                    </li>
                 </ul>
             </nav>
         </div>

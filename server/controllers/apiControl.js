@@ -101,6 +101,7 @@ module.exports = {
     let newObj;
 
     const { id } = req.params
+     console.log(id)
 
     //id = 93t2jfdig3g30g3g0ejgri33
 
@@ -114,17 +115,38 @@ module.exports = {
     const { tracks } = newObj
     console.log(tracks)
 
-
-    for(var i=0; i < tracks.length; i++){
-      
-    if(tracks[i].preview_url !== null){
-
-      res.status(200).send(tracks)
-
-    }};
+    res.status(200).send(tracks)
 
 
+    // for(var i=0; i < tracks.length; i++){      
+    // if(tracks[i].preview_url !== null){
+    //   console.log(tracks)
+    //   res.status(200).send(tracks)
 
+    // }};
+
+
+
+  },
+  getArtistAlbums: async(req,res)=>{
+
+    let newObj;
+
+    const { id } = req.params
+
+
+    await spotify.request(`https://api.spotify.com/v1/artists/${id}/albums?include_groups=single%2Cappears_on&market=ES&limit=10&offset=5`)
+    .then(data => {
+      newObj = {...data}
+      res.status(200).send(newObj.items)
+
+    })
+    
+    .catch((err)=>{
+      console.error(`Error occurred:`+ err);
+    })
+    
+  
   },
 
   searchApi: async(req,res)=>{
