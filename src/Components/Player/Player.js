@@ -26,44 +26,6 @@ class Player extends Component {
     }
 
 
-    startSound = async(value)=> {
-    let sound = new Howl({
-        src: value,
-        html5:true,
-        onplay: function(){
-            this.setState({audio: true})
-        }
-    }).play() 
-
-        sound = new Howl({
-            src: value,
-            html5:true
-        })
-
-        var id = sound.play();
-
-        this.state.audio ? sound.play() : this.setState({url: ""})
-        
-        var id = sound.play();
-        sound.pause(id);
-
-
-    }
-
-    // stopSound = async(value) =>{
-    //     this.setState({audio: !this.state.audio})
-    //     console.log('hit')
-    //     console.log(this.state.audio)
-        
-    //     let sound = await new Howl({
-    //         src: [],
-    //         html5:true
-    //     })
-        
-    //     if(this.state.audio){
-    //         sound.stop()
-    //     }
-    // }
 
     
 
