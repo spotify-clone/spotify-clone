@@ -23,6 +23,7 @@ function Chat(props) {
     let [num, setNum] = useState(0)
     let [joined, setJoined] = useState(false)
     const [list, setList] = useState([])
+    const [roomId, setRoomId] = useState([])
 
 
 //Function to join room
@@ -77,11 +78,13 @@ useEffect(()=>{
 
 //Atempting to add Join success to a use effect passing in data...
 useEffect(() =>{
-    socket.on('room joined', data =>{
+    socket.on('room joined', rooms =>{
         joinRoom()
-        if(joined) joinSucess(data);
+        if(joined) joinSucess(rooms);
+        setRoomId(rooms)
+        console.log(rooms)
     })
-},[joined])
+},[])
 
 
 //Receiving the message from the server and then setting it on state
@@ -102,7 +105,7 @@ const sendMusic = () =>{
    // setData('https://spotify-bucket33.s3.amazonaws.com/c499c9e9-4a6d-4e4f-b59f-8695dee7c236-Black-Tom-Brady---11_12_17,-11.03-AM.mp3')
     console.log('hit send music', data)
     if(data){
-        socket.emit('message sent', {data:data})
+        socket.emit('message sent', {data:data, roomId})
     }
     
     //   if (data) {
@@ -129,7 +132,7 @@ const joinSucess = () => {
     const sendMessage = (event) => {
         console.log('hit send message', message)
         if (message) {
-            socket.emit('message', { message, name })
+            socket.emit('message', { message, name, roomId })
             
         }
     }
