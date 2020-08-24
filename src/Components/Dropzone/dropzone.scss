@@ -64,7 +64,7 @@ h6 {
     background-color: gray;
     color: $text-color;
     border-radius: 5px;
-    height: 200px;
+    min-height: 200px;
     width: 220px;
     border-color: rgb(100, 100, 100);
     border-style: outset;
@@ -73,15 +73,15 @@ h6 {
     background: linear-gradient(to top right, #4e4e4e, #c4c4c4, #4e4e4e);
 }
 
-.add-photo input {
-    width: 175px;
-    height: 100px;
-    color: black;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 5px;
+// .add-photo input {
+//     width: 175px;
+//     height: 100px;
+//     color: black;
+//     font-weight: bold;
+//     text-align: center;
+//     border-radius: 5px;
     
-}
+// }
 
 .add-music {
     display: flex;
@@ -101,14 +101,14 @@ h6 {
     background: linear-gradient(to top right, #4e4e4e, #c4c4c4, #4e4e4e);
 }
 
-.add-music input {
-    width: 175px;
-    height: 100px;
-    color: black;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 5px;
-}
+// .add-music input {
+//     width: 175px;
+//     height: 100px;
+//     color: black;
+//     font-weight: bold;
+//     text-align: center;
+//     border-radius: 5px;
+// }
 
 p {
     margin: 2%;

@@ -42,11 +42,6 @@ class Player extends Component {
     }
 
 
-
-    
-
-
-
         render() {
             const { user, playlist} = this.state
 
