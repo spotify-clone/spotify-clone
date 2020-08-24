@@ -18,7 +18,7 @@ function App(props) {
 //songs in state is what holds multiple songs. 
   const [audio, setAudio] = useState([])
   const [songs, setSongs] = useState([])
-  const [index, setIndex] = useState(1)
+//  const [index, setIndex] = useState(1)
   let [count, setCount] = useState(1)
 
  
@@ -44,11 +44,32 @@ const getAllTracks=()=>{
   const nextTrack=() => {
  setCount(count++)
   }
+useEffect(()=>{
+
+},[count])
+
+// const nextTrack =()=> {
+//   if(count === audio.length)
+//       return;
+
+//       setCount(count++)
+// }
+
+
   //Subtract one from output count to decrement the count and got ot previous song
   const previousTrack=() => {
      
  setCount(count--)
   }
+
+// const backTrack = () =>{
+//   if(count === 1)
+//    return;
+
+//    setCount(count--)
+// }
+
+
 
   const localTrack = () =>{
     
@@ -60,24 +81,26 @@ const getAllTracks=()=>{
     
 }
 
-
 let output = songs.filter((song, index) => song.mp3_track_id === count) 
-const mappedSongs = output.map(song =>song.track)
+let mappedSongs =[];
+ mappedSongs= output.map(song =>song.track)
 
 
-console.log(count)
-console.log(output)
-console.log(mappedSongs.toString())
+//console.log(count)
+//console.log(output)
+console.log(mappedSongs)
 
 const mappedCount = audio.map(ele =>ele.count)
-  const mappedName = audio.map(ele => ele.name)
-  const mappedTrack = audio.map(ele =>ele.track)
+const mappedName = audio.map(ele => ele.name)
+let mappedTrack =[];
+mappedTrack = audio.map(ele =>ele.track)
 
-  console.log(audio)
-  console.log(mappedCount.toString())
-  console.log(mappedTrack)
+console.log(audio)
+console.log(mappedCount.toString())
+console.log(mappedTrack)
 
 
+let choice = mappedTrack.length >1?mappedTrack:mappedSongs 
   
   return (
     <div className="App">
@@ -109,7 +132,7 @@ const mappedCount = audio.map(ele =>ele.count)
        <button onClick={getAllTracks} >All Tracks</button>
        </div> 
        }
-      src={mappedTrack?mappedTrack: mappedSongs.toString()}
+      src={choice}
       onPlay={e => console.log("onPlay") }
       footer={mappedCount > 1 ? mappedCount.toString() + ` plays`: `[] plays`}
 

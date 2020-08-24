@@ -25,7 +25,7 @@
     width: 60vw;
     background-color: darkgray;
     position: fixed;
-    bottom: 200px;
+    top: 150px;
     
 }
 
@@ -40,8 +40,8 @@
 }
 
 .chat-input {
-    width: 55vw;
-    height: 3rem;
+    width: 15vw;
+    height: 5px;
     border-radius: 5px;
     padding: 2%;
 }
@@ -55,13 +55,19 @@
 }
 
 .mapped-messages {
+    overflow: scroll;
     font-size:20px;
     border-radius: 5px;
     padding: 2%;
     color: black;
     width: 45vw;
-    height: 70vh;
+    min-height: fit-content;
+    height: 20vh;
     background-color: white;
 }
 
-
+#chat-div{
+    display: flex;
+    justify-content: space-around;
+}
+ 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
 import Carousel from 'react-simply-carousel'
 
 const MyCarousel1 = (props) => {
@@ -11,14 +10,11 @@ const MyCarousel1 = (props) => {
       
     const mappedPlay = props.playlist.map((element,index)=>{
         return <div style={{width: "60vw"}} >
-                <img  style={{display: "flex", justifyContent:"center", height: "150px", width: "150px"}} key={index} src={element.images[0].url}/>
+                <img  style={{display: "flex", justifyContent:"center", height: "150px", width: "150px"}} key={index} src={element.images[0].url} alt='hot albums covers' />
             </div>
     })
    
  
-//  const mapped = props.list.map(element=>{
-//     return <img src={element.images[1].url}/>
-// })
 
 
 
