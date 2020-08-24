@@ -39,6 +39,7 @@ const sendProfilePic = () =>{
 
     axios.put(`/api/local2/${props.user.account_id}`, imgURL)
     .then(() => {
+      console.log('hit')
      
     })
     .catch(err =>console.log(err))

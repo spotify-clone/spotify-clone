@@ -1,16 +1,33 @@
-import React , {useState} from 'react';
+import React , {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import {getUser} from '../../Redux/musicReducer';
 import Logo from './auth.logo.png'
 import './auth.scss';
+import SpotifyWebApi from "spotify-web-api-js";
+import { getTokenFromUrl } from '../../spotifyFn';
+import {accessUrl} from '../../spotifyFn'
 
-
-
+const spotify = new SpotifyWebApi();
 
 const Auth = (props) => {
     let [email, setEmail] = useState(''),
     [password, setPassword] = useState('');
+
+    // useEffect(() => {
+    //     const hash = getTokenFromUrl()
+    //     const _token = Object.values(hash)[0].toString('')
+    
+    //     if(_token){
+    
+    //       spotify.setAccessToken(_token);
+    
+    //       spotify.getMe().then((user)=>{
+    //           console.log(user)
+    //       })
+    //     }
+    
+    //   },[])
 
     let handleLogin = (e)=>{
         
@@ -62,11 +79,9 @@ const Auth = (props) => {
                 <button className="authBtn" onClick={handleLogin}>Login</button>
                  <h4>Sign Up Here!</h4>
                 <button className="authBtn" onClick={handleRegister}>Register</button>
-                    
-                 
-                
-                
-                 
+            <div>
+                <a href={accessUrl} style={{position: "relative", top: "300px", color: "white"}}>Send me to Spotify</a>
+            </div>
         </div>
         </div>
     )

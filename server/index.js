@@ -103,13 +103,15 @@ app.put(`/api/track/:id`, local.createTrack)
 
 
 // app.get('/api/artist/:id' , apiCtrl.getArtist)
-// app.get('/api/user', apiCtrl.getUser)
+app.get('/api/user/:id', apiCtrl.getUser)
+
+
 app.post('/api/user/:user', authCtrl.saveLocalUser)
 
 app.get('/api/playlist', apiCtrl.getPlaylist)
 app.get('/api/albums', apiCtrl.getAlbums)
 app.get('/api/features', apiCtrl.getFeatures)
-app.get('/api/artist-track', apiCtrl.getArtistTracks)
+app.get('/api/artist-track/:id', apiCtrl.getArtistTracks)
 app.get('/api/search/', apiCtrl.searchApi)
 
 //Auth EndPoint
