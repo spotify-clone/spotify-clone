@@ -48,6 +48,14 @@ const Search = (props) => {
 
     }
 
+    const mappedAlbums = albums.map((element,index)=>{
+
+        return<div className='albums' key={index}>
+            <img className='albumImg' src={element.images[1].url} alt='no pic available'/>
+            <p>{element.name}</p>
+        </div>
+    })
+
 
 
     const mappedTracks = tracks.map((element,index)=>{
@@ -81,20 +89,21 @@ const Search = (props) => {
 
 
     return (
-        <div style={{position:"relative" }}>
-        <Sound
-        url={song}
-        playStatus={Sound.status.PLAYING}
-        />
-            {mappedArtists}
-            <p>SONGS</p>
-            </div>
-            <div className='track-box'>
-            {mappedTracks}
-            </div>
-            <div className='album-box'>
-            <p>Albums</p>
-            {mappedAlbums}
+        <div>
+            <div style={{position:"relative" }}>
+                <Sound
+                url={song}
+                playStatus={Sound.status.PLAYING}
+                />
+                    {mappedArtists}
+                    <p>SONGS</p>
+                    <div className='track-box'>
+                    {mappedTracks}
+                    </div>
+                    <div className='album-box'>
+                        <p>Albums</p>
+                        {mappedAlbums}
+                    </div>
             </div>
         </div>
     )
