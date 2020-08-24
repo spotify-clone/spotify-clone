@@ -191,14 +191,14 @@ const sendProfilePic = () =>{
        // console.log(files)
         return (
           <div id='photos' >
-            <h1>UPLOAD</h1>
+          
             {images}
             <div {...getRootProps()}>
               <input {...getInputProps()} />
               {
                 isDragActive ?
-                  <p>Drop the files here ...</p> :
-                  <p>Drag 'n' drop, or click to select files</p>
+                  <p></p> :
+                  <p></p>
               }
             </div>
           </div>
@@ -229,14 +229,14 @@ const sendProfilePic = () =>{
        // console.log(files)
         return (
           <div id='photos' >
-            <h1>UPLOAD</h1>
+            
             {images}
             <div {...getRootProps()}>
               <input {...getInputProps()} />
               {
                 isDragActive ?
-                  <p>Drop the files here ...</p> :
-                  <p>Drag 'n' drop, or click to select files</p>
+                  <p></p> :
+                  <p></p>
               }
             </div>
           </div>
@@ -249,8 +249,11 @@ const sendProfilePic = () =>{
 return(
   <div>
     <div className='dropbox-container'>
+      <h2>Profile Access</h2>
     <div className='name-box'>
+      <h6>Update Name</h6>
     <input className='name' type="text" placeholder="Add Name"  onSubmit={updateName} ></input>
+    <button className='btns' onClick={updateName}>Add It</button>
     </div>
         <div className='add-photo'>
             <p>Add image then click send</p>

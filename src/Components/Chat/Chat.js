@@ -116,16 +116,16 @@ console.log(props)
     return (
         <div>
              
-             <button id='open-button' onClick={() => setShowChat(!showChat)}>CHAT</button>
+            
             
                 <div className='chat-container'>  
-                    <h3>Enter Your name</h3>
+                    {/* <h3>Enter Your name</h3>
                         <input className='name-input'
                             type='text'
                             name='name'
                             onChange={(e) => setName(e.target.value)}
-                        />
-                    <h1>chat</h1>
+                        /> */}
+                    <h1>chatbox</h1>
                         <input className='chat-input'
                             type='text'
                             name='text'
@@ -142,8 +142,8 @@ console.log(props)
                     </div>
                     <button className='btn' onClick={() => setShowChat(!showChat)}>close</button>
                 </div>
-                <button id='share' onClick={reduxMusic} >Get Music</button>
-             <button id='share' onClick={sendMusic} >Share Music</button>
+                <button className='btn' id='share' onClick={reduxMusic} >Get Music</button>
+             <button className='btn' id='share' onClick={sendMusic} >Share Music</button>
             </div> 
                
         
