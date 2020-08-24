@@ -10,39 +10,29 @@ const spotify = new Spotify({
 
 
 module.exports = {
-
-  getTracks: async(req,res)=>{
-
-    await spotify.request('https://api.spotify.com/v1/tracks')
-
-    // await Spotify({id: client_id, secret: client_secret}).request('wqfewqefwqfwqfwq')
-
-    .then(function(data) {
-      // console.log(data);
-
-    })
-    .catch(function(err) {
-      console.error('Error occurred: ' + err); 
-    });
-
-
-  },
-
   getUser: async(req,res)=>{
     
     const { id } = req.params
+    
+      await spotify.request(`https://api.spotify.com/v1/users/${id}`)
+          .then((data)=>{
+            return res.status(200).send(data)
+          })
+          .catch(function(err) {
+            console.error('Error occurred: ' + err); 
+          });
 
-    let user = await spotify.request(`https://api.spotify.com/v1/users/${id}`)
-                .then((data) => {
-                  console.log(data)
-                })
-                .catch(function(err) {
-                  console.error('Error occurred: ' + err); 
-                });
+  },
+
+  getUserPlaylist: async(req,res)=>{
+    const { id } = req.params
 
 
-    res.status(200).send(user)
-
+    await spotify.request(`https://api.spotify.com/v1/users/${id}/playlists`)
+    .then((data)=>{
+      return res.status(200).send(data)
+    })
+    .catch(error => console.log(error))
 
   },
   getUserPlaylist: async(req,res)=>{
@@ -134,13 +124,6 @@ module.exports = {
     res.status(200).send(tracks)
 
 
-    // for(var i=0; i < tracks.length; i++){      
-    // if(tracks[i].preview_url !== null){
-    //   console.log(tracks)
-    //   res.status(200).send(tracks)
-
-    // }};
-
 
 
   },
@@ -168,8 +151,6 @@ module.exports = {
   searchApi: async(req,res)=>{
 
     const value = req.query.search
-    // console.log(value)
-    // 1. req.body, req.query, req.params
 
 
     await spotify.request(`https://api.spotify.com/v1/search?q=${value}&type=artist&limit=1`)

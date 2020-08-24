@@ -116,14 +116,13 @@ app.get('/api/user-tracks/:id', local.getUsersTrack)
 app.put(`/api/local/:id`, local.addName)
 app.put('/api/local2/:id', local.updatePic)
 app.put(`/api/track/:id`, local.createTrack)
-
-
-// app.get('/api/artist/:id' , apiCtrl.getArtist)
-app.get('/api/user/:id', apiCtrl.getUser)
-
-
 app.post('/api/user/:user', authCtrl.saveLocalUser)
 
+
+
+//endpoints to spotify api
+app.get('/api/user/:id', apiCtrl.getUser)
+app.get('/api/user-playlist/:id', apiCtrl.getUserPlaylist)
 app.get('/api/playlist', apiCtrl.getPlaylist)
 app.get('/api/user-playlist', apiCtrl.getUserPlaylist)
 app.get('/api/albums', apiCtrl.getAlbums)

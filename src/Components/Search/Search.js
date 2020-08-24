@@ -91,10 +91,6 @@ const Search = (props) => {
     return (
         <div>
             <div style={{position:"relative" }}>
-                <Sound
-                url={song}
-                playStatus={Sound.status.PLAYING}
-                />
                     {mappedArtists}
                     <p>SONGS</p>
                     <div className='track-box'>

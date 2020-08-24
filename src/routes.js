@@ -21,5 +21,6 @@ export default (
         <Route path="/chat" component={Chat} />
         
         <Route path='/drop' component={Drop} />
+
     </Switch>
 )
