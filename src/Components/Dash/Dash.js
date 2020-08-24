@@ -102,11 +102,11 @@ class Dash extends Component {
         return (
             <div>
          
-                <span><h3>Hot Shit!!</h3></span>
+                <span><h3>CATIGORIES</h3></span>
                 <MyCarousel2  featuresList={featuresList} list={list} />
-                <span><h3>Album Study-Music</h3> </span>
+                <span><h3>STUDY MUSIC</h3> </span>
                 <MyCarousel1 playlist={playlist} list={list} />
-                <span><h3>Album Hip-hop</h3></span>
+                <span><h3>HIP-HOP</h3></span>
                 <MyCarousel list={list} />
             </div>
         )

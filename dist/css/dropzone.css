@@ -11,7 +11,7 @@
       -ms-flex-align: center;
           align-items: center;
   width: 20vw;
-  height: 100vh;
+  min-height: 75vh;
   position: absolute;
   border-radius: 5px;
   border-color: #646464;
@@ -47,8 +47,8 @@ h6 {
       -ms-flex-align: center;
           align-items: center;
   width: 200px;
-  height: 80px;
-  border-radius: 5px;
+  height: 100px;
+  border-radius: 50%;
   border-color: #646464;
   border-style: outset;
   border-width: 10px;
@@ -81,7 +81,7 @@ h6 {
           box-sizing: border-box;
   background-color: gray;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 50%;
   height: 200px;
   width: 220px;
   border-color: #646464;
@@ -91,15 +91,6 @@ h6 {
           box-shadow: #000000 0px 5px 5px;
   background: -webkit-gradient(linear, left bottom, right top, from(#4e4e4e), color-stop(#c4c4c4), to(#4e4e4e));
   background: linear-gradient(to top right, #4e4e4e, #c4c4c4, #4e4e4e);
-}
-
-.add-photo input {
-  width: 175px;
-  height: 100px;
-  color: black;
-  font-weight: bold;
-  text-align: center;
-  border-radius: 5px;
 }
 
 .add-music {
@@ -118,8 +109,8 @@ h6 {
           box-sizing: border-box;
   background-color: #0f0f0f;
   color: #fff;
-  border-radius: 5px;
-  height: 280px;
+  border-radius: 50%;
+  min-height: 200px;
   width: 220px;
   border-color: #646464;
   border-style: outset;
@@ -128,15 +119,6 @@ h6 {
           box-shadow: #000000 0px 5px 5px;
   background: -webkit-gradient(linear, left bottom, right top, from(#4e4e4e), color-stop(#c4c4c4), to(#4e4e4e));
   background: linear-gradient(to top right, #4e4e4e, #c4c4c4, #4e4e4e);
-}
-
-.add-music input {
-  width: 175px;
-  height: 100px;
-  color: black;
-  font-weight: bold;
-  text-align: center;
-  border-radius: 5px;
 }
 
 p {
@@ -151,7 +133,7 @@ h1 {
 
 .btns {
   margin: 2%;
-  width: 185px;
+  width: 100px;
   height: 30px;
   border-style: outset;
   border-width: 5px;

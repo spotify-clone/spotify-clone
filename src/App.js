@@ -120,28 +120,26 @@ let choice = mappedTrack.length >1?mappedTrack:mappedSongs
  
 
  
-    <AudioPlayer 
+    <AudioPlayer style={{backgroundColor: '#0f0f0f'}}
        autoPlay
        showSkipControls={true}
        onClickPrevious={previousTrack}
        onClickNext={nextTrack}
+       layout={'horizontal'}
        header={
-       <div id='button-bag'>
-       <button onClick={localTrack} >Local Tracks</button>
-       <span>{mappedName}</span>
-       <button onClick={getAllTracks} >All Tracks</button>
-       </div> 
-       }
-      src={choice}
-      onPlay={e => console.log("onPlay") }
-      footer={mappedCount > 1 ? mappedCount.toString() + ` plays`: `[] plays`}
+        <div id='button-bag'>
+        
+        <button className='track-btns'onClick={localTrack} >Local Tracks</button>
+        {mappedCount > 1 ? mappedCount.toString() + ` plays`: `[] plays`}
+        <span>{mappedName}</span>
+        <button className='track-btns'onClick={getAllTracks} >All Tracks</button>
+        </div> 
+        }
+        src={choice}
+        onPlay={e => console.log("onPlay") }
+      />}
 
-    /> 
-
-
-      }
-
-</div>
+      </div>
     </div>
  
  

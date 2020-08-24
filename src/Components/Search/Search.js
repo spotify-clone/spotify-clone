@@ -98,6 +98,7 @@ const Search = (props) => {
             {/* {mappedAlbums} */}
             </div>
         </div>
+    </div>
     )
 }
 

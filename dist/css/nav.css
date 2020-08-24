@@ -1,8 +1,8 @@
 .main-nav {
+  top: 65px;
+  left: 0;
   background-color: #0f0f0f;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  position: fixed;
   height: 100vh;
   width: 15vw;
 }
@@ -39,5 +39,14 @@
 
 .desktop-nav a:hover {
   background-color: gray;
+}
+
+.profilePic {
+  background-color: white;
+  height: 25vh;
+  width: 12vw;
+  margin: 10%;
+  margin-top: 35%;
+  border-radius: 45%;
 }
 /*# sourceMappingURL=nav.css.map */

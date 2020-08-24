@@ -200,8 +200,8 @@ console.log(imgURL)
               <input {...getInputProps()} />
               {
                 isDragActive ?
-                  <p></p> :
-                  <p></p>
+                  <p>drop image here</p> :
+                  <p>drop image here</p>
               }
             </div>
           </div>
@@ -238,8 +238,8 @@ console.log(imgURL)
               <input {...getInputProps()} />
               {
                 isDragActive ?
-                  <p></p> :
-                  <p></p>
+                  <p>drop mp3 here</p> :
+                  <p>drop  mp3 here</p>
               }
             </div>
           </div>
@@ -261,7 +261,7 @@ return(
         <div className='add-photo'>
             <p>Add image then click send</p>
               {MyDropzone2()}
-                <input value={imgURL} onChange={(e) => setImgURL(e.target.value)} type="text" placeholder="Drop Image"/>
+                <input value={imgURL} onChange={console.log('hit')} type="text" placeholder="Name Image"/>
                 {/* <button className='btns' onClick={sendProfilePic}>Send to db</button> */}
               <button className='btns'onClick={() => getSignedRequest2(files)} >Send </button>
         </div>

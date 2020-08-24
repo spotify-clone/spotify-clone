@@ -108,4 +108,4 @@ class Player extends Component {
         }
     }
 
-    export default Player
+    export default Player;
