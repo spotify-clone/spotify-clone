@@ -1,7 +1,7 @@
 export const authEndpoint = "https://accounts.spotify.com/authorize";
 // Replace with your app's client ID, redirect URI and desired scopes
 const clientId = 'd6e4efa4cad54f1d8498c54e41953c30'
-const redirectUri = "http://localhost:3000/dash";
+const redirectUri = "http://localhost:3000/player";
 const scopes = [
   "user-read-currently-playing",
   "user-read-recently-played",
@@ -14,7 +14,6 @@ const scopes = [
 ];
 
 export const getTokenFromUrl = () => {
-  console.log(window.location.hash)
     
   return window.location.hash.substring(1).split("&").reduce((initial, item) => {
       var parts = item.split("=");
