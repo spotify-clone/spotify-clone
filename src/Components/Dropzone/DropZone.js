@@ -36,10 +36,10 @@ const updateName =() =>{
 }
 
 const sendProfilePic = () =>{
-
-    axios.put(`/api/local2/${props.user.account_id}`, imgURL)
+console.log(imgURL)
+    axios.put(`/api/local2/${props.music.user.account_id}`, {imgURL})
     .then(() => {
-     
+     console.log('good')
     })
     .catch(err =>console.log(err))
 
@@ -52,7 +52,7 @@ const sendProfilePic = () =>{
 
   console.log(props.user.account_id)
 
-   axios.put(`/api/track/${props.user.account_id}`, {name: trackName, song} )
+   axios.put(`/api/track/${props.music.user.account_id}`, {name: trackName, song} )
    .then(()=>{
       console.log('good')
       setImgURL('')
@@ -113,7 +113,9 @@ const sendProfilePic = () =>{
             setUploading({ isUploading: false, url });
             setImgURL(url)
             if (url) {
-              alert('ready!!')
+              alert('sending profile pic to db!!')
+              sendProfilePic()
+              
             }
           })
           .catch(err => {
@@ -148,7 +150,8 @@ const sendProfilePic = () =>{
             setUploading({ isUploading: false, url });
             setSong(url)
             if (url) {
-              alert('ready!!')
+              alert('adding song to db!!')
+              sendFile()
             }
           })
           .catch(err => {
@@ -191,14 +194,14 @@ const sendProfilePic = () =>{
        // console.log(files)
         return (
           <div id='photos' >
-            <h1>UPLOAD</h1>
+          
             {images}
             <div {...getRootProps()}>
               <input {...getInputProps()} />
               {
                 isDragActive ?
-                  <p>Drop the files here ...</p> :
-                  <p>Drag 'n' drop, or click to select files</p>
+                  <p></p> :
+                  <p></p>
               }
             </div>
           </div>
@@ -229,41 +232,44 @@ const sendProfilePic = () =>{
        // console.log(files)
         return (
           <div id='photos' >
-            <h1>UPLOAD</h1>
+            
             {images}
             <div {...getRootProps()}>
               <input {...getInputProps()} />
               {
                 isDragActive ?
-                  <p>Drop the files here ...</p> :
-                  <p>Drag 'n' drop, or click to select files</p>
+                  <p></p> :
+                  <p></p>
               }
             </div>
           </div>
         )
       }
-//     console.log(files)
-// console.log(imgURL)
-//  console.log(props)
-// console.log(song)
+     console.log(props.music.user.account_id)
+console.log(imgURL)
+  console.log(props)
+console.log(song)
 return(
   <div>
     <div className='dropbox-container'>
+      <h2>Profile Access</h2>
     <div className='name-box'>
+      <h6>Update Name</h6>
     <input className='name' type="text" placeholder="Add Name"  onSubmit={updateName} ></input>
+    <button className='btns' onClick={updateName}>Add It</button>
     </div>
         <div className='add-photo'>
             <p>Add image then click send</p>
               {MyDropzone2()}
                 <input value={imgURL} onChange={(e) => setImgURL(e.target.value)} type="text" placeholder="Drop Image"/>
-                <button className='btns' onClick={sendProfilePic}>Send to db</button>
+                {/* <button className='btns' onClick={sendProfilePic}>Send to db</button> */}
               <button className='btns'onClick={() => getSignedRequest2(files)} >Send </button>
         </div>
         <div className='add-music'>
            <p>Add mp3 then click send </p>
               {MyDropzone()}
                 <input value={trackName} onChange={(e) => setTrackName(e.target.value)} type="text" placeholder="Drop Music"/>
-                <button className='btns' onClick={sendFile}>Send to db</button>
+                {/* <button className='btns' onClick={sendFile}>Send to db</button> */}
               <button className='btns' onClick={() => getSignedRequest(files)} >Send </button>
         </div>
         </div>

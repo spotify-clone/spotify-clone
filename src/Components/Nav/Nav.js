@@ -8,7 +8,7 @@ import './nav.scss';
 const Nav = (props) => {
 
     const [user, setUser] = useState([])
-
+    
     useEffect(()=>{
         getUser()
         
@@ -29,8 +29,16 @@ const Nav = (props) => {
         // .catch(error => console.log(error))
     }
 
+    const logout = () => {
+        axios.get('/auth/logOut')
+        .then (() => {
+        props.history.push('/')
+        })
+        .catch(err => console.log(err, 'You Logged Out')
+        )}
 
 
+console.log(props.music.user.pic)
     return (
         <div className='main-nav'>
             <nav className='desktop-nav'>
@@ -56,7 +64,9 @@ const Nav = (props) => {
                     <li>
                         <Link to='/Chat'>Chat</Link>
                     </li>
-
+                    <li>
+                        <img src={props.music.user.pic} id='pixed' alt='beautiful person picture'/>
+                    </li>
                 </ul>
             </nav>
         </div>

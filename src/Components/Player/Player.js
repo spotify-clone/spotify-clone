@@ -2,18 +2,15 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import {Howl, Howler} from 'howler'
 
+
 class Player extends Component {
     constructor(props){
         super(props)
 
         this.state={
             tracks: [],
-            play: false,
-            pause: true,
-            audio: false,
-            url: "",
+            audio: false
         }
-        this.sound = new Howl({src: this.state.url, html5:true})
 
     };
  
@@ -29,62 +26,14 @@ class Player extends Component {
     }
 
 
-    soundPlay = (value)=> {
-        const { audio } = this.state
-
-        this.setState({audio: !this.state.audio, url: value})
-
-        let sound = null;
-        if (sound != null) {
-            sound.stop();
-            sound.unload();
-            sound = null;
-        }
-
-        sound = new Howl({
-            src: value,
-            html5:true
-        })
-
-        var id = sound.play();
-
-        audio ? sound.play() : this.setState({url: ""})
-        
-        var id = sound.play();
-        sound.pause(id);
-
-
-    }
 
     
-
-    handleToggle = (value) => {
-        this.setState({audio: !this.state.audio, url: value});
-        this.queueSound()
-        
-    }
-
-    queueSound = () =>{
- 
-        const { audio } = this.state   
-
-            if(audio === true){
-                console.log('hit')
-                this.audio.play();
-            }
-            else{
-                this.audio.pause();
-            }
-
-    }
-
 
 
 
         render() {
-
+                  
             const { tracks, url } = this.state
-
             const mappedTracks = tracks.map((element,index)=>{
                 let image;
                 let audio;
@@ -93,15 +42,15 @@ class Player extends Component {
                     image = element.album.images[1].url
                     audio = element.preview_url
                 }
-
-                return <img key={index} src={image} alt="" onClick={() => this.soundPlay(audio)}/>
-
+                return <div key={index}>
+                        {this.state.audio
+                        ?
+                        <button style={{padding: 20}} onClick={() => this.startSound}><img src={image} alt=""/></button>
+                        :
+                        <button style={{padding: 20}} onClick={() => this.startSound(audio)}><img src={image} alt=""/></button>
+                        }
+                    </div>
             })
-
-
-
-
-
 
         return (
           <div>
@@ -109,8 +58,12 @@ class Player extends Component {
               {mappedTracks}  
                   </div> 
                 <div>
-                    <button style={{padding: 20}} onClick={this.play}>Play</button>
-                    <button style={{padding: 20}} onClick={this.pause}>Pause</button>
+                    {this.state.audio
+                    ?
+                    <button style={{padding: 20}} onClick={this.startSound}>Pause</button>
+                    :
+                    <button style={{padding: 20}} onClick={this.stopSound}>Play</button>
+                    }
                 </div>
           </div>
           );
@@ -118,4 +71,3 @@ class Player extends Component {
     }
 
     export default Player
-

@@ -37,11 +37,11 @@ function Chat(props) {
   
   let mapList = list.map((ele,ind)=>{
       return (
-          <div> 
-              <button onClick={() => setData(ele.track)}><p>{ele.track}</p></button>
-            {/* <ul>
-                <li onClick={() => setData(ele.track)}>{ele.track}</li>
-            </ul> */}
+          <div key={ind}> 
+              {/* <button onClick={() => setData(ele.track)}><p>{ele.track}</p></button> */}
+            
+                <span onClick={(e) => setData(ele.track)}>{ele.track.toString().slice(83,100)}</span>
+           
           </div>
       )
   })
@@ -102,7 +102,7 @@ const sendMusic = () =>{
    // setData('https://spotify-bucket33.s3.amazonaws.com/c499c9e9-4a6d-4e4f-b59f-8695dee7c236-Black-Tom-Brady---11_12_17,-11.03-AM.mp3')
     console.log('hit send music', data)
     if(data){
-        socket.emit('message sent', {data:data[0]})
+        socket.emit('message sent', {data:data})
     }
     
     //   if (data) {
@@ -172,12 +172,10 @@ const reduxMusic = (num) => {
     //Right now since any value makes it truthy it goes away....
     return (
         <div>
-        {mapList}
+       
         <div id='chat-div'>     
-            <button id='open-button' onClick={() => setShowChat(!showChat)}>CHAT</button>
-            {true?
+        <div className='chat-container'>  
             <div id='room' > 
-            <h2>My Room: {room}  </h2>
             <button onClick={joinRoom} >Enter</button> 
             <input 
             text='text'
@@ -185,11 +183,10 @@ const reduxMusic = (num) => {
             required
             placeholder='Enter The Room'
             onChange={(e)=>setRoom(e.target.value)}    
-
             />
-            </div>:
-             null}
-                <div className='chat-container'>  
+            </div>
+            
+               
                     <h3>Enter Your name</h3>
                         <input className='name-input'
                             type='text'
@@ -215,6 +212,7 @@ const reduxMusic = (num) => {
              <button id='share' onClick={sendMusic} >Share Music</button>
                 <button id='share' onClick={reduxMusic} >Get Music</button>
                 </div>
+                {mapList}
             </div> 
             </div>    
         

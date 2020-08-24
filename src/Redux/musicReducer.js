@@ -7,6 +7,7 @@ const initialState = {
 const GET_USER = 'GET_USER'
 const GET_MUSIC = 'GET_MUSIC'
 
+
 ///Get music that is passed from chat
 export function getMusic(music) {
     console.log(music)
@@ -30,16 +31,18 @@ export function getUser(user) {
 
 
 
+
+
 export default function reducer(state = initialState, action) {
     const {type, payload} = action
-console.log(payload)
+
     switch(type){
         case GET_USER:
-            console.log(payload)
             return {...state, user: payload}
+
             case GET_MUSIC:
-                console.log(payload)
                 return {...state, music: payload}
+                
             default:
                 return state
     }

@@ -59,12 +59,12 @@ module.exports ={
     },
     updatePic: async (req, res) => {
         const db = req.app.get('db'),
-        {pic} = req.body,
+        {imgURL} = req.body,
         {id} = req.params;
 
-        // console.log(pic, id)
+         console.log(imgURL)
 
-        const add = await db.update_profile_pic(pic,id)
+        const add = await db.update_profile_pic([imgURL,id])
         // console.log(add)
         res.status(200).send(add)
 

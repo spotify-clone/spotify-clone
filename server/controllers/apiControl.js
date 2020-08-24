@@ -13,7 +13,7 @@ module.exports = {
 
   getTracks: async(req,res)=>{
 
-    await spotify.request('https://api.spotify.com/v1/tracks/7yCPwWs66K8Ba5lFuU2bcx')
+    await spotify.request('https://api.spotify.com/v1/tracks')
 
     // await Spotify({id: client_id, secret: client_secret}).request('wqfewqefwqfwqfwq')
 
@@ -29,10 +29,12 @@ module.exports = {
   },
 
   getUser: async(req,res)=>{
+    
+    const { id } = req.params
 
-    let user = await spotify.request(`https://api.spotify.com/v1/users/tplch23cw47fimii6dmzmv1yg`)
+    let user = await spotify.request(`https://api.spotify.com/v1/users/${id}`)
                 .then((data) => {
-                  // console.log(data)
+                  console.log(data)
                 })
                 .catch(function(err) {
                   console.error('Error occurred: ' + err); 
@@ -117,6 +119,9 @@ module.exports = {
     const { id } = req.params
      console.log(id)
 
+    //id = 93t2jfdig3g30g3g0ejgri33
+
+
     await spotify.request(`https://api.spotify.com/v1/artists/${id}/top-tracks?country=SE`)
     .then(data => newObj = {...data})
     .catch((err)=>{
@@ -124,6 +129,7 @@ module.exports = {
     })
     
     const { tracks } = newObj
+    console.log(tracks)
 
     res.status(200).send(tracks)
 
