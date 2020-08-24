@@ -113,7 +113,9 @@ console.log(imgURL)
             setUploading({ isUploading: false, url });
             setImgURL(url)
             if (url) {
-              alert('ready!!')
+              alert('sending profile pic to db!!')
+              sendProfilePic()
+              
             }
           })
           .catch(err => {
@@ -148,7 +150,8 @@ console.log(imgURL)
             setUploading({ isUploading: false, url });
             setSong(url)
             if (url) {
-              alert('ready!!')
+              alert('adding song to db!!')
+              sendFile()
             }
           })
           .catch(err => {
@@ -256,14 +259,14 @@ return(
             <p>Add image then click send</p>
               {MyDropzone2()}
                 <input value={imgURL} onChange={(e) => setImgURL(e.target.value)} type="text" placeholder="Drop Image"/>
-                <button className='btns' onClick={sendProfilePic}>Send to db</button>
+                {/* <button className='btns' onClick={sendProfilePic}>Send to db</button> */}
               <button className='btns'onClick={() => getSignedRequest2(files)} >Send </button>
         </div>
         <div className='add-music'>
            <p>Add mp3 then click send </p>
               {MyDropzone()}
                 <input value={trackName} onChange={(e) => setTrackName(e.target.value)} type="text" placeholder="Drop Music"/>
-                <button className='btns' onClick={sendFile}>Send to db</button>
+                {/* <button className='btns' onClick={sendFile}>Send to db</button> */}
               <button className='btns' onClick={() => getSignedRequest(files)} >Send </button>
         </div>
         </div>
