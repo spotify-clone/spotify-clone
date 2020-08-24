@@ -42,7 +42,7 @@ class Player extends Component {
 
         var id = sound.play();
 
-        audio ? sound.play() : this.setState({url: ""})
+        this.state.audio ? sound.play() : this.setState({url: ""})
         
         var id = sound.play();
         sound.pause(id);

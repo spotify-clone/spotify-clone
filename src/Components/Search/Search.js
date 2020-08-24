@@ -85,7 +85,7 @@ const Search = (props) => {
         <Sound
         url={song}
         playStatus={Sound.status.PLAYING}
-        />
+        /> <div>
             {mappedArtists}
             <p>SONGS</p>
             </div>
