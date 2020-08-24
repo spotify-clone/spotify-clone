@@ -35,20 +35,10 @@ module.exports = {
     .catch(error => console.log(error))
 
   },
-  getUserPlaylist: async(req,res)=>{
+ 
 
 
-    await spotify.request(`https://api.spotify.com/v1/me/playlists`)
-    .then(function(data) {
-      
-      res.status(200).send(data) 
-    })
-    .catch(function(err) {
-      console.error('Error occurred: ' + err); 
-    });
-
-
-  },
+  
 
   
 

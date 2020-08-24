@@ -47,7 +47,7 @@ const Search = (props) => {
         .catch((err)=> console.log(err));
 
     }
-
+    
     const mappedAlbums = albums.map((element,index)=>{
 
         return<div className='albums' key={index}>
@@ -67,7 +67,7 @@ const Search = (props) => {
         }
 
         //buttons to control which track to play
-        return <div className='trackList'key={index}>
+        return <div className='trackList' key={index}>
             {
             song ? <div><button onClick={() => setSong('')}>Stop Track</button><p> {element.name}</p></div>
             : 
