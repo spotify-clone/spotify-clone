@@ -37,13 +37,17 @@
 .desktop-nav a:hover{
     background-color: gray;
 }
-
+.profilePic img{
+    border-radius: 30%;
+}
 .profilePic {
     background-color: white;
-    height: 25vh;
-    width: 12vw;
+    height: fit-content ;
+    width: fit-content;
     margin: 10%;
     margin-top: 35%;
     border-radius: 45%;
+    padding-top:10px;
+
 
 }
