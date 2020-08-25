@@ -80,9 +80,9 @@ const Search = (props) => {
         return <div className='trackList' 
 key={index}>
             {
-            song ? <div><button onClick={() => setSong('')}>Stop Track</button><p> {element.name}</p></div>
+            song ? <div><button className='trackbtns' onClick={() => setSong('')}>Stop Track</button><p> {element.name}</p></div>
             : 
-            <div><button onClick={() => setSong(audio)}>Play Track</button><p>{element.name}</p></div>
+            <div><button className='trackbtns' onClick={() => setSong(audio)}>Play Track</button><p>{element.name}</p></div>
             } 
         </div>
     })
@@ -105,19 +105,18 @@ key={index}>
             url={song}
             playStatus={Sound.status.PLAYING}
             />
-            <div style={{position:"relative" }}>
+            <div className='mainDiv'>
+                <div className='artist-box'>
                     {mappedArtists}
-                   
                 </div>
-                
-                    <div className='track-box'>
-                    <p>SONGS</p>
+                <div className='track-box'>
+                    <h3>SONGS</h3>
                     {mappedTracks}
-                    </div>
-                    <div className='album-box'>
-                        <p>Albums</p>
-                        {mappedAlbums}
-                    </div>
+                </div>
+                <div className='album-box'>
+                    <h3>Albums</h3>
+                    {mappedAlbums}
+                </div>
             </div>
         </div>
 
