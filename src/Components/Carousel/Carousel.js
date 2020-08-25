@@ -14,6 +14,7 @@ const MyCarousel = (props) => {
     return <img style={{display: "flex", justifyContent:"center", height: "150px", width: "150px"}} src={element.images[0].url} alt='Hot Album Covers'/>
 })
 
+
     return (
         <div>
             <Carousel
@@ -26,7 +27,6 @@ const MyCarousel = (props) => {
                     
                 }}
                
-              
                 activeSlideIndex={activeSlide}
                 activeSlideProps={{
                     style: {
