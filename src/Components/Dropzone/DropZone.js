@@ -250,7 +250,7 @@ console.log(imgURL)
 //   console.log(props)
 // console.log(song)
 return(
-  <div>
+  <div className="main-div">
     <div className='dropbox-container'>
       <h2>Profile Access</h2>
     <div className='name-box'>

@@ -50,7 +50,7 @@ class Player extends Component {
 
         return (
           <div>
-
+               
           </div>
           );
         }

@@ -2,6 +2,7 @@ import React, {useState, useEffect}from 'react'
 import axios from 'axios'
 import '../Search/search.scss';
 import Sound from 'react-sound';
+import {Button} from 'semantic-ui-react';
 
 
 
@@ -15,6 +16,14 @@ const Search = (props) => {
 
     //artist = [ 'drake'] == artist.length  = 1
 
+
+    const Button = () => (
+        <Button.Group>
+          <Button icon='play' />
+          <Button icon='pause' />
+          <Button icon='shuffle' />
+        </Button.Group>
+      )
 
     useEffect(()=>{
 
@@ -68,7 +77,8 @@ const Search = (props) => {
         }
 
         //buttons to control which track to play
-        return <div className='trackList' key={index}>
+        return <div className='trackList' 
+        key={index}>
             {
             song ? <div><button onClick={() => setSong('')}>Stop Track</button><p> {element.name}</p></div>
             : 
@@ -97,15 +107,18 @@ const Search = (props) => {
             />
             <div style={{position:"relative" }}>
                     {mappedArtists}
-                    <p>SONGS</p>
-                    <div className='track-box'>
-                    {mappedTracks}
+                   
                     </div>
+                
+                        <div className='track-box'>
+                         <p>SONGS</p>
+                        {mappedTracks}
+                        </div>
                     <div className='album-box'>
                         <p>Albums</p>
                         {mappedAlbums}
                     </div>
-            </div>
+                
         </div>
 
     )
