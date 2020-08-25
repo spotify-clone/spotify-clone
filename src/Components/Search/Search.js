@@ -16,6 +16,14 @@ const Search = (props) => {
     //artist = [ 'drake'] == artist.length  = 1
 
 
+    const Button = () => (
+        <Button.Group>
+          <Button icon='play' />
+          <Button icon='pause' />
+          <Button icon='shuffle' />
+        </Button.Group>
+      )
+
     useEffect(()=>{
 
         searchArtist()

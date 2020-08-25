@@ -2,12 +2,16 @@
     box-sizing: border-box;
     width:80vw;
     height: 100vh;
-   display: flex;
+//    display: flex;
+   overflow-y: hidden;
+  
+    
+
 }
 
 
 .album-box{
-top: 65px;
+top: 20px;
 position: absolute;
 display:flex;
 flex-direction: column;
@@ -18,29 +22,45 @@ right: 10px;
 overflow: scroll;
 justify-content: space-evenly;
 }
+
+.trackList p {
+    font-size: 20px;
+    display: inline-block;
+    margin: 5%;
+    
+}
+
 .artist-box{
- width: 50vw;
+ width: 30vw;
+ left: 35vw;
 }
 .track-box{
-position: absolute;
-bottom:100px;
-
-
+    position: fixed;
+    left: 30vw;
+    bottom: 130px;
     box-sizing: border-box;
     height: 280px;
-    width: 50vw;
+    width: 30vw;
     overflow: scroll;
     font-size: 9px;
     
+    
+    
+      
 }
 .artistImg{
+    position: fixed;
     height: 25vh;
     width: 20vw;
+    left: 35vw;
    
 }
 
 .albumImg{
-    height:20vh;
+    height: 20vh;
     align-items: center;
 
 }
+
+
+
