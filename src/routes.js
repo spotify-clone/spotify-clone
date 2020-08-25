@@ -17,6 +17,6 @@ export default (
         <Route path="/search/:artist" component={Search} />
         <Route path="/chart" component={Chart} />
         <Route path="/chat" component={Chat} />
-        {/* <Route path='/drop' component={Drop} /> */}
+        <Route path='/drop' component={Drop} />
     </Switch>
 )
