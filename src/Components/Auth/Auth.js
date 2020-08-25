@@ -57,7 +57,7 @@ const Auth = (props) => {
     
     return (
         <div className='auth'>
-         <img src={Logo} alt='authLogo' />
+         <img src={Logo} alt='authLogo' className="auth-logo"/>
 
         <div className="main">
         

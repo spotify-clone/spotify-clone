@@ -131,11 +131,10 @@ let choice = mappedTrack.length >1?mappedTrack:mappedSongs
         }
         src={choice}
         onPlay={e => console.log("onPlay") }
-      />}
-
+      />
+      }
       </div>
     </div>
- 
  
 </div>
          
