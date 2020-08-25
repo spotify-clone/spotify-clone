@@ -114,9 +114,6 @@ let choice = mappedTrack.length >1?mappedTrack:mappedSongs
      {props.location.pathname ==="/" || props.location.pathname === "/player" ? null:    
 
 
- 
-
- 
     <AudioPlayer style={{backgroundColor: '#0f0f0f'}}
        autoPlay
        showSkipControls={true}
