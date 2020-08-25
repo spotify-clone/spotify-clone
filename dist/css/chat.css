@@ -22,8 +22,8 @@
   border-width: 10px;
   -webkit-box-shadow: #000000 0px 5px 5px;
           box-shadow: #000000 0px 5px 5px;
-  background: -webkit-gradient(linear, left bottom, right top, from(#4e4e4e), color-stop(#c4c4c4), to(#4e4e4e));
-  background: linear-gradient(to top right, #4e4e4e, #c4c4c4, #4e4e4e);
+  background-color: #424242;
+  background-image: url("https://www.transparenttextures.com/patterns/grid-noise.png");
 }
 
 #share {
