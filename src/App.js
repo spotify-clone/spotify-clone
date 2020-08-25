@@ -65,7 +65,7 @@ useEffect(()=>{
 //    setCount(count--)
 // }
 
-
+ 
 
   const localTrack = () =>{
     
@@ -85,7 +85,7 @@ let mappedSongs =[];
 
 console.log(mappedCountAllTracks)
 //console.log(output)
-console.log(mappedSongs)
+//console.log(mappedSongs)
 
 const mappedCount = audio.map(ele =>ele.count)
 const mappedName = audio.map(ele => ele.name)
@@ -124,8 +124,8 @@ let choice = mappedTrack.length >1?mappedTrack:mappedSongs
         <div id='button-bag'>
         
         <button className='track-btns' onClick={localTrack} >Local Tracks</button>
-        {mappedCount > 1 ? mappedCount.toString() + ` plays`: `[] plays`}
-        <span>{mappedName}</span>
+        <span id='spaner' >{ mappedCount.toString() + ` plays`}</span>
+        <span>{mappedCountAllTracks}</span>
         <button className='track-btns' onClick={getAllTracks} >All Tracks</button>
         </div> 
         }
