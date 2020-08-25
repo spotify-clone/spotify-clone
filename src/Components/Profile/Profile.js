@@ -5,7 +5,7 @@ import { getTokenFromUrl } from '../../spotifyFn';
 
 const spotify = new SpotifyWebApi();
 
-class Player extends Component {
+class Profile extends Component {
     constructor(props){
         super(props)
 
@@ -50,10 +50,11 @@ class Player extends Component {
 
         return (
           <div>
-               
+              <h1>Sptoify Picture</h1>
+              <h2>Spotify Name</h2>
           </div>
           );
         }
     }
 
-    export default Player;
+    export default Profile;

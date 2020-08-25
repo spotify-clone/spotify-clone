@@ -8,13 +8,15 @@
     
 
 }
+
+
 .album-box{
 top: 20px;
 position: absolute;
 display:flex;
 flex-direction: column;
 box-sizing: border-box;  
-height:120vh;
+height:110vh;
 width: 15vw;
 right: 10px;
 overflow: scroll;
@@ -53,6 +55,7 @@ justify-content: space-evenly;
     left: 35vw;
    
 }
+
 .albumImg{
     height: 20vh;
     align-items: center;
