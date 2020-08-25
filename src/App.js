@@ -130,10 +130,10 @@ let choice = mappedTrack.length >1?mappedTrack:mappedSongs
        header={
         <div id='button-bag'>
         
-        <button className='track-btns'onClick={localTrack} >Local Tracks</button>
+        <button className='track-btns' onClick={localTrack} >Local Tracks</button>
         {mappedCount > 1 ? mappedCount.toString() + ` plays`: `[] plays`}
         <span>{mappedName}</span>
-        <button className='track-btns'onClick={getAllTracks} >All Tracks</button>
+        <button className='track-btns' onClick={getAllTracks} >All Tracks</button>
         </div> 
         }
         src={choice}
