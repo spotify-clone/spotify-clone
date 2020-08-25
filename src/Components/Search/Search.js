@@ -67,7 +67,6 @@ const Search = (props) => {
 
 
 
-<<<<<<< HEAD
     const mappedTracks = tracks.map((element,index)=>{
         let audio;
     
@@ -87,8 +86,6 @@ key={index}>
         </div>
     })
 
-=======
->>>>>>> master
 
 
     const mappedArtists = artist.map((element,index)=>{
