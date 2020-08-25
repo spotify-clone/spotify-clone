@@ -38,33 +38,37 @@ io.on('connection', socket => {
   console.log('User Connected');
   io.emit('message dispatched', 'hello');
  
-  socket.on('message', ({name, message}) =>{
+  socket.on('message', ({name, message, roomId}) =>{
 
-    console.log( "Hit socket on message ",message)
+    console.log( "Hit socket on message ",message, roomId)
 
-
-      io.emit('message from server', {name, message})
+    if(!roomId && !roomId.rooms && !roomId.rooms[1]) return;
+     io.in(roomId.rooms[1]).emit('message from server', {name, message})
+      
   })
 
   socket.on('message sent', data => {
     console.log(data)
    // socket.broadcast.emit('message dispatched', data.message);
-   io.emit('message data', data)
+   if(!data && !data.roomId && !data.roomId.rooms && !data.roomId.rooms[1]) return;
+     io.to(data.roomId.rooms[1]).emit('message data', {data: data.data});
   })
 
   socket.on('join room', data => {
-    console.log(session)
+    console.log(data)
     session.room = data
-     
-
-
+     let rooms;
     console.log('room joined', data.room)
-    socket.join(data.room);
-    io.to(data.room).emit('room joined', session.room);
+    socket.join(data.room, () =>{
+     rooms = Object.keys(socket.rooms)
+      console.log(rooms)
+      io.to(data.room).emit('room joined', {rooms});
+    });
+  
   })
-  socket.on('message sent', data => {
-    io.to(data.room).emit('message dispatched', data.message);
-  })
+  // socket.on('message sent', data => {
+  //   io.to(data.room).emit('message data', data);
+  // })
   
   socket.on('disconnect', () => {
     console.log('User Disconnected');
@@ -108,11 +112,8 @@ app.post(`/api/email`, email.email)
 
 //local
 app.get('/api/track/:id', local.getTrack)
-
-
 app.get(`/api/tracks`, local.getTracks)
 app.get('/api/user-tracks/:id', local.getUsersTrack)
-
 app.put(`/api/local/:id`, local.addName)
 app.put('/api/local2/:id', local.updatePic)
 app.put(`/api/track/:id`, local.createTrack)
@@ -124,10 +125,14 @@ app.post('/api/user/:user', authCtrl.saveLocalUser)
 app.get('/api/user/:id', apiCtrl.getUser)
 app.get('/api/user-playlist/:id', apiCtrl.getUserPlaylist)
 app.get('/api/playlist', apiCtrl.getPlaylist)
-app.get('/api/albums', apiCtrl.getAlbums)
+app.get('/api/new-releases', apiCtrl.getNewReleases)
 app.get('/api/features', apiCtrl.getFeatures)
 app.get('/api/artist-track/:id', apiCtrl.getArtistTracks)
 app.get('/api/search/', apiCtrl.searchApi)
+app.get('/api/artist-album/:id', apiCtrl.getArtistAlbums)
+app.get('/api/playlist-tracks/:id',apiCtrl.getTracksInPlaylist)
+app.delete('/api/delete-track/:id', apiCtrl.deleteTrack)
+
 
 //Auth EndPoint
 app.get(`/auth/me`, authCtrl.logMeIn)

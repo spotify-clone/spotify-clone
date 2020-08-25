@@ -17,6 +17,7 @@ const Search = (props) => {
 
 
     useEffect(()=>{
+
         searchArtist()
     })
     

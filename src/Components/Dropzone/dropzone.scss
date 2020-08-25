@@ -65,8 +65,8 @@ h6 {
     box-sizing: border-box;
     background-color: gray;
     color: $text-color;
-    border-radius: 50%;
-    height: 200px;
+    border-radius: 5px;
+    min-height: 200px;
     width: 220px;
     border-color: rgb(100, 100, 100);
     border-style: outset;
