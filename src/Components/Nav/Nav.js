@@ -38,7 +38,7 @@ const Nav = (props) => {
         )}
 
 
-console.log(props.music.user.pic)
+console.log(props)
     return (
         <div className='main-nav'>
             <nav className='desktop-nav'>

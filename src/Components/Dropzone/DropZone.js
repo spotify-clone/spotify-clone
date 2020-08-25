@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useDropzone} from 'react-dropzone'
 import {v4 as randomString} from 'uuid'
 import axios from 'axios'
@@ -23,7 +23,22 @@ const DropZone = (props)=>{
     const [imgURL, setImgURL] = useState('');
     const [imgFiles, setImgFiles] = useState([])
 
+    useEffect(()=>{
+if (imgURL){
+ sendProfilePic()
+}
+ 
 
+    },[imgURL])
+
+
+useEffect(() =>{
+
+if(song){
+  sendFile()
+}
+
+}, [song])
 
 const updateName =() =>{
 
@@ -35,8 +50,8 @@ const updateName =() =>{
 
 }
 
-const sendProfilePic = () =>{
-console.log(imgURL)
+const sendProfilePic = ( ) =>{
+console.log(imgURL,"hit")
     axios.put(`/api/local2/${props.music.user.account_id}`, {imgURL})
     .then(() => {
      console.log('good')
@@ -50,12 +65,12 @@ console.log(imgURL)
 
   //  const body = {trackName, song}
 
-  console.log(props.user.account_id)
+  console.log(props.music.user.account_id)
 
-   axios.put(`/api/track/${props.music.user.account_id}`, {name: trackName, song} )
+   axios.post(`/api/track/${props.music.user.account_id}`, {name: trackName, track: song} )
    .then(()=>{
       console.log('good')
-      setImgURL('')
+      // setImgURL('')
       
    })
    .catch(error => console.log(error))
@@ -63,7 +78,7 @@ console.log(imgURL)
 
  const getSignedRequest2 = ([imgFiles]) => {
   setUploading(!isUploading)
-  console.log(imgFiles)
+ // console.log(imgFiles)
   const fileName = `${randomString()}-${imgFiles.name.replace(/\s/g, '-')}`
   //Try to get it from service after you get it working with the axios get from here
   axios.get('/sign-s3', {
@@ -101,7 +116,9 @@ console.log(imgURL)
     
       //This second upload file is so I can set the imageURL and send it ot the database seperately
       const uploadFile2 = (files, signedRequest, url) => {
-    
+        console.log(files)
+        console.log(signedRequest)
+        console.log(url)
         const options = {
           headers: {
             'Content-Type': files.type,
@@ -111,11 +128,11 @@ console.log(imgURL)
           .put(signedRequest, files, options)
           .then(() => {
             setUploading({ isUploading: false, url });
-            setImgURL(url)
             if (url) {
+              setImgURL(url)
               alert('sending profile pic to db!!')
-              sendProfilePic()
-              
+            // console.log(imgURL)
+              // sendProfilePic() 
             }
           })
           .catch(err => {
@@ -133,12 +150,11 @@ console.log(imgURL)
             }
           })
       }
-
-
-
       
       const uploadFile = (files, signedRequest, url) => {
-    
+        console.log(files)
+        console.log(signedRequest)
+        console.log(url)
         const options = {
           headers: {
             'Content-Type': files.type,
@@ -148,10 +164,10 @@ console.log(imgURL)
           .put(signedRequest, files, options)
           .then(() => {
             setUploading({ isUploading: false, url });
-            setSong(url)
             if (url) {
+              setSong(url)
               alert('adding song to db!!')
-              sendFile()
+             // sendFile()
             }
           })
           .catch(err => {
@@ -191,7 +207,7 @@ console.log(imgURL)
             </div>
           </div>
         )
-       // console.log(files)
+ console.log(props)
         return (
           <div id='photos' >
           
@@ -229,7 +245,7 @@ console.log(imgURL)
             </div>
           </div>
         )
-       // console.log(files)
+        console.log(props)
         return (
           <div id='photos' >
             
@@ -261,7 +277,7 @@ return(
         <div className='add-photo'>
             <p>Add image then click send</p>
               {MyDropzone2()}
-                <input value={imgURL} onChange={(e) => setImgURL(e.target.value)} type="text" placeholder="Drop Image"/>
+                <input  value={imgURL} onChange={(e) => setImgURL(e.target.value)} type="text" placeholder="Drop Image"/>
                 {/* <button className='btns' onClick={sendProfilePic}>Send to db</button> */}
               <button className='btns'onClick={() => getSignedRequest2(imgFiles)} >Send </button>
         </div>
@@ -277,6 +293,13 @@ return(
     )
 }
 
-const mapStateToProps = redux => redux;
+//const mapStateToProps = redux => redux;
+
+const mapStateToProps = state => {
+  return{
+      music: state.music,
+      user: state.user
+  }
+}
 
 export default connect(mapStateToProps)(DropZone)

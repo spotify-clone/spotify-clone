@@ -48,7 +48,7 @@ io.on('connection', socket => {
   })
 
   socket.on('message sent', data => {
-    console.log(data)
+    // console.log(data)
    // socket.broadcast.emit('message dispatched', data.message);
    if(!data && !data.roomId && !data.roomId.rooms && !data.roomId.rooms[1]) return;
      io.to(data.roomId.rooms[1]).emit('message data', {data: data.data});
@@ -119,7 +119,7 @@ app.get('/api/user-tracks/:id', local.getUsersTrack)
 
 app.put(`/api/local/:id`, local.addName)
 app.put('/api/local2/:id', local.updatePic)
-app.put(`/api/track/:id`, local.createTrack)
+app.post(`/api/track/:id`, local.createTrack)
 
 
 // app.get('/api/artist/:id' , apiCtrl.getArtist)

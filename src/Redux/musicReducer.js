@@ -10,7 +10,7 @@ const GET_MUSIC = 'GET_MUSIC'
 
 ///Get music that is passed from chat
 export function getMusic(music) {
-    console.log(music)
+    // console.log(music)
 
     return {
         type: GET_MUSIC,
@@ -21,7 +21,7 @@ export function getMusic(music) {
 
 //Get current user who is logged into session
 export function getUser(user) {
-
+console.log(user)
     return {
         type: GET_USER,
         payload: user

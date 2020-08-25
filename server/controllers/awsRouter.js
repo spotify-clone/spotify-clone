@@ -7,7 +7,7 @@ aws= require('aws-sdk'),
 //change app with Router??
 
 router.get('/sign-s3', (req, res) => {
-    console.log(res, "work son work!!!!!!!!!!")
+    // console.log(res, "work son work!!!!!!!!!!")
     aws.config = {
       region: 'us-west-1',
       accessKeyId: AWS_ACCESS_KEY_ID,
@@ -16,6 +16,7 @@ router.get('/sign-s3', (req, res) => {
     const s3 = new aws.S3({ signatureVersion: 'v4' });
     const fileName = req.query['file-name'];
     const fileType = req.query['file-type'];
+
     const s3Params = {
       Bucket: S3_BUCKET,
       Key: fileName,

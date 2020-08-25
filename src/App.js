@@ -69,7 +69,7 @@ useEffect(()=>{
 //    setCount(count--)
 // }
 
-
+ 
 
   const localTrack = () =>{
     
@@ -87,9 +87,9 @@ let mappedSongs =[];
 
  const mappedCountAllTracks =output.map(song=>song.count)
 
-console.log(mappedCountAllTracks)
+//console.log(mappedCountAllTracks)
 //console.log(output)
-console.log(mappedSongs)
+//console.log(mappedSongs)
 
 const mappedCount = audio.map(ele =>ele.count)
 const mappedName = audio.map(ele => ele.name)
@@ -97,7 +97,7 @@ let mappedTrack =[];
 mappedTrack = audio.map(ele =>ele.track)
 
 console.log(audio)
-console.log(mappedCount.toString())
+//console.log(mappedCount.toString())
 console.log(mappedTrack)
 
 
