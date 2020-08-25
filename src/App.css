@@ -3,7 +3,6 @@ body {
 }
 .App {
   background-image: url('./boombox.png');
-  height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
