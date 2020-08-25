@@ -34,7 +34,7 @@ const Nav = (props) => {
         .then (() => {
         props.history.push('/')
         })
-        .catch(err => console.log(err, 'You Logged Out')
+        .catch(err => console.log(err)
         )}
 
 
