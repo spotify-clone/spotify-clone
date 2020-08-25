@@ -15,10 +15,10 @@ const MyCarousel = (props) => {
 })
 
 
+console.log(mapped)
     return (
         <div>
             <Carousel
-            
                 containerProps={{
                     style: {
                         width: '100%',

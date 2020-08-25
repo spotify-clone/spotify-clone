@@ -50,7 +50,7 @@ class Dash extends Component {
 
 
     getAlbums = () =>{
-        axios.get('/api/albums')
+        axios.get('/api/new-releases')
         .then((res)=>{
             this.setState({list:res.data})
 
