@@ -245,10 +245,10 @@ console.log(imgURL)
           </div>
         )
       }
-     console.log(props.music.user.account_id)
-console.log(imgURL)
-  console.log(props)
-console.log(song)
+//      console.log(props.music.user.account_id)
+// console.log(imgURL)
+//   console.log(props)
+// console.log(song)
 return(
   <div>
     <div className='dropbox-container'>
@@ -261,7 +261,7 @@ return(
         <div className='add-photo'>
             <p>Add image then click send</p>
               {MyDropzone2()}
-                <input value={imgURL} onChange={(e) => setImgURL(e.target.value)} type="text" placeholder="Drop Image"/>
+                <input value={imgURL} onChange={console.log('hit')} type="text" placeholder="Name Image"/>
                 {/* <button className='btns' onClick={sendProfilePic}>Send to db</button> */}
               <button className='btns'onClick={() => getSignedRequest2(imgFiles)} >Send </button>
         </div>

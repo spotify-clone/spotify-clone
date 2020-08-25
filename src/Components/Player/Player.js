@@ -45,8 +45,8 @@ class Player extends Component {
         render() {
             const { user, playlist} = this.state
 
-            console.log(user)
-            console.log(playlist)
+            // console.log(user)
+            // console.log(playlist)
 
         return (
           <div>
@@ -56,4 +56,4 @@ class Player extends Component {
         }
     }
 
-    export default Player
+    export default Player;

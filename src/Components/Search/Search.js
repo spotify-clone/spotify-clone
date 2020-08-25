@@ -103,6 +103,7 @@ const Search = (props) => {
                     </div>
             </div>
         </div>
+
     )
 }
 
