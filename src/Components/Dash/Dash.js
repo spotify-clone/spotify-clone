@@ -50,7 +50,7 @@ class Dash extends Component {
 
 
     getAlbums = () =>{
-        axios.get('/api/albums')
+        axios.get('/api/new-releases')
         .then((res)=>{
             this.setState({list:res.data})
 
@@ -62,26 +62,7 @@ class Dash extends Component {
     render() {
         const { list, playlist, featuresList } = this.state
 
-        // const mapped = list.map(element=>{
-        //     return <img src={element.images[2].url}/>
-        // })
-  
-
-        const mappedFeatures = featuresList.map((element,index)=>{
-            return <img key={index} src={element.icons[0].url} />
-        })
-    
-    
-        // const mappedPlay = playlist.map((element,index)=>{
-        //     return <div style={{width: "60vw"}} >
-        //             <img  style={{display: "flex", justifyContent:"center", height: "25vh", width: "25vw"}} key={index} src={element.images[0].url}/>
-        //         </div>
-        // })
-
-       // console.log(mappedFeatures)
-        //console.log(mappedPlay)
-
-
+        
         return (
             <div>
          
