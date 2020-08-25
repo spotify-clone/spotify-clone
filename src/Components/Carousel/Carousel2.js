@@ -38,7 +38,9 @@ const MyCarousel2 = (props) => {
                         width: 30,
                         height: 30,
                         minWidth: 30,
-                        alignSelf: 'center'
+                        alignSelf: 'center',
+                        background: 'black',
+                        color: "white"
                     }
                 }}
                 backwardBtnProps={{
@@ -47,7 +49,9 @@ const MyCarousel2 = (props) => {
                         width: 30,
                         height: 30,
                         minWidth: 30,
-                        alignSelf: 'center'
+                        alignSelf: 'center',
+                        background: 'black',
+                        color: "white"
 
                     }
                 }}

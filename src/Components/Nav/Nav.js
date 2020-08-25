@@ -29,7 +29,7 @@ const Nav = (props) => {
         // .catch(error => console.log(error))
     }
 
-    const logout = () => {
+    const logOut = () => {
         axios.get('/auth/logOut')
         .then (() => {
         props.history.push('/')
@@ -43,9 +43,7 @@ console.log(props.music.user.pic)
         <div className='main-nav'>
             <nav className='desktop-nav'>
                 <ul>
-                    <li>
-                        <Link to='/'>Home</Link>
-                    </li>
+                    
                     <li>
                         <Link to='/dash'>Dash</Link>
                     </li>
@@ -59,13 +57,12 @@ console.log(props.music.user.pic)
                         <Link to='/Chart'>Chart</Link>
                     </li>
                     <li>
-                        <Link to='/player'>Player</Link>
-                    </li>
-                    <li>
                         <Link to='/Chat'>Chat</Link>
                     </li>
-                    <li>
-                        <img src={props.music.user.pic} id='pixed' alt='beautiful person picture'/>
+                    {props.user ?<Link to='/'
+                             onClick={logOut} >Logout</Link> : null}
+                    <li className='profilePic'>
+                        <img src={props.music.user.pic}  alt='beautiful person picture'/>
                     </li>
                 </ul>
             </nav>
