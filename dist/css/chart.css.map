@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAGA,AAAA,MAAM,CAAA;EACH,UAAU,EAAE,IAAI;EAChB,gBAAgB,EAAE,IAAI;CAExB",
+    "mappings": "AAGA,AAAA,MAAM,CAAA;EACH,MAAM,EAAE,GAAG;EACX,gBAAgB,EAAE,OAAe;EACjC,YAAY,EAAG,OAAkB;EACjC,YAAY,EAAE,MAAM;EACpB,YAAY,EAAE,IAAI;EAClB,UAAU,EAAE,mBAAoB;EAChC,gBAAgB,EAAE,kEAAkE;CACtF",
     "sources": [
         "../../src/Components/Chart/chart.scss",
         "../../src/SCSS/_var.scss"
