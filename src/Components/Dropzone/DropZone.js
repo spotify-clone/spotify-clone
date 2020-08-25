@@ -261,10 +261,10 @@ console.log(imgURL,"hit")
           </div>
         )
       }
-     console.log(props.music.user.account_id)
-console.log(imgURL)
-  console.log(props)
-console.log(song)
+//      console.log(props.music.user.account_id)
+// console.log(imgURL)
+//   console.log(props)
+// console.log(song)
 return(
   <div>
     <div className='dropbox-container'>

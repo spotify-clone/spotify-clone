@@ -14,10 +14,11 @@ const MyCarousel = (props) => {
     return <img style={{display: "flex", justifyContent:"center", height: "150px", width: "150px"}} src={element.images[0].url} alt='Hot Album Covers'/>
 })
 
+
+console.log(mapped)
     return (
         <div>
             <Carousel
-            
                 containerProps={{
                     style: {
                         width: '100%',
@@ -26,7 +27,6 @@ const MyCarousel = (props) => {
                     
                 }}
                
-              
                 activeSlideIndex={activeSlide}
                 activeSlideProps={{
                     style: {
@@ -40,7 +40,9 @@ const MyCarousel = (props) => {
                         width: 30,
                         height: 30,
                         minWidth: 30,
-                        alignSelf: 'center'
+                        alignSelf: 'center',
+                        background: 'black',
+                        color: "white"
                     }
                 }}
                 backwardBtnProps={{
@@ -49,7 +51,9 @@ const MyCarousel = (props) => {
                         width: 30,
                         height: 30,
                         minWidth: 30,
-                        alignSelf: 'center'
+                        alignSelf: 'center',
+                        background: 'black',
+                        color: "white"
 
                     }
                 }}

@@ -9,10 +9,6 @@ import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
 
 
- 
- 
-
-
 function App(props) {
 //audio in state is what holds one songs when you select get local track
 //songs in state is what holds multiple songs. 
@@ -87,7 +83,7 @@ let mappedSongs =[];
 
  const mappedCountAllTracks =output.map(song=>song.count)
 
-//console.log(mappedCountAllTracks)
+console.log(mappedCountAllTracks)
 //console.log(output)
 //console.log(mappedSongs)
 
@@ -97,7 +93,7 @@ let mappedTrack =[];
 mappedTrack = audio.map(ele =>ele.track)
 
 console.log(audio)
-//console.log(mappedCount.toString())
+console.log(mappedCount.toString())
 console.log(mappedTrack)
 
 
@@ -118,31 +114,26 @@ let choice = mappedTrack.length >1?mappedTrack:mappedSongs
      {props.location.pathname ==="/" || props.location.pathname === "/player" ? null:    
 
 
- 
-
- 
-    <AudioPlayer 
+    <AudioPlayer style={{backgroundColor: '#0f0f0f'}}
        autoPlay
        showSkipControls={true}
        onClickPrevious={previousTrack}
        onClickNext={nextTrack}
+       layout={'horizontal'}
        header={
-       <div id='button-bag'>
-       <button onClick={localTrack} >Local Tracks</button>
-       <span>{mappedName}</span>
-       <button onClick={getAllTracks} >All Tracks</button>
-       </div> 
-       }
-      src={choice}
-      onPlay={e => console.log("onPlay") }
-      footer={ mappedCountAllTracks + ` plays`}
+        <div id='button-bag'>
+        
+        <button className='track-btns' onClick={localTrack} >Local Tracks</button>
+        <span id='spaner' >{ mappedCount.toString() + ` plays`}</span>
+        <span>{mappedCountAllTracks}</span>
+        <button className='track-btns' onClick={getAllTracks} >All Tracks</button>
+        </div> 
+        }
+        src={choice}
+        onPlay={e => console.log("onPlay") }
+      />}
 
-    /> 
-
-
-      }
-
-</div>
+      </div>
     </div>
  
  

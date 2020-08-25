@@ -2,8 +2,12 @@
 
 
 .chart{
-   margin-top: 25px;
-   background-color: gray;
-   
+   margin: 5vh;
+   background-color: rgb(58, 58, 58);
+   border-color:  rgb(100, 100, 100);
+   border-style: outset;
+   border-width: 10px;
+   box-shadow: #000000 0px 5px 5px ;
+   background-image: url("https://www.transparenttextures.com/patterns/grid-noise.png");
 }
 
