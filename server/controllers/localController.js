@@ -16,12 +16,13 @@ module.exports ={
     createTrack: (req,res) =>{
 
         const db = req.app.get('db'),
-        { name, song  } = req.body,
+        { name, track  } = req.body,
          user_id  = req.params.id;
 
+         console.log(name, track, user_id)
 
         try{
-            db.add_to_playlist({name: name, track: song, user_id})
+            db.add_to_playlist({name: name, track, user_id})
             res.status(200).send('success')
         }
 
@@ -59,13 +60,14 @@ module.exports ={
     },
     updatePic: async (req, res) => {
         const db = req.app.get('db'),
-        {imgURL} = req.body,
+        { imgURL } = req.body,
+        // {imgURL} = req.body,
         {id} = req.params;
+    
+        console.log(req.body)
+        // console.log(pic, id)
 
-         console.log(imgURL)
-
-        const add = await db.update_profile_pic([imgURL,id])
-        // console.log(add)
+        const add = await db.update_profile_pic({imgURL, id})
         res.status(200).send(add)
 
 

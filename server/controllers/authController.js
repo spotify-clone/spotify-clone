@@ -63,7 +63,7 @@ LoginUser: async (req,res)=>{
         const db = req.app.get('db')
         const  username  = req.params.user
        
-        console.log(req.params)
+        // console.log(req.params)
       const result = await db.register_user({username}) 
       res.status(200).send(result)
     }
