@@ -9,10 +9,6 @@ import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
 
 
- 
- 
-
-
 function App(props) {
 //audio in state is what holds one songs when you select get local track
 //songs in state is what holds multiple songs. 

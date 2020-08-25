@@ -101,10 +101,11 @@ key={index}>
 
     return (
         <div>
-            <div mainDiv>
-           
-              
-                <div className='artistImg'>
+            <Sound
+            url={song}
+            playStatus={Sound.status.PLAYING}
+            />
+            <div style={{position:"relative" }}>
                     {mappedArtists}
                    
                 </div>
