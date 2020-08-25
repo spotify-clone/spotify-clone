@@ -84,10 +84,11 @@ module.exports ={
 
     getUsersTrack: async(req,res)=>{
         const db = req.app.get('db'),
-        { id } = req.params;
+        { user_id } = req.params;
+console.log(user_id)
 
-        const result = await db.get_users_track(id)
-
+        const result = await db.get_users_track(user_id)
+console.log(result)
         res.status(200).send(result)
     }
    
