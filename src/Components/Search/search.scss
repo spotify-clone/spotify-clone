@@ -3,17 +3,16 @@
     width:80vw;
     height: 100vh;
    display: flex;
-  
-    
-
 }
+
+
 .album-box{
-top: 0px;
+top: 65px;
 position: absolute;
 display:flex;
 flex-direction: column;
 box-sizing: border-box;  
-height:120vh;
+height:110vh;
 width: 15vw;
 right: 10px;
 overflow: scroll;
@@ -26,6 +25,7 @@ justify-content: space-evenly;
 position: absolute;
 bottom:100px;
 
+
     box-sizing: border-box;
     height: 280px;
     width: 50vw;
@@ -37,10 +37,10 @@ bottom:100px;
     height: 25vh;
     width: 20vw;
    
-   
 }
+
 .albumImg{
-    height:25vh;
+    height:20vh;
     align-items: center;
 
 }
