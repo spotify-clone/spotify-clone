@@ -19,7 +19,6 @@ export default (
         <Route path="/chart" component={Chart} />
         <Route path="/player" component={Player}/>
         <Route path="/chat" component={Chat} />
-        
         <Route path='/drop' component={Drop} />
 
     </Switch>
