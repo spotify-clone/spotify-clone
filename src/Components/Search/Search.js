@@ -1,4 +1,4 @@
-import React, {useState, useEffect}from 'react'
+import React, {useState, useEffect, Fragment}from 'react'
 import axios from 'axios'
 import '../Search/search.scss';
 import Sound from 'react-sound';
@@ -16,13 +16,7 @@ const Search = (props) => {
     //artist = [ 'drake'] == artist.length  = 1
 
 
-    const Button = () => (
-        <Button.Group>
-          <Button icon='play' />
-          <Button icon='pause' />
-          <Button icon='shuffle' />
-        </Button.Group>
-      )
+   
 
     useEffect(()=>{
 
@@ -67,24 +61,7 @@ const Search = (props) => {
 
 
 
-    const mappedTracks = tracks.map((element,index)=>{
-        let audio;
-    
-        //condition to filter out any null or undefined values --> not working for some reason
-        if(element.preview_url !== null || element.preview_url !== undefined){
-            audio = element.preview_url
-        }
-
-        //buttons to control which track to play
-        return <div className='trackList' 
-key={index}>
-            {
-            song ? <div><button className='trackbtns' onClick={() => setSong('')}>Stop Track</button><p> {element.name}</p></div>
-            : 
-            <div><button className='trackbtns' onClick={() => setSong(audio)}>Play Track</button><p>{element.name}</p></div>
-            } 
-        </div>
-    })
+ 
 
 
 
@@ -108,11 +85,20 @@ key={index}>
 
 
         //buttons to control which track to play
-        return <div className='trackList'key={index}>
-             <Button icon='pause' content='Pause' onClick={() => setSong('')}/><div><p>{element.name}</p></div>
-            <Button  icon='play' content='Play' onClick={() => setSong(audio)}/><div><p>{element.name}</p></div>
+        return <div className='trackList' key={index}>
+            {song ? (<div>
+                <div><p>{element.name}</p></div>
+                <Button className='trackbtns' icon='pause' content='Pause' onClick={() => setSong('')} />
+            </div>
+                ) : (
+                    <div>
+                        <div><p>{element.name}</p></div>
+                        <Button className='trackbtns' icon='play' content='Play' onClick={() => setSong(audio)} />
+                    </div>
+                )}
         </div>
     })
+    
 
     return (
         <div className='mainDiv'>
@@ -138,4 +124,4 @@ key={index}>
     )
 }
 
-export default Search
+export default Search;

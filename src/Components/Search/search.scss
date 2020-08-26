@@ -1,7 +1,7 @@
 @import '../../SCSS/_var.scss';
 
 .mainDiv{
-    width:80vw;
+    width: 65vw;
     height: 75vh;
     overflow-y: hidden;
 }
@@ -11,8 +11,8 @@
     display:flex;
     flex-direction: column;
     box-sizing: border-box;  
-    height: 80vh;
-    padding-top: 115%;
+    height: 75vh;
+    padding-top: 110%;
     width: 15vw;
     right: 10px;
     overflow: scroll;
@@ -21,7 +21,7 @@
 
 .albumImg {
     height: 20vh;
-    align-items: center;
+    
 }
 
 .track-box {
@@ -49,17 +49,18 @@
 
 .artist h3 {
     font-size: 40px;
-    position: fixed;
-    left: 42%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 }
 
-.artistImg{
+.artistImg {
     position: fixed;
     top: 18vh;
     height: 25vh;
     width: 20vw;
-    left: 40vw;
+    left: 40%;
     border-style: outset;
     border-width: 10px;
     border-radius: 10px;
