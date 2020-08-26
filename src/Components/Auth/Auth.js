@@ -4,11 +4,9 @@ import axios from 'axios';
 import {getUser} from '../../Redux/musicReducer';
 import Logo from './auth.logo.png'
 import './auth.scss';
-import SpotifyWebApi from "spotify-web-api-js";
-import { getTokenFromUrl } from '../../spotifyFn';
+
 import {accessUrl} from '../../spotifyFn'
 
-const spotify = new SpotifyWebApi();
 
 const Auth = (props) => {
     let [email, setEmail] = useState(''),
@@ -44,9 +42,9 @@ const Auth = (props) => {
     
     return (
         <div className='auth'>
-         <img src={Logo} alt='authLogo' />
-
+         <img src={Logo} alt='authLogo' className="auth-logo"/>
         <div className="main">
+            <h1 className="header-1">Jam Out With Sharfiy</h1>
         
                <input className="auth-input"
                value={email}
@@ -62,14 +60,11 @@ const Auth = (props) => {
                onChange={e => setPassword(e.target.value)}
                />
               
-                
                 <button className="authBtn" onClick={handleLogin}>Login</button>
                  <h4>Sign Up Here!</h4>
                 <button className="authBtn" onClick={handleRegister}>Register</button>
-            <div>
-                <a href={accessUrl} style={{position: "relative", top: "300px", color: "white"}}>Send me to Spotify</a>
-            </div>
         </div>
+            <a href={accessUrl} id="a-tag" >Authenticate with Spotify</a>
         </div>
     )
 }

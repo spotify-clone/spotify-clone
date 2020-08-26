@@ -42,7 +42,7 @@ if(song){
 
 const updateName =() =>{
 
-    axios.put(`/api/local/${props.user.account_id}`, name)
+    axios.put(`/api/local/${props.music.user.account_id}`, {name})
     .then(() =>{
       setName('')
     })
@@ -264,14 +264,19 @@ console.log(imgURL,"hit")
 //      console.log(props.music.user.account_id)
 // console.log(imgURL)
    console.log(props)
-// console.log(song)
+ console.log(name)
 return(
   <div>
     <div className='dropbox-container'>
       <h2>Profile Access</h2>
     <div className='name-box'>
       <h6>Update Name</h6>
-    <input className='name' type="text" placeholder="Add Name"  onSubmit={updateName} ></input>
+
+    <input className='name'
+     type="text"
+      placeholder="Add Name" 
+       onChange={(e) => setName(e.target.value)} /> 
+
     <button className='btns' onClick={updateName}>Add It</button>
     </div>
         <div className='add-photo'>
@@ -293,7 +298,7 @@ return(
     )
 }
 
-//const mapStateToProps = redux => redux;
+ 
 
 const mapStateToProps = state => {
   return{

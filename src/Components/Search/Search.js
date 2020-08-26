@@ -101,7 +101,7 @@ const Search = (props) => {
     
 
     return (
-        <div className='mainDiv'>
+        <div>
             <Sound
             url={song}
             playStatus={Sound.status.PLAYING}
