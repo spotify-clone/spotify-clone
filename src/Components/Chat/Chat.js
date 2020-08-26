@@ -212,11 +212,12 @@ const reduxMusic = (num) => {
                        <a href={data}  >
                          ...Hear My Music</a> </div> :null }
                     </div>
-                    <button className='btn' onClick={() => setShowChat(!showChat)}>close</button>
-             <button id='share' onClick={sendMusic} >Share Music</button>
-                <button id='share' onClick={reduxMusic} >Get Music</button>
+                    
+             <button className="btn" id='share' onClick={sendMusic} >Share Music</button>
+                {/* <button id='share' onClick={reduxMusic} >Get Music</button> */}
                 </div>
-                <div id='listed' >
+                <div className='list-of-tracks' id='listed'>
+                    <h3></h3>
                 {mapList}
                 </div>
             </div> 
