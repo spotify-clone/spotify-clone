@@ -105,6 +105,13 @@ mappedTrack = audio.map(ele =>ele.track)
 
 //let choice = mappedTrack.length >1?mappedTrack:mappedSongs 
   
+const playTrack=(id)=>{
+  console.log('Play Track')
+  axios.post(`/api/track-count/${id}`)
+    .then(res => console.log(res.data))
+}
+
+
   return (
     <div className="App">
       <Header /> 
@@ -137,7 +144,7 @@ mappedTrack = audio.map(ele =>ele.track)
         }
         src={mappedLocal.length?mappedLocal:mappedSongs}
 
-        onPlay={e => console.log("onPlay") }
+        onPlay={e => playTrack(output[0].mp3_track_id) }
       />
       }
       </div>

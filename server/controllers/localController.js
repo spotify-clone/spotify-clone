@@ -91,6 +91,25 @@ module.exports ={
 
         res.status(200).send(result)
    
-}
+    },
 
+    increaseCount: async(req, res) => {
+        const db = req.app.get('db');
+        const id = +req.params.id;
+
+        const count = await db.get_count(id);
+        console.log(count)
+
+        const newCount = count[0].count + 1;
+
+        try {
+            console.log('hit1')
+            await db.add_count5(id, newCount);
+            res.sendStatus(200);
+        } catch (err) {
+            console.log('hit2')
+            console.log(err);
+            res.sendStatus(500);
+        }
+    }
 }
