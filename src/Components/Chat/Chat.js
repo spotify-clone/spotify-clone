@@ -41,7 +41,7 @@ function Chat(props) {
           <div key={ind}> 
               {/* <button onClick={() => setData(ele.track)}><p>{ele.track}</p></button> */}
             
-                <span onClick={(e) => setData(ele.track)}>{ele.track.toString().slice(79,100)}</span>
+                <span onClick={(e) => setData(ele.track)}> <b>{ind} .</b>  <b  id='colored' >{ele.track.toString().slice(79,100)}</b></span>
            
           </div>
       )
@@ -141,17 +141,17 @@ const joinSucess = () => {
  
 
 //Function to add linked item to redux 
-const reduxMusic = (num) => {
+// const reduxMusic = (num) => {
 
-  axios.get(`/api/track/${9}`)
-  .then(res=>{
-      let mappedTracks = res.data.map((song, index) =>song.track)
-      setData(mappedTracks)
-      console.log(mappedTracks)
-      props.getMusic(mappedTracks)
-  })
+//   axios.get(`/api/track/${9}`)
+//   .then(res=>{
+//       let mappedTracks = res.data.map((song, index) =>song.track)
+//       setData(mappedTracks)
+//       console.log(mappedTracks)
+//       props.getMusic(mappedTracks)
+//   })
 
-}
+// }
  //let mp3 = receivedMessages.includes('.mp3')?receivedMessages:null
  console.log(receivedMessages[0])
 
@@ -194,8 +194,8 @@ const reduxMusic = (num) => {
                         <input className='name-input'
                             type='text'
                             name='name'
-                            //   value={props.music.user.name}
-                             onChange={(e) => setName(e.target.value)}
+                             value={props.music.user.name}
+                            //  onChange={(e) => setName(e.target.value)}
                              required
                         />
                     <h1>chat</h1>
@@ -218,6 +218,7 @@ const reduxMusic = (num) => {
                 {/* <button id='share' onClick={reduxMusic} >Get Music</button> */}
                 </div>
                 <div id='listed' >
+                <h2><b>Click on Song to Share </b></h2>
                 {mapList}
                 </div>
             </div> 
