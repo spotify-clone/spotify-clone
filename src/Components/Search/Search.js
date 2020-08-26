@@ -1,4 +1,4 @@
-import React, {useState, useEffect}from 'react'
+import React, {useState, useEffect, Fragment}from 'react'
 import axios from 'axios'
 import '../Search/search.scss';
 import Sound from 'react-sound';
@@ -16,13 +16,7 @@ const Search = (props) => {
     //artist = [ 'drake'] == artist.length  = 1
 
 
-    // const Button = () => (
-    //     <Button.Group>
-    //       <Button icon='play' />
-    //       <Button icon='pause' />
-    //       <Button icon='shuffle' />
-    //     </Button.Group>
-    //   )
+   
 
     useEffect(()=>{
 
@@ -67,6 +61,8 @@ const Search = (props) => {
 
 
 
+ 
+
 
 
     const mappedArtists = artist.map((element,index)=>{
@@ -89,32 +85,37 @@ const Search = (props) => {
 
 
         //buttons to control which track to play
-        return <div className='trackList'key={index}>
-            {song ? <div>
-                <Button icon='pause' content='Pause' onClick={() => setSong('')}/><div><p>{element.name}</p></div>
+        return <div className='trackList' key={index}>
+            {song ? (<div>
+                <div><p>{element.name}</p></div>
+                <Button className='trackbtns' icon='pause' content='Pause' onClick={() => setSong('')} />
             </div>
-            :
-            <div>
-                <Button icon='play' content='Play' onClick={() => setSong(audio)}/><div><p>{element.name}</p></div>
-            </div>
-            }
+                ) : (
+                    <div>
+                        <div><p>{element.name}</p></div>
+                        <Button className='trackbtns' icon='play' content='Play' onClick={() => setSong(audio)} />
+                    </div>
+                )}
         </div>
     })
+    
 
     return (
-        <div className='mainDiv'>
+        <div>
             <Sound
             url={song}
             playStatus={Sound.status.PLAYING}
             />
-            <div>
-                {mappedArtists}
-                <p>SONGS</p>
+            <div className='mainDiv'>
+                <div className='artist-box'>
+                    {mappedArtists}
+                </div>
                 <div className='track-box'>
+                    <h3>SONGS</h3>
                     {mappedTracks}
                 </div>
                 <div className='album-box'>
-                    <p>Albums</p>
+                    <h3>Albums</h3>
                     {mappedAlbums}
                 </div>
             </div>
@@ -123,4 +124,4 @@ const Search = (props) => {
     )
 }
 
-export default Search
+export default Search;

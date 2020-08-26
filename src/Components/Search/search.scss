@@ -1,59 +1,69 @@
-.mainDiv{
-    box-sizing: border-box;
-    width:80vw;
-    height: 100vh;
-//    display: flex;
-   overflow-y: hidden;
-  
-    
+@import '../../SCSS/_var.scss';
 
+.mainDiv{
+    width: 65vw;
+    height: 75vh;
+    overflow-y: hidden;
 }
 
-
 .album-box{
-top: 20px;
-position: absolute;
-display:flex;
-flex-direction: column;
-box-sizing: border-box;  
-height:110vh;
-width: 15vw;
-right: 10px;
-overflow: scroll;
-justify-content: space-evenly;
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    box-sizing: border-box;  
+    height: 75vh;
+    padding-top: 110%;
+    width: 15vw;
+    right: 10px;
+    overflow: scroll;
+    justify-content: space-evenly;
+}
+
+.albumImg {
+    height: 20vh;
+    
+}
+
+.track-box {
+    position: fixed;
+    left: 30vw;
+    bottom: 130px;
+    box-sizing: border-box;
+    height: 275px;
+    width: 40vw;
+    overflow: scroll;
+ 
+    font-size: 9px;
+}
+
+.track-box h3 {
+    font-size: 45px;
 }
 
 .trackList p {
     font-size: 20px;
     display: inline-block;
-    margin: 5%;
+    margin: 0px 20px;
+}
+
+
+.artist h3 {
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 }
 
-.artist-box{
- width: 30vw;
- left: 35vw;
-}
-.track-box{
+.artistImg {
     position: fixed;
-    left: 30vw;
-    bottom: 130px;
-    box-sizing: border-box;
-    height: 280px;
-    width: 30vw;
-    overflow: scroll;
-    font-size: 9px;
-    
-    
-    
-      
-}
-.artistImg{
-    position: fixed;
+    top: 18vh;
     height: 25vh;
     width: 20vw;
-    left: 35vw;
-   
+    left: 40%;
+    border-style: outset;
+    border-width: 10px;
+    border-radius: 10px;
 }
 
 .albumImg{
@@ -61,6 +71,21 @@ justify-content: space-evenly;
     align-items: center;
 
 }
+
+.trackbtns {
+   
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 10vw;
+    border-radius: 10px;
+    background-color: black;
+    border-style: outset;
+    border-width: 10px;
+    color: white;
+    font-weight: bold;
+    box-shadow: #000000 0px 5px 5px ;
+}
+
 
 
 

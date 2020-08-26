@@ -84,6 +84,8 @@ let mappedSongs =[];
  mappedSongs= output.map(song =>song.track)
  
  const mappedCountAllTracks =output.map(song=>song.count)
+const mappedAllName = output.map(song=>song.name)
+
 
  let localSongs = audio.filter((song, index) => index === count)
  let mappedLocal = localSongs.map(song => song.track);
@@ -105,6 +107,13 @@ mappedTrack = audio.map(ele =>ele.track)
 
 //let choice = mappedTrack.length >1?mappedTrack:mappedSongs 
   
+const playTrack=(id)=>{
+  console.log('Play Track')
+  axios.post(`/api/track-count/${id}`)
+    .then(res => console.log(res.data))
+}
+
+
   return (
     <div className="App">
       <Header /> 
@@ -121,23 +130,24 @@ mappedTrack = audio.map(ele =>ele.track)
 
 
     <AudioPlayer style={{backgroundColor: '#0f0f0f'}}
-       autoPlay
+      //  autoPlay
        showSkipControls={true}
        onClickPrevious={previousTrack}
        onClickNext={nextTrack}
        layout={'horizontal'}
        header={
         <div id='button-bag'>
-        
-        <button className='track-btns' onClick={localTrack} >Local Tracks</button>
-        <span id='spaner' >{ mappedCount.toString() + ` plays`}</span>
-        <span>{mappedLocal.length?mappedLocal:mappedCountAllTracks}</span>
+        <span> {  mappedName.length?mappedName:mappedAllName}</span>
+        <button  className='track-btns' onClick={localTrack} >Local Tracks</button>
+        {/* <span id='spaner' >{ ` plays`}</span>
+        <span>{mappedLocal.length?mappedLocalCount:mappedCountAllTracks}</span> */}
         <button className='track-btns' onClick={getAllTracks} >All Tracks</button>
         </div> 
         }
         src={mappedLocal.length?mappedLocal:mappedSongs}
 
-        onPlay={e => console.log("onPlay") }
+        onPlay={output[0]?e => playTrack(output[0].mp3_track_id):e=>console.log('Play track') }
+      footer={ <span id='spanny' >{mappedLocal.length?mappedLocalCount:mappedCountAllTracks} plays</span>}
       />
       }
       </div>
