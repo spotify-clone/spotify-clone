@@ -138,11 +138,10 @@ mappedTrack = audio.map(ele =>ele.track)
         src={mappedLocal.length?mappedLocal:mappedSongs}
 
         onPlay={e => console.log("onPlay") }
-      />}
-
+      />
+      }
       </div>
     </div>
- 
  
 </div>
          
