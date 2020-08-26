@@ -6,7 +6,8 @@ import Search from './Components/Search/Search';
 import Chart from './Components/Chart/Chart';
 import Chat from './Components/Chat/Chat';
 import Drop from './Components/Dropzone/DropZone';
-import Profile from './Components/Profile/Profile'
+import Profile from './Components/Profile/Profile';
+
 
  
 export default (

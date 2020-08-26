@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {Bar} from 'react-chartjs-2';
 import '../Chart/chart.scss'
 import axios from 'axios';
-import { findByLabelText } from "@testing-library/react";
+//import { findByLabelText } from "@testing-library/react";
 
 class Chart extends Component {
     constructor(props){

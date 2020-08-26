@@ -45,19 +45,16 @@ module.exports ={
       //  const add = await db.add_count(id)
        res.status(200).send(result)
    },
-    // getTracks: (req, res) => {
-    //     const db = req.app.get('db');
-     
+    deleteTrack: async(req, res) =>{
+        console.log(req.params)
+        const db = req.app.get('db'),
+        { id} = req.params;
 
-    //     db.get_tracks()
-    //     .then(track => {
-    //         // console.log(track)
-    //         res.status(200).send(track)
-    //     })
-        
-    //     .catch(err => res.status(500).send(err))
+            const deleted = await db.delete_track(id)
+            res.status(200).send(deleted)
 
-    // },
+
+    },
     addName: async (req, res) => {
         const db = req.app.get('db'),
         {id} = req.params,
@@ -81,25 +78,35 @@ module.exports ={
 
 
     },
-    sendCount: async (req, res) => {
-        const db = req.app.get('db'),
-        {id} = req.params,
-        {count} = req.body;
-        
-        const counter = db.add_count(count, id)
-
-        res.status(200).send(counter)
-    },
-
+  
     getUsersTrack: async(req,res)=>{
         const db = req.app.get('db'),
         { id: user_id } = req.params;
  
         const result = await db.get_users_track(user_id)
-     //   const count = await db.add_count(id)
+            //   const counter = await db.add_count3( user_id)
 
-//console.log(result)
         res.status(200).send(result)
-    }
    
+    },
+
+    increaseCount: async(req, res) => {
+        const db = req.app.get('db');
+        const id = +req.params.id;
+
+        const count = await db.get_count(id);
+        console.log(count)
+
+        const newCount = count[0].count + 1;
+
+        try {
+            console.log('hit1')
+            await db.add_count5(id, newCount);
+            res.sendStatus(200);
+        } catch (err) {
+            console.log('hit2')
+            console.log(err);
+            res.sendStatus(500);
+        }
+    }
 }

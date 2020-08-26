@@ -67,7 +67,7 @@ class Dash extends Component {
         return (
             <div className='main-div'>
          
-                <span><h3>CATIGORIES</h3></span>
+                <span><h3>CATAGORIES</h3></span>
                 <MyCarousel2  featuresList={featuresList} list={list} />
                 <span><h3>STUDY MUSIC</h3> </span>
                 <MyCarousel1 playlist={playlist} list={list} />

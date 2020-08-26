@@ -114,11 +114,12 @@ app.post(`/api/email`, email.email)
 app.get('/api/track/:id', local.getTrack)
 app.get(`/api/tracks`, local.getTracks)
 app.get('/api/user-tracks/:id', local.getUsersTrack)
+app.delete(`/api/user-track/:id`, local.deleteTrack)
 
 app.put(`/api/local/:id`, local.addName)
 app.put('/api/local2/:id', local.updatePic)
 app.post(`/api/track/:id`, local.createTrack)
-
+app.post(`/api/track-count/:id`, local.increaseCount)
 
 
 //endpoints to spotify api

@@ -17,7 +17,7 @@ function Chat(props) {
     const [room, setRoom] = useState(null);
     const [message, setMessage] = useState('');
     const [receivedMessages, setReceivedMessages] = useState([])
-    const [showChat, setShowChat] = useState(false);
+   // const [showChat, setShowChat] = useState(false);
     const ENDPOINT = 'localhost:3333'
     const [data, setData] = useState(false)
     let [num, setNum] = useState(0)
@@ -40,8 +40,8 @@ function Chat(props) {
       return (
           <div key={ind}> 
               {/* <button onClick={() => setData(ele.track)}><p>{ele.track}</p></button> */}
-            
-                <span onClick={(e) => setData(ele.track)}>{ele.track.toString().slice(83,100)}</span>
+              {/* id='colored' */}
+                <span onClick={(e) => setData(ele.track)}> <b>{ind} .</b>  <b   >{ele.track.toString().slice(79,100)}</b></span>
            
           </div>
       )
@@ -141,17 +141,17 @@ const joinSucess = () => {
  
 
 //Function to add linked item to redux 
-const reduxMusic = (num) => {
+// const reduxMusic = (num) => {
 
-  axios.get(`/api/track/${9}`)
-  .then(res=>{
-      let mappedTracks = res.data.map((song, index) =>song.track)
-      setData(mappedTracks)
-      console.log(mappedTracks)
-      props.getMusic(mappedTracks)
-  })
+//   axios.get(`/api/track/${9}`)
+//   .then(res=>{
+//       let mappedTracks = res.data.map((song, index) =>song.track)
+//       setData(mappedTracks)
+//       console.log(mappedTracks)
+//       props.getMusic(mappedTracks)
+//   })
 
-}
+// }
  //let mp3 = receivedMessages.includes('.mp3')?receivedMessages:null
  console.log(receivedMessages[0])
 
@@ -194,8 +194,9 @@ const reduxMusic = (num) => {
                         <input className='name-input'
                             type='text'
                             name='name'
-                            onChange={(e) => setName(e.target.value)}
-                            required
+                             value={props.music.user.name}
+                            //  onChange={(e) => setName(e.target.value)}
+                             required
                         />
                     <h1>chat</h1>
                         <input className='chat-input'
@@ -212,11 +213,14 @@ const reduxMusic = (num) => {
                        <a href={data}  >
                          ...Hear My Music</a> </div> :null }
                     </div>
-                    <button className='btn' onClick={() => setShowChat(!showChat)}>close</button>
-             <button id='share' onClick={sendMusic} >Share Music</button>
-                <button id='share' onClick={reduxMusic} >Get Music</button>
+                    {/* <button className='btn' onClick={() => setShowChat(!showChat)}>close</button> */}
+             <button className='btn' onClick={room?sendMusic:null} >Share Music</button>
+                {/* <button id='share' onClick={reduxMusic} >Get Music</button> */}
                 </div>
+                <div className='list-of-tracks' id='listed' >
+                <h2><b>Click on Song to Share </b></h2>
                 {mapList}
+                </div>
             </div> 
             </div>    
         

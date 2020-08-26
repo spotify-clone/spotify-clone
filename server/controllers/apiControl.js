@@ -15,7 +15,7 @@ module.exports = {
     
       await spotify.request(`https://api.spotify.com/v1/users/${id}`)
           .then((data)=>{
-           return res.status(200).send(data)
+            return res.status(200).send(data)
           })
           .catch(function(err) {
             console.error('Error occurred: ' + err); 
