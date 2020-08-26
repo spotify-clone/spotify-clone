@@ -3,6 +3,7 @@ import MyCarousel from './../Carousel/Carousel'
 import MyCarousel1 from './../Carousel/Carousel1'
 import MyCarousel2 from './../Carousel/Carousel2'
 import axios from 'axios'
+import '../Dash/dash.scss'
 
 
 
@@ -64,7 +65,7 @@ class Dash extends Component {
 
         
         return (
-            <div>
+            <div className='main-div'>
          
                 <span><h3>CATAGORIES</h3></span>
                 <MyCarousel2  featuresList={featuresList} list={list} />

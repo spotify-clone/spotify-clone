@@ -29,11 +29,13 @@ module.exports = {
 
     await spotify.request(`https://api.spotify.com/v1/users/${id}/playlists`)
     .then((data)=>{
-      return res.status(200).send(data)
+      // console.log(data.items)
+      return res.status(200).send(data.items[0])
     })
     .catch(error => console.log(error))
 
   },
+ 
   getPlaylist: async(req,res)=>{
 
 
@@ -139,7 +141,7 @@ module.exports = {
 
     await spotify.request(`https://api.spotify.com/v1/playlists/${id}/tracks`)
     .then((data)=>{
-    //  console.log(data.items)
+      return res.status(200).send(data.items)
       
     })
     .catch((err)=>{

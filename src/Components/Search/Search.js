@@ -50,7 +50,7 @@ const Search = (props) => {
         .catch((err)=> console.log(err));
 
     }
-
+    
     const mappedAlbums = albums.map((element,index)=>{
 
         return<div className='albums' key={index}>
