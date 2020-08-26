@@ -40,8 +40,8 @@ function Chat(props) {
       return (
           <div key={ind}> 
               {/* <button onClick={() => setData(ele.track)}><p>{ele.track}</p></button> */}
-            
-                <span onClick={(e) => setData(ele.track)}> <b>{ind} .</b>  <b  id='colored' >{ele.track.toString().slice(79,100)}</b></span>
+              {/* id='colored' */}
+                <span onClick={(e) => setData(ele.track)}> <b>{ind} .</b>  <b   >{ele.track.toString().slice(79,100)}</b></span>
            
           </div>
       )
@@ -214,10 +214,10 @@ const joinSucess = () => {
                          ...Hear My Music</a> </div> :null }
                     </div>
                     {/* <button className='btn' onClick={() => setShowChat(!showChat)}>close</button> */}
-             <button className='btn' onClick={sendMusic} >Share Music</button>
+                    <button className='btn' onClick={room?sendMusic:null} >Share Music</button>
                 {/* <button id='share' onClick={reduxMusic} >Get Music</button> */}
                 </div>
-                <div id='listed' >
+                <div className='list-of-tracks' id='listed' >
                 <h2><b>Click on Song to Share </b></h2>
                 {mapList}
                 </div>

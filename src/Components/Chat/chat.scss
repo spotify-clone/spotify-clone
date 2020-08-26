@@ -90,16 +90,26 @@
      width: 10vw;
 
  }
-  #listed{
-      overflow: scroll;
-      margin-right: auto;
-      width: 30vw;
+  .list-of-tracks{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    color: $text-color;
+    height: 70vh;
+    width: 35vw;
+    background-color: darkgray;
+    overflow: scroll;
+    overflow: hidden;
+    position: fixed;
+    left: 18vw;
+    bottom: 125px;  
+    border-color:  rgb(100, 100, 100);
+    border-style: outset;
+    border-width: 10px;
+    box-shadow: #000000 0px 5px 5px ;
+    background-color: rgb(66, 66, 66);
+    background-image: url("https://www.transparenttextures.com/patterns/grid-noise.png");
   }
-   #colored{
-       overflow: scroll;
-       color:#19fe00;
-        display: flex;
-       box-shadow: #000000 0px 5px 5px ;
-       background-color: rgb(66, 66, 66);
-       background-image: url("https://www.transparenttextures.com/patterns/grid-noise.png");
-   }
+
+
