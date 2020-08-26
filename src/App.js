@@ -71,22 +71,27 @@ useEffect(()=>{
     console.log(props.music.user.account_id)
     axios.get(`/api/user-tracks/${props.music.user.account_id}`)
     .then((res)=>{
-      console.log(res.data)
+      // console.log(res.data)
         setAudio(res.data)
     })
     .catch(err=>console.log(err))
     
 }
 
+//Filter and Map function to grab the individual objects out of the array and play them on source
+//All Tracks
 let output = songs.filter((song, index) => index === count) 
 let mappedSongs =[];
  mappedSongs= output.map(song =>song.track)
-
+ 
  const mappedCountAllTracks =output.map(song=>song.count)
+//Users tracks
+ let localSongs = audio.filter((song, index) => index === count)
+ let mappedLocal = localSongs.map(song => song.track);
+ let mappedLocalCount = localSongs.map(song => song.count)
 
-
-// console.log(songs)
-// console.log(output)
+ console.log(mappedLocal)
+console.log(mappedLocalCount)
 // console.log(mappedSongs)
 
 const mappedCount = audio.map(ele =>ele.count)
@@ -94,7 +99,7 @@ const mappedName = audio.map(ele => ele.name)
 let mappedTrack =[];
 mappedTrack = audio.map(ele =>ele.track)
 
-console.log(audio)
+  console.log(audio)
 // console.log(mappedCount.toString())
  //.log(props.music.user.account_id)
 
@@ -127,11 +132,11 @@ console.log(audio)
         
         <button className='track-btns' onClick={localTrack} >Local Tracks</button>
         <span id='spaner' >{ mappedCount.toString() + ` plays`}</span>
-        <span>{mappedCount.length?mappedCount:mappedCountAllTracks}</span>
+        <span>{mappedLocal.length?mappedLocalCount:mappedCountAllTracks}</span>
         <button className='track-btns' onClick={getAllTracks} >All Tracks</button>
         </div> 
         }
-        src={ mappedTrack.length?mappedTrack:mappedSongs}
+        src={mappedLocal.length?mappedLocal:mappedSongs}
 
         onPlay={e => console.log("onPlay") }
       />}

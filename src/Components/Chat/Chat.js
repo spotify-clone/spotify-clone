@@ -195,12 +195,13 @@ const reduxMusic = (num) => {
                             type='text'
                             name='name'
                             onChange={(e) => setName(e.target.value)}
+                            required
                         />
                     <h1>chat</h1>
                         <input className='chat-input'
                             type='text'
                             name='text'
-                            onChange={(e) => setMessage(e.target.value)}
+                            onChange={room?(e) => setMessage(e.target.value):null}
                             onKeyPress={event => event.key === 'Enter' ? sendMessage(event, name) : null}
                         />
                     <button className="btn" onClick={(e) => sendMessage(e)} >Send</button>

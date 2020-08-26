@@ -38,17 +38,26 @@ module.exports ={
  
 
     },
-    getTracks: (req, res) => {
-        const db = req.app.get('db');
-
-        db.get_tracks()
-        .then(track => {
-            // console.log(track)
-            res.status(200).send(track)
-        })
-        .catch(err => res.status(500).send(err))
-
+    getTracks: async (req, res) =>{
+        const db = req.app.get('db'),
+        {id} = req.params;
+        const result = await db.get_tracks()
+        const add = await db.add_count(id)
+        res.status(200).send(result)
     },
+    // getTracks: (req, res) => {
+    //     const db = req.app.get('db');
+     
+
+    //     db.get_tracks()
+    //     .then(track => {
+    //         // console.log(track)
+    //         res.status(200).send(track)
+    //     })
+        
+    //     .catch(err => res.status(500).send(err))
+
+    // },
     addName: async (req, res) => {
         const db = req.app.get('db'),
         {id} = req.params,
@@ -84,10 +93,11 @@ module.exports ={
 
     getUsersTrack: async(req,res)=>{
         const db = req.app.get('db'),
-        { user_id } = req.params;
-console.log(user_id)
-
+        { id: user_id } = req.params;
+ 
         const result = await db.get_users_track(user_id)
+        const count = await db.add_count(id)
+
 console.log(result)
         res.status(200).send(result)
     }
