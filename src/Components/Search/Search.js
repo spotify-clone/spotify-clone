@@ -90,8 +90,14 @@ const Search = (props) => {
 
         //buttons to control which track to play
         return <div className='trackList'key={index}>
-             <Button icon='pause' content='Pause' onClick={() => setSong('')}/><div><p>{element.name}</p></div>
-            <Button  icon='play' content='Play' onClick={() => setSong(audio)}/><div><p>{element.name}</p></div>
+            {song ? <div>
+                <Button icon='pause' content='Pause' onClick={() => setSong('')}/><div><p>{element.name}</p></div>
+            </div>
+            :
+            <div>
+                <Button icon='play' content='Play' onClick={() => setSong(audio)}/><div><p>{element.name}</p></div>
+            </div>
+            }
         </div>
     })
 

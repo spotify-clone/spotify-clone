@@ -9,7 +9,12 @@
     padding: 0px 40px;
     background-color: $nav-color;
 }
-    
+
+#search-icon{
+    position: absolute;
+    background-color: white;
+
+}
 .search-bar img {
     height: 110px;
     float: left;

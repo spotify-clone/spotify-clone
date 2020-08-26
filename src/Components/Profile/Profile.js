@@ -45,8 +45,7 @@ class Profile extends Component {
         render() {
             const { user, playlist} = this.state
 
-            // console.log(user)
-            // console.log(playlist)
+            console.log(user,playlist)
 
         return (
           <div>
