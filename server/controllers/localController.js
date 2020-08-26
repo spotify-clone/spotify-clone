@@ -45,19 +45,16 @@ module.exports ={
       //  const add = await db.add_count(id)
        res.status(200).send(result)
    },
-    // getTracks: (req, res) => {
-    //     const db = req.app.get('db');
-     
+    deleteTrack: async(req, res) =>{
+        console.log(req.params)
+        const db = req.app.get('db'),
+        { id} = req.params;
 
-    //     db.get_tracks()
-    //     .then(track => {
-    //         // console.log(track)
-    //         res.status(200).send(track)
-    //     })
-        
-    //     .catch(err => res.status(500).send(err))
+            const deleted = await db.delete_track(id)
+            res.status(200).send(deleted)
 
-    // },
+
+    },
     addName: async (req, res) => {
         const db = req.app.get('db'),
         {id} = req.params,
