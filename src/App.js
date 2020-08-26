@@ -84,6 +84,8 @@ let mappedSongs =[];
  mappedSongs= output.map(song =>song.track)
  
  const mappedCountAllTracks =output.map(song=>song.count)
+const mappedAllName = output.map(song=>song.name)
+
 
  let localSongs = audio.filter((song, index) => index === count)
  let mappedLocal = localSongs.map(song => song.track);
@@ -135,16 +137,17 @@ const playTrack=(id)=>{
        layout={'horizontal'}
        header={
         <div id='button-bag'>
-        
-        <button className='track-btns' onClick={localTrack} >Local Tracks</button>
-        <span id='spaner' >{ mappedCount.toString() + ` plays`}</span>
-        <span>{mappedLocal.length?mappedLocalCount:mappedCountAllTracks}</span>
+        <span> {  mappedName.length?mappedName:mappedAllName}</span>
+        <button  className='track-btns' onClick={localTrack} >Local Tracks</button>
+        {/* <span id='spaner' >{ ` plays`}</span>
+        <span>{mappedLocal.length?mappedLocalCount:mappedCountAllTracks}</span> */}
         <button className='track-btns' onClick={getAllTracks} >All Tracks</button>
         </div> 
         }
         src={mappedLocal.length?mappedLocal:mappedSongs}
 
-        onPlay={e => playTrack(output[0].mp3_track_id) }
+        onPlay={output[0]?e => playTrack(output[0].mp3_track_id):e=>console.log('Play track') }
+      footer={ <span id='spanny' >{mappedLocal.length?mappedLocalCount:mappedCountAllTracks} plays</span>}
       />
       }
       </div>

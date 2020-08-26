@@ -41,7 +41,7 @@ function Chat(props) {
           <div key={ind}> 
               {/* <button onClick={() => setData(ele.track)}><p>{ele.track}</p></button> */}
             
-                <span onClick={(e) => setData(ele.track)}>{ele.track.toString().slice(83,100)}</span>
+                <span onClick={(e) => setData(ele.track)}>{ele.track.toString().slice(79,100)}</span>
            
           </div>
       )
@@ -194,8 +194,9 @@ const reduxMusic = (num) => {
                         <input className='name-input'
                             type='text'
                             name='name'
-                            onChange={(e) => setName(e.target.value)}
-                            required
+                            //   value={props.music.user.name}
+                             onChange={(e) => setName(e.target.value)}
+                             required
                         />
                     <h1>chat</h1>
                         <input className='chat-input'
@@ -212,9 +213,9 @@ const reduxMusic = (num) => {
                        <a href={data}  >
                          ...Hear My Music</a> </div> :null }
                     </div>
-                    <button className='btn' onClick={() => setShowChat(!showChat)}>close</button>
-             <button id='share' onClick={sendMusic} >Share Music</button>
-                <button id='share' onClick={reduxMusic} >Get Music</button>
+                    {/* <button className='btn' onClick={() => setShowChat(!showChat)}>close</button> */}
+             <button className='btn' onClick={sendMusic} >Share Music</button>
+                {/* <button id='share' onClick={reduxMusic} >Get Music</button> */}
                 </div>
                 <div id='listed' >
                 {mapList}
