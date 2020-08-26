@@ -119,6 +119,7 @@ app.put(`/api/local/:id`, local.addName)
 app.put('/api/local2/:id', local.updatePic)
 app.post(`/api/track/:id`, local.createTrack)
 
+app.post(`/api/track-count/:id`, local.increaseCount)
 
 
 //endpoints to spotify api

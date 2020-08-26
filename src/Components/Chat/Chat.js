@@ -216,7 +216,9 @@ const reduxMusic = (num) => {
              <button id='share' onClick={sendMusic} >Share Music</button>
                 <button id='share' onClick={reduxMusic} >Get Music</button>
                 </div>
+                <div id='listed' >
                 {mapList}
+                </div>
             </div> 
             </div>    
         
