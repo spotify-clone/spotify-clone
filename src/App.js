@@ -95,10 +95,10 @@ const mappedAllName = output.map(song=>song.name)
 //console.log(mappedLocalCount)
 // console.log(mappedSongs)
 
-const mappedCount = audio.map(ele =>ele.count)
+//const mappedCount = audio.map(ele =>ele.count)
 const mappedName = audio.map(ele => ele.name)
-let mappedTrack =[];
-mappedTrack = audio.map(ele =>ele.track)
+//let mappedTrack =[];
+//mappedTrack = audio.map(ele =>ele.track)
 
   console.log(audio)
 // console.log(mappedCount.toString())
@@ -137,7 +137,7 @@ const playTrack=(id)=>{
        layout={'horizontal'}
        header={
         <div id='button-bag'>
-        <span> {  mappedName.length?mappedName:mappedAllName}</span>
+        <span>Track Title: {  mappedName.length?mappedName:mappedAllName}</span>
         <button  className='track-btns' onClick={localTrack} >Local Tracks</button>
         {/* <span id='spaner' >{ ` plays`}</span>
         <span>{mappedLocal.length?mappedLocalCount:mappedCountAllTracks}</span> */}
@@ -146,7 +146,7 @@ const playTrack=(id)=>{
         }
         src={mappedLocal.length?mappedLocal:mappedSongs}
 
-        onPlay={output[0]?e => playTrack(output[0].mp3_track_id):e=>console.log('Play track') }
+        onPlay={output[0]?e => playTrack(output[0].mp3_track_id):e=>console.log('Play') }
       footer={ <span id='spanny' >{mappedLocal.length?mappedLocalCount:mappedCountAllTracks} plays</span>}
       />
       }

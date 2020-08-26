@@ -17,7 +17,7 @@ function Chat(props) {
     const [room, setRoom] = useState(null);
     const [message, setMessage] = useState('');
     const [receivedMessages, setReceivedMessages] = useState([])
-    const [showChat, setShowChat] = useState(false);
+   // const [showChat, setShowChat] = useState(false);
     const ENDPOINT = 'localhost:3333'
     const [data, setData] = useState(false)
     let [num, setNum] = useState(0)
@@ -214,7 +214,7 @@ const joinSucess = () => {
                          ...Hear My Music</a> </div> :null }
                     </div>
                     {/* <button className='btn' onClick={() => setShowChat(!showChat)}>close</button> */}
-             <button className='btn' onClick={sendMusic} >Share Music</button>
+             <button className='btn' onClick={room?sendMusic:null} >Share Music</button>
                 {/* <button id='share' onClick={reduxMusic} >Get Music</button> */}
                 </div>
                 <div id='listed' >
