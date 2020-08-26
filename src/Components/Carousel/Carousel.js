@@ -15,7 +15,7 @@ const MyCarousel = (props) => {
 })
 
 
-console.log(mapped)
+// console.log(mapped)
     return (
         <div>
             <Carousel

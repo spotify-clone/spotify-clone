@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Drop from '../Dropzone/DropZone';
 import SpotifyWebApi from "spotify-web-api-js";
 import { getTokenFromUrl } from '../../spotifyFn';
+import {getUser} from '../../Redux/musicReducer';
+import {connect} from 'react-redux';
+
+
 
 const spotify = new SpotifyWebApi();
 
@@ -32,6 +37,7 @@ class Profile extends Component {
                     this.setState({user: res.data})
                     axios.get(`/api/user-playlist/${user.id}`)
                     .then(res=>{
+                        console.log(res)
                         this.setState({playlist: res.data})
                     })
                 })
@@ -40,21 +46,24 @@ class Profile extends Component {
         }
 
     }
+    
+    render() {
+        const { user, playlist} = this.state
+        // console.log(playlist)
 
-
-        render() {
-            const { user, playlist} = this.state
-
-            // console.log(user)
+            
             // console.log(playlist)
 
         return (
           <div>
-              <h1>Sptoify Picture</h1>
-              <h2>Spotify Name</h2>
+              <Drop/>
+        <h1>Hello {this.props.music.user.name} </h1>
+        <h2>{this.props.music.user.email}</h2>
           </div>
           );
         }
     }
+    const mapStateToProps = state => state
 
-    export default Profile;
+    export default connect(mapStateToProps,{getUser})(Profile)
+    

@@ -26,7 +26,7 @@ const Nav = (props) => {
         // .then(() =>{
         //     axios.post(`/api/user/${user.id}`)
         // })
-        // .catch(error => console.log(error))
+        .catch(error => console.log(error))
     }
 
     const logOut = () => {
@@ -38,7 +38,7 @@ const Nav = (props) => {
         )}
 
 
-console.log(props.music.user.pic)
+// console.log(props)
     return (
         <div className='main-nav'>
             <nav className='desktop-nav'>
@@ -48,7 +48,7 @@ console.log(props.music.user.pic)
                         <Link to='/dash'>Dash</Link>
                     </li>
                     <li>
-                        <Link to='/drop'>Profile</Link>
+                        <Link to='/profile'>Profile</Link>
                     </li>
                     {/* <li>
                         <Link to='/Search'>Search</Link>
