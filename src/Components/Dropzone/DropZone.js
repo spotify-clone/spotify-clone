@@ -245,7 +245,7 @@ console.log(imgURL,"hit")
             </div>
           </div>
         )
-        console.log(props)
+        // console.log(props)
         return (
           <div id='photos' >
             
@@ -263,8 +263,8 @@ console.log(imgURL,"hit")
       }
 //      console.log(props.music.user.account_id)
 // console.log(imgURL)
-   console.log(props)
- console.log(name)
+//    console.log(props)
+//  console.log(name)
 return(
   <div className="main-div">
     <div className='dropbox-container'>

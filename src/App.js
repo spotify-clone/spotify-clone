@@ -98,7 +98,7 @@ const mappedName = audio.map(ele => ele.name)
 let mappedTrack =[];
 mappedTrack = audio.map(ele =>ele.track)
 
-  console.log(audio)
+  // console.log(audio)
 // console.log(mappedCount.toString())
  //.log(props.music.user.account_id)
 

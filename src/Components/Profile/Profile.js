@@ -5,6 +5,7 @@ import SpotifyWebApi from "spotify-web-api-js";
 import { getTokenFromUrl } from '../../spotifyFn';
 import {getUser} from '../../Redux/musicReducer';
 import {connect} from 'react-redux';
+import '../Profile/profile.scss'
 
 
 
@@ -37,7 +38,6 @@ class Profile extends Component {
                     this.setState({user: res.data})
                     axios.get(`/api/user-playlist/${user.id}`)
                     .then(res=>{
-                        console.log(res)
                         this.setState({playlist: res.data})
                     })
                 })
@@ -58,6 +58,7 @@ class Profile extends Component {
           <div>
               <Drop/>
         <h1>Hello {this.props.music.user.name} </h1>
+        <img className='profile-pic' src={this.props.music.user.pic} alt='your pic here' ></img>
         <h2>{this.props.music.user.email}</h2>
           </div>
           );
