@@ -6,7 +6,7 @@ module.exports ={
 
         const result = await db.get_track(id)
         
-        const count = await db.add_count(id)
+       // const count = await db.add_count(id)
         
         res.status(200).send(result)
  
@@ -19,7 +19,7 @@ module.exports ={
         { name, track  } = req.body,
          user_id  = req.params.id;
 
-         console.log(name, track, user_id)
+        // console.log(name, track, user_id)
 
         try{
             db.add_to_playlist({name: name, track, user_id})
@@ -38,17 +38,26 @@ module.exports ={
  
 
     },
-    getTracks: (req, res) => {
-        const db = req.app.get('db');
+   getTracks: async (req, res) =>{
+       const db = req.app.get('db'),
+       {user_id} = req.params;
+       const result = await db.get_tracks(user_id)
+      //  const add = await db.add_count(id)
+       res.status(200).send(result)
+   },
+    // getTracks: (req, res) => {
+    //     const db = req.app.get('db');
+     
 
-        db.get_tracks()
-        .then(track => {
-            // console.log(track)
-            res.status(200).send(track)
-        })
-        .catch(err => res.status(500).send(err))
+    //     db.get_tracks()
+    //     .then(track => {
+    //         // console.log(track)
+    //         res.status(200).send(track)
+    //     })
+        
+    //     .catch(err => res.status(500).send(err))
 
-    },
+    // },
     addName: async (req, res) => {
         const db = req.app.get('db'),
         {id} = req.params,
@@ -64,7 +73,7 @@ module.exports ={
         // {imgURL} = req.body,
         {id} = req.params;
     
-        console.log(req.body)
+//console.log(req.body)
         // console.log(pic, id)
 
         const add = await db.update_profile_pic({imgURL, id})
@@ -84,10 +93,12 @@ module.exports ={
 
     getUsersTrack: async(req,res)=>{
         const db = req.app.get('db'),
-        { id } = req.params;
+        { id: user_id } = req.params;
+ 
+        const result = await db.get_users_track(user_id)
+     //   const count = await db.add_count(id)
 
-        const result = await db.get_users_track(id)
-
+//console.log(result)
         res.status(200).send(result)
     }
    

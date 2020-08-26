@@ -61,7 +61,7 @@ io.on('connection', socket => {
     console.log('room joined', data.room)
     socket.join(data.room, () =>{
      rooms = Object.keys(socket.rooms)
-      console.log(rooms)
+   //   console.log(rooms)
       io.to(data.room).emit('room joined', {rooms});
     });
   
@@ -114,6 +114,7 @@ app.post(`/api/email`, email.email)
 app.get('/api/track/:id', local.getTrack)
 app.get(`/api/tracks`, local.getTracks)
 app.get('/api/user-tracks/:id', local.getUsersTrack)
+
 app.put(`/api/local/:id`, local.addName)
 app.put('/api/local2/:id', local.updatePic)
 app.post(`/api/track/:id`, local.createTrack)
