@@ -25,7 +25,7 @@ const Header = (props) => {
                 <form onSubmit={sendUser}>
                     <input type="text" onChange={(e) => setInput(e.target.value)} placeholder="...Artist" />
                 </form>
-                <Link to={`/search/${input}`}><button type="submit">Send Them My way</button></Link>
+                <Link id='booty' to={`/search/${input}`}><button id='buttz' type="submit">Search Albums</button></Link>
             </div>
 
         </header>

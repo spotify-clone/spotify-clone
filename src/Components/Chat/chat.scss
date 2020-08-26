@@ -90,4 +90,16 @@
      width: 10vw;
 
  }
-
+  #listed{
+      overflow: scroll;
+      margin-right: auto;
+      width: 30vw;
+  }
+   #colored{
+       overflow: scroll;
+       color:#19fe00;
+        display: flex;
+       box-shadow: #000000 0px 5px 5px ;
+       background-color: rgb(66, 66, 66);
+       background-image: url("https://www.transparenttextures.com/patterns/grid-noise.png");
+   }
