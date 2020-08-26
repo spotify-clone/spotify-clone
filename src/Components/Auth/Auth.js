@@ -14,20 +14,7 @@ const Auth = (props) => {
     let [email, setEmail] = useState(''),
     [password, setPassword] = useState('');
 
-    // useEffect(() => {
-    //     const hash = getTokenFromUrl()
-    //     const _token = Object.values(hash)[0].toString('')
     
-    //     if(_token){
-    
-    //       spotify.setAccessToken(_token);
-    
-    //       spotify.getMe().then((user)=>{
-    //           console.log(user)
-    //       })
-    //     }
-    
-    //   },[])
 
     let handleLogin = (e)=>{
         

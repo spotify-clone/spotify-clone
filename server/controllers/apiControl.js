@@ -139,7 +139,7 @@ module.exports = {
 
     await spotify.request(`https://api.spotify.com/v1/playlists/${id}/tracks`)
     .then((data)=>{
-      console.log(data.items)
+    //  console.log(data.items)
       
     })
     .catch((err)=>{

@@ -79,19 +79,18 @@ useEffect(()=>{
 }
 
 //Filter and Map function to grab the individual objects out of the array and play them on source
-//All Tracks
 let output = songs.filter((song, index) => index === count) 
 let mappedSongs =[];
  mappedSongs= output.map(song =>song.track)
  
  const mappedCountAllTracks =output.map(song=>song.count)
-//Users tracks
+
  let localSongs = audio.filter((song, index) => index === count)
  let mappedLocal = localSongs.map(song => song.track);
  let mappedLocalCount = localSongs.map(song => song.count)
 
- console.log(mappedLocal)
-console.log(mappedLocalCount)
+// console.log(mappedLocal)
+//console.log(mappedLocalCount)
 // console.log(mappedSongs)
 
 const mappedCount = audio.map(ele =>ele.count)
@@ -132,7 +131,7 @@ mappedTrack = audio.map(ele =>ele.track)
         
         <button className='track-btns' onClick={localTrack} >Local Tracks</button>
         <span id='spaner' >{ mappedCount.toString() + ` plays`}</span>
-        <span>{mappedLocal.length?mappedLocalCount:mappedCountAllTracks}</span>
+        <span>{mappedLocal.length?mappedLocal:mappedCountAllTracks}</span>
         <button className='track-btns' onClick={getAllTracks} >All Tracks</button>
         </div> 
         }

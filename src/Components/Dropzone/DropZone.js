@@ -97,7 +97,7 @@ console.log(imgURL,"hit")
 
     const getSignedRequest = ([files]) => {
         setUploading(!isUploading)
-        console.log(files)
+      //  console.log(files)
         const fileName = `${randomString()}-${files.name.replace(/\s/g, '-')}`
         //Try to get it from service after you get it working with the axios get from here
         axios.get('/sign-s3', {
@@ -116,9 +116,9 @@ console.log(imgURL,"hit")
     
       //This second upload file is so I can set the imageURL and send it ot the database seperately
       const uploadFile2 = (files, signedRequest, url) => {
-        console.log(files)
-        console.log(signedRequest)
-        console.log(url)
+        // console.log(files)
+        // console.log(signedRequest)
+        // console.log(url)
         const options = {
           headers: {
             'Content-Type': files.type,
@@ -152,9 +152,9 @@ console.log(imgURL,"hit")
       }
       
       const uploadFile = (files, signedRequest, url) => {
-        console.log(files)
-        console.log(signedRequest)
-        console.log(url)
+        // console.log(files)
+        // console.log(signedRequest)
+        // console.log(url)
         const options = {
           headers: {
             'Content-Type': files.type,
@@ -207,7 +207,7 @@ console.log(imgURL,"hit")
             </div>
           </div>
         )
- console.log(props)
+// console.log(props)
         return (
           <div id='photos' >
           
@@ -263,7 +263,7 @@ console.log(imgURL,"hit")
       }
 //      console.log(props.music.user.account_id)
 // console.log(imgURL)
-//   console.log(props)
+   console.log(props)
 // console.log(song)
 return(
   <div>
