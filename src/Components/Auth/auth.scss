@@ -1,6 +1,7 @@
 @import '../../SCSS/_var.scss';
 
 
+
 .auth img {
     position: fixed;
     left: 0;
@@ -8,20 +9,48 @@
     height: 100vh;
     width: 100vw;
     background-color: black;
+    -webkit-filter: blur(2px);  
 
 }
 
+
+
+#a-tag{
+    position: absolute;
+    top: 65vh;
+    left: 21.5vw;
+    color: greenyellow;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border: 2px solid greenyellow;
+    width: 20vw;
+
+}
+
+
 .main{
+    background-color: rgba(0, 0, 0, 0.8);
     box-sizing: border-box;
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
-    left:35vw;
-
+    border: solid white;
+    padding: 20px;
+    margin-top: 8%;
+    margin-right: 19vw;
+    margin-left: 19vw;;
     
 }
 
+.header-1{
+    display:inline-block;
+    position: relative;
+    bottom: 100%;
+    color: white;
+    margin-bottom: 50px
+}
 
 .auth-input {
     display: flex;
