@@ -48,7 +48,7 @@ io.on('connection', socket => {
   })
 
   socket.on('message sent', data => {
-    console.log(data)
+    // console.log(data)
    // socket.broadcast.emit('message dispatched', data.message);
    if(!data && !data.roomId && !data.roomId.rooms && !data.roomId.rooms[1]) return;
      io.to(data.roomId.rooms[1]).emit('message data', {data: data.data});
@@ -61,7 +61,7 @@ io.on('connection', socket => {
     console.log('room joined', data.room)
     socket.join(data.room, () =>{
      rooms = Object.keys(socket.rooms)
-      console.log(rooms)
+   //   console.log(rooms)
       io.to(data.room).emit('room joined', {rooms});
     });
   
@@ -114,10 +114,10 @@ app.post(`/api/email`, email.email)
 app.get('/api/track/:id', local.getTrack)
 app.get(`/api/tracks`, local.getTracks)
 app.get('/api/user-tracks/:id', local.getUsersTrack)
+
 app.put(`/api/local/:id`, local.addName)
 app.put('/api/local2/:id', local.updatePic)
-app.put(`/api/track/:id`, local.createTrack)
-app.post('/api/user/:user', authCtrl.saveLocalUser)
+app.post(`/api/track/:id`, local.createTrack)
 
 
 

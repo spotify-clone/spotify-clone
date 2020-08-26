@@ -6,7 +6,7 @@ const MyCarousel1 = (props) => {
     
     //console.log(props.albums.images[1].url)
      
-    // console.log(props )
+  //  console.log(props )
       
     const mappedPlay = props.playlist.map((element,index)=>{
         return <div style={{width: "60vw"}} >
