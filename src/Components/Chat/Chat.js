@@ -41,7 +41,7 @@ function Chat(props) {
           <div key={ind}> 
               {/* <button onClick={() => setData(ele.track)}><p>{ele.track}</p></button> */}
             
-                <span onClick={(e) => setData(ele.track)}>{ele.track.toString().slice(83,100)}</span>
+                <span onClick={(e) => setData(ele.track)}>{ele.track.toString().slice(79,100)}</span>
            
           </div>
       )
