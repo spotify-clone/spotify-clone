@@ -61,7 +61,7 @@ io.on('connection', socket => {
     console.log('room joined', data.room)
     socket.join(data.room, () =>{
      rooms = Object.keys(socket.rooms)
-      console.log(rooms)
+   //   console.log(rooms)
       io.to(data.room).emit('room joined', {rooms});
     });
   
