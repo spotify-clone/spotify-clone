@@ -62,7 +62,7 @@ console.log(props)
                     {props.user ?<Link to='/'
                              onClick={logOut} >Logout</Link> : null}
                     <li className='profilePic'>
-                        <img src={props.music.user.pic} id='pixed' alt='beautiful person picture'/>
+                        <img src={props.music.user.pic} id='pixed' alt='beautiful person information'/>
                     </li>
                 </ul>
             </nav>

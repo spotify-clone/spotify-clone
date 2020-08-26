@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import SpotifyWebApi from "spotify-web-api-js";
 import { getTokenFromUrl } from '../../spotifyFn';
-
+ 
 const spotify = new SpotifyWebApi();
 
 class Profile extends Component {
@@ -43,7 +43,7 @@ class Profile extends Component {
 
 
         render() {
-            const { user, playlist} = this.state
+          //  const { user, playlist} = this.state
 
             console.log(user,playlist)
 

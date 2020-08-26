@@ -1,0 +1,26 @@
+#delete{
+    position: sticky;
+    top:20px;
+    right:0px;
+    width: 10vw;
+    border: 3px solid black;
+    /* border-color:  rgb(33, 33, 100);
+    border-style: outset;
+    border-width: 10px;
+    box-shadow: #8b3030 0px 5px 5px ;
+   */
+   
+    
+}
+#dd{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    border-color:  rgb(100, 100, 100);
+    border-style: outset;
+    border-width: 10px;
+    box-shadow: #000000 0px 5px 5px ;
+    background-color: rgb(66, 66, 66);
+  
+}
