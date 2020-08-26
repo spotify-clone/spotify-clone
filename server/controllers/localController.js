@@ -81,25 +81,16 @@ module.exports ={
 
 
     },
-    sendCount: async (req, res) => {
-        const db = req.app.get('db'),
-        {id} = req.params,
-        {count} = req.body;
-        
-        const counter = db.add_count(count, id)
-
-        res.status(200).send(counter)
-    },
-
+  
     getUsersTrack: async(req,res)=>{
         const db = req.app.get('db'),
         { id: user_id } = req.params;
  
         const result = await db.get_users_track(user_id)
-     //   const count = await db.add_count(id)
+            //   const counter = await db.add_count3( user_id)
 
-//console.log(result)
         res.status(200).send(result)
-    }
    
+}
+
 }

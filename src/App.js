@@ -121,7 +121,7 @@ mappedTrack = audio.map(ele =>ele.track)
 
 
     <AudioPlayer style={{backgroundColor: '#0f0f0f'}}
-       autoPlay
+      //  autoPlay
        showSkipControls={true}
        onClickPrevious={previousTrack}
        onClickNext={nextTrack}
@@ -131,7 +131,7 @@ mappedTrack = audio.map(ele =>ele.track)
         
         <button className='track-btns' onClick={localTrack} >Local Tracks</button>
         <span id='spaner' >{ mappedCount.toString() + ` plays`}</span>
-        <span>{mappedLocal.length?mappedLocal:mappedCountAllTracks}</span>
+        <span>{mappedLocal.length?mappedLocalCount:mappedCountAllTracks}</span>
         <button className='track-btns' onClick={getAllTracks} >All Tracks</button>
         </div> 
         }
