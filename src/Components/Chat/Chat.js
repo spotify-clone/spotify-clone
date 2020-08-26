@@ -53,7 +53,7 @@ function Chat(props) {
         const { name, room } = queryString.parse(props.location.search)
         setName(props.music.user.email)
         setRoom(room)
-console.log(props)
+//console.log(props)
         console.log(socket)
 
      }, [props.location.search])
@@ -67,7 +67,7 @@ console.log(props)
 useEffect(()=>{
 
     socket.on('message data', data => {
-        console.log(data, "use effect")
+      //  console.log(data, "use effect")
 //This is the same as saying prev state =>prev state using
         setReceivedMessages(receivedMessages => [...receivedMessages, data])
 
@@ -82,7 +82,7 @@ useEffect(() =>{
         joinRoom()
         if(joined) joinSucess(rooms);
         setRoomId(rooms)
-        console.log(rooms)
+       // console.log(rooms)
     })
 },[])
 
@@ -91,7 +91,7 @@ useEffect(() =>{
     useEffect(() => {
       
         socket.on('message from server', message => {
-            console.log(message)
+         //   console.log(message)
  //This is the same as saying prev state =>prev state using
             setReceivedMessages(receivedMessages => [...receivedMessages, message])
 
@@ -103,7 +103,7 @@ useEffect(() =>{
 const sendMusic = () =>{
     setNum(num++)
    // setData('https://spotify-bucket33.s3.amazonaws.com/c499c9e9-4a6d-4e4f-b59f-8695dee7c236-Black-Tom-Brady---11_12_17,-11.03-AM.mp3')
-    console.log('hit send music', data)
+//console.log('hit send music', data)
     if(data){
         socket.emit('message sent', {data:data, roomId})
     }
@@ -130,7 +130,7 @@ const joinSucess = () => {
 }
 
     const sendMessage = (event) => {
-        console.log('hit send message', message)
+      //  console.log('hit send message', message)
         if (message) {
             socket.emit('message', { message, name, roomId })
             
@@ -169,7 +169,7 @@ const reduxMusic = (num) => {
         )
     })
     // word.data.toString('').slice(79,94)
-     console.log("data", data)
+//console.log("data", data)
 
     //Trying to create a condition where the name box goes away after the informaion is entered.
     //Right now since any value makes it truthy it goes away....
@@ -195,12 +195,13 @@ const reduxMusic = (num) => {
                             type='text'
                             name='name'
                             onChange={(e) => setName(e.target.value)}
+                            required
                         />
                     <h1>chat</h1>
                         <input className='chat-input'
                             type='text'
                             name='text'
-                            onChange={(e) => setMessage(e.target.value)}
+                            onChange={room?(e) => setMessage(e.target.value):null}
                             onKeyPress={event => event.key === 'Enter' ? sendMessage(event, name) : null}
                         />
                     <button className="btn" onClick={(e) => sendMessage(e)} >Send</button>
