@@ -105,11 +105,7 @@ class Profile extends Component {
         <h2>{this.props.music.user.email}</h2>
         </div>
 
-<<<<<<< HEAD
-//console.log(user,playlist)
-=======
         :
->>>>>>> master
 
         <div>
         <Drop/>
