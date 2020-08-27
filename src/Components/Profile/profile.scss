@@ -1,3 +1,4 @@
+@import '../../SCSS/_var.scss';
 .mainDiv{
     box-sizing: border-box;
     width:80vw;
@@ -8,7 +9,25 @@
     
 
 }
-
+.playlist{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    color: $text-color;
+    height: 70vh;
+    width: 40vw;
+    background-color: darkgray;
+    position: fixed;
+    right: 10vw;
+    bottom: 150px;  
+    border-color:  rgb(100, 100, 100);
+    border-style: outset;
+    border-width: 10px;
+    box-shadow: #000000 0px 5px 5px ;
+    background-color: rgb(66, 66, 66);
+    background-image: url("https://www.transparenttextures.com/patterns/grid-noise.png");  
+}
 .profile-pic{
     width: 50px;
     height: 50px;

@@ -109,12 +109,14 @@ class Profile extends Component {
 
         <div>
         <Drop/>
+        <div className='playlist'>
 
-        <h6>Hello {user.display_name} </h6>
-        <h6>playlist</h6>
+        <h2>Hello {user.display_name} </h2>
         <h2>{playlist.name}</h2>
         <div className='track-box'>
         {mappedTracks}
+        </div>
+
         </div>
             
         </div>
