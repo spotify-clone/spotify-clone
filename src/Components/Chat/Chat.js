@@ -53,7 +53,7 @@ function Chat(props) {
         setName(props.music.user.email)
         setRoom(room)
 //console.log(props)
-        console.log(socket)
+        // console.log(socket)
 
      }, [props.location.search])
 
