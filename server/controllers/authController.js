@@ -48,11 +48,15 @@ LoginUser: async (req,res)=>{
 
 },
     logMeIn: async(req,res)=>{
-        const db = req.app.get('db')
-        
-          const me = await db.get_user_id(req.session.account_id)
+        const db = req.app.get('db');
+
+        if(req.session.user){
+        //  const me = await db.get_user_id(req.session.account_id)
           //console.log(me, "log me in")
-          res.status(200).send(me[0]) 
+          res.status(200).send(req.session.user) 
+        }else{
+          res.sendStatus(200) 
+        }
 
     },
     logOut: (req, res)=>{
