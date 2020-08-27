@@ -101,23 +101,9 @@ const mappedAllName = output.map(song=>song.name)
  let localSongs = audio.filter((song, index) => index === count)
  let mappedLocal = localSongs.map(song => song.track);
  let mappedLocalCount = localSongs.map(song => song.count)
+const mappedLocalName = localSongs.map(song => song.name)
 
-// console.log(mappedLocal)
-//console.log(mappedLocalCount)
-// console.log(mappedSongs)
-
-//const mappedCount = audio.map(ele =>ele.count)
-const mappedName = audio.map(ele => ele.name)
-//let mappedTrack =[];
-//mappedTrack = audio.map(ele =>ele.track)
-
-  // console.log(audio)
-// console.log(mappedCount.toString())
- //.log(props.music.user.account_id)
-
-
-//let choice = mappedTrack.length >1?mappedTrack:mappedSongs 
-  
+ 
 const playTrack=(id)=>{
   console.log('Play Track')
   axios.post(`/api/track-count/${id}`)
@@ -148,7 +134,7 @@ const playTrack=(id)=>{
        layout={'horizontal'}
        header={
         <div id='button-bag'>
-        <span>Track Title: {  mappedName.length?mappedName:mappedAllName}</span>
+        <span> { mappedLocalName.length?mappedLocalName:mappedAllName}</span>
         <button  className='track-btns' onClick={localTrack} >Local Tracks</button>
         {/* <span id='spaner' >{ ` plays`}</span>
         <span>{mappedLocal.length?mappedLocalCount:mappedCountAllTracks}</span> */}
