@@ -1,4 +1,5 @@
 require('dotenv').config()
+const path = require('path');
 const express = require('express'),
 awsRouter = require('./controllers/awsRouter'), 
 email = require('./controllers/emailController'),
