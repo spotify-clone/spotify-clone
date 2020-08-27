@@ -9,7 +9,7 @@ const Delete =(props)=> {
    
      
 
-console.log(props.deleteSong)
+// console.log(props.deleteSong)
 const mapped = props.deleteSong.map((song,index)=>{
     return (
         <div key={index} >
