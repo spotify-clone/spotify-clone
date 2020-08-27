@@ -14,11 +14,14 @@ const Nav = (props) => {
 
     useEffect(()=>{
         getUser()
-        
+      
     },[user])
 
     
+
+
     const getUser =()=>{
+         
         axios.get('/api/user')
         .then(res => {
             if(res.data && res.data.length !== user.length){
@@ -41,7 +44,7 @@ const Nav = (props) => {
         )}
 
 
-// console.log(props)
+       
     return (
         <div className='main-nav'>
             <nav className='desktop-nav'>

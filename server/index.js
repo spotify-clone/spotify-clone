@@ -1,4 +1,5 @@
 require('dotenv').config()
+const path = require('path');
 const express = require('express'),
 awsRouter = require('./controllers/awsRouter'), 
 email = require('./controllers/emailController'),
@@ -13,14 +14,16 @@ app = express();
 
 
 //Test for chat we aren't using the chat controller as of right now because I don't have rooms, but maybe
+const { addUser, removeUser } = require('./controllers/chatController')
 const bodyParser = require('body-parser'),
 socket = require('socket.io'),
 cors = require('cors'),
-{addUser, removeUser} = require('./controllers/chatController'),
 // router = require('./controllers/chatroutes'),
 http = require('http'),
 server = app.listen(3333),
 io = require('socket.io').listen(server);
+
+
 
 //I moved around app dot listen to create a securer connection, this is also more familiar
 
@@ -30,7 +33,6 @@ app.use(cors())
 app.use(bodyParser.json())
 
   //  app.use(router)
-
 
 
    //Sockets connection
@@ -144,7 +146,17 @@ app.get('/auth/logout', authCtrl.logOut)
 app.post('/auth/user/:user' , authCtrl.saveLocalUser)
 
 
+// app.use(express.static(__dirname + '/../build'))
+  
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../build/index.html'))
+//   })
 
+app.use( express.static( `${__dirname}/../build` ) );
+
+app.get('*', (req,res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'))
+})
 
 
 

@@ -5,6 +5,7 @@ import Header from './Components/Header/Header';
 import Nav from './Components/Nav/Nav';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios'
+import {getUser} from './Redux/musicReducer'
 import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
 import {connect} from 'react-redux'
@@ -17,7 +18,14 @@ function App(props) {
 //  const [index, setIndex] = useState(1)
   let [count, setCount] = useState(0)
 
- 
+ useEffect(()=>{
+
+  axios.get(`/auth/me`)
+  .then((res)=>{
+props.getUser(res.data)
+  })
+
+ },[])
 
   //This function is to retreive all the local tracks from the database
 const getAllTracks=()=>{
@@ -28,6 +36,7 @@ const getAllTracks=()=>{
   })
 }
 
+ 
   //Use the index so I can cycle through the array's
   //filter the results
   // const filtered =() => {
@@ -40,6 +49,8 @@ const getAllTracks=()=>{
   const nextTrack=() => {
  setCount(count++)
   }
+
+
 useEffect(()=>{
 
 },[count])
@@ -166,4 +177,4 @@ const mapStateToProps = state => {
       user: state.user
   }
 }
-export default withRouter(connect(mapStateToProps)(App));
+export default withRouter(connect(mapStateToProps, {getUser})(App));

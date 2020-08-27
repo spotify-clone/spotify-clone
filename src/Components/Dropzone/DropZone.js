@@ -34,9 +34,14 @@ const DropZone = (props)=>{
          // console.log(res.data)
           setDeleteSong(res.data)
       })
-  },[ ])
+  },[])
 
-
+  const deleteSongs = (id) => {
+    axios.delete(`/api/user-track/${id}`)
+    .then(()=>{
+     
+    })
+ }
     useEffect(()=>{
 if (imgURL){
  sendProfilePic()
