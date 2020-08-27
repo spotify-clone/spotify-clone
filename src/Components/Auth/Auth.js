@@ -44,7 +44,7 @@ const Auth = (props) => {
         <div className='auth'>
          <img src={Logo} alt='authLogo' className="auth-logo"/>
         <div className="main">
-            <h1 className="header-1">Jam Out With Sharfiy</h1>
+            <h2 className="header-1">Jam Out With Sharfiy</h2>
         
                <input className="auth-input"
                value={email}
@@ -64,7 +64,7 @@ const Auth = (props) => {
                  <h4>Sign Up Here!</h4>
                 <button className="authBtn" onClick={handleRegister}>Register</button>
         </div>
-            <a href={accessUrl} id="a-tag" >Authenticate with Spotify</a>
+            <a href={accessUrl} id="a-tag" >Sign-in with Spotify</a>
         </div>
     )
 }
