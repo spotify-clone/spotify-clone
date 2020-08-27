@@ -4,11 +4,14 @@ import {connect} from 'react-redux';
 import {getUser} from '../../Redux/musicReducer';
 import {Link} from 'react-router-dom';
 import './nav.scss';
+import Button from '@material-ui/core/Button';
+import { useHistory } from "react-router"
 
 const Nav = (props) => {
 
     const [user, setUser] = useState([])
-    
+    const history = useHistory()
+
     useEffect(()=>{
         getUser()
         
@@ -32,7 +35,7 @@ const Nav = (props) => {
     const logOut = () => {
         axios.get('/auth/logOut')
         .then (() => {
-        props.history.push('/')
+        history.push('/')
         })
         .catch(err => console.log(err)
         )}
@@ -59,12 +62,11 @@ const Nav = (props) => {
                     <li>
                         <Link to='/Chat'>Chat</Link>
                     </li>
-                    {props.user ?<Link to='/'
-                             onClick={logOut} >Logout</Link> : null}
                     <li className='profilePic'>
                         <img src={props.music.user.pic} id='pixed' alt='beautiful person information'/>
                     </li>
                 </ul>
+                {props.user ? <div className="logout-btn"><Button onClick={logOut} variant="outlined" color="secondary">Logout</Button></div> : null}
             </nav>
         </div>
     )
