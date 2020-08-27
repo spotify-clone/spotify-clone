@@ -5,7 +5,6 @@ import MyCarousel2 from './../Carousel/Carousel2'
 import axios from 'axios'
 
 
-
 class Dash extends Component {
     constructor(props){
         super(props)
@@ -65,12 +64,11 @@ class Dash extends Component {
         
         return (
             <div>
-         
                 <span><h3>CATAGORIES</h3></span>
                 <MyCarousel2  featuresList={featuresList} list={list} />
-                <span><h3>STUDY MUSIC</h3> </span>
+                <span><h3>WHAT'S YOUR MOOD?</h3> </span>
                 <MyCarousel1 playlist={playlist} list={list} />
-                <span><h3>HIP-HOP</h3></span>
+                <span><h3>FEATURES</h3></span>
                 <MyCarousel list={list} />
             </div>
         )
