@@ -21,7 +21,7 @@ export function getMusic(music) {
 
 //Get current user who is logged into session
 export function getUser(user) {
-console.log(user)
+// console.log(user)
     return {
         type: GET_USER,
         payload: user
