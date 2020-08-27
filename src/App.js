@@ -5,6 +5,7 @@ import Header from './Components/Header/Header';
 import Nav from './Components/Nav/Nav';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios'
+import {getUser} from './Redux/musicReducer'
 import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
 import {connect} from 'react-redux'
@@ -17,7 +18,14 @@ function App(props) {
 //  const [index, setIndex] = useState(1)
   let [count, setCount] = useState(0)
 
- 
+ useEffect(()=>{
+
+  axios.get(`/auth/me`)
+  .then((res)=>{
+props.getUser(res.data)
+  })
+
+ },[])
 
   //This function is to retreive all the local tracks from the database
 const getAllTracks=()=>{
@@ -28,6 +36,7 @@ const getAllTracks=()=>{
   })
 }
 
+ 
   //Use the index so I can cycle through the array's
   //filter the results
   // const filtered =() => {
@@ -40,6 +49,8 @@ const getAllTracks=()=>{
   const nextTrack=() => {
  setCount(count++)
   }
+
+
 useEffect(()=>{
 
 },[count])
@@ -90,23 +101,9 @@ const mappedAllName = output.map(song=>song.name)
  let localSongs = audio.filter((song, index) => index === count)
  let mappedLocal = localSongs.map(song => song.track);
  let mappedLocalCount = localSongs.map(song => song.count)
+const mappedLocalName = localSongs.map(song => song.name)
 
-// console.log(mappedLocal)
-//console.log(mappedLocalCount)
-// console.log(mappedSongs)
-
-//const mappedCount = audio.map(ele =>ele.count)
-const mappedName = audio.map(ele => ele.name)
-//let mappedTrack =[];
-//mappedTrack = audio.map(ele =>ele.track)
-
-  // console.log(audio)
-// console.log(mappedCount.toString())
- //.log(props.music.user.account_id)
-
-
-//let choice = mappedTrack.length >1?mappedTrack:mappedSongs 
-  
+ 
 const playTrack=(id)=>{
   console.log('Play Track')
   axios.post(`/api/track-count/${id}`)
@@ -137,7 +134,7 @@ const playTrack=(id)=>{
        layout={'horizontal'}
        header={
         <div id='button-bag'>
-        <span>Track Title: {  mappedName.length?mappedName:mappedAllName}</span>
+        <span> { mappedLocalName.length?mappedLocalName:mappedAllName}</span>
         <button  className='track-btns' onClick={localTrack} >Local Tracks</button>
         {/* <span id='spaner' >{ ` plays`}</span>
         <span>{mappedLocal.length?mappedLocalCount:mappedCountAllTracks}</span> */}
@@ -166,4 +163,4 @@ const mapStateToProps = state => {
       user: state.user
   }
 }
-export default withRouter(connect(mapStateToProps)(App));
+export default withRouter(connect(mapStateToProps, {getUser})(App));

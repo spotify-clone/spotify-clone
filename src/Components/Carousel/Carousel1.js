@@ -9,12 +9,10 @@ const MyCarousel1 = (props) => {
   //  console.log(props )
       
     const mappedPlay = props.playlist.map((element,index)=>{
-        return <div style={{width: "60vw"}} >
-                <img  style={{display: "flex", justifyContent:"center", height: "150px", width: "150px"}} key={index} src={element.images[0].url} alt='hot albums covers' />
-            </div>
-    })
+  
    
- 
+    return <img style={{display: "flex", justifyContent:"center", height: "150px", width: "150px"}} src={element.images[0].url} alt='Hot Album Covers'/>
+})
 
 
 
@@ -58,8 +56,8 @@ const MyCarousel1 = (props) => {
                     }
                 }}
 
-                itemsToShow={6}
-                speed={400}
+                itemsToShow={10}
+                speed={100}
             >
             
                 {props.list.map((item, index) => (

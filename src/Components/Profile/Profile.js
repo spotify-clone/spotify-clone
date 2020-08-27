@@ -98,13 +98,16 @@ class Profile extends Component {
 
 
         {(!user.display_name ?
-        <div>
+        <div id='backend'>
         <Drop/>
+        <div id="bio">
         <h6>Hello {this.props.music.user.name} </h6>
         <img className='profile-pic' src={this.props.music.user.pic} alt='your pic here' ></img>
         <h2>{this.props.music.user.email}</h2>
         </div>
+        </div>
 
+        
         :
 
         <div>

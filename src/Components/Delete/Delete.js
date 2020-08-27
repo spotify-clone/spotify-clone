@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './Delete.css'
+import './Delete.scss'
 import axios from 'axios';
 import {connect} from 'react-redux'
 

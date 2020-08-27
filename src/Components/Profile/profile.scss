@@ -39,6 +39,7 @@
     
 }
 .track-box{
+    overflow: scroll;
     position: fixed;
     left: 42vw;
     bottom: 110px;
@@ -47,8 +48,20 @@
     width: 30vw;
     overflow: scroll;
     font-size: 9px;
-    
-    
-    
       
+}
+
+.delete{
+    overflow: scroll;
+    position: fixed;
+    top:250px;
+    right:0;
+    width: 60vw;
+    height: 400vh;
+}
+ 
+
+#bio{
+    padding-top: 20px;
+    padding-left: 400px;
 }

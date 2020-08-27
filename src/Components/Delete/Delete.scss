@@ -1,14 +1,12 @@
-#delete{
+@import '../../SCSS/_var.scss';
+
+.delete {
     position: sticky;
     top:20px;
     right:0px;
     width: 10vw;
     border: 3px solid black;
-    /* border-color:  rgb(33, 33, 100);
-    border-style: outset;
-    border-width: 10px;
-    box-shadow: #8b3030 0px 5px 5px ;
-   */
+   
    
     
 }

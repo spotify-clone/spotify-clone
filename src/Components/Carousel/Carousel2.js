@@ -10,9 +10,12 @@ const MyCarousel2 = (props) => {
 
 
     const mappedFeatures = props.featuresList.map((element, index) => {
-        return <img style={{display: "flex", justifyContent:"center", height: "150px", width: "150px"}} key={index} src={element.icons[0].url} alt='hot album covers' />
-    })
+    //     return <img style={{display: "flex", justifyContent:"center", height: "150px", width: "150px"}} key={index} src={element.icons[0].url} alt='hot album covers' />
+    // })
 
+    return <img style={{display: "flex", justifyContent:"center", height: "150px", width: "150px"}} src={element.icons[0].url} alt='Hot Album Covers'/>
+})
+    
 
     
 
