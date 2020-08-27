@@ -18,7 +18,7 @@ function Chat(props) {
     const [message, setMessage] = useState('');
     const [receivedMessages, setReceivedMessages] = useState([])
    // const [showChat, setShowChat] = useState(false);
-    const ENDPOINT = 'localhost:3333'
+  
     const [data, setData] = useState(false)
     let [num, setNum] = useState(0)
     let [joined, setJoined] = useState(false)
@@ -49,7 +49,7 @@ function Chat(props) {
 
     //First end point connecting the socket to the end point
     useEffect(() => {
-        socket = io.connect(ENDPOINT)
+        socket = io.connect()
         const { name, room } = queryString.parse(props.location.search)
         setName(props.music.user.email)
         setRoom(room)
