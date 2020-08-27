@@ -29,7 +29,7 @@ const Nav = (props) => {
         // .then(() =>{
         //     axios.post(`/api/user/${user.id}`)
         // })
-        // .catch(error => console.log(error))
+        .catch(error => console.log(error))
     }
 
     const logOut = () => {
@@ -37,11 +37,11 @@ const Nav = (props) => {
         .then (() => {
         history.push('/')
         })
-        .catch(err => console.log(err, 'You Logged Out')
+        .catch(err => console.log(err)
         )}
 
 
-console.log(props)
+// console.log(props)
     return (
         <div className='main-nav'>
             <nav className='desktop-nav'>
@@ -51,7 +51,7 @@ console.log(props)
                         <Link to='/dash'>Dash</Link>
                     </li>
                     <li>
-                        <Link to='/drop'>Profile</Link>
+                        <Link to='/profile'>Profile</Link>
                     </li>
                     {/* <li>
                         <Link to='/Search'>Search</Link>
@@ -63,7 +63,7 @@ console.log(props)
                         <Link to='/Chat'>Chat</Link>
                     </li>
                     <li className='profilePic'>
-                        <img src={props.music.user.pic} id='pixed' alt='beautiful person picture'/>
+                        <img src={props.music.user.pic} id='pixed' alt='beautiful person information'/>
                     </li>
                 </ul>
                 {props.user ? <div className="logout-btn"><Button onClick={logOut} variant="outlined" color="secondary">Logout</Button></div> : null}

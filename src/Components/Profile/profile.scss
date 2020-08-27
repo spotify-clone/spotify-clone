@@ -1,0 +1,35 @@
+.mainDiv{
+    box-sizing: border-box;
+    width:80vw;
+    height: 100vh;
+//    display: flex;
+   overflow-y: hidden;
+  
+    
+
+}
+
+.profile-pic{
+    width: 50px;
+    height: 50px;
+}
+.trackList p {
+    font-size: 20px;
+    display: inline-block;
+    margin: 5%;
+    
+}
+.track-box{
+    position: fixed;
+    left: 42vw;
+    bottom: 110px;
+    box-sizing: border-box;
+    height: 280px;
+    width: 30vw;
+    overflow: scroll;
+    font-size: 9px;
+    
+    
+    
+      
+}
