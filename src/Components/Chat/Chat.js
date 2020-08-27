@@ -18,7 +18,6 @@ function Chat(props) {
     const [message, setMessage] = useState('');
     const [receivedMessages, setReceivedMessages] = useState([])
    // const [showChat, setShowChat] = useState(false);
-
     const [data, setData] = useState(false)
     let [num, setNum] = useState(0)
     let [joined, setJoined] = useState(false)
