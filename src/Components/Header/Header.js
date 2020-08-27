@@ -1,8 +1,8 @@
 import React,{useState} from 'react';
 import './header.scss';
 import Logo from '../Header/sclogo.png'
-import { Link } from 'react-router-dom'
 import { useHistory } from "react-router"
+import SearchIcon from '@material-ui/icons/Search';
 
 const Header = (props) => {
     const [input, setInput] = useState("")
@@ -10,9 +10,9 @@ const Header = (props) => {
 
     //sending user to Search.js
     const sendUser = () =>{
-        console.log('hit')
-        history.push(`/search/${input}`)
-
+        if(input !== null){
+            history.push(`/search/${input}`)
+        }
     }
 
 
@@ -20,12 +20,10 @@ const Header = (props) => {
     return(
         <header>
             <div className='search-bar'>
-                
                 <img src={Logo} alt='logo' />
-                <form onSubmit={sendUser}>
-                    <input type="text" onChange={(e) => setInput(e.target.value)} placeholder="...Artist" />
+                <form onSubmit={sendUser} style={{marginTop: "0%"}}>
+                    <SearchIcon onClick={() => sendUser} style={{backgroundColor:"white", position: "absolute", top: "25px", right: "3%"}}/><input type="text" onChange={(e) => setInput(e.target.value)} placeholder="...Artist" />
                 </form>
-                <Link id='booty' to={`/search/${input}`}><button id='buttz' type="submit">Search Albums</button></Link>
             </div>
 
         </header>

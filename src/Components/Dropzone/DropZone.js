@@ -4,6 +4,7 @@ import {v4 as randomString} from 'uuid'
 import axios from 'axios'
 import './dropzone.scss';
 import {connect} from 'react-redux'
+import Delete from '../Delete/Delete'
 
 
 
@@ -22,6 +23,19 @@ const DropZone = (props)=>{
     const [name, setName] = useState('')
     const [imgURL, setImgURL] = useState('');
     const [imgFiles, setImgFiles] = useState([])
+    const [deleteSong, setDeleteSong] = useState([])
+
+
+    useEffect(()=>{
+      console.log('hit')
+      axios.get(`/api/user-tracks/${props.music.user.account_id}`)
+
+      .then((res)=>{
+         // console.log(res.data)
+          setDeleteSong(res.data)
+      })
+  },[ ])
+
 
     useEffect(()=>{
 if (imgURL){
@@ -245,7 +259,7 @@ console.log(imgURL,"hit")
             </div>
           </div>
         )
-        console.log(props)
+        // console.log(props)
         return (
           <div id='photos' >
             
@@ -263,10 +277,10 @@ console.log(imgURL,"hit")
       }
 //      console.log(props.music.user.account_id)
 // console.log(imgURL)
-   console.log(props)
- console.log(name)
+//    console.log(props)
+//  console.log(name)
 return(
-  <div>
+  <div className="main-div">
     <div className='dropbox-container'>
       <h2>Profile Access</h2>
     <div className='name-box'>
@@ -294,6 +308,9 @@ return(
               <button className='btns' onClick={() => getSignedRequest(files)} >Send </button>
         </div>
         </div>
+        <Delete 
+          deleteSong={deleteSong}
+        />
       </div>        
     )
 }
