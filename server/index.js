@@ -17,7 +17,7 @@ const bodyParser = require('body-parser'),
 socket = require('socket.io'),
 cors = require('cors'),
 {addUser, removeUser} = require('./controllers/chatController'),
-router = require('./controllers/chatroutes'),
+// router = require('./controllers/chatroutes'),
 http = require('http'),
 server = app.listen(3333),
 io = require('socket.io').listen(server);
@@ -29,7 +29,7 @@ app.use(cors())
 
 app.use(bodyParser.json())
 
-   app.use(router)
+  //  app.use(router)
 
 
 
