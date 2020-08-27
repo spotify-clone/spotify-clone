@@ -1,4 +1,4 @@
-import React, {useState, useEffect, Fragment}from 'react'
+import React, {useState, useEffect}from 'react'
 import axios from 'axios'
 import '../Search/search.scss';
 import Sound from 'react-sound';
@@ -50,7 +50,7 @@ const Search = (props) => {
         .catch((err)=> console.log(err));
 
     }
-
+    
     const mappedAlbums = albums.map((element,index)=>{
 
         return<div className='albums' key={index}>
@@ -86,7 +86,7 @@ const Search = (props) => {
 
         //buttons to control which track to play
         return <div className='trackList' key={index}>
-            {song ? (<div>
+            {song && audio === song ? (<div>
                 <div><p>{element.name}</p></div>
                 <Button className='trackbtns' icon='pause' content='Pause' onClick={() => setSong('')} />
             </div>

@@ -4,11 +4,14 @@ import {connect} from 'react-redux';
 import {getUser} from '../../Redux/musicReducer';
 import {Link} from 'react-router-dom';
 import './nav.scss';
+import Button from '@material-ui/core/Button';
+import { useHistory } from "react-router"
 
 const Nav = (props) => {
 
     const [user, setUser] = useState([])
-    
+    const history = useHistory()
+
     useEffect(()=>{
         getUser()
         
@@ -26,19 +29,19 @@ const Nav = (props) => {
         // .then(() =>{
         //     axios.post(`/api/user/${user.id}`)
         // })
-        // .catch(error => console.log(error))
+        .catch(error => console.log(error))
     }
 
     const logOut = () => {
         axios.get('/auth/logOut')
         .then (() => {
-        props.history.push('/')
+        history.push('/')
         })
-        .catch(err => console.log(err, 'You Logged Out')
+        .catch(err => console.log(err)
         )}
 
 
-console.log(props)
+// console.log(props)
     return (
         <div className='main-nav'>
             <nav className='desktop-nav'>
@@ -48,7 +51,7 @@ console.log(props)
                         <Link to='/dash'>Dash</Link>
                     </li>
                     <li>
-                        <Link to='/drop'>Profile</Link>
+                        <Link to='/profile'>Profile</Link>
                     </li>
                     {/* <li>
                         <Link to='/Search'>Search</Link>
@@ -59,12 +62,11 @@ console.log(props)
                     <li>
                         <Link to='/Chat'>Chat</Link>
                     </li>
-                    {props.user ?<Link to='/'
-                             onClick={logOut} >Logout</Link> : null}
                     <li className='profilePic'>
                         <img src={props.music.user.pic} id='pixed' alt='beautiful person information'/>
                     </li>
                 </ul>
+                {props.user ? <div className="logout-btn"><Button onClick={logOut} variant="outlined" color="secondary">Logout</Button></div> : null}
             </nav>
         </div>
     )

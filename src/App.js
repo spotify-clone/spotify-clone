@@ -100,7 +100,7 @@ const mappedName = audio.map(ele => ele.name)
 //let mappedTrack =[];
 //mappedTrack = audio.map(ele =>ele.track)
 
-  console.log(audio)
+  // console.log(audio)
 // console.log(mappedCount.toString())
  //.log(props.music.user.account_id)
 
@@ -126,7 +126,7 @@ const playTrack=(id)=>{
           <div id='audio'>
 
 
-     {props.location.pathname ==="/" || props.location.pathname === "/player" ? null:    
+     {props.location.pathname ==="/" || props.location.pathname === "/drop" ? null:    
 
 
     <AudioPlayer style={{backgroundColor: '#0f0f0f'}}
