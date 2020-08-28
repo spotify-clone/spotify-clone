@@ -308,7 +308,7 @@ return(
         <div className='add-music'>
            <p>Add mp3 then click send </p>
               {MyDropzone()}
-                <input value={trackName} onChange={(e) => setTrackName(e.target.value)} type="text" placeholder="Drop Music"/>
+                <input value={trackName} onChange={(e) => setTrackName(e.target.value)} type="text" placeholder="Enter Track Title"/>
                 {/* <button className='btns' onClick={sendFile}>Send to db</button> */}
               <button className='btns' onClick={files.length?() => getSignedRequest(files):null} >Send </button>
         </div>
