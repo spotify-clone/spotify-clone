@@ -60,7 +60,7 @@ class Chart extends Component {
         options={{
             title:{
                 display:true,
-                text:'Most Listen to Artists',
+                text:'Most Listened to Tracks',
                 fontSize: 25,
                 fontColor: 'white',
             },
