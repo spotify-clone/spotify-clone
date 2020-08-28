@@ -12,7 +12,7 @@
     flex-direction: column;
     box-sizing: border-box;  
     height: 75vh;
-    padding-top: 100%;
+    padding-top: 1%;
     width: 15vw;
     right: 10px;
     overflow: scroll;
@@ -25,7 +25,7 @@
 }
 
 .track-box {
-    position: fixed;
+    // position: fixed;
     left: 25vw;
     bottom: 130px;
     box-sizing: border-box;
@@ -37,8 +37,10 @@
 }
 
 .track-box h3 {
+    
     font-size: 45px;
 }
+
 
 .trackList p {
     font-size: 20px;
