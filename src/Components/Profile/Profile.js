@@ -40,7 +40,6 @@ class Profile extends Component {
             spotify.setAccessToken(_token);
     
             spotify.getMe().then((user)=>{
-                console.log(user)
                 this.props.getUser(user)
 
                 axios.get(`/api/user/${user.id}`)
@@ -82,9 +81,7 @@ class Profile extends Component {
     
     render() {
         const { user, playlist, tracks} = this.state
-        // console.log(user)
-        // console.log(tracks)
-        // console.log(playlist)
+
         const mappedTracks = tracks.map((element,index)=>{
             let audio;
         
