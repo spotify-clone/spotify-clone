@@ -121,7 +121,7 @@ class Profile extends Component {
         <div id='backend'>
         <Drop updateName={this.updateName} />
         <div id="bio">
-        <h6>Hello {this.props.music.user.name} </h6>
+        <h3>Hello {this.props.music.user.name} </h3>
         <img className='profile-pic' src={this.props.music.user.pic} alt='your pic here' ></img>
         <h2>{this.props.music.user.email}</h2>
         </div>

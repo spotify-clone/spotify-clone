@@ -63,7 +63,7 @@ class Dash extends Component {
         const { list, playlist, featuresList } = this.state
 
         // console.log(featuresList)
-        console.log(list)
+        // console.log(list)
 
         
         return (
