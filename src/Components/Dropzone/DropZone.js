@@ -59,15 +59,17 @@ if(song){
 
 }, [song])
 
-const updateName =() =>{
 
-    axios.put(`/api/local/${props.music.user.account_id}`, {name})
-    .then(() =>{
-      setName('')
-    })
-    .catch(err=>console.log(err))
+// const updateName =() =>{
 
-}
+//     axios.put(`/api/local/${props.music.user.account_id}`, {name})
+//     .then(() =>{
+//       setName('')
+
+//     })
+//     .catch(err=>console.log(err))
+
+// }
 
 const sendProfilePic = ( ) =>{
 console.log(imgURL,"hit")
@@ -296,7 +298,7 @@ return(
       placeholder="Add Name" 
        onChange={(e) => setName(e.target.value)} /> 
 
-    <button className='btns' onClick={updateName}>Add It</button>
+    <button className='btns' onClick={() => props.updateName(name)}>Add It</button>
     </div>
         <div className='add-photo'>
             <p>Add image then click send</p>

@@ -1,3 +1,3 @@
 SELECT * FROM local_account
-WHERE email = ${email}
+WHERE email = ${email} 
 

@@ -66,8 +66,24 @@ class Profile extends Component {
         else{
             this.setState({user: this.props.music.user})
         }
-
     }
+
+
+    updateName =(name) =>{
+
+        axios.put(`/api/local/${this.props.music.user.account_id}`, {name})
+        .then(() =>{
+            axios.get(`/api/user-account/${this.props.music.user.account_id}`)
+            .then(res =>{
+                this.props.getUser(res.data[0])
+            })
+        })
+        .catch(err=>console.log(err))
+    
+    }
+
+
+
     
     render() {
         const { user, playlist, tracks} = this.state
@@ -76,7 +92,6 @@ class Profile extends Component {
         // console.log(playlist)
         const mappedTracks = tracks.map((element,index)=>{
             let audio;
-            console.log(element)
         
             //condition to filter out any null or undefined values --> not working for some reason
             if(element.track.preview_url !== null || element.track.preview_url !== undefined){
@@ -99,14 +114,13 @@ class Profile extends Component {
 
         {(!user.display_name ?
         <div id='backend'>
-        <Drop/>
+        <Drop updateName={this.updateName} />
         <div id="bio">
         <h6>Hello {this.props.music.user.name} </h6>
         <img className='profile-pic' src={this.props.music.user.pic} alt='your pic here' ></img>
         <h2>{this.props.music.user.email}</h2>
         </div>
         </div>
-
         
         :
 
