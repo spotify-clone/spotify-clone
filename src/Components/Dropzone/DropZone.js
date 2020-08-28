@@ -87,6 +87,7 @@ console.log(imgURL,"hit")
   //  const body = {trackName, song}
 
   console.log(props.music.user.account_id)
+  console.log(trackName, song)
 
    axios.post(`/api/track/${props.music.user.account_id}`, {name: trackName, track: song} )
    .then(()=>{
@@ -311,7 +312,7 @@ return(
            <p>Add mp3 then click send </p>
               {MyDropzone()}
                 <input value={trackName} onChange={(e) => setTrackName(e.target.value)} type="text" placeholder="Drop Music"/>
-                {/* <button className='btns' onClick={sendFile}>Send to db</button> */}
+                <button className='btns' onClick={sendFile}>Send to db</button>
               <button className='btns' onClick={files.length?() => getSignedRequest(files):null} >Send </button>
         </div>
         </div>
