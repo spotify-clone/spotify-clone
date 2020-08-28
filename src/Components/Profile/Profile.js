@@ -40,11 +40,8 @@ class Profile extends Component {
             spotify.setAccessToken(_token);
     
             spotify.getMe().then((user)=>{
-
-                // if(this.props.music.user === null){
-                //     getUser(user)
-
-                // }
+                console.log(user)
+                this.props.getUser(user)
 
                 axios.get(`/api/user/${user.id}`)
                 .then(res=>{
@@ -52,9 +49,7 @@ class Profile extends Component {
                     axios.get(`/api/user-playlist/${user.id}`)
                     .then(res=>{
                         this.setState({playlist: res.data})
-
-                        const id = '20LB4gwYaQmZ9UkZyYCuI5'
-                        axios.get(`/api/playlist-tracks/${id}`)
+                        axios.get(`/api/playlist-tracks/${user.id}`)
                         .then(res =>{
                             this.setState({tracks: res.data})
                         })
