@@ -128,7 +128,6 @@ console.log(imgURL,"hit")
             'file-type': files.type
           }
         }).then((response) => {
-          // setTimeout(function(){alert('Wait 3 seconds then hit complete')}, 7000)
           const { signedRequest, url } = response.data
           uploadFile(files, signedRequest, url)
         }).catch(err => {

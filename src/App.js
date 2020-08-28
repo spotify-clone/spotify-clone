@@ -56,12 +56,7 @@ useEffect(()=>{
 
 },[count])
 
-// const nextTrack =()=> {
-//   if(count === audio.length)
-//       return;
 
-//       setCount(count++)
-// }
 
 
   //Subtract one from output count to decrement the count and got ot previous song
@@ -70,12 +65,7 @@ useEffect(()=>{
  setCount(count--)
   }
 
-// const backTrack = () =>{
-//   if(count === 1)
-//    return;
-
-//    setCount(count--)
-// }
+ 
 
  
 
