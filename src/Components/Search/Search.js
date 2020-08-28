@@ -77,17 +77,19 @@ const Search = (props) => {
 
     const mappedTracks = tracks.map((element,index)=>{
         let audio;
+        // let name;
     
         //condition to filter out any null or undefined values --> not working for some reason
-        if(element.preview_url !== null || element.preview_url !== undefined){
+        if(element.preview_url !== null){
+            // name = element.name
             audio = element.preview_url
         }
 
 
         //buttons to control which track to play
         return <div className='trackList' key={index}>
-            {song && audio === song ? (<div>
-                <div><p>{element.name}</p></div>
+            {song && audio === song ?   (<div>
+                <div><p>{element.namename}</p></div>
                 <Button className='trackbtns' icon='pause' content='Pause' onClick={() => setSong('')} />
             </div>
                 ) : (
