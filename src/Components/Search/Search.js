@@ -112,7 +112,7 @@ const Search = (props) => {
                 <div className='artist-box'>
                     {mappedArtists}
                 </div>
-                <div className='track-box'>
+                <div className='track-box' style={{position:"absolute", left: "30%", height: "40%", paddingTop:"20%"}}>
                     <h3>SONGS</h3>
                     {mappedTracks}
                 </div>
