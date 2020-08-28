@@ -13,7 +13,7 @@ class Chart extends Component {
             datasets:[
                 {
                     label: 'Times Played',
-                    backgroundColor:['blue','red','green','purple','black','yellow'],
+                    backgroundColor:['blue','red','green','purple','black','yellow', 'pink', 'orange','white','navy','gold'],
                     data:[]
                 }
             ]

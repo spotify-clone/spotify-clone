@@ -7,7 +7,8 @@ import {getUser} from '../../Redux/musicReducer';
 import {connect} from 'react-redux';
 import '../Profile/profile.scss'
 import { Button } from 'semantic-ui-react'
-
+import Sound from 'react-sound';
+import pic1 from './pic.jpeg'
 
 
 const spotify = new SpotifyWebApi();
@@ -48,7 +49,8 @@ class Profile extends Component {
                     axios.get(`/api/user-playlist/${user.id}`)
                     .then(res=>{
                         this.setState({playlist: res.data})
-                        axios.get(`/api/playlist-tracks/${user.id}`)
+                        let id = '5C5PrqhgGaVCwztKPshfek'
+                        axios.get(`/api/playlist-tracks/${id}`)
                         .then(res =>{
                             this.setState({tracks: res.data})
                         })
@@ -80,35 +82,46 @@ class Profile extends Component {
 
     
     render() {
-        const { user, playlist, tracks} = this.state
+        const { user, playlist, tracks, song} = this.state
 
         const mappedTracks = tracks.map((element,index)=>{
             let audio;
         
             //condition to filter out any null or undefined values --> not working for some reason
-            if(element.track.preview_url !== null || element.track.preview_url !== undefined){
+            if(element.track.preview_url !== null){
                 audio = element.track.preview_url
             }
     
     
             //buttons to control which track to play
             return <div className='trackList'key={index}>
-                 <Button icon='pause' content='Pause' onClick={() => this.setState({song: ''})}/><div><p>{element.track.name}</p></div>
-                <Button  icon='play' content='Play' onClick={() => this.setState({song:audio})}/><div><p>{element.track.name}</p></div>
+                {song && audio === song ? (<div className="btns-p">
+                    <Button className="btn-b" icon='pause' content='Pause' onClick={() => this.setState({song: ''})}/><div className="track-name-p"><p className="track-name">{element.track.name}</p></div>
+                </div>)
+                 : (<div className="btns-p">
+                <Button  className="btn-b" icon='play' content='Play' onClick={() => this.setState({song:audio})}/><div className="track-name-p"><p className="track-name" >{element.track.name}</p></div>
+
+                 </div>)
+                }
             </div>
         })
+
 
         return (
             
               //main-div
           <div className='mainDiv'> 
+            <Sound
+            url={song}
+            playStatus={Sound.status.PLAYING}
+            />
 
 
         {(!user.display_name ?
         <div id='backend'>
         <Drop updateName={this.updateName} />
         <div id="bio">
-        <h6>Hello {this.props.music.user.name} </h6>
+        <h3>Hello {this.props.music.user.name} </h3>
         <img className='profile-pic' src={this.props.music.user.pic} alt='your pic here' ></img>
         <h2>{this.props.music.user.email}</h2>
         </div>
@@ -119,9 +132,11 @@ class Profile extends Component {
         <div>
         <Drop/>
         <div className='playlist'>
-
-        <h2>Hello {user.display_name} </h2>
-        <h2>{playlist.name}</h2>
+        <div id="spotify-bio">
+            <img id="spotify-img" src={pic1} alt=""/>
+            <h2>Hello {user.display_name} </h2>
+        </div>
+        <h2 id="playlist-name">{playlist.name}</h2>
         <div className='track-box'>
         {mappedTracks}
         </div>
