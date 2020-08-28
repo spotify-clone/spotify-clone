@@ -1,3 +1,4 @@
+@import '../../SCSS/_var.scss';
 .mainDiv{
     box-sizing: border-box;
     width:80vw;
@@ -8,7 +9,25 @@
     
 
 }
-
+.playlist{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    color: $text-color;
+    height: 78vh;
+    width: 60vw;
+    background-color: darkgray;
+    position: fixed;
+    right: 0;
+    bottom: 120px;  
+    border-color:  rgb(100, 100, 100);
+    border-style: outset;
+    border-width: 10px;
+    box-shadow: #000000 0px 5px 5px ;
+    background-color: rgb(66, 66, 66);
+    background-image: url("https://www.transparenttextures.com/patterns/grid-noise.png");  
+}
 .profile-pic{
     width: 50px;
     height: 50px;
@@ -20,16 +39,79 @@
     
 }
 .track-box{
+    overflow: scroll;
     position: fixed;
-    left: 42vw;
-    bottom: 110px;
+    left: 55vw;
+    bottom: 200px;
     box-sizing: border-box;
-    height: 280px;
+    height: 450px;
     width: 30vw;
     overflow: scroll;
     font-size: 9px;
-    
-    
-    
+    overflow-x: hidden;
+    padding-top: 18%;
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    border-bottom:3px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
       
+}
+
+.delete{
+    overflow: scroll;
+    position: fixed;
+    top:250px;
+    right:0;
+    width: 60vw;
+    height: 400vh;
+}
+ 
+
+#bio{
+    padding-top: 20px;
+    padding-left: 400px;
+}
+
+.btns-p{
+    
+    margin-top: 2%;
+    border-bottom: 1px solid black;
+    padding-left: 1%;
+    display: flex;
+}
+
+.track-name-p{
+    width: 80%;
+    padding-left: 10%;
+    display: flex;
+    // align-items: flex-start;
+    background-color: rgb(96, 151, 87)
+}
+
+.track-name{
+    width: 150%;
+    text-align: justify
+}
+
+#playlist-name{
+    color: lightblue;
+    margin-top: 5%;
+}
+
+#spotify-img{
+    height: 15vh;
+    border-radius: 80%;
+    // position: absolute;
+    // top: 3%;
+    // right: 70%;
+}
+
+#spotify-bio{
+    position: absolute;
+    top: 3%;
+    right: 75%;
+
 }

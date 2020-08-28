@@ -139,8 +139,10 @@ module.exports = {
   getTracksInPlaylist: async(req,res)=>{
     const { id } = req.params
 
+
     await spotify.request(`https://api.spotify.com/v1/playlists/${id}/tracks`)
     .then((data)=>{
+
       return res.status(200).send(data.items)
       
     })

@@ -62,6 +62,9 @@ class Dash extends Component {
     render() {
         const { list, playlist, featuresList } = this.state
 
+        // console.log(featuresList)
+        // console.log(list)
+
         
         return (
             <div className='main-div'>

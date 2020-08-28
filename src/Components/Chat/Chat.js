@@ -53,7 +53,7 @@ function Chat(props) {
         setName(props.music.user.email)
         setRoom(room)
 //console.log(props)
-        console.log(socket)
+        // console.log(socket)
 
      }, [props.location.search])
 
@@ -139,19 +139,7 @@ const joinSucess = () => {
 
  
 
-//Function to add linked item to redux 
-// const reduxMusic = (num) => {
 
-//   axios.get(`/api/track/${9}`)
-//   .then(res=>{
-//       let mappedTracks = res.data.map((song, index) =>song.track)
-//       setData(mappedTracks)
-//       console.log(mappedTracks)
-//       props.getMusic(mappedTracks)
-//   })
-
-// }
- //let mp3 = receivedMessages.includes('.mp3')?receivedMessages:null
  console.log(receivedMessages[0])
 
 
@@ -167,14 +155,13 @@ const joinSucess = () => {
             </div>
         )
     })
-    // word.data.toString('').slice(79,94)
-//console.log("data", data)
+  
 
     //Trying to create a condition where the name box goes away after the informaion is entered.
     //Right now since any value makes it truthy it goes away....
     return (
         <div>
-       
+       <h2>Click on Song to share then hit Share Music</h2>
         <div id='chat-div'>     
         <div className='chat-container'>  
             <div id='room' > 
@@ -212,7 +199,7 @@ const joinSucess = () => {
                        <a href={data}  >
                          ...Hear My Music</a> </div> :null }
                     </div>
-                    {/* <button className='btn' onClick={() => setShowChat(!showChat)}>close</button> */}
+                   
              <button className='btn' onClick={room?sendMusic:null} >Share Music</button>
                 {/* <button id='share' onClick={reduxMusic} >Get Music</button> */}
                 </div>

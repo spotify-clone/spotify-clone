@@ -59,15 +59,17 @@ if(song){
 
 }, [song])
 
-const updateName =() =>{
 
-    axios.put(`/api/local/${props.music.user.account_id}`, {name})
-    .then(() =>{
-      setName('')
-    })
-    .catch(err=>console.log(err))
+// const updateName =() =>{
 
-}
+//     axios.put(`/api/local/${props.music.user.account_id}`, {name})
+//     .then(() =>{
+//       setName('')
+
+//     })
+//     .catch(err=>console.log(err))
+
+// }
 
 const sendProfilePic = ( ) =>{
 console.log(imgURL,"hit")
@@ -85,6 +87,7 @@ console.log(imgURL,"hit")
   //  const body = {trackName, song}
 
   console.log(props.music.user.account_id)
+  console.log(trackName, song)
 
    axios.post(`/api/track/${props.music.user.account_id}`, {name: trackName, track: song} )
    .then(()=>{
@@ -125,7 +128,6 @@ console.log(imgURL,"hit")
             'file-type': files.type
           }
         }).then((response) => {
-          // setTimeout(function(){alert('Wait 3 seconds then hit complete')}, 7000)
           const { signedRequest, url } = response.data
           uploadFile(files, signedRequest, url)
         }).catch(err => {
@@ -296,21 +298,21 @@ return(
       placeholder="Add Name" 
        onChange={(e) => setName(e.target.value)} /> 
 
-    <button className='btns' onClick={updateName}>Add It</button>
+    <button className='btns' onClick={name.length?() => props.updateName(name):null}>Add It</button>
     </div>
         <div className='add-photo'>
             <p>Add image then click send</p>
               {MyDropzone2()}
                 <input  value={imgURL} onChange={(e) => setImgURL(e.target.value)} type="text" placeholder="Drop Image"/>
                 {/* <button className='btns' onClick={sendProfilePic}>Send to db</button> */}
-              <button className='btns'onClick={() => getSignedRequest2(imgFiles)} >Send </button>
+              <button className='btns'onClick={imgFiles.length?() => getSignedRequest2(imgFiles):null} >Send </button>
         </div>
         <div className='add-music'>
            <p>Add mp3 then click send </p>
               {MyDropzone()}
-                <input value={trackName} onChange={(e) => setTrackName(e.target.value)} type="text" placeholder="Drop Music"/>
+                <input value={trackName} onChange={(e) => setTrackName(e.target.value)} type="text" placeholder="Enter Track Title"/>
                 {/* <button className='btns' onClick={sendFile}>Send to db</button> */}
-              <button className='btns' onClick={() => getSignedRequest(files)} >Send </button>
+              <button className='btns' onClick={files.length?() => getSignedRequest(files):null} >Send </button>
         </div>
         </div>
         <Delete 

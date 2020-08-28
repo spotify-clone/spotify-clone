@@ -7,7 +7,8 @@ import {getUser} from '../../Redux/musicReducer';
 import {connect} from 'react-redux';
 import '../Profile/profile.scss'
 import { Button } from 'semantic-ui-react'
-
+import Sound from 'react-sound';
+import pic1 from './pic.jpeg'
 
 
 const spotify = new SpotifyWebApi();
@@ -40,11 +41,7 @@ class Profile extends Component {
             spotify.setAccessToken(_token);
     
             spotify.getMe().then((user)=>{
-
-                // if(this.props.music.user === null){
-                //     getUser(user)
-
-                // }
+                this.props.getUser(user)
 
                 axios.get(`/api/user/${user.id}`)
                 .then(res=>{
@@ -52,8 +49,7 @@ class Profile extends Component {
                     axios.get(`/api/user-playlist/${user.id}`)
                     .then(res=>{
                         this.setState({playlist: res.data})
-
-                        const id = '20LB4gwYaQmZ9UkZyYCuI5'
+                        let id = '5C5PrqhgGaVCwztKPshfek'
                         axios.get(`/api/playlist-tracks/${id}`)
                         .then(res =>{
                             this.setState({tracks: res.data})
@@ -66,55 +62,85 @@ class Profile extends Component {
         else{
             this.setState({user: this.props.music.user})
         }
-
     }
+
+
+    updateName =(name) =>{
+
+        axios.put(`/api/local/${this.props.music.user.account_id}`, {name})
+        .then(() =>{
+            axios.get(`/api/user-account/${this.props.music.user.account_id}`)
+            .then(res =>{
+                this.props.getUser(res.data[0])
+            })
+        })
+        .catch(err=>console.log(err))
+    
+    }
+
+
+
     
     render() {
-        const { user, playlist, tracks} = this.state
-        // console.log(user)
-        // console.log(tracks)
-        // console.log(playlist)
+        const { user, playlist, tracks, song} = this.state
+
         const mappedTracks = tracks.map((element,index)=>{
             let audio;
-            console.log(element)
         
             //condition to filter out any null or undefined values --> not working for some reason
-            if(element.track.preview_url !== null || element.track.preview_url !== undefined){
+            if(element.track.preview_url !== null){
                 audio = element.track.preview_url
             }
     
     
             //buttons to control which track to play
             return <div className='trackList'key={index}>
-                 <Button icon='pause' content='Pause' onClick={() => this.setState({song: ''})}/><div><p>{element.track.name}</p></div>
-                <Button  icon='play' content='Play' onClick={() => this.setState({song:audio})}/><div><p>{element.track.name}</p></div>
+                {song && audio === song ? (<div className="btns-p">
+                    <Button className="btn-b" icon='pause' content='Pause' onClick={() => this.setState({song: ''})}/><div className="track-name-p"><p className="track-name">{element.track.name}</p></div>
+                </div>)
+                 : (<div className="btns-p">
+                <Button  className="btn-b" icon='play' content='Play' onClick={() => this.setState({song:audio})}/><div className="track-name-p"><p className="track-name" >{element.track.name}</p></div>
+
+                 </div>)
+                }
             </div>
         })
+
 
         return (
             
               //main-div
           <div className='mainDiv'> 
+            <Sound
+            url={song}
+            playStatus={Sound.status.PLAYING}
+            />
 
 
         {(!user.display_name ?
-        <div>
-        <Drop/>
-        <h6>Hello {this.props.music.user.name} </h6>
+        <div id='backend'>
+        <Drop updateName={this.updateName} />
+        <div id="bio">
+        <h3>Hello {this.props.music.user.name} </h3>
         <img className='profile-pic' src={this.props.music.user.pic} alt='your pic here' ></img>
         <h2>{this.props.music.user.email}</h2>
         </div>
-
+        </div>
+        
         :
 
         <div>
         <Drop/>
-
-        <h6>Hello {user.display_name} </h6>
-        <h6>playlist</h6>
-        <h2>{playlist.name}</h2>
+        <div className='playlist'>
+        <div id="spotify-bio">
+            <img id="spotify-img" src={pic1} alt=""/>
+            <h2>Hello {user.display_name} </h2>
+        </div>
+        <h2 id="playlist-name">{playlist.name}</h2>
         <div className='track-box'>
         {mappedTracks}
+        </div>
+
         </div>
             
         </div>

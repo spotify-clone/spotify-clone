@@ -38,7 +38,7 @@ h6 {
     flex-direction: column;
     align-items:  center;
     width: 200px;
-    height: 100px;
+    height: 125px;
     border-radius: 50%;
     border-color: rgb(100, 100, 100);
     border-style: outset;
@@ -50,8 +50,8 @@ h6 {
 }
 
 .name {
-
-    width: 175px;
+    margin: auto;
+    width: 100px;
     border-radius: 5px;
     text-align: center;
 }
@@ -76,15 +76,16 @@ h6 {
     background-image: url("https://www.transparenttextures.com/patterns/grid-noise.png");
 }
 
-// .add-photo input {
-//     width: 175px;
-//     height: 100px;
-//     color: black;
-//     font-weight: bold;
-//     text-align: center;
-//     border-radius: 5px;
+.add-photo input {
+    margin: auto;
+    width: 100px;
+    height: 15px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
     
-// }
+}
 
 .add-music {
     display: flex;
@@ -105,17 +106,19 @@ h6 {
     background-image: url("https://www.transparenttextures.com/patterns/grid-noise.png");
 }
 
-// .add-music input {
-//     width: 175px;
-//     height: 100px;
-//     color: black;
-//     font-weight: bold;
-//     text-align: center;
-//     border-radius: 5px;
-// }
+.add-music input {
+    margin: auto;
+    width: 100px;
+    height: 15px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+}
 
 p {
     margin-top: 5%;
+    margin-bottom: 1%;
     font-size: 15px;
     text-shadow: #000000 0px 5px 5px ;
 }
@@ -132,8 +135,6 @@ h1 {
     border-style: outset;
     border-width: 5px;
     border-color: rgb(20, 219, 14);
-    
-
     border-radius: 5px;
     background: linear-gradient(to top right, #707070, #c4c4c4, #707070)
 }

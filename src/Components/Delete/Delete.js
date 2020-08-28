@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './Delete.css'
+import './Delete.scss'
 import axios from 'axios';
 import {connect} from 'react-redux'
 
@@ -9,7 +9,7 @@ const Delete =(props)=> {
    
      
 
-console.log(props.deleteSong)
+// console.log(props.deleteSong)
 const mapped = props.deleteSong.map((song,index)=>{
     return (
         <div key={index} >
