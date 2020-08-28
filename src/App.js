@@ -18,11 +18,12 @@ function App(props) {
 //  const [index, setIndex] = useState(1)
   let [count, setCount] = useState(0)
 
+  
  useEffect(()=>{
 
   axios.get(`/auth/me`)
   .then((res)=>{
-props.getUser(res.data)
+      props.getUser(res.data)
   })
 
  },[])

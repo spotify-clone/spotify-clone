@@ -40,11 +40,7 @@ class Profile extends Component {
             spotify.setAccessToken(_token);
     
             spotify.getMe().then((user)=>{
-
-                // if(this.props.music.user === null){
-                //     getUser(user)
-
-                // }
+                this.props.getUser(user)
 
                 axios.get(`/api/user/${user.id}`)
                 .then(res=>{
@@ -52,9 +48,7 @@ class Profile extends Component {
                     axios.get(`/api/user-playlist/${user.id}`)
                     .then(res=>{
                         this.setState({playlist: res.data})
-
-                        const id = '20LB4gwYaQmZ9UkZyYCuI5'
-                        axios.get(`/api/playlist-tracks/${id}`)
+                        axios.get(`/api/playlist-tracks/${user.id}`)
                         .then(res =>{
                             this.setState({tracks: res.data})
                         })
@@ -66,17 +60,30 @@ class Profile extends Component {
         else{
             this.setState({user: this.props.music.user})
         }
-
     }
+
+
+    updateName =(name) =>{
+
+        axios.put(`/api/local/${this.props.music.user.account_id}`, {name})
+        .then(() =>{
+            axios.get(`/api/user-account/${this.props.music.user.account_id}`)
+            .then(res =>{
+                this.props.getUser(res.data[0])
+            })
+        })
+        .catch(err=>console.log(err))
+    
+    }
+
+
+
     
     render() {
         const { user, playlist, tracks} = this.state
-        // console.log(user)
-        // console.log(tracks)
-        // console.log(playlist)
+
         const mappedTracks = tracks.map((element,index)=>{
             let audio;
-            console.log(element)
         
             //condition to filter out any null or undefined values --> not working for some reason
             if(element.track.preview_url !== null || element.track.preview_url !== undefined){
@@ -99,27 +106,28 @@ class Profile extends Component {
 
         {(!user.display_name ?
         <div id='backend'>
-        <Drop/>
+        <Drop updateName={this.updateName} />
         <div id="bio">
         <h6>Hello {this.props.music.user.name} </h6>
         <img className='profile-pic' src={this.props.music.user.pic} alt='your pic here' ></img>
         <h2>{this.props.music.user.email}</h2>
         </div>
         </div>
-
         
         :
 
         <div>
         <Drop/>
-        <div id="bio">
-        <h6>Hello {user.display_name} </h6>
-        <h6>playlist</h6>
+        <div className='playlist'>
+
+        <h2>Hello {user.display_name} </h2>
         <h2>{playlist.name}</h2>
         <div className='track-box'>
         {mappedTracks}
         </div>
+
         </div>
+            
         </div>
 
 

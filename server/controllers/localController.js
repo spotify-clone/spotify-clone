@@ -55,14 +55,16 @@ module.exports ={
 
 
     },
+
     addName: async (req, res) => {
         const db = req.app.get('db'),
         {id} = req.params,
         {name} = req.body;
-    // console.log(id, name)
-        const add = await db.add_name(name, id)
-    // console.log(add)
+
+        let add = await db.add_name(name, id)
+
         res.status(200).send(add)
+
     },
     updatePic: async (req, res) => {
         const db = req.app.get('db'),
@@ -108,5 +110,14 @@ module.exports ={
             console.log(err);
             res.sendStatus(500);
         }
+    },
+
+    getUserAccount: async(req,res) =>{
+        const db = req.app.get('db');
+        const {id} = req.params
+
+        let user = await db.get_user_id(id)
+
+        return res.status(200).send(user)
     }
 }
